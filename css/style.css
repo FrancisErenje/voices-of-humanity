@@ -1,0 +1,1371 @@
+/*=====================================================
+        VOICES OF HUMANITY
+        Official Website v4.0
+        Foundation Edition
+=====================================================*/
+
+
+/*=====================================================
+                    RESET
+=====================================================*/
+:root{
+
+    --gold:#D4AF37;
+
+    --black:#111111;
+
+    --white:#ffffff;
+
+    --light:#F8F8F8;
+
+    --text:#555555;
+
+}
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    background:#000;
+
+    color:#fff;
+
+    overflow-x:hidden;
+
+}
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+button{
+
+    font-family:inherit;
+
+}
+
+
+/*=====================================================
+                GLOBAL CONTAINER
+=====================================================*/
+
+main{
+
+    background:white;
+
+    color:#222;
+
+}
+
+section{
+
+    width:100%;
+
+}
+
+.center{
+
+    width:min(90%,1200px);
+
+    margin:auto;
+
+}
+
+
+/*=====================================================
+                PLACEHOLDER SECTIONS
+=====================================================*/
+
+#hero,
+#statistics,
+#featured,
+#explore,
+#families,
+#gallery,
+#research,
+#mission,
+#partners{
+
+    min-height:100vh;
+
+}
+
+/*=====================================================
+                OPENING EXPERIENCE
+=====================================================*/
+
+#opening{
+
+    position:fixed;
+
+    inset:0;
+
+    width:100%;
+
+    height:100vh;
+
+    background:#000;
+
+    overflow:hidden;
+
+    z-index:999999;
+
+}
+
+/*-----------------------------------
+    Individual Screens
+-----------------------------------*/
+
+.screen{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:opacity 1.5s ease;
+
+}
+
+.screen.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+/*-----------------------------------
+    Screen 1
+-----------------------------------*/
+
+#screen1{
+
+    background:#000;
+
+}
+
+#screen1 .center{
+
+    text-align:center;
+
+}
+
+.message{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:58%;
+
+    transform:translateX(-50%);
+
+    width:90%;
+
+    text-align:center;
+
+    font-size:3rem;
+
+    font-weight:400;
+
+    line-height:1.4;
+
+    color:#FFFFFF;
+
+    opacity:0;
+
+    transition:
+
+        opacity 1.2s ease,
+
+        transform 1.2s ease;
+
+}
+
+/*-----------------------------------
+    Screen 2
+-----------------------------------*/
+
+#screen2{
+
+    background:#000;
+
+}
+
+#screen2 .center{
+
+    text-align:center;
+
+}
+
+.producer-logo{
+
+    width:280px;
+
+    margin:0 auto 35px;
+
+}
+
+#screen2 p{
+
+    color:white;
+
+    font-size:1.15rem;
+
+    letter-spacing:4px;
+
+}
+
+#screen2 h2{
+
+    color:white;
+
+    font-size:2.7rem;
+
+    margin-top:15px;
+
+}
+
+/*-----------------------------------
+    Screen 3
+-----------------------------------*/
+
+#screen3{
+
+    background:#000;
+
+}
+
+#earthVideo{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.dark-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+}
+
+.earth-center{
+
+    color:white;
+
+    position:relative;
+
+    z-index:2;
+
+    text-align:center;
+
+}
+
+.earth-center h2{
+
+    color:white;
+
+    font-weight:700;
+
+    font-size:1.618rem;
+
+    letter-spacing:8px;
+
+}
+
+.earth-center p{
+
+    margin:61.8px 0 40px;
+
+    font-size:1.35rem;
+
+}
+
+#beginJourney{
+
+    padding:18px 48px;
+
+    border-radius:45px;
+
+    border:2px solid white;
+
+    background:transparent;
+
+    color:white;
+
+    font-size:1rem;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+#beginJourney:hover{
+
+    background:white;
+
+    color:black;
+
+}
+
+/*-----------------------------------
+    Intro Animation
+-----------------------------------*/
+
+
+
+/*=====================================================
+                    NAVIGATION
+=====================================================*/
+
+.main-nav{
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    padding:25px 70px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    z-index:10;
+
+    opacity:0;
+
+    transform:translateY(-30px);
+
+    animation:navReveal 1.5s ease forwards;
+
+    animation-delay:1.2s;
+
+}
+
+.nav-logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    color:white;
+
+    font-size:1.15rem;
+
+    font-weight:600;
+
+}
+
+.nav-logo img{
+
+    width:55px;
+
+}
+
+.nav-links{
+
+    display:flex;
+
+    list-style:none;
+
+    gap:40px;
+
+}
+
+.nav-links a{
+
+    color:white;
+
+    font-size:1rem;
+
+    transition:.3s;
+
+}
+
+.nav-links a:hover{
+
+    color:#D4AF37;
+
+}
+
+/*=====================================================
+                    HERO
+=====================================================*/
+
+#hero{
+
+    position:relative;
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    background:#000;
+
+}
+
+/*-----------------------------------
+Background Video
+-----------------------------------*/
+
+.hero-video{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+/*-----------------------------------
+Dark Overlay
+-----------------------------------*/
+
+.hero-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        rgba(0,0,0,.68),
+        rgba(0,0,0,.55)
+    );
+
+}
+
+/*-----------------------------------
+Hero Content
+-----------------------------------*/
+
+.hero-content{
+
+    position:relative;
+
+    z-index:2;
+
+    width:min(92%,1100px);
+
+    margin:auto;
+
+    text-align:center;
+
+    color:white;
+
+    animation:heroReveal 2s ease;
+
+}
+
+.hero-subtitle{
+
+    font-size:1.35rem;
+
+    color:#dddddd;
+
+    margin-top:-10px;
+
+    margin-bottom:35px;
+
+    letter-spacing:1px;
+
+    font-weight:300;
+
+    text-align:center;
+
+}
+
+.hero-quote{
+
+    margin-top:35px;
+
+    margin-bottom:45px;
+
+    font-size:1.1rem;
+
+    font-style:italic;
+
+    color:#D4AF37;
+
+    max-width:700px;
+
+    margin-left:auto;
+
+    margin-right:auto;
+
+    line-height:1.8;
+
+}
+
+/*-----------------------------------
+Small Tag
+-----------------------------------*/
+
+.hero-tag{
+
+    color:#D4AF37;
+
+    letter-spacing:10px;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    margin-bottom:34px;
+
+}
+
+/*-----------------------------------
+Main Heading
+-----------------------------------*/
+
+.hero-content h1{
+
+    font-size:clamp(3rem,7vw,6rem);
+
+    font-weight:700;
+
+    line-height:1.1;
+
+    margin-bottom:34px;
+
+}
+
+/*-----------------------------------
+Description
+-----------------------------------*/
+
+.hero-description{
+
+    max-width:760px;
+
+    margin:auto;
+
+    color:#eeeeee;
+
+    font-size:1.35rem;
+
+    line-height:1.9;
+
+}
+
+/*-----------------------------------
+Buttons
+-----------------------------------*/
+
+.hero-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:21px;
+
+    margin-top:61.8px;
+
+    flex-wrap:wrap;
+
+}
+
+.hero-button{
+
+    padding:18px 42px;
+
+    border-radius:45px;
+
+    font-weight:bold;
+
+    transition:.35s;
+
+}
+
+/* Gold Button */
+
+.hero-button.primary{
+
+    background:#D4AF37;
+
+    color:black;
+
+}
+
+/* White Button */
+
+.hero-button.secondary{
+
+    border:2px solid white;
+
+    color:white;
+
+}
+
+/* Hover */
+
+.hero-button:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.hero-button.primary:hover{
+
+    box-shadow:0 12px 35px rgba(212,175,55,.35);
+
+}
+
+.hero-button.secondary:hover{
+
+    background:white;
+
+    color:black;
+
+}
+
+/*-----------------------------------
+Animation
+-----------------------------------*/
+
+@keyframes heroReveal{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(50px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes navReveal{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes heroReveal{
+
+    from{
+
+        opacity:0;
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=====================================================
+                STATISTICS
+=====================================================*/
+
+#statistics{
+
+    background:#f7f7f5;
+
+    padding:120px 0;
+
+}
+
+#statistics .center{
+
+    max-width:1300px;
+
+}
+
+.section-tag{
+
+    text-align:center;
+
+    letter-spacing:8px;
+
+    color:#D4AF37;
+
+    font-size:.9rem;
+
+    margin-bottom:20px;
+
+    text-transform:uppercase;
+
+    font-weight:700;
+
+}
+
+#statistics h2{
+
+    text-align:center;
+
+    font-size:3rem;
+
+    color:#111;
+
+    margin-bottom:25px;
+
+}
+
+.statistics-intro{
+
+    max-width:700px;
+
+    margin:auto;
+
+    text-align:center;
+
+    color:#666;
+
+    font-size:1.25rem;
+
+    line-height:1.8;
+
+    margin-bottom:80px;
+
+}
+
+.statistics-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:35px;
+
+}
+
+.stat-card{
+
+    background:white;
+
+    padding:45px;
+
+    border-radius:20px;
+
+    box-shadow:0 15px 45px rgba(0,0,0,.08);
+
+    transition:.4s;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 25px 60px rgba(0,0,0,.15);
+
+}
+
+.stat-number{
+
+    font-size:3.5rem;
+
+    font-weight:bold;
+
+    color:#D4AF37;
+
+    margin-bottom:20px;
+
+}
+
+.stat-infinity{
+
+    font-size:4rem;
+
+    font-weight:bold;
+
+    color:#D4AF37;
+
+    margin-bottom:20px;
+
+}
+
+.stat-card h3{
+
+    color:#111;
+
+    margin-bottom:18px;
+
+    font-size:1.4rem;
+
+}
+
+.stat-card p{
+
+    color:#666;
+
+    line-height:1.8;
+
+}
+
+/*=====================================================
+            FEATURED DOCUMENTARY
+=====================================================*/
+
+#featured{
+
+    background:#111;
+
+    color:white;
+
+    padding:140px 0;
+
+}
+
+#featured h2{
+
+    text-align:center;
+
+    font-size:3rem;
+
+    margin-bottom:25px;
+
+}
+
+.featured-intro{
+
+    text-align:center;
+
+    max-width:760px;
+
+    margin:0 auto 90px;
+
+    color:#cccccc;
+
+    line-height:1.8;
+
+    font-size:1.2rem;
+
+}
+
+.featured-showcase{
+
+    display:grid;
+
+    grid-template-columns:1.2fr 1fr;
+
+    gap:70px;
+
+    align-items:center;
+
+}
+
+.featured-image img{
+
+    width:100%;
+
+    border-radius:22px;
+
+    display:block;
+
+}
+
+.episode{
+
+    color:#D4AF37;
+
+    font-weight:bold;
+
+    letter-spacing:4px;
+
+}
+
+.featured-details h3{
+
+    font-size:3rem;
+
+    margin:20px 0;
+
+}
+
+.location{
+
+    color:#bbbbbb;
+
+    margin-bottom:30px;
+
+}
+
+.featured-details p{
+
+    line-height:1.9;
+
+    color:#dddddd;
+
+}
+
+.watch-button{
+
+    display:inline-block;
+
+    margin-top:45px;
+
+    padding:18px 45px;
+
+    background:#D4AF37;
+
+    color:black;
+
+    border-radius:45px;
+
+    font-weight:bold;
+
+    transition:.35s;
+
+}
+
+.watch-button:hover{
+
+    transform:translateY(-5px);
+
+}
+
+/*=====================================================
+                NIGERIA LANGUAGE MAP
+=====================================================*/
+
+#research{
+
+    background:#ffffff;
+
+    padding:140px 0;
+
+}
+
+#research h2{
+
+    text-align:center;
+
+    font-size:3rem;
+
+    color:#111;
+
+    margin-bottom:25px;
+
+}
+
+.map-intro{
+
+    max-width:760px;
+
+    margin:auto;
+
+    text-align:center;
+
+    color:#666;
+
+    line-height:1.9;
+
+    margin-bottom:80px;
+
+}
+
+.map-placeholder{
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+.map-placeholder img{
+
+    width:100%;
+
+    display:block;
+
+}
+
+.coming-soon{
+
+    margin-top:50px;
+
+    text-align:center;
+
+    color:#D4AF37;
+
+    font-size:1.2rem;
+
+    letter-spacing:3px;
+
+}
+
+/*=====================================================
+                ACADEMY
+=====================================================*/
+
+#mission{
+
+    background:#111;
+
+    color:white;
+
+    padding:140px 0;
+
+    text-align:center;
+
+}
+
+#mission h2{
+
+    font-size:3rem;
+
+    margin-bottom:25px;
+
+}
+
+.academy-intro{
+
+    max-width:760px;
+
+    margin:0 auto 80px;
+
+    color:#cccccc;
+
+    line-height:1.9;
+
+    font-size:1.2rem;
+
+}
+
+.academy-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:35px;
+
+    margin-bottom:70px;
+
+}
+
+.academy-card{
+
+    background:#1c1c1c;
+
+    padding:45px;
+
+    border-radius:20px;
+
+    transition:.35s;
+
+}
+
+.academy-card:hover{
+
+    transform:translateY(-8px);
+
+    background:#252525;
+
+}
+
+.academy-card h3{
+
+    color:#D4AF37;
+
+    font-size:3rem;
+
+    margin-bottom:20px;
+
+}
+
+.academy-button{
+
+    display:inline-block;
+
+    padding:18px 48px;
+
+    border-radius:45px;
+
+    background:#D4AF37;
+
+    color:black;
+
+    font-weight:bold;
+
+    transition:.35s;
+
+}
+
+.academy-button:hover{
+
+    transform:translateY(-5px);
+
+}
+
+/*=====================================================
+                SECTION DIVIDER
+=====================================================*/
+
+.section-divider{
+
+    width:100%;
+
+    height:140px;
+
+    background:
+    linear-gradient(to bottom,
+    transparent,
+    rgba(212,175,55,.08),
+    transparent);
+
+}
+
+/*=====================================================
+                MEET THE FOUNDER
+=====================================================*/
+
+#founder{
+
+    background:#f7f5ef;
+
+    padding:120px 0;
+
+}
+
+.founder-grid{
+
+    display:grid;
+
+    grid-template-columns:350px 1fr;
+
+    gap:80px;
+
+    align-items:center;
+
+}
+
+.founder-photo img{
+
+    width:100%;
+
+    border-radius:20px;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.18);
+
+}
+
+.founder-content h2{
+
+    font-size:3rem;
+
+    margin:15px 0;
+
+    color:#111;
+
+}
+
+.founder-title{
+
+    color:#D4AF37;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+    margin-bottom:35px;
+
+}
+
+.founder-content p{
+
+    font-size:1.15rem;
+
+    line-height:1.9;
+
+    margin-bottom:25px;
+
+    color:#444;
+
+}
+
+.founder-content blockquote{
+
+    margin-top:50px;
+
+    padding-left:25px;
+
+    border-left:5px solid #D4AF37;
+
+    font-size:1.5rem;
+
+    font-style:italic;
+
+    color:#222;
+
+}
+
+/*=====================================================
+                MUSEUM ENTRANCE
+=====================================================*/
+
+.museum-logo{
+
+    width:min(90vw,700px);
+
+    margin:0 auto 35px;
+
+}
+
+.museum-welcome{
+
+    color:#D4AF37;
+
+    letter-spacing:10px;
+
+    font-size:.9rem;
+
+    margin-bottom:18px;
+
+}
+
+.museum-title{
+
+    font-size:2.6rem;
+
+    color:#ffffff;
+
+    margin-bottom:30px;
+
+    font-weight:300;
+
+}
+
+.museum-description{
+
+    color:#e5e5e5;
+
+    line-height:2;
+
+    font-size:1.2rem;
+
+    margin-bottom:55px;
+
+    max-width:760px;
+
+    margin-left:auto;
+
+    margin-right:auto;
+
+}
+
+#beginJourney{
+
+    padding:18px 50px;
+
+    border:2px solid #D4AF37;
+
+    background:transparent;
+
+    color:#D4AF37;
+
+    letter-spacing:3px;
+
+    font-size:1rem;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+#beginJourney:hover{
+
+    background:#D4AF37;
+
+    color:#111;
+
+}
