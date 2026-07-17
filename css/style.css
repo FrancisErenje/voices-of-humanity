@@ -1369,3 +1369,181 @@ Animation
     color:#111;
 
 }
+
+/*=====================================================
+                MOBILE & TABLET
+=====================================================*/
+
+@media (max-width:768px){
+
+    /* GLOBAL */
+
+    .center{
+
+        width:92%;
+
+    }
+
+    /* OPENING EXPERIENCE */
+
+    .message{
+
+        font-size:2rem;
+
+        line-height:1.4;
+
+        width:90%;
+
+    }
+
+    .producer-logo{
+
+        width:180px;
+
+    }
+
+    .earth-center h2{
+
+        font-size:1.2rem;
+
+        letter-spacing:4px;
+
+    }
+
+    .earth-center p{
+
+        font-size:1rem;
+
+        margin:35px 0 30px;
+
+    }
+
+    #beginJourney{
+
+        padding:15px 30px;
+
+        font-size:.95rem;
+
+    }
+
+    /* HERO */
+
+    .hero-content h1{
+
+        font-size:3rem;
+
+    }
+
+    .hero-tag{
+
+        letter-spacing:4px;
+
+        font-size:.8rem;
+
+    }
+
+    .hero-subtitle{
+
+        font-size:1.1rem;
+
+    }
+
+    .hero-description{
+
+        font-size:1rem;
+
+        line-height:1.8;
+
+    }
+
+    .hero-quote{
+
+        font-size:.95rem;
+
+    }
+
+    .hero-buttons{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+    .hero-button{
+
+        width:100%;
+
+        max-width:320px;
+
+        text-align:center;
+
+    }
+
+    /* FEATURED DOCUMENTARY */
+
+    .featured-showcase{
+
+        grid-template-columns:1fr;
+
+        gap:40px;
+
+    }
+
+    .featured-details h3{
+
+        font-size:2.3rem;
+
+    }
+
+    /* FOUNDER */
+
+    .founder-grid{
+
+        grid-template-columns:1fr;
+
+        gap:40px;
+
+    }
+
+    .founder-photo{
+
+        max-width:320px;
+
+        margin:auto;
+
+    }
+
+    .founder-content{
+
+        text-align:center;
+
+    }
+
+    .founder-content blockquote{
+
+        border-left:none;
+
+        border-top:4px solid #D4AF37;
+
+        padding-top:25px;
+
+        padding-left:0;
+
+    }
+
+    /* STATISTICS */
+
+    #statistics h2,
+
+    #featured h2,
+
+    #research h2,
+
+    #mission h2{
+
+        font-size:2.2rem;
+
+    }
+
+}
