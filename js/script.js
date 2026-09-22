@@ -148,19 +148,9 @@ function initialiseOpeningExperience() {
 
         setTimeout(() => {
 
-    opening.remove();
+    window.location.href = "museum/";
 
-    document.body.classList.remove("intro-active");
-
-    window.scrollTo({
-
-        top:0,
-
-        behavior:"window.scrollTo(0,0);"
-
-    });
-
-},5000);
+},1500);
 
     });
 
