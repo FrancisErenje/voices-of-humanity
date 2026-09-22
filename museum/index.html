@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Voices of Humanity Interactive Museum</title>
+
+    <link rel="stylesheet" href="css/museum.css">
+    <link rel="stylesheet" href="css/cinema.css">
+    <link rel="stylesheet" href="css/life/trees.css">
+    <link rel="stylesheet" href="css/life/flags.css">
+    <link rel="stylesheet" href="css/life/fountain.css">
+    <link rel="stylesheet" href="css/life/birds.css">
+    <link rel="stylesheet" href="css/life/visitors.css">
+    <link rel="stylesheet" href="css/life/weather.css">
+    <link rel="stylesheet" href="css/life/gardens.css">
+
+</head>
+
+<body>
+
+<div id="viewport">
+<div id="dayNightControl" aria-label="Museum time control">
+    <button id="dayNightToggle" type="button" aria-pressed="true">
+        <span class="timeIcon">☀</span>
+        <span class="timeLabel">DAY</span>
+        <span class="timeDivider">/</span>
+        <span class="timeIcon nightIcon">☾</span>
+        <span class="timeLabel active">NIGHT</span>
+    </button>
+    <div id="timeHint">Click to experience day and night</div>
+</div>
+
+
+<!--=====================================
+        MUSEUM INFORMATION PANEL
+======================================-->
+
+<div id="museumPanel">
+
+    <div id="museumPanelHeader">
+
+        🏛 Hall of Humanity
+
+    </div>
+
+    <div id="museumPanelBody">
+
+        The symbolic heart of
+        Voices of Humanity.
+
+        <br><br>
+
+        Every language tells a story.
+
+        Every culture preserves wisdom.
+
+        Every voice matters.
+
+    </div>
+
+    <button id="enterMuseum">
+
+        ENTER
+
+    </button>
+
+</div>
+
+<div id="world">
+
+    <div id="skyOverlay"></div>
+
+    <div id="campus">
+
+<!-- ======================================
+     MUSEUM CAMPUS
+====================================== -->
+
+
+    <!-- ======================================
+         HERITAGE SQUARE
+    ====================================== -->
+
+    <section id="heritage-square">
+
+        <div id="fountain"></div>
+
+        <div class="flag flag1"></div>
+        <div class="flag flag2"></div>
+        <div class="flag flag3"></div>
+        <div class="flag flag4"></div>
+
+    </section>
+
+
+    <!-- ======================================
+         HALL OF HUMANITY
+    ====================================== -->
+
+  
+        <div class="cornerGarden garden1"></div>
+<div class="cornerGarden garden2"></div>
+<div class="cornerGarden garden3"></div>
+<div class="cornerGarden garden4"></div>
+
+<section id="hall-humanity" class="flyTarget" aria-label="Focus on Hall of Humanity">
+
+        <div class="hall-title">
+
+            Hall of Humanity
+
+        </div>
+
+        <div class="hall-roof"></div>
+
+        <div class="hall-body">
+
+            <div class="windows">
+
+                <div class="window"></div>
+                <div class="window"></div>
+                <div class="window"></div>
+                <div class="window"></div>
+                <div class="window"></div>
+                <div class="window"></div>
+
+            </div>
+
+            <div class="hallEntrance">
+
+            <div class="glassCanopy">
+
+    <div class="canopyTop"></div>
+
+    <div class="canopySupport supportLeft"></div>
+
+    <div class="canopySupport supportRight"></div>
+
+</div>
+
+    <div class="mainGlassDoor"></div>
+
+    <div class="sideGlass leftGlass"></div>
+
+    <div class="sideGlass rightGlass"></div>
+
+            <div class="pillar leftPillar"></div>
+
+<div class="pillar rightPillar"></div>
+
+<div class="hallGoldSign">
+
+    HALL OF HUMANITY
+
+    <span>Every Voice Matters</span>
+
+</div>
+
+</div>
+
+        </div>
+
+       <div class="hall-grand-entrance">
+
+    <!-- Upper Marble Terrace -->
+
+    <div class="entrance-terrace"></div>
+
+    <!-- Grand Staircase -->
+
+    <div class="grand-staircase">
+
+        <div class="stair step1"></div>
+        <div class="stair step2"></div>
+        <div class="stair step3"></div>
+        <div class="stair step4"></div>
+        <div class="stair step5"></div>
+        <div class="stair step6"></div>
+        <div class="stair step7"></div>
+        <div class="stair step8"></div>
+
+        <div class="handrail left"></div>
+        <div class="handrail right"></div>
+
+        
+    </div>
+    <div class="museumBanner bannerLeft">
+
+    EVERY VOICE MATTERS
+
+</div>
+
+<div class="museumBanner bannerRight">
+
+    LANGUAGES OF THE WORLD
+
+</div>
+    
+
+<div class="entrance-terrace">
+
+    <div class="terrace-floor"></div>
+
+    <div class="balustrade left"></div>
+    <div class="balustrade right"></div>
+
+    <div class="column left1"></div>
+    <div class="column left2"></div>
+
+    <div class="column right1"></div>
+    <div class="column right2"></div>
+
+    <div class="entrance-light light-left"></div>
+    <div class="entrance-light light-right"></div>
+
+</div>
+
+<div class="museumSeal">
+
+🌍
+
+</div>
+
+        <div class="ceremonial-path"></div>
+
+        <div class="planter planter-left"></div>
+        
+        <div class="planter planter-right"></div>
+
+        <div class="hall-plaque">
+
+    HALL OF HUMANITY
+
+    <span>Every Voice Matters</span>
+
+    </div>
+
+    </section>
+
+<!-- ======================================
+         GRAND PLAZA
+====================================== -->
+
+<section id="grandPlaza">
+
+    <div class="plazaCircle"></div>
+
+    <div class="flowerBed flowerTop"></div>
+    <div class="flowerBed flowerBottom"></div>
+
+    <div class="flowerBed flowerLeft"></div>
+    <div class="flowerBed flowerRight"></div>
+
+    <div class="bench bench1"></div>
+    <div class="bench bench2"></div>
+
+    <div class="bench bench3"></div>
+    <div class="bench bench4"></div>
+
+    <div class="lamp lamp1"></div>
+    <div class="lamp lamp2"></div>
+
+    <div class="lamp lamp3"></div>
+    <div class="lamp lamp4"></div>
+
+    <!-- HERITAGE MONUMENT -->
+
+<div id="heritageMonument">
+
+    <div class="monumentGlobe"></div>
+
+    <div class="monumentBody">
+
+        <h2>EVERY VOICE MATTERS</h2>
+
+        <p>
+            Languages are humanity's living heritage.
+        </p>
+
+        <span>
+            Voices of Humanity Interactive Museum
+        </span>
+
+    </div>
+
+</div>
+
+    <div class="directionSign signNorth">
+
+        ↑ Hall of Humanity
+
+    </div>
+
+    <div class="directionSign signSouth">
+
+        ↓ Documentary Cinema
+
+    </div>
+
+</section>
+
+<div id="eternalFlame">
+
+    <div class="flame-base"></div>
+
+    <div class="flame"></div>
+
+</div>
+
+    <!-- ======================================
+     HALL GARDENS
+====================================== -->
+
+<div class="hallGarden northGarden"></div>
+<div class="hallGarden southGarden"></div>
+
+<div class="hallGarden westGarden"></div>
+<div class="hallGarden eastGarden"></div>
+
+<div class="flowerBed flowerA"></div>
+<div class="flowerBed flowerB"></div>
+
+<div class="flowerBed flowerC"></div>
+<div class="flowerBed flowerD"></div>
+
+<div class="royalTree treeA"></div>
+<div class="royalTree treeB"></div>
+
+<div class="royalTree treeC"></div>
+<div class="royalTree treeD"></div>
+  
+<!-- ===========================
+     LM247 AVENUE
+=========================== -->
+
+<div class="lmTree tree1"></div>
+<div class="lmTree tree2"></div>
+<div class="lmTree tree3"></div>
+
+<div class="lmTree tree4"></div>
+<div class="lmTree tree5"></div>
+<div class="lmTree tree6"></div>
+
+<div class="streetLight light1">
+
+    <div class="lampHead"></div>
+
+    <div class="lightGlow"></div>
+
+</div>
+
+<div class="streetLight light2">
+
+    <div class="lampHead"></div>
+
+    <div class="lightGlow"></div>
+
+</div>
+
+<div id="lmDirection">
+    ➜ LOCALMEDIA247
+</div>
+
+   <!-- ======================================
+     LOCALMEDIA247 HEADQUARTERS
+====================================== -->
+
+<div id="lm247Complex">
+
+    <div id="lm247Building">
+
+        <div class="roof-strip"></div>
+
+        <div class="lm247Title">
+            LOCALMEDIA247
+            <span>Documenting Today. Preserving Tomorrow.</span>
+        </div>
+
+        <div class="glass-wall">
+
+            <div class="glass-door"></div>
+
+            <div class="window w1"></div>
+            <div class="window w2"></div>
+            <div class="window w3"></div>
+            <div class="window w4"></div>
+
+        </div>
+
+    </div>
+
+    <div class="plaza"></div>
+
+    <div class="ledScreen">
+
+        <h4>LIVE</h4>
+
+        <p>Today's Daily Brief</p>
+
+    </div>
+
+    <div class="flagPole"></div>
+
+    <div class="flag"></div>
+
+    <div class="tree tree1"></div>
+    <div class="tree tree2"></div>
+
+</div>
+
+<!-- ======================================
+     LIVING LANGUAGES GARDEN
+====================================== -->
+
+<section id="livingGarden">
+
+    <!-- Main Curved Path -->
+    <div class="gardenPath"></div>
+
+    <!-- Central Tree Area -->
+    <div id="treeOfHumanitySite"></div>
+
+    <!-- Future Language Trees -->
+    <div id="igedeTreeSite"></div>
+
+    <div id="africaTreeSite"></div>
+
+    <div id="asiaTreeSite"></div>
+
+    <div id="europeTreeSite"></div>
+
+</section>
+
+    <!-- ======================================
+     AFRICAN LANGUAGES MUSEUM
+====================================== -->
+
+<div id="africaComplex" class="museum-complex">
+
+    <!-- Museum Building -->
+
+    <div id="africaMuseum" aria-label="Focus on African Languages Museum">
+
+        <div class="museum-title">
+            African Languages Museum
+        </div>
+
+        <div class="museum-roof"></div>
+
+        <div class="museum-body">
+
+            <div class="museum-windows">
+
+                <div class="museum-window"></div>
+                <div class="museum-window"></div>
+                <div class="museum-window"></div>
+                <div class="museum-window"></div>
+
+            </div>
+
+            <div class="museum-door"></div>
+
+        </div>
+
+        <div class="museum-steps"></div>
+
+    </div>
+
+    <!-- Forecourt -->
+
+    <div class="museum-plaza"></div>
+
+    <!-- Walkway -->
+
+    <div class="museum-path"></div>
+
+    <!-- Information Board -->
+
+    <div class="info-board">
+
+        Africa is home to over
+        <strong>2,000 living languages.</strong>
+
+    </div>
+
+    <!-- Igede Language Learning Centre -->
+    <a class="igede-learning-exhibit" href="academy/igede.html" aria-label="Enter Igede Language Learning Centre">
+        <span class="igede-learning-kicker">AFRICAN LANGUAGES MUSEUM</span>
+        <span class="igede-learning-title">Igede Language Learning Centre</span>
+        <span class="igede-learning-text">Explore the 21-lesson Igede learning series and its introductory lesson.</span>
+        <span class="igede-learning-meta">22 videos · Launched 26 May 2026</span>
+        <span class="igede-learning-button">Enter Learning Centre →</span>
+    </a>
+
+</div>
+
+    <!-- ======================================
+         ASIAN LANGUAGES MUSEUM
+    ====================================== -->
+
+    <section id="asiaComplex">
+
+        <div id="asiaMuseum" aria-label="Focus on Asian Languages Museum">
+
+            <div class="asia-name">
+
+                Asian Languages Museum
+
+            </div>
+
+            <div class="asia-roof"></div>
+
+            <div class="asia-body">
+
+                <div class="asia-windows">
+
+                    <div class="asia-window"></div>
+                    <div class="asia-window"></div>
+                    <div class="asia-window"></div>
+                    <div class="asia-window"></div>
+
+                </div>
+
+                <div class="asia-door"></div>
+
+            </div>
+
+            <div class="asia-steps"></div>
+
+        </div>
+
+        <div class="museum-plaza asia-plaza"></div>
+
+        <div class="museum-path asia-path"></div>
+
+        <div class="info-board asia-board">
+
+            Discover Asia's rich linguistic heritage.
+
+        </div>
+
+    </section>
+
+    <!-- ======================================
+     EUROPEAN LANGUAGES MUSEUM
+====================================== -->
+
+<section id="europeComplex" class="museum-complex continental-museum">
+
+    <div id="europeMuseum" aria-label="Focus on European Languages Museum">
+
+        <div class="continental-title">
+            European Languages Museum
+        </div>
+
+        <div class="continental-roof"></div>
+
+        <div class="continental-body">
+
+            <div class="continental-windows">
+                <div class="continental-window"></div>
+                <div class="continental-window"></div>
+                <div class="continental-window"></div>
+                <div class="continental-window"></div>
+            </div>
+
+            <div class="continental-door"></div>
+
+        </div>
+
+        <div class="continental-steps"></div>
+
+    </div>
+
+    <div class="museum-plaza europe-plaza"></div>
+
+    <div class="museum-path europe-path"></div>
+
+    <div class="info-board europe-board">
+
+        Explore Europe's rich tapestry of languages,
+        cultures and linguistic histories.
+
+    </div>
+
+</section>
+
+
+<!-- ======================================
+     AMERICAS LANGUAGES MUSEUM
+====================================== -->
+
+<section id="americasComplex" class="museum-complex continental-museum">
+
+    <div id="americasMuseum" aria-label="Focus on Americas Languages Museum">
+
+        <div class="continental-title">
+            Americas Languages Museum
+        </div>
+
+        <div class="continental-roof"></div>
+
+        <div class="continental-body">
+
+            <div class="continental-windows">
+                <div class="continental-window"></div>
+                <div class="continental-window"></div>
+                <div class="continental-window"></div>
+                <div class="continental-window"></div>
+            </div>
+
+            <div class="continental-door"></div>
+
+        </div>
+
+        <div class="continental-steps"></div>
+
+    </div>
+
+    <div class="museum-plaza americas-plaza"></div>
+
+    <div class="museum-path americas-path"></div>
+
+    <div class="info-board americas-board">
+
+        Discover the languages and cultural voices
+        of North, Central and South America.
+
+    </div>
+
+</section>
+
+
+<!-- ======================================
+     OCEANIA LANGUAGES MUSEUM
+====================================== -->
+
+<section id="oceaniaComplex" class="museum-complex continental-museum">
+
+    <div id="oceaniaMuseum" aria-label="Focus on Oceania Languages Museum">
+
+        <div class="continental-title">
+            Oceania Languages Museum
+        </div>
+
+        <div class="continental-roof"></div>
+
+        <div class="continental-body">
+
+            <div class="continental-windows">
+                <div class="continental-window"></div>
+                <div class="continental-window"></div>
+                <div class="continental-window"></div>
+                <div class="continental-window"></div>
+            </div>
+
+            <div class="continental-door"></div>
+
+        </div>
+
+        <div class="continental-steps"></div>
+
+    </div>
+
+    <div class="museum-plaza oceania-plaza"></div>
+
+    <div class="museum-path oceania-path"></div>
+
+    <div class="info-board oceania-board">
+
+        Discover the extraordinary linguistic
+        diversity of Australia's Pacific region.
+
+    </div>
+
+</section>
+
+    <!-- ======================================
+         DOCUMENTARY CINEMA
+    ====================================== -->
+
+    <section id="cinema">
+
+        <h2>
+
+            Documentary Cinema
+
+        </h2>
+
+    </section>
+
+
+    <!-- ======================================
+         GRAND ENTRANCE
+    ====================================== -->
+
+    <section class="grand-entrance">
+
+        <div class="museum-sign">
+
+            <h2>
+
+                VOICES OF HUMANITY
+
+            </h2>
+
+            <p>
+
+                The Digital Museum of the World's Languages
+
+            </p>
+
+        </div>
+
+       
+        <div class="visitor-centre">
+
+            Visitor Centre
+
+        </div>
+
+        <div class="security-left"></div>
+
+        <div class="security-right"></div>
+
+        <div class="flag-row">
+
+            <div class="flag"></div>
+            <div class="flag"></div>
+            <div class="flag"></div>
+            <div class="flag"></div>
+            <div class="flag"></div>
+
+        </div>
+
+    </section>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ======================================
+     DATA
+====================================== -->
+
+<script src="data/buildings.js"></script>
+<script src="data/districts.js"></script>
+<script src="data/gardens.js"></script>
+<script src="js/camera.js"></script>
+<script src="data/languages.js"></script>
+<script src="data/collections.js"></script>
+<script src="data/documentaries.js"></script>
+<script src="data/visitors.js"></script>
+<script src="data/campus-layout.js"></script>
+<script src="data/campus-zones.js"></script>
+<script src="data/roadGraph.js"></script>
+<script src="data/waypoints.js"></script>
+<script src="data/environment.js"></script>
+
+<!-- ======================================
+     JAVASCRIPT
+====================================== -->
+
+<script src="engine/navigationEngine.js"></script>
+
+<script src="engine/masterEngine.js"></script>
+
+<script src="engine/registryEngine.js"></script>
+
+<script src="engine/initializer.js"></script>
+
+<script src="engine/worldEngine.js"></script>
+
+<script src="engine/coordinatesEngine.js"></script>
+
+<script src="engine/districtEngine.js"></script>
+
+<script src="engine/zoneEngine.js"></script>
+
+<script src="engine/buildingEngine.js"></script>
+
+<script src="engine/treeEngine.js"></script>
+
+<script src="engine/roadEngine.js"></script>
+
+<script src="engine/gardenEngine.js"></script>
+
+<script src="engine/lightingEngine.js"></script>
+
+<script src="engine/landscapeEngine.js"></script>
+
+<script src="engine/lifeEngine.js"></script>
+
+<script src="engine/animationEngine.js"></script>
+
+<script src="engine/hallDistrictEngine.js"></script>
+
+<script src="engine/hallBuildingEngine.js"></script>
+
+<script src="engine/visitorEngine.js"></script>
+
+<script src="engine/documentaryEngine.js"></script>
+
+<script src="engine/cinemaEngine.js"></script>
+
+<script src="engine/museumEngine.js"></script>
+
+<script src="js/museum.js"></script>
+
+</body>
+
+</html>

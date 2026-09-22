@@ -1,0 +1,162 @@
+/*====================================================
+  VOICES OF HUMANITY — LIVING VISITORS
+  Lightweight human figures built from CSS/DOM.
+====================================================*/
+
+.visitor{
+    position:absolute;
+    width:20px;
+    height:34px;
+    z-index:900;
+    pointer-events:none;
+    transform-origin:50% 52%;
+    transform:translate(-50%,-50%) rotate(var(--visitor-angle, 90deg));
+    will-change:left, top, transform;
+    filter:drop-shadow(0 2px 2px rgba(0,0,0,.28));
+    --skin:#c98f68;
+    --shirt:#315b8c;
+    --trouser:#2e3038;
+    --hair:#2a211d;
+    --stride:0.58s;
+}
+
+/* Subtle human variation without creating a heavy asset system. */
+.visitor:nth-child(3n){ --skin:#8d5a3b; --hair:#181411; }
+.visitor:nth-child(4n){ --skin:#e0ad86; --hair:#4a3024; }
+.visitor:nth-child(5n){ --skin:#6f412d; --hair:#120f0d; }
+
+.visitor.student{ --shirt:#356bb2; --trouser:#252d3a; }
+.visitor.tourist{ --shirt:#2d8a68; --trouser:#38413d; }
+.visitor.researcher{ --shirt:#7555a6; --trouser:#34323b; }
+.visitor.family{ --shirt:#c8732e; --trouser:#4a3c35; }
+
+.visitor-head{
+    position:absolute;
+    left:7px;
+    top:1px;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--skin);
+    box-shadow:inset -1px -1px 1px rgba(0,0,0,.18);
+    z-index:5;
+}
+
+.visitor-head::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:-1px;
+    width:8px;
+    height:4px;
+    border-radius:7px 7px 2px 2px;
+    background:var(--hair);
+}
+
+.visitor-torso{
+    position:absolute;
+    left:5px;
+    top:9px;
+    width:10px;
+    height:13px;
+    border-radius:4px 4px 3px 3px;
+    background:var(--shirt);
+    box-shadow:inset -1px 0 1px rgba(255,255,255,.16),
+               inset 1px 0 1px rgba(0,0,0,.18);
+}
+
+.visitor-torso::after{
+    content:"";
+    position:absolute;
+    left:3px;
+    bottom:-2px;
+    width:4px;
+    height:3px;
+    border-radius:0 0 2px 2px;
+    background:var(--trouser);
+}
+
+.visitor-arm,
+.visitor-leg{
+    position:absolute;
+    display:block;
+    transform-origin:50% 0;
+    border-radius:5px;
+}
+
+.visitor-arm{
+    top:10px;
+    width:3px;
+    height:12px;
+    background:var(--skin);
+    z-index:2;
+    animation:visitor-arm-swing var(--stride) ease-in-out infinite alternate;
+}
+
+.visitor-arm-left{
+    left:3px;
+    transform:rotate(13deg);
+}
+
+.visitor-arm-right{
+    right:2px;
+    transform:rotate(-13deg);
+    animation-delay:calc(var(--stride) * -.5);
+}
+
+.visitor-leg{
+    top:21px;
+    width:3.5px;
+    height:12px;
+    background:var(--trouser);
+    z-index:1;
+    animation:visitor-leg-swing var(--stride) ease-in-out infinite alternate;
+}
+
+.visitor-leg::after{
+    content:"";
+    position:absolute;
+    left:-1px;
+    bottom:-1px;
+    width:6px;
+    height:2px;
+    border-radius:3px;
+    background:#17191d;
+}
+
+.visitor-leg-left{
+    left:6px;
+}
+
+.visitor-leg-right{
+    left:10px;
+    animation-delay:calc(var(--stride) * -.5);
+}
+
+@keyframes visitor-arm-swing{
+    from{ transform:rotate(25deg); }
+    to{ transform:rotate(-25deg); }
+}
+
+@keyframes visitor-leg-swing{
+    from{ transform:rotate(24deg); }
+    to{ transform:rotate(-24deg); }
+}
+
+/* Visitors pause naturally at destinations. */
+.visitor[style*="--visitor-paused"]{
+    animation-play-state:paused;
+}
+
+@media (prefers-reduced-motion:reduce){
+    .visitor-arm,
+    .visitor-leg{
+        animation:none;
+    }
+}
+
+/* Night mode: freeze the complete human figure, not just its position. */
+.visitor[style*="--visitor-paused"] .visitor-arm,
+.visitor[style*="--visitor-paused"] .visitor-leg{
+    animation-play-state:paused;
+}

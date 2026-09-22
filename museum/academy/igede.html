@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Igede Language Learning Centre | Voices of Humanity</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#10150f;color:#f4f0e8;font-family:Arial,Helvetica,sans-serif}
+.page{max-width:1180px;margin:auto;padding:34px 22px 70px}
+a{color:inherit}.back{display:inline-block;color:#d9b76a;text-decoration:none;margin-bottom:30px;font-size:13px}
+.kicker{font-size:10px;letter-spacing:2.5px;color:#d9b76a;font-weight:700}
+h1{font-size:clamp(34px,5vw,58px);line-height:1;margin:10px 0 12px}.intro{max-width:720px;color:rgba(255,255,255,.72);line-height:1.6;font-size:16px}
+.launch{font-size:12px;color:rgba(255,255,255,.45);margin-top:10px}
+.player{margin-top:34px;background:#080a08;border:1px solid rgba(255,255,255,.10);border-radius:18px;overflow:hidden;box-shadow:0 18px 45px rgba(0,0,0,.35)}
+.video-wrap{aspect-ratio:16/9;background:#000}iframe{width:100%;height:100%;border:0;display:block}
+.now{padding:17px 20px}.now-label{font-size:9px;letter-spacing:2px;color:#d9b76a;font-weight:700}.now h2{margin:6px 0 0;font-size:23px}
+.controls{display:flex;justify-content:space-between;gap:12px;padding:0 20px 20px}button{border:1px solid rgba(255,255,255,.16);background:#252b22;color:#fff;padding:10px 15px;border-radius:999px;cursor:pointer}button:hover{background:#30382c}
+.archive{margin-top:38px}.archive h3{font-size:14px;letter-spacing:1.5px;margin-bottom:14px}.lessons{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.card{border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.035);border-radius:13px;padding:14px;cursor:pointer;text-align:left;color:#fff}.card:hover,.card.active{border-color:rgba(217,183,106,.65);background:rgba(217,183,106,.08)}.num{font-size:9px;color:#d9b76a;letter-spacing:1.5px;font-weight:700}.ctitle{margin-top:7px;font-size:14px;font-weight:700}
+@media(max-width:600px){.controls{flex-direction:column}button{width:100%}}
+</style>
+</head>
+<body>
+<main class="page">
+<a class="back" href="index.html">← Return to the African Languages Museum</a>
+<div class="kicker">VOICES OF HUMANITY · AFRICA · IGEDE</div>
+<h1>Igede Language Learning Centre</h1>
+<p class="intro">An ongoing educational series created to teach, preserve and pass on the Igede language through structured lessons.</p>
+<div class="launch">Introduction + 21 lessons · Series launched 26 May 2026</div>
+<section class="player">
+<div class="video-wrap"><iframe id="player" src="https://www.youtube-nocookie.com/embed/quUOQvchGsY?rel=0" title="Igede Language Introduction" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+<div class="now"><div class="now-label">NOW PLAYING</div><h2 id="nowTitle">Introduction</h2></div>
+<div class="controls"><button id="prev">← Previous</button><button id="next">Next →</button></div>
+</section>
+<section class="archive"><h3>LESSON ARCHIVE</h3><div class="lessons" id="lessons"></div></section>
+</main>
+<script>
+const videos=[{"number": 1, "title": "Introduction", "url": "https://www.youtube.com/watch?v=quUOQvchGsY", "id": "quUOQvchGsY"}, {"number": 2, "title": "Lesson 1", "url": "https://www.youtube.com/watch?v=ttSPh4_-Vbo", "id": "ttSPh4_-Vbo"}, {"number": 3, "title": "Lesson 2", "url": "https://www.youtube.com/watch?v=lcrCuW8wY7E", "id": "lcrCuW8wY7E"}, {"number": 4, "title": "Lesson 3", "url": "https://www.youtube.com/watch?v=cdwi2PheGPM", "id": "cdwi2PheGPM"}, {"number": 5, "title": "Lesson 4", "url": "https://www.youtube.com/watch?v=tDcLJd8yric", "id": "tDcLJd8yric"}, {"number": 6, "title": "Lesson 5", "url": "https://www.youtube.com/watch?v=K7S56OFPN5I", "id": "K7S56OFPN5I"}, {"number": 7, "title": "Lesson 6", "url": "https://www.youtube.com/watch?v=tydiXTRx_AI", "id": "tydiXTRx_AI"}, {"number": 8, "title": "Lesson 7", "url": "https://www.youtube.com/watch?v=NU8biciP1Jc", "id": "NU8biciP1Jc"}, {"number": 9, "title": "Lesson 8", "url": "https://www.youtube.com/watch?v=SbE8do4Enz4", "id": "SbE8do4Enz4"}, {"number": 10, "title": "Lesson 9", "url": "https://www.youtube.com/watch?v=ESWmt7xwfPc", "id": "ESWmt7xwfPc"}, {"number": 11, "title": "Lesson 10", "url": "https://www.youtube.com/watch?v=tg1-GWo1EDQ", "id": "tg1-GWo1EDQ"}, {"number": 12, "title": "Lesson 11", "url": "https://www.youtube.com/watch?v=dwHSuEItc1E", "id": "dwHSuEItc1E"}, {"number": 13, "title": "Lesson 12", "url": "https://www.youtube.com/watch?v=kG5TMHzoAIs", "id": "kG5TMHzoAIs"}, {"number": 14, "title": "Lesson 13", "url": "https://www.youtube.com/watch?v=YrQsHUrE2Q8", "id": "YrQsHUrE2Q8"}, {"number": 15, "title": "Lesson 14", "url": "https://www.youtube.com/watch?v=f4AFOMaudyo", "id": "f4AFOMaudyo"}, {"number": 16, "title": "Lesson 15", "url": "https://www.youtube.com/watch?v=FHd2yDAbT9U", "id": "FHd2yDAbT9U"}, {"number": 17, "title": "Lesson 16", "url": "https://www.youtube.com/watch?v=7v2FoyZAUE8", "id": "7v2FoyZAUE8"}, {"number": 18, "title": "Lesson 17", "url": "https://www.youtube.com/watch?v=uZKPg5SXEBc", "id": "uZKPg5SXEBc"}, {"number": 19, "title": "Lesson 18", "url": "https://www.youtube.com/watch?v=RqzLGv9QKh4", "id": "RqzLGv9QKh4"}, {"number": 20, "title": "Lesson 19", "url": "https://www.youtube.com/watch?v=CW6A0taH8sM", "id": "CW6A0taH8sM"}, {"number": 21, "title": "Lesson 20", "url": "https://www.youtube.com/watch?v=dFmO9Dtn9Hs", "id": "dFmO9Dtn9Hs"}, {"number": 22, "title": "Lesson 21", "url": "https://www.youtube.com/watch?v=GeRvSNdYSlU", "id": "GeRvSNdYSlU"}];
+let current=0;
+const player=document.getElementById('player'), title=document.getElementById('nowTitle'), grid=document.getElementById('lessons');
+function selectLesson(i){current=(i+videos.length)%videos.length; const v=videos[current]; player.src='https://www.youtube-nocookie.com/embed/'+v.id+'?rel=0'; title.textContent=v.title; [...grid.children].forEach((el,n)=>el.classList.toggle('active',n===current)); window.scrollTo({top:0,behavior:'smooth'});}
+videos.forEach((v,i)=>{const b=document.createElement('button');b.className='card';b.innerHTML='<div class="num">'+(i===0?'INTRODUCTION':'LESSON '+i)+'</div><div class="ctitle">'+v.title+'</div>';b.onclick=()=>selectLesson(i);grid.appendChild(b);});
+document.getElementById('prev').onclick=()=>selectLesson(current-1);document.getElementById('next').onclick=()=>selectLesson(current+1);selectLesson(0);
+</script>
+</body>
+</html>

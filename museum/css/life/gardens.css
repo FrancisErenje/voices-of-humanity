@@ -1,0 +1,519 @@
+/*======================================*
+  VOICES OF HUMANITY
+  MUSEUM GARDENS — VISUAL EDITION v2.0
+*======================================*/
+
+
+/*======================================*
+  BASE GARDEN
+*======================================*/
+
+.museum-garden {
+
+    position: absolute;
+
+    width: 360px;
+    height: 240px;
+
+    box-sizing: border-box;
+
+    border-radius: 120px;
+
+    /*
+      Layered botanical ground.
+      The multiple gradients create:
+      - grass
+      - flower beds
+      - subtle landscaping
+      - natural variation
+    */
+
+    background:
+
+        /* small flowers — upper left */
+        radial-gradient(
+            circle at 13% 24%,
+            #f4d77d 0 3px,
+            transparent 4px
+        ),
+
+        radial-gradient(
+            circle at 18% 18%,
+            #e8a6b8 0 3px,
+            transparent 4px
+        ),
+
+        /* small flowers — upper right */
+        radial-gradient(
+            circle at 82% 22%,
+            #f1d77a 0 3px,
+            transparent 4px
+        ),
+
+        radial-gradient(
+            circle at 88% 29%,
+            #e4a0b5 0 3px,
+            transparent 4px
+        ),
+
+        /* flowers — lower left */
+        radial-gradient(
+            circle at 12% 76%,
+            #e5a5b9 0 3px,
+            transparent 4px
+        ),
+
+        radial-gradient(
+            circle at 20% 84%,
+            #f2d56f 0 3px,
+            transparent 4px
+        ),
+
+        /* flowers — lower right */
+        radial-gradient(
+            circle at 82% 78%,
+            #f1d16d 0 3px,
+            transparent 4px
+        ),
+
+        radial-gradient(
+            circle at 89% 70%,
+            #dda0b5 0 3px,
+            transparent 4px
+        ),
+
+        /* darker botanical patches */
+        radial-gradient(
+            ellipse at 8% 50%,
+            rgba(47, 105, 55, 0.55),
+            transparent 20%
+        ),
+
+        radial-gradient(
+            ellipse at 92% 50%,
+            rgba(47, 105, 55, 0.55),
+            transparent 20%
+        ),
+
+        /* central lawn */
+        radial-gradient(
+            ellipse at center,
+            #86b968 0%,
+            #72a957 42%,
+            #5d9548 72%,
+            #4c803e 100%
+        );
+
+
+    border: 5px solid rgba(214, 199, 151, 0.85);
+
+
+    box-shadow:
+
+        0 10px 20px rgba(0, 0, 0, 0.20),
+
+        0 20px 35px rgba(0, 0, 0, 0.16),
+
+        inset 0 0 28px rgba(255, 255, 255, 0.10),
+
+        inset 0 -10px 20px rgba(38, 80, 35, 0.20);
+
+
+    z-index: 120;
+
+
+    overflow: visible;
+
+
+    pointer-events: auto;
+}
+
+
+/*======================================*
+  INNER GARDEN RIM
+*======================================*/
+
+.museum-garden[data-garden-id="reflection-garden"] {
+
+    /*
+      The inner ring gives the garden
+      the appearance of deliberate
+      museum landscaping.
+    */
+
+    outline: 2px solid rgba(255, 255, 255, 0.18);
+
+    outline-offset: -12px;
+
+
+    animation:
+        reflectionGardenBreath 6s ease-in-out infinite;
+}
+
+
+/*======================================*
+  CENTRAL REFLECTION POOL
+*======================================*/
+
+.museum-garden[data-garden-id="reflection-garden"]::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 145px;
+    height: 85px;
+
+    border-radius: 50%;
+
+
+    background:
+
+        /* water highlight */
+        radial-gradient(
+            ellipse at 34% 28%,
+            rgba(255,255,255,0.88) 0%,
+            rgba(255,255,255,0.35) 16%,
+            transparent 32%
+        ),
+
+        /* water body */
+        radial-gradient(
+            ellipse at center,
+            #b5e2ec 0%,
+            #78c5d8 28%,
+            #4a9eb9 65%,
+            #276f8c 100%
+        );
+
+
+    border:
+
+        5px solid rgba(
+            239,
+            226,
+            184,
+            0.95
+        );
+
+
+    box-shadow:
+
+        0 5px 14px rgba(0,0,0,0.28),
+
+        inset 0 3px 8px rgba(
+            255,
+            255,
+            255,
+            0.42
+        ),
+
+        inset 0 -6px 10px rgba(
+            20,
+            75,
+            100,
+            0.30);
+
+
+    z-index: 3;
+}
+
+
+/*======================================*
+  WATER RIPPLE
+*======================================*/
+
+.museum-garden[data-garden-id="reflection-garden"]::before {
+
+    /*
+      The pool remains the main visual focus.
+      The animation creates extremely subtle
+      movement rather than looking artificial.
+    */
+
+    animation: reflectionWater 5s ease-in-out infinite;
+}
+
+
+/*======================================*
+  GARDEN NAME
+*======================================*/
+
+.museum-garden[data-garden-id="reflection-garden"]::after {
+
+    content: "REFLECTION GARDEN";
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: -34px;
+
+    transform: translateX(-50%);
+
+
+    padding: 6px 16px;
+
+
+    white-space: nowrap;
+
+
+    border-radius: 14px;
+
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(48, 45, 43, 0.94),
+            rgba(27, 27, 27, 0.94)
+        );
+
+
+    border:
+
+        1px solid rgba(
+            226,
+            205,
+            145,
+            0.90
+        );
+
+
+    color: #f3df9d;
+
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+
+    font-size: 12px;
+
+    letter-spacing: 1.5px;
+
+
+    box-shadow:
+
+        0 4px 10px rgba(0,0,0,0.30),
+
+        inset 0 1px 0 rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+
+    z-index: 10;
+}
+
+
+/*======================================*
+  GARDEN PATH RING
+*======================================*/
+
+.museum-garden[data-garden-id="reflection-garden"] {
+
+    background-image:
+
+        /* outer stone markers */
+        radial-gradient(
+            circle at 7% 50%,
+            rgba(225, 215, 178, 0.85) 0 4px,
+            transparent 5px
+        ),
+
+        radial-gradient(
+            circle at 93% 50%,
+            rgba(225, 215, 178, 0.85) 0 4px,
+            transparent 5px
+        ),
+
+        radial-gradient(
+            circle at 28% 8%,
+            rgba(225, 215, 178, 0.75) 0 3px,
+            transparent 4px
+        ),
+
+        radial-gradient(
+            circle at 72% 8%,
+            rgba(225, 215, 178, 0.75) 0 3px,
+            transparent 4px
+        ),
+
+        /* flower beds */
+        radial-gradient(
+            circle at 13% 24%,
+            #f4d77d 0 3px,
+            transparent 4px
+        ),
+
+        radial-gradient(
+            circle at 18% 18%,
+            #e8a6b8 0 3px,
+            transparent 4px
+        ),
+
+        radial-gradient(
+            circle at 82% 22%,
+            #f1d77a 0 3px,
+            transparent 4px
+        ),
+
+        radial-gradient(
+            circle at 88% 29%,
+            #e4a0b5 0 3px,
+            transparent 4px
+        ),
+
+        radial-gradient(
+            circle at 12% 76%,
+            #e5a5b9 0 3px,
+            transparent 4px
+        ),
+
+        radial-gradient(
+            circle at 20% 84%,
+            #f2d56f 0 3px,
+            transparent 4px
+        ),
+
+        radial-gradient(
+            circle at 82% 78%,
+            #f1d16d 0 3px,
+            transparent 4px
+        ),
+
+        radial-gradient(
+            circle at 89% 70%,
+            #dda0b5 0 3px,
+            transparent 4px
+        ),
+
+        /* dark botanical edges */
+        radial-gradient(
+            ellipse at 8% 50%,
+            rgba(47,105,55,0.55),
+            transparent 20%
+        ),
+
+        radial-gradient(
+            ellipse at 92% 50%,
+            rgba(47,105,55,0.55),
+            transparent 20%
+        ),
+
+        /* lawn */
+        radial-gradient(
+            ellipse at center,
+            #86b968 0%,
+            #72a957 42%,
+            #5d9548 72%,
+            #4c803e 100%
+        );
+}
+
+
+/*======================================*
+  SMALL BOTANICAL ACCENTS
+*======================================*/
+
+.museum-garden[data-garden-id="reflection-garden"] {
+
+    /*
+      Tiny leaf-like accents created entirely
+      with shadows. This keeps the garden
+      lightweight — no extra HTML required.
+    */
+
+    box-shadow:
+
+        0 10px 20px rgba(0,0,0,0.20),
+
+        0 20px 35px rgba(0,0,0,0.16),
+
+        inset 0 0 28px rgba(255,255,255,0.10),
+
+        inset 0 -10px 20px rgba(38,80,35,0.20),
+
+        25px -8px 0 -10px rgba(68,125,63,0.65),
+
+        -25px -8px 0 -10px rgba(68,125,63,0.65),
+
+        28px 10px 0 -11px rgba(73,132,66,0.55),
+
+        -28px 10px 0 -11px rgba(73,132,66,0.55);
+}
+
+
+/*======================================*
+  REFLECTION GARDEN ANIMATION
+*======================================*/
+
+@keyframes reflectionGardenBreath {
+
+    0%,
+    100% {
+
+        transform:
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            scale(1.008);
+
+    }
+}
+
+
+/*======================================*
+  WATER ANIMATION
+*======================================*/
+
+@keyframes reflectionWater {
+
+    0%,
+    100% {
+
+        filter:
+            brightness(1)
+            saturate(1);
+
+    }
+
+    50% {
+
+        filter:
+            brightness(1.06)
+            saturate(1.08);
+
+    }
+}
+
+
+/*======================================*
+  ACCESSIBILITY / REDUCED MOTION
+*======================================*/
+
+@media (prefers-reduced-motion: reduce) {
+
+    .museum-garden[data-garden-id="reflection-garden"] {
+
+        animation: none;
+    }
+
+    .museum-garden[data-garden-id="reflection-garden"]::before {
+
+        animation: none;
+    }
+}

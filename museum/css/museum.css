@@ -1,0 +1,5339 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+
+    width:100%;
+    min-height:100%;
+
+    overflow-x:hidden;
+    overflow-y:auto;
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    background:#5f8f52;
+}
+
+#viewport{
+
+    width:100vw;
+
+    height:100vh;
+
+    overflow:hidden;
+
+    position:relative;
+
+    cursor:grab;
+
+    background:#87CEEB;
+
+}
+
+#viewport:active{
+
+    cursor:grabbing;
+
+}
+
+#world{
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    transform-origin:0 0;
+
+}
+
+#campus{
+
+    position:relative;
+
+    width:3000px;
+
+    height:3000px;
+
+    background:#7DBB63;
+
+}
+
+/* ======================================
+   CAMPUS ZONES
+====================================== */
+
+.museum-zone {
+    position: absolute;
+
+    border: 2px dashed rgba(255, 215, 120, 0.15);
+
+    pointer-events: none;
+
+    z-index: 5;
+}
+
+
+/*==================================
+    HERITAGE SQUARE
+==================================*/
+
+#heritage-square{
+
+    position:absolute;
+
+    width:520px;
+
+    height:520px;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    background:#D8D3CB;
+
+    border:10px solid #B8B1A8;
+
+    border-radius:24px;
+
+    box-shadow:0 0 40px rgba(0,0,0,.25);
+
+}
+
+/* ======================================
+   HALL OF HUMANITY PLAZA
+====================================== */
+
+#hallPlaza{
+
+    position:absolute;
+
+    width:820px;
+
+    height:700px;
+
+    left:1090px;
+
+    top:720px;
+
+    background:linear-gradient(#ddd7cb,#d2cbbd);
+
+    border-radius:35px;
+
+    box-shadow:
+        inset 0 0 25px rgba(255,255,255,.35),
+        0 12px 35px rgba(0,0,0,.18);
+
+    z-index:1;
+
+}
+
+#hallPlaza::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:20px;
+
+    border:3px solid rgba(255,255,255,.35);
+
+    border-radius:25px;
+
+}
+
+.cornerGarden{
+
+    position:absolute;
+
+    width:90px;
+
+    height:145px;
+
+    background:#74c35d;
+
+    border:3px solid #4d9940;
+
+    border-radius:14px;
+
+    box-shadow:0 6px 14px rgba(0,0,0,.18);
+
+}
+
+.garden1{
+
+left:18px;
+top:18px;
+
+}
+
+.garden2{
+
+right:18px;
+top:18px;
+
+}
+
+.garden3{
+
+left:18px;
+bottom:18px;
+
+}
+
+.garden4{
+
+right:18px;
+bottom:18px;
+
+}
+
+/*==================================
+    FOUNTAIN
+==================================*/
+
+#fountain{
+
+    position:absolute;
+
+    width:130px;
+
+    height:130px;
+
+    border-radius:50%;
+
+    background:#4DB6FF;
+
+    border:10px solid white;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    box-shadow:0 0 25px rgba(0,0,0,.25);
+
+}
+
+/*==================================
+    FLAGS
+==================================*/
+
+.flag{
+
+    position:absolute;
+
+    width:8px;
+
+    height:70px;
+
+    background:#555;
+
+}
+
+.flag::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:28px;
+
+    height:18px;
+
+    background:#C91F1F;
+
+    left:8px;
+
+    top:0;
+
+}
+
+.flag1{
+
+    left:60px;
+
+    top:60px;
+
+}
+
+.flag2{
+
+    right:60px;
+
+    top:60px;
+
+}
+
+.flag3{
+
+    left:60px;
+
+    bottom:60px;
+
+}
+
+.flag4{
+
+    right:60px;
+
+    bottom:60px;
+
+}
+
+/*==================================
+    TREES
+==================================*/
+
+.tree{
+
+    position:absolute;
+
+    width:34px;
+    height:42px;
+
+    animation:treeSway 5s ease-in-out infinite;
+
+}
+
+.tree::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:2px;
+    top:0;
+
+    width:30px;
+    height:30px;
+
+    background:
+    radial-gradient(circle at 30% 30%,#58d65d,#2f9447);
+
+    border-radius:50%;
+
+    box-shadow:
+
+        inset -3px -5px 6px rgba(0,0,0,.15),
+
+        0 4px 8px rgba(0,0,0,.25);
+
+}
+
+.tree::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:14px;
+    bottom:0;
+
+    width:6px;
+    height:18px;
+
+    background:#6b4720;
+
+    border-radius:3px;
+
+}
+
+@keyframes treeSway{
+
+    0%{
+
+        transform:rotate(-1deg);
+
+    }
+
+    50%{
+
+        transform:rotate(1.5deg);
+
+    }
+
+    100%{
+
+        transform:rotate(-1deg);
+
+    }
+
+}
+
+/*==================================
+    FLOWER GARDENS
+==================================*/
+
+.garden{
+
+    position:absolute;
+
+    width:160px;
+
+    height:160px;
+
+    border-radius:18px;
+
+    background:#6CBF5B;
+
+    border:6px solid #4E9443;
+
+    box-shadow:0 0 18px rgba(0,0,0,.20);
+
+}
+
+.garden::after{
+
+    content:"🌸 🌼 🌺";
+
+    position:absolute;
+
+    left:18px;
+
+    top:60px;
+
+    font-size:26px;
+
+}
+
+/*==================================
+    HALL OF HUMANITY
+==================================*/
+
+#hall-humanity{
+
+    position:absolute;
+
+    width:720px;
+
+    height:500px;
+
+    left:50%;
+
+    top:720px;
+
+    transform:translateX(-50%);
+
+    z-index:100;
+
+}
+
+.hall-title{
+
+    text-align:center;
+
+    font-size:38px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    font-family:Georgia, serif;
+
+    color:#8C6A18;
+
+    text-transform:uppercase;
+
+    margin-bottom:25px;
+
+    text-shadow:
+
+    0 2px 2px rgba(255,255,255,.8);
+
+}
+
+.hall-roof{
+
+    height:78px;
+
+    background:
+
+    linear-gradient(
+
+    to bottom,
+
+    #7b7b7b,
+
+    #5b5b5b,
+
+    #414141
+
+    );
+
+    border-radius:28px 28px 0 0;
+
+    border-bottom:10px solid #333;
+
+    box-shadow:
+
+    0 12px 24px rgba(0,0,0,.30);
+
+}
+
+.hall-roof::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-12px;
+
+    left:25px;
+
+    right:25px;
+
+    height:10px;
+
+    border-radius:20px;
+
+    background:
+
+        linear-gradient(
+            to right,
+            #D2B15A,
+            #F8E18A,
+            #D2B15A
+        );
+
+}
+
+.hall-roof::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-10px;
+
+    width:100%;
+
+    height:8px;
+
+    background:
+
+    linear-gradient(
+
+        to right,
+
+        #B6871E,
+
+        #F4D774,
+
+        #B6871E
+
+    );
+
+}
+
+#hall-humanity::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:980px;
+
+    height:300px;
+
+    left:50%;
+
+    bottom:-180px;
+
+    transform:translateX(-50%);
+
+    background:
+    radial-gradient(
+        ellipse at center,
+        #EFE9DD 0%,
+        #E3DDD2 55%,
+        #D2CABD 100%
+    );
+
+    border-radius:40px;
+
+    box-shadow:
+        inset 0 8px 15px rgba(255,255,255,.45),
+        0 18px 40px rgba(0,0,0,.20);
+
+    z-index:-2;
+
+}
+
+.hall-body{
+
+    position:relative;
+
+    height:340px;
+
+    background:
+
+        linear-gradient(
+            #FAF7F0,
+            #E8E1D6
+        );
+
+    border:8px solid #BBB3A7;
+
+    box-shadow:
+
+        inset 10px 0 12px rgba(255,255,255,.45),
+
+        inset -10px 0 12px rgba(0,0,0,.06),
+
+        inset 0 -12px 16px rgba(0,0,0,.08),
+
+        0 15px 30px rgba(0,0,0,.20);
+
+}
+
+.windows{
+
+    display:flex;
+
+    justify-content:space-evenly;
+
+    align-items:center;
+
+    padding-top:30px;
+
+    padding-left:30px;
+
+    padding-right:30px;
+
+}
+
+.window{
+
+    position:relative;
+
+    width:60px;
+
+    height:95px;
+
+    border-radius:10px;
+
+    border:4px solid #666;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            #EAFBFF,
+            #B5E6FF,
+            #63B8F6
+        );
+
+    overflow:hidden;
+
+    box-shadow:
+
+        inset 0 0 12px rgba(255,255,255,.45),
+
+        0 6px 10px rgba(0,0,0,.18);
+
+}
+
+.window::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:8px;
+
+    top:8px;
+
+    width:12px;
+
+    height:70px;
+
+    background:rgba(255,255,255,.45);
+
+    border-radius:8px;
+
+}
+
+.window::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:0;
+
+    width:3px;
+
+    height:100%;
+
+    background:rgba(255,255,255,.35);
+
+    transform:translateX(-50%);
+
+}
+
+.window::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:8px;
+
+    top:8px;
+
+    width:12px;
+
+    height:45px;
+
+    background:
+
+    rgba(255,255,255,.45);
+
+    border-radius:8px;
+
+}
+
+.entrance{
+
+    margin-top:40px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-end;
+
+    gap:18px;
+
+}
+
+.column{
+
+    width:32px;
+
+    height:150px;
+
+    background:
+
+    linear-gradient(
+
+        to right,
+
+        #FDFDFD,
+
+        #DADADA,
+
+        #F8F8F8
+
+    );
+
+    border-radius:6px;
+
+    box-shadow:
+
+        0 6px 10px rgba(0,0,0,.15);
+
+}
+
+.door{
+
+    width:120px;
+
+    height:150px;
+
+    background:
+
+    linear-gradient(
+
+        to bottom,
+
+        #79C8FF,
+
+        #4E8FD0,
+
+        #2C507D
+
+    );
+
+    border:5px solid #B7B7B7;
+
+    border-radius:14px 14px 0 0;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.door::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:16px;
+
+    top:14px;
+
+    width:18px;
+
+    height:100px;
+
+    background:
+
+    rgba(255,255,255,.35);
+
+    border-radius:10px;
+
+}
+
+.door::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:16px;
+
+    top:60px;
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:#D4B04D;
+
+}
+
+/*==================================
+      GRAND STAIRCASE (3D)
+==================================*/
+
+.grand-staircase{
+
+    position:absolute;
+
+    left:50%;
+
+    top:55px;
+
+    transform:translateX(-50%);
+
+    width:430px;
+
+    height:150px;
+
+}
+
+/*==============================*/
+
+.stair{
+
+    position:absolute;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:linear-gradient(
+        to bottom,
+        #FAFAFA,
+        #D7D7D7
+    );
+
+    border:1px solid #BBBBBB;
+
+    box-shadow:
+
+        inset 0 2px rgba(255,255,255,.8),
+
+        inset 0 -2px rgba(0,0,0,.12);
+
+    border-radius:5px;
+
+}
+
+.step1{
+
+width:420px;
+height:18px;
+bottom:0;
+
+}
+
+.step2{
+
+width:390px;
+height:18px;
+bottom:18px;
+
+}
+
+.step3{
+
+width:360px;
+height:18px;
+bottom:36px;
+
+}
+
+.step4{
+
+width:330px;
+height:18px;
+bottom:54px;
+
+}
+
+.step5{
+
+width:300px;
+height:18px;
+bottom:72px;
+
+}
+
+.step6{
+
+width:270px;
+height:18px;
+bottom:90px;
+
+}
+
+.step7{
+
+width:240px;
+height:18px;
+bottom:108px;
+
+}
+
+.step8{
+
+width:210px;
+height:18px;
+bottom:126px;
+
+}
+
+/*==================================
+        GLASS ENTRANCE CANOPY
+==================================*/
+
+.glassCanopy{
+
+    position:absolute;
+
+    width:260px;
+
+    height:46px;
+
+    left:50%;
+
+    top:-8px;
+
+    transform:translateX(-50%);
+
+}
+
+.canopyTop{
+
+    width:100%;
+
+    height:20px;
+
+    border-radius:10px;
+
+    background:
+
+        linear-gradient(
+
+            to bottom,
+
+            rgba(180,225,255,.95),
+
+            rgba(120,185,255,.55)
+
+        );
+
+    border:2px solid rgba(255,255,255,.65);
+
+    backdrop-filter:blur(3px);
+
+    box-shadow:
+
+        inset 0 2px rgba(255,255,255,.85),
+
+        0 8px 18px rgba(0,0,0,.25);
+
+}
+
+.canopySupport{
+
+    position:absolute;
+
+    width:7px;
+
+    height:36px;
+
+    background:
+
+        linear-gradient(
+
+            #DDD,
+
+            #888
+
+        );
+
+    bottom:-32px;
+
+}
+
+.supportLeft{
+
+    left:35px;
+
+}
+
+.supportRight{
+
+    right:35px;
+
+}
+
+/*==================================
+        CEREMONIAL BANNERS
+==================================*/
+
+.museumBanner{
+
+    position:absolute;
+
+    width:42px;
+
+    height:130px;
+
+    background:
+
+        linear-gradient(
+
+            #164C8A,
+
+            #0F3460
+
+        );
+
+    color:white;
+
+    writing-mode:vertical-rl;
+
+    text-orientation:mixed;
+
+    font-size:11px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+    border-radius:6px;
+
+    box-shadow:
+
+        0 8px 18px rgba(0,0,0,.25);
+
+}
+
+.bannerLeft{
+
+    left:35px;
+
+    top:58px;
+
+}
+
+.bannerRight{
+
+    right:35px;
+
+    top:58px;
+
+}
+
+.museumSeal{
+
+    position:absolute;
+
+    width:64px;
+
+    height:64px;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            #FFE892,
+
+            #C79822
+
+        );
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:28px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    top:-70px;
+
+    box-shadow:
+
+        0 8px 18px rgba(0,0,0,.28);
+
+}
+
+/*==================================
+      GRAND ENTRANCE TERRACE
+==================================*/
+
+.entrance-terrace{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:-12px;
+
+    transform:translateX(-50%);
+
+    width:560px;
+
+    height:120px;
+
+    pointer-events:none;
+
+}
+
+/* Marble platform */
+
+.terrace-floor{
+
+    position:absolute;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:520px;
+
+    height:40px;
+
+    bottom:74px;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            #F7F7F7,
+            #D8D8D8
+        );
+
+    border-radius:8px;
+
+    box-shadow:
+
+        inset 0 3px rgba(255,255,255,.9),
+
+        0 8px 18px rgba(0,0,0,.25);
+
+}
+
+.balustrade{
+
+    position:absolute;
+
+    width:20px;
+
+    height:78px;
+
+    bottom:42px;
+
+    background:
+
+        linear-gradient(
+            to right,
+            #D8D8D8,
+            #B8B8B8
+        );
+
+    border-radius:10px;
+
+}
+
+.balustrade.left{
+
+    left:32px;
+
+}
+
+.balustrade.right{
+
+    right:32px;
+
+}
+
+.column{
+
+    position:absolute;
+
+    width:18px;
+
+    height:92px;
+
+    bottom:38px;
+
+    background:
+
+        linear-gradient(
+            to right,
+            #EFEFEF,
+            #CFCFCF,
+            #EFEFEF
+        );
+
+    border-radius:12px;
+
+    box-shadow:
+
+        inset 0 0 8px rgba(255,255,255,.8),
+
+        0 4px 8px rgba(0,0,0,.2);
+
+}
+
+.left1{
+
+    left:95px;
+
+}
+
+.left2{
+
+    left:145px;
+
+}
+
+.right1{
+
+    right:145px;
+
+}
+
+.right2{
+
+    right:95px;
+
+}
+
+.entrance-light{
+
+    position:absolute;
+
+    width:14px;
+
+    height:14px;
+
+    border-radius:50%;
+
+    background:#FFD76A;
+
+    box-shadow:
+
+        0 0 18px gold,
+
+        0 0 35px rgba(255,215,0,.7);
+
+    bottom:128px;
+
+}
+
+.light-left{
+
+    left:66px;
+
+}
+
+.light-right{
+
+    right:66px;
+
+}
+
+/*==============================*/
+
+.handrail{
+
+    position:absolute;
+
+    width:8px;
+
+    height:90px;
+
+    background:
+        linear-gradient(
+            to right,
+            #CFA84A,
+            #8B6A18
+        );
+
+    border-radius:5px;
+
+    box-shadow:
+        0 0 10px rgba(255,215,0,.35);
+
+}
+
+.handrail.left{
+
+    left:18px;
+
+    bottom:5px;
+
+}
+
+.handrail.right{
+
+    right:18px;
+
+    bottom:5px;
+
+}
+
+#hall-humanity::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:860px;
+
+    height:230px;
+
+    left:50%;
+
+    bottom:-150px;
+
+    transform:translateX(-50%);
+
+    background:
+
+    linear-gradient(
+
+        #E7E2D7,
+
+        #D3CCC0
+
+    );
+
+    border-radius:26px;
+
+    box-shadow:
+
+        0 10px 30px rgba(0,0,0,.18);
+
+    z-index:-1;
+
+}
+
+#hall-humanity::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:520px;
+
+    height:36px;
+
+    left:50%;
+
+    bottom:-28px;
+
+    transform:translateX(-50%);
+
+    background:
+
+    rgba(0,0,0,.18);
+
+    filter:blur(18px);
+
+    border-radius:50%;
+
+    z-index:-2;
+
+}
+
+/* ==========================
+      GRAND ENTRANCE
+========================== */
+
+.hallEntrance{
+
+    position:absolute;
+
+    width:170px;
+
+    height:115px;
+
+    left:50%;
+
+    bottom:18px;
+
+    transform:translateX(-50%);
+
+}
+
+.mainGlassDoor{
+
+    position:absolute;
+
+    left:50px;
+
+    width:70px;
+
+    height:115px;
+
+    background:linear-gradient(
+        180deg,
+        #9ddfff,
+        #4f81bd
+    );
+
+    border-radius:6px;
+
+    box-shadow:
+        inset 0 0 18px rgba(255,255,255,.5);
+
+}
+
+.sideGlass{
+
+    position:absolute;
+
+    width:40px;
+
+    height:105px;
+
+    top:5px;
+
+    background:linear-gradient(
+        #dff6ff,
+        #77b7e7
+    );
+
+}
+
+.leftGlass{
+
+    left:0;
+
+}
+
+.rightGlass{
+
+    right:0;
+
+}
+
+.pillar{
+
+    position:absolute;
+
+    width:18px;
+
+    height:145px;
+
+    background:#d4d4d4;
+
+    bottom:0;
+
+    border-radius:5px;
+
+}
+
+.leftPillar{
+
+    left:-20px;
+
+}
+
+.rightPillar{
+
+    right:-20px;
+
+}
+
+.hallMarble{
+
+    position:absolute;
+
+    left:40px;
+
+    bottom:-18px;
+
+    width:250px;
+
+    height:18px;
+
+    background:#ececec;
+
+    border-radius:3px;
+
+}
+
+.hallGoldSign{
+
+    position:absolute;
+
+    top:18px;
+
+    width:100%;
+
+    text-align:center;
+
+    color:#d6b84d;
+
+    font-size:21px;
+
+    font-weight:bold;
+
+}
+
+.hallGoldSign span{
+
+    display:block;
+
+    margin-top:6px;
+
+    color:white;
+
+    font-size:12px;
+
+}
+
+#hall-humanity .ceremonial-path{
+
+    position:absolute;
+
+    width:130px;
+
+    height:210px;
+
+    left:50%;
+
+    bottom:-175px;
+
+    transform:translateX(-50%);
+
+    background:
+    linear-gradient(
+        to bottom,
+        #F4DA84,
+        #D8B14B
+    );
+
+    border-radius:0 0 18px 18px;
+
+}
+
+.planter{
+
+    position:absolute;
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,#4FA65A,#2D6E35);
+
+    box-shadow:
+        0 8px 18px rgba(0,0,0,.20);
+
+}
+
+.planter-left{
+
+    left:120px;
+
+    bottom:-145px;
+
+}
+
+.planter-right{
+
+    right:120px;
+
+    bottom:-145px;
+
+}
+
+.hall-plaque{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:-105px;
+
+    transform:translateX(-50%);
+
+    width:280px;
+
+    padding:14px;
+
+    background:
+    linear-gradient(#D8B85A,#B88921);
+
+    color:white;
+
+    text-align:center;
+
+    border-radius:14px;
+
+    font-weight:bold;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.25);
+
+}
+
+.hall-plaque span{
+
+    display:block;
+
+    margin-top:6px;
+
+    font-size:13px;
+
+    font-weight:normal;
+
+}
+
+/*==================================
+        HALL GARDENS
+==================================*/
+
+.hallGarden{
+
+    position:absolute;
+
+    border-radius:24px;
+
+    background:
+    radial-gradient(circle at 40% 35%,
+    #7FCB6E,
+    #56A94D 55%,
+    #34763A 100%);
+
+    box-shadow:
+        inset 0 8px 12px rgba(255,255,255,.25),
+        inset 0 -12px 18px rgba(0,0,0,.20),
+        0 8px 16px rgba(0,0,0,.18);
+
+}
+
+.northGarden{
+
+    width:700px;
+    height:110px;
+
+    left:50%;
+    top:640px;
+
+    transform:translateX(-50%);
+
+}
+
+.southGarden{
+
+    width:700px;
+    height:110px;
+
+    left:50%;
+    top:1185px;
+
+    transform:translateX(-50%);
+
+}
+
+.westGarden{
+
+    width:120px;
+    height:430px;
+
+    left:540px;
+    top:760px;
+
+}
+
+.eastGarden{
+
+    width:120px;
+    height:430px;
+
+    right:540px;
+    top:760px;
+
+}
+
+.flowerBed{
+
+    position:absolute;
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,
+    #FFD85E,
+    #FF7F50,
+    #C73A2D);
+
+    box-shadow:
+
+        0 5px 12px rgba(0,0,0,.25);
+
+}
+
+.flowerA{
+
+    left:650px;
+    top:760px;
+
+}
+
+.flowerB{
+
+    right:650px;
+    top:760px;
+
+}
+
+.flowerC{
+
+    left:650px;
+    top:1120px;
+
+}
+
+.flowerD{
+
+    right:650px;
+    top:1120px;
+
+}
+
+.royalTree{
+
+    position:absolute;
+
+    width:58px;
+
+    height:58px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,
+    #4BB05A,
+    #2C7A38);
+
+    box-shadow:
+
+        0 8px 18px rgba(0,0,0,.25);
+
+}
+
+.royalTree::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:10px;
+
+    height:24px;
+
+    background:#7B4E24;
+
+    left:24px;
+
+    top:52px;
+
+}
+
+.treeA{
+
+    left:600px;
+    top:700px;
+
+}
+
+.treeB{
+
+    right:600px;
+    top:700px;
+
+}
+
+.treeC{
+
+    left:600px;
+    top:1140px;
+
+}
+
+.treeD{
+
+    right:600px;
+    top:1140px;
+
+}
+
+/* ===================================
+      LM247 AVENUE
+=================================== */
+
+#lm247Road{
+
+    position:absolute;
+
+    left:520px;
+
+    top:760px;
+
+    width:180px;
+
+    height:28px;
+
+    background:#666;
+
+    border-radius:18px;
+
+    border-top:3px solid #888;
+
+    border-bottom:3px solid #555;
+
+    z-index:3;
+
+}
+
+#lm247WalkLeft{
+
+    position:absolute;
+
+    left:760px;
+
+    top:810px;
+
+    width:380px;
+
+    height:8px;
+
+    background:#d6d1c7;
+
+}
+
+#lm247WalkRight{
+
+    position:absolute;
+
+    left:760px;
+
+    top:856px;
+
+    width:380px;
+
+    height:8px;
+
+    background:#d6d1c7;
+
+}
+
+/* Trees */
+
+.lmTree{
+
+    position:absolute;
+
+    width:16px;
+
+    height:16px;
+
+    background:#2f8b57;
+
+    border:2px solid #1b5d3d;
+
+    border-radius:50%;
+
+}
+
+.tree1{left:790px;top:792px;}
+.tree2{left:900px;top:792px;}
+.tree3{left:1010px;top:792px;}
+
+.tree4{left:790px;top:862px;}
+.tree5{left:900px;top:862px;}
+.tree6{left:1010px;top:862px;}
+
+/* Street lights */
+
+/*==================================
+        STREET LIGHTS
+==================================*/
+
+.streetLight{
+
+    position:absolute;
+
+    width:8px;
+
+    height:90px;
+
+    background:#444;
+
+    border-radius:4px;
+
+}
+
+.lampHead{
+
+    position:absolute;
+
+    top:-12px;
+
+    left:-6px;
+
+    width:20px;
+
+    height:12px;
+
+    border-radius:8px;
+
+    background:#666;
+
+}
+
+.lightGlow{
+
+    position:absolute;
+
+    top:-30px;
+
+    left:-28px;
+
+    width:64px;
+
+    height:64px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,180,1);
+
+    filter:blur(18px);
+
+    opacity:0;
+
+    transition:opacity 1.5s;
+
+    pointer-events:none;
+
+}
+
+.streetLight::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:-4px;
+
+    top:-8px;
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    background:#fff7ae;
+
+    box-shadow:0 0 12px rgba(255,245,120,.9);
+
+}
+
+.light1{
+
+    left:845px;
+
+    top:815px;
+
+}
+
+.light2{
+
+    left:955px;
+
+    top:815px;
+
+}
+
+/* Direction Sign */
+
+#lmDirection{
+
+    position:absolute;
+
+    left:860px;
+
+    top:770px;
+
+    background:white;
+
+    padding:10px 18px;
+
+    border-radius:12px;
+
+    font-weight:bold;
+
+    font-size:14px;
+
+    color:#1e3f7a;
+
+    box-shadow:0 3px 10px rgba(0,0,0,.2);
+
+}
+
+/* ======================================
+   LOCALMEDIA247 HEADQUARTERS
+====================================== */
+
+#lm247Complex{
+
+    position:absolute;
+
+    left:460px;
+
+    top:680px;
+
+    width:520px;
+
+    height:520px;
+
+    z-index:20;
+
+}
+
+/* Building */
+
+#lm247Building{
+
+    position:absolute;
+
+    left:90px;
+
+    top:0;
+
+    width:340px;
+
+    height:230px;
+
+    background:#e9e7e0;
+
+    border-radius:14px;
+
+    border:2px solid #bdb8ac;
+
+    box-shadow:0 10px 18px rgba(0,0,0,.25);
+
+}
+
+/* Roof */
+
+.roof-strip{
+
+    position:absolute;
+
+    width:100%;
+
+    height:22px;
+
+    background:#202830;
+
+    border-radius:14px 14px 0 0;
+
+}
+
+/* Title */
+
+.lm247Title{
+
+    position:absolute;
+
+    top:30px;
+
+    width:100%;
+
+    text-align:center;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    color:#008cff;
+
+    letter-spacing:1px;
+
+}
+
+.lm247Title span{
+
+    display:block;
+
+    margin-top:6px;
+
+    font-size:11px;
+
+    color:#444;
+
+}
+
+/* Glass */
+
+.glass-wall{
+
+    position:absolute;
+
+    left:30px;
+
+    bottom:18px;
+
+    width:280px;
+
+    height:120px;
+
+    background:linear-gradient(#b8e8ff,#79c4f5);
+
+    border-radius:10px;
+
+}
+
+/* Door */
+
+.glass-door{
+
+    position:absolute;
+
+    left:115px;
+
+    bottom:0;
+
+    width:50px;
+
+    height:82px;
+
+    background:#20385a;
+
+    border-radius:5px;
+
+}
+
+/* Windows */
+
+.window{
+
+    position:absolute;
+
+    width:28px;
+
+    height:28px;
+
+    background:#d8f4ff;
+
+    border-radius:4px;
+
+    top:18px;
+
+}
+
+.w1{left:15px;}
+.w2{left:70px;}
+.w3{right:70px;}
+.w4{right:15px;}
+
+/* Plaza */
+
+.plaza{
+
+    position:absolute;
+
+    left:40px;
+
+    top:250px;
+
+    width:440px;
+
+    height:170px;
+
+    background:#d9d2c6;
+
+    border-radius:18px;
+
+}
+
+/* LED Screen */
+
+.ledScreen{
+
+    position:absolute;
+
+    right:0;
+
+    top:70px;
+
+    width:130px;
+
+    height:85px;
+
+    background:#111;
+
+    color:#00ff95;
+
+    border-radius:10px;
+
+    text-align:center;
+
+    box-shadow:0 0 12px rgba(0,255,170,.5);
+
+}
+
+.ledScreen h4{
+
+    margin:8px 0 2px;
+
+    color:#ff4444;
+
+}
+
+.ledScreen p{
+
+    font-size:12px;
+
+    margin:0;
+
+}
+
+/* Flag */
+
+.flagPole{
+
+    position:absolute;
+
+    left:30px;
+
+    top:180px;
+
+    width:4px;
+
+    height:120px;
+
+    background:#777;
+
+}
+
+.flag{
+
+    position:absolute;
+
+    left:34px;
+
+    top:190px;
+
+    width:55px;
+
+    height:32px;
+
+    background:#008cff;
+
+    clip-path:polygon(0 0,100% 10%,85% 50%,100% 90%,0 100%);
+
+}
+
+/* Trees */
+
+.tree{
+
+    position:absolute;
+
+    width:28px;
+
+    height:28px;
+
+    background:#2e8b57;
+
+    border-radius:50%;
+
+    box-shadow:0 2px 4px rgba(0,0,0,.3);
+
+}
+
+.tree1{
+
+    left:110px;
+
+    top:220px;
+
+}
+
+.tree2{
+
+    right:110px;
+
+    top:220px;
+
+}
+
+/* ===========================
+   AFRICAN LANGUAGES MUSEUM
+=========================== */
+
+#africaComplex{
+
+    position:absolute;
+
+    left:300px;
+
+    top:1040px;
+
+    width:520px;
+
+    height:520px;
+
+}
+
+#africaMuseum{
+
+    position:absolute;
+
+    left:100px;
+
+    top:0;
+
+    width:320px;
+
+}
+
+.museum-plaza{
+
+    position:absolute;
+
+    left:50px;
+
+    top:260px;
+
+    width:460px;
+
+    height:220px;
+
+    background:#d9d2c6;
+
+    border-radius:16px;
+
+}
+
+.museum-path{
+
+    position:absolute;
+
+    left:180px;
+
+    top:300px;
+
+    width:220px;
+
+    height:28px;
+
+    background:#d7d0c5;
+
+    border-radius:20px;
+
+}
+
+.info-board{
+
+    position:absolute;
+
+    left:145px;
+
+    top:245px;
+
+    width:220px;
+
+    padding:12px;
+
+    background:white;
+
+    border-radius:10px;
+
+    text-align:center;
+
+    font-size:13px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.20);
+
+}
+
+/* ===========================
+   ASIAN LANGUAGES MUSEUM
+=========================== */
+
+#asiaMuseum{
+
+position:absolute;
+
+left:1810px;
+top:1220px;
+
+width:340px;
+height:220px;
+
+background:#e9e2d4;
+
+border:6px solid #c6bcaa;
+
+border-radius:12px;
+
+box-shadow:
+0 20px 40px rgba(0,0,0,.25);
+
+}
+
+/* ===========================
+   DOCUMENTARY CINEMA
+=========================== */
+
+#cinema{
+
+position:absolute;
+
+left:1330px;
+top:1820px;
+
+width:340px;
+height:220px;
+
+background:#4c5568;
+
+border-radius:16px;
+
+box-shadow:
+0 18px 35px rgba(0,0,0,.35);
+
+}
+
+/*====================================
+      GRAND ENTRANCE
+====================================*/
+
+.hall-grand-entrance{
+
+    position:relative;
+
+    width:520px;
+
+    height:220px;
+
+    margin:0 auto;
+
+}
+
+/*====================================*/
+
+.entrance-terrace{
+
+    position:absolute;
+
+    top:0;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:440px;
+
+    height:70px;
+
+    background:linear-gradient(
+        to bottom,
+        #F5F5F5,
+        #DADADA
+    );
+
+    border-radius:10px;
+
+    box-shadow:
+        inset 0 4px rgba(255,255,255,.9),
+        0 12px 25px rgba(0,0,0,.18);
+
+}
+
+/*==================================
+      WORLD LANGUAGES FLAME
+==================================*/
+
+#eternalFlame{
+
+    position:absolute;
+
+    left:50%;
+
+    top:520px;
+
+    transform:translateX(-50%);
+
+    width:90px;
+
+    height:130px;
+
+    z-index:60;
+
+}
+
+.flame-base{
+
+    position:absolute;
+
+    bottom:0;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:70px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    background:
+
+        linear-gradient(
+            #666,
+            #2E2E2E
+        );
+
+    box-shadow:
+
+        0 8px 18px rgba(0,0,0,.25);
+
+}
+
+.flame{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:28px;
+
+    transform:translateX(-50%);
+
+    width:34px;
+
+    height:60px;
+
+    border-radius:
+
+        50% 50%
+
+        60% 60%
+
+        50% 50%;
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            #FFFAC8 0%,
+
+            #FFD500 30%,
+
+            #FF8800 65%,
+
+            #D00000 100%
+
+        );
+
+    animation:
+
+        flameDance
+
+        1.2s infinite alternate;
+
+    filter:
+
+        drop-shadow(
+
+            0 0 18px gold
+
+        );
+
+}
+
+@keyframes flameDance{
+
+    from{
+
+        transform:
+
+            translateX(-50%)
+
+            scaleY(1);
+
+    }
+
+    to{
+
+        transform:
+
+            translateX(-50%)
+
+            scaleY(1.18)
+
+            rotate(2deg);
+
+    }
+
+}
+
+/*==================================
+      GRAND ENTRANCE DISTRICT
+==================================*/
+
+.grand-entrance{
+
+    position:absolute;
+
+    width:900px;
+
+    height:620px;
+
+    left:50%;
+
+    top:2380px;
+
+    transform:translateX(-50%);
+
+}
+
+/* Museum Sign */
+
+.museum-sign{
+
+position:absolute;
+
+top:35px;
+
+left:150px;
+
+width:600px;
+
+height:90px;
+
+background:white;
+
+border-radius:12px;
+
+text-align:center;
+
+padding-top:12px;
+
+box-shadow:0 5px 18px rgba(0,0,0,.2);
+
+}
+
+.museum-sign h2{
+
+margin:0;
+
+font-size:36px;
+
+letter-spacing:5px;
+
+}
+
+.museum-sign p{
+
+margin-top:8px;
+
+font-size:18px;
+
+color:#666;
+
+}
+
+
+/* Entrance Road */
+
+.entrance-road{
+
+position:absolute;
+
+left:420px;
+
+top:125px;
+
+width:60px;
+
+height:395px;
+
+background:#555;
+
+}
+
+
+/* Visitor Centre */
+
+.visitor-centre{
+
+position:absolute;
+
+left:280px;
+
+top:185px;
+
+width:340px;
+
+height:120px;
+
+background:#efe9dc;
+
+border-radius:10px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:26px;
+
+font-weight:bold;
+
+box-shadow:0 6px 18px rgba(0,0,0,.2);
+
+}
+
+
+/* Security */
+
+.security-left,
+.security-right{
+
+position:absolute;
+
+width:55px;
+
+height:55px;
+
+background:#888;
+
+top:340px;
+
+}
+
+.security-left{
+
+left:220px;
+
+}
+
+.security-right{
+
+right:220px;
+
+}
+
+
+/* Flags */
+
+.flag-row{
+
+position:absolute;
+
+bottom:40px;
+
+left:180px;
+
+display:flex;
+
+gap:95px;
+
+}
+
+.flag{
+
+width:8px;
+
+height:80px;
+
+background:#666;
+
+position:relative;
+
+}
+
+.flag::after{
+
+content:"";
+
+position:absolute;
+
+left:8px;
+
+top:5px;
+
+width:45px;
+
+height:22px;
+
+background:#d11;
+
+}
+
+/*==================================================
+    CONTINENTAL MUSEUM COMPLEX
+==================================================*/
+
+.museum-complex{
+
+    position:absolute;
+
+    width:520px;
+    height:520px;
+
+}
+
+/*==================================
+      LIVING LANGUAGES GARDEN
+==================================*/
+
+#livingGarden{
+
+    position:absolute;
+
+    left:50%;
+
+    top:850px;
+
+    transform:translateX(-50%);
+
+    width:1800px;
+
+    height:1200px;
+
+    border-radius:80px;
+
+    background:
+
+        radial-gradient(
+
+            circle at center,
+
+            #8DC77B 0%,
+
+            #74B45E 55%,
+
+            #5F994B 100%
+
+        );
+
+    box-shadow:
+
+        inset 0 0 80px rgba(255,255,255,.12),
+
+        inset 0 -50px 90px rgba(0,0,0,.15);
+
+}
+
+.gardenPath{
+
+    position:absolute;
+
+    left:50%;
+
+    top:120px;
+
+    width:1200px;
+
+    height:140px;
+
+    transform:
+
+        translateX(-50%)
+
+        rotate(-4deg);
+
+    background:
+
+        #D9CFB6;
+
+    border-radius:90px;
+
+    box-shadow:
+
+        inset 0 6px rgba(255,255,255,.45),
+
+        0 12px 25px rgba(0,0,0,.15);
+
+}
+
+#treeOfHumanitySite{
+
+    position:absolute;
+
+    left:50%;
+
+    top:420px;
+
+    transform:translateX(-50%);
+
+    width:220px;
+
+    height:220px;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            rgba(139,69,19,.35),
+
+            rgba(0,0,0,0)
+
+        );
+
+    border:
+
+        5px dashed rgba(255,255,255,.35);
+
+}
+
+#igedeTreeSite{
+
+    position:absolute;
+
+    left:420px;
+
+    top:520px;
+
+    width:120px;
+
+    height:120px;
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            rgba(34,139,34,.45),
+
+            transparent
+
+        );
+
+    border:
+
+        3px solid rgba(255,255,255,.35);
+
+}
+
+/*==================================================
+    AFRICAN COMPLEX
+==================================================*/
+
+#africaComplex{
+
+    left:360px;
+    top:1180px;
+
+}
+
+
+/*==================================================*
+*ASIAN COMPLEX*
+*==================================================*/
+
+#asiaComplex{
+
+    position:absolute;
+
+    left:2150px;
+    top:850px;
+
+}
+
+
+/*==================================================
+    MAIN MUSEUM BUILDINGS
+==================================================*/
+
+#africaMuseum,
+#asiaMuseum{
+
+    position:absolute;
+
+    left:100px;
+    top:0;
+
+    width:320px;
+    height:240px;
+
+}
+
+
+/*==================================================
+    BUILDING TITLES
+==================================================*/
+
+.museum-name,
+.asia-name{
+
+    text-align:center;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    margin-bottom:8px;
+
+}
+
+.asia-name{
+
+    color:#6b2233;
+
+}
+
+
+/*==================================================
+    ROOFS
+==================================================*/
+
+.museum-roof{
+
+    height:30px;
+
+    background:#505050;
+
+    border-radius:18px 18px 0 0;
+
+}
+
+.asia-roof{
+
+    height:36px;
+
+    background:#7b1d30;
+
+    border-radius:28px 28px 0 0;
+
+}
+
+
+/*==================================================
+    BUILDING BODY
+==================================================*/
+
+.museum-body,
+.asia-body{
+
+    height:170px;
+
+    border:5px solid #cfc8bc;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.museum-body{
+
+    background:#efe7d8;
+
+}
+
+.asia-body{
+
+    background:#f7f3ec;
+
+}
+
+
+/*==================================================
+    WINDOWS
+==================================================*/
+
+.museum-windows,
+.asia-windows{
+
+    display:flex;
+
+    gap:18px;
+
+    margin-top:18px;
+
+}
+
+.museum-window,
+.asia-window{
+
+    width:34px;
+    height:48px;
+
+    border:3px solid #666;
+
+}
+
+.museum-window{
+
+    background:linear-gradient(#8fd2ff,#58a5e2);
+
+}
+
+.asia-window{
+
+    background:linear-gradient(#bfe8ff,#71bef5);
+
+}
+
+
+/*==================================================
+    DOORS
+==================================================*/
+
+.museum-door{
+
+    width:60px;
+    height:82px;
+
+    margin-top:24px;
+
+    border-radius:8px 8px 0 0;
+
+    background:linear-gradient(#5b6f8d,#314665);
+
+}
+
+.asia-door{
+
+    width:64px;
+    height:82px;
+
+    margin-top:24px;
+
+    border-radius:12px 12px 0 0;
+
+    background:#5b2431;
+
+}
+
+
+/*==================================================
+    STEPS
+==================================================*/
+
+.museum-steps,
+.asia-steps{
+
+    width:180px;
+    height:24px;
+
+    margin:auto;
+
+    background:#cccccc;
+
+    border-radius:0 0 8px 8px;
+
+}
+
+
+/*==================================================
+    FORECOURT
+==================================================*/
+
+.museum-plaza{
+
+    position:absolute;
+
+    left:50px;
+    top:260px;
+
+    width:420px;
+    height:180px;
+
+    background:#ddd5c8;
+
+    border-radius:14px;
+
+}
+
+
+/*==================================================
+    WALKWAY
+==================================================*/
+
+.museum-path{
+
+    position:absolute;
+
+    left:180px;
+    top:300px;
+
+    width:160px;
+    height:28px;
+
+    background:#d7d0c5;
+
+    border-radius:20px;
+
+    box-shadow:0 3px 10px rgba(0,0,0,.20);
+
+}
+
+
+/*==================================================
+    INFORMATION BOARD
+==================================================*/
+
+.info-board{
+
+    position:absolute;
+
+    left:160px;
+    top:250px;
+
+    width:190px;
+
+    padding:12px;
+
+    background:white;
+
+    border-radius:10px;
+
+    text-align:center;
+
+    font-size:13px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.20);
+
+}
+
+/*======================================
+        GLOBAL LIGHTING ENGINE
+======================================*/
+
+#campus{
+
+    transition:
+        background 2.8s ease,
+        filter 2.8s ease,
+        box-shadow 2.8s ease;
+
+    filter:var(--campus-tone, none);
+
+}
+
+/*==================================
+    NIGHT LIGHTING
+==================================*/
+
+#campus.night .lightGlow{
+
+    opacity:1;
+
+}
+
+#campus.day .lightGlow,
+
+#campus.morning .lightGlow,
+
+#campus.evening .lightGlow{
+
+    opacity:0;
+
+}
+
+/*====================================
+        SKY LIGHTING ENGINE
+====================================*/
+
+#skyOverlay{
+
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background:var(--sky-darkness);
+    transition:background 2.8s ease, opacity 2.8s ease;
+    z-index:500;
+
+}
+
+/* The overlay is deliberately a soft atmosphere, not a hard dark layer. */
+#campus.day ~ #skyOverlay{
+    opacity:.28;
+}
+
+#campus.night ~ #skyOverlay{
+    opacity:1;
+}
+
+:root{
+
+    --sky-darkness:rgba(0,0,0,0);
+
+    --wind:0;
+
+}
+
+/*==================================
+    CLICKABLE BUILDINGS
+==================================*/
+
+.building-focus-target{
+
+    cursor:pointer;
+
+    transition:
+        filter .25s ease,
+        transform .25s ease;
+
+}
+
+.building-focus-target:hover{
+
+    filter:brightness(1.08);
+
+}
+
+.building-focus-target:focus-visible{
+
+    outline:3px solid rgba(255,215,106,.95);
+    outline-offset:6px;
+
+}
+
+.flyTarget{
+
+    cursor:pointer;
+
+    transition:transform .25s ease,
+               filter .25s ease;
+
+}
+
+.flyTarget:hover{
+
+    filter:brightness(1.08);
+
+}
+
+/*==================================
+        GRAND PLAZA
+==================================*/
+
+#grandPlaza{
+
+    position:absolute;
+
+    width:760px;
+
+    height:620px;
+
+    left:50%;
+
+    top:1080px;
+
+    transform:translateX(-50%);
+
+    border-radius:40px;
+
+    background:
+    radial-gradient(
+
+        circle,
+
+        #D9D4C8 0%,
+
+        #CFC7B8 60%,
+
+        #C5BBAA 100%
+
+    );
+
+    box-shadow:
+        inset 0 0 30px rgba(255,255,255,.4),
+        inset 0 -15px 20px rgba(0,0,0,.08);
+
+}
+
+/*==================================
+        GRAND PLAZA
+==================================*/
+
+#grandPlaza{
+
+    position:absolute;
+
+    width:900px;
+
+    height:650px;
+
+    left:50%;
+
+    top:1090px;
+
+    transform:translateX(-50%);
+
+}
+
+/*====================*/
+
+.plazaCircle{
+
+    position:absolute;
+
+    width:520px;
+
+    height:520px;
+
+    left:190px;
+
+    top:60px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+
+        circle,
+
+        #EFE8D9 0%,
+
+        #DDD2BE 70%,
+
+        #CFC3AF 100%
+
+    );
+
+    border:12px solid #BDAF98;
+
+    box-shadow:
+
+    inset 0 0 40px rgba(255,255,255,.5),
+
+    inset 0 -15px 25px rgba(0,0,0,.08);
+
+}
+
+/*====================*/
+
+.flowerBed{
+
+    position:absolute;
+
+    background:#5EAF5E;
+
+    border:6px solid #2D7A2D;
+
+    box-shadow:0 8px 12px rgba(0,0,0,.15);
+
+}
+
+.flowerTop{
+
+    width:280px;
+
+    height:70px;
+
+    left:310px;
+
+    top:5px;
+
+    border-radius:70px;
+
+}
+
+.flowerBottom{
+
+    width:280px;
+
+    height:70px;
+
+    left:310px;
+
+    bottom:5px;
+
+    border-radius:70px;
+
+}
+
+.flowerLeft{
+
+    width:70px;
+
+    height:260px;
+
+    left:15px;
+
+    top:190px;
+
+    border-radius:70px;
+
+}
+
+.flowerRight{
+
+    width:70px;
+
+    height:260px;
+
+    right:15px;
+
+    top:190px;
+
+    border-radius:70px;
+
+}
+
+/*====================*/
+
+.bench{
+
+    position:absolute;
+
+    width:90px;
+
+    height:18px;
+
+    background:#704D28;
+
+    border-radius:8px;
+
+}
+
+.bench1{
+
+    left:190px;
+
+    top:180px;
+
+}
+
+.bench2{
+
+    right:190px;
+
+    top:180px;
+
+}
+
+.bench3{
+
+    left:190px;
+
+    bottom:180px;
+
+}
+
+.bench4{
+
+    right:190px;
+
+    bottom:180px;
+
+}
+
+/*====================*/
+
+.lamp{
+
+    position:absolute;
+
+    width:8px;
+
+    height:70px;
+
+    background:#444;
+
+}
+
+.lamp::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:24px;
+
+    height:24px;
+
+    left:-8px;
+
+    top:-18px;
+
+    border-radius:50%;
+
+    background:#FFE78A;
+
+    box-shadow:
+
+    0 0 25px rgba(255,235,120,.7);
+
+}
+
+.lamp1{
+
+    left:145px;
+
+    top:140px;
+
+}
+
+.lamp2{
+
+    right:145px;
+
+    top:140px;
+
+}
+
+.lamp3{
+
+    left:145px;
+
+    bottom:140px;
+
+}
+
+.lamp4{
+
+    right:145px;
+
+    bottom:140px;
+
+}
+
+/*====================*/
+
+.directionSign{
+
+    position:absolute;
+
+    background:white;
+
+    padding:12px 18px;
+
+    border-radius:10px;
+
+    font-weight:bold;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.18);
+
+}
+
+.signNorth{
+
+    left:350px;
+
+    top:85px;
+
+}
+
+.signSouth{
+
+    left:330px;
+
+    bottom:85px;
+
+}
+
+/*==================================
+        HERITAGE MONUMENT
+==================================*/
+
+#heritageMonument{
+
+    position:absolute;
+
+    left:50%;
+
+    top:170px;
+
+    transform:translateX(-50%);
+
+    width:230px;
+
+    z-index:30;
+
+}
+
+/*------------------------------*/
+
+.monumentGlobe{
+
+    width:90px;
+
+    height:90px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(circle at 35% 35%,
+        #FFD766,
+        #C7901D 70%,
+        #8B5E00);
+
+    border:5px solid #E9D6A3;
+
+    box-shadow:
+        0 0 25px rgba(255,215,100,.45);
+
+}
+
+/*------------------------------*/
+
+.monumentBody{
+
+    margin-top:-10px;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #F5F2EA,
+            #D8D1C5
+        );
+
+    border:5px solid #A58A55;
+
+    text-align:center;
+
+    box-shadow:
+        0 12px 20px rgba(0,0,0,.18);
+
+}
+
+.monumentBody h2{
+
+    margin:0;
+
+    color:#7B5A10;
+
+    font-size:22px;
+
+    letter-spacing:1px;
+
+}
+
+.monumentBody p{
+
+    margin:10px 0;
+
+    font-size:14px;
+
+    color:#444;
+
+    line-height:1.4;
+
+}
+
+.monumentBody span{
+
+    display:block;
+
+    margin-top:10px;
+
+    font-size:12px;
+
+    color:#666;
+
+}
+
+@keyframes treeWind{
+
+0%{
+
+transform:rotate(-1deg);
+
+}
+
+50%{
+
+transform:rotate(1deg);
+
+}
+
+100%{
+
+transform:rotate(-1deg);
+
+}
+
+}
+
+/*=====================================
+        MUSEUM PANEL
+======================================*/
+
+#museumPanel{
+
+    position:absolute;
+
+    top:50%;
+
+    right:40px;
+
+    transform:translateY(-50%);
+
+    width:340px;
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+
+    z-index:5000;
+
+    display:none;
+
+}
+
+#museumPanelHeader{
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    margin-bottom:18px;
+
+}
+
+#museumPanelBody{
+
+    font-size:17px;
+
+    line-height:1.7;
+
+    color:#444;
+
+}
+
+#enterMuseum{
+
+    margin-top:25px;
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#0b6d3a;
+
+    color:white;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+}
+
+#enterMuseum:hover{
+
+    background:#09592f;
+
+}
+
+/*======================================
+            TREES
+======================================*/
+
+.tree{
+
+    position:absolute;
+
+    width:46px;
+    height:70px;
+
+    pointer-events:none;
+
+}
+
+.treeCrown{
+
+    width:46px;
+    height:46px;
+
+    border-radius:50%;
+
+    background:#4CAF50;
+
+    box-shadow:
+        inset -6px -6px 10px rgba(0,0,0,.18),
+        0 6px 10px rgba(0,0,0,.25);
+
+}
+
+.treeTrunk{
+
+    width:8px;
+    height:26px;
+
+    background:#6D4C41;
+
+    margin:auto;
+
+}
+
+/*======================================*
+  CONTINENTAL LANGUAGES MUSEUMS
+*======================================*/
+
+.continental-museum {
+
+    position: absolute;
+
+    width: 500px;
+    height: 430px;
+
+    z-index: 8;
+
+}
+
+
+/*======================================*
+  BUILDING
+*======================================*/
+
+.continental-museum > div[id$="Museum"] {
+
+    position: absolute;
+
+    width: 330px;
+    height: 230px;
+
+    left: 85px;
+    top: 40px;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #eee4cf 0%,
+            #d4c2a0 100%
+        );
+
+    border: 4px solid #8b6b2e;
+
+    box-shadow:
+        0 12px 25px rgba(0,0,0,.30);
+
+}
+
+
+/*======================================*
+  BUILDING TITLE
+*======================================*/
+
+.continental-title {
+
+    position: absolute;
+
+    top: 18px;
+    left: 0;
+
+    width: 100%;
+
+    text-align: center;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 21px;
+
+    font-weight: bold;
+
+    color: #f4d27a;
+
+    text-shadow:
+        2px 2px 4px #000;
+
+    z-index: 4;
+
+}
+
+
+/*======================================*
+  ROOF
+*======================================*/
+
+.continental-roof {
+
+    position: absolute;
+
+    left: -15px;
+    top: -28px;
+
+    width: 360px;
+    height: 70px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #b8892d,
+            #6d4818
+        );
+
+    clip-path:
+        polygon(
+            50% 0,
+            100% 100%,
+            0 100%
+        );
+
+    border-top:
+        4px solid #f1cd6a;
+
+}
+
+
+/*======================================*
+  BUILDING BODY
+*======================================*/
+
+.continental-body {
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 190px;
+
+}
+
+
+/*======================================*
+  WINDOWS
+*======================================*/
+
+.continental-windows {
+
+    position: absolute;
+
+    top: 42px;
+    left: 28px;
+
+    display: flex;
+
+    gap: 18px;
+
+}
+
+
+.continental-window {
+
+    width: 48px;
+    height: 72px;
+
+    border-radius:
+        24px 24px 4px 4px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dff7ff,
+            #6ea8c8
+        );
+
+    border: 3px solid #6f5425;
+
+    box-shadow:
+        inset 0 0 10px
+        rgba(255,255,255,.55);
+
+}
+
+
+/*======================================*
+  DOOR
+*======================================*/
+
+.continental-door {
+
+    position: absolute;
+
+    width: 58px;
+    height: 88px;
+
+    left: 136px;
+    bottom: 0;
+
+    background:
+        linear-gradient(
+            to right,
+            #553918,
+            #b98b3b,
+            #553918
+        );
+
+    border:
+        3px solid #3d2813;
+
+    border-radius:
+        8px 8px 0 0;
+
+}
+
+
+/*======================================*
+  STEPS
+*======================================*/
+
+.continental-steps {
+
+    position: absolute;
+
+    width: 100px;
+    height: 28px;
+
+    left: 115px;
+    bottom: -28px;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            #d8d0bf 0,
+            #d8d0bf 7px,
+            #a69c89 8px,
+            #a69c89 10px
+        );
+
+    border:
+        2px solid #766d5d;
+
+}
+
+
+/*======================================*
+  PLAZA
+*======================================*/
+
+.continental-museum
+.museum-plaza {
+
+    position: absolute;
+
+    width: 430px;
+    height: 120px;
+
+    left: 35px;
+    bottom: 15px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            #c9c1ad,
+            #9d947f
+        );
+
+    opacity: .85;
+
+    z-index: -1;
+
+}
+
+
+/*======================================*
+  WALKWAY
+*======================================*/
+
+.continental-museum
+.museum-path {
+
+    position: absolute;
+
+    width: 95px;
+    height: 150px;
+
+    left: 202px;
+    bottom: -105px;
+
+    background:
+        linear-gradient(
+            to right,
+            #cfc7b5,
+            #aaa08d
+        );
+
+    border-left:
+        2px solid #827866;
+
+    border-right:
+        2px solid #827866;
+
+}
+
+
+/*======================================*
+  INFORMATION BOARD
+*======================================*/
+
+.continental-museum
+.info-board {
+
+    position: absolute;
+
+    width: 180px;
+
+    right: -70px;
+    top: 100px;
+
+    padding: 12px 14px;
+
+    background:
+        rgba(30,30,25,.88);
+
+    color: #f4e3b0;
+
+    border:
+        2px solid #c99b35;
+
+    border-radius: 8px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 13px;
+
+    line-height: 1.45;
+
+    box-shadow:
+        0 6px 15px
+        rgba(0,0,0,.35);
+
+}
+
+
+/*======================================*
+  BUILDING POSITIONS
+*======================================*/
+
+/*
+   These are intentionally separated
+   from the building styling.
+
+   We can reposition the museums later
+   without rewriting their design.
+*/
+
+
+#europeComplex {
+
+    left: 1250px;
+    top: 450px;
+
+}
+
+#americasComplex {
+
+    left: 350px;
+    top: 1750px;
+
+}
+
+#oceaniaComplex {
+
+    left: 2150px;
+    top: 1450px;
+
+}
+
+/*====================================================*
+  OCEANIA → REFLECTION GARDEN WALKWAY
+*====================================================*/
+
+.oceania-path {
+
+    position: absolute;
+
+    /*
+      The walkway begins beneath the
+      Oceania Languages Museum and
+      extends toward the Reflection Garden.
+    */
+
+    left: 50%;
+
+    top: 430px;
+
+    width: 92px;
+
+    height: 250px;
+
+    transform:
+        translateX(-50%)
+        rotate(-2deg);
+
+
+    /*
+      Museum-quality stone pathway
+    */
+
+    background:
+
+        repeating-linear-gradient(
+            to bottom,
+            #c9c0a8 0px,
+            #c9c0a8 22px,
+            #aaa18d 23px,
+            #aaa18d 26px
+        );
+
+
+    border-left:
+        4px solid rgba(
+            94,
+            87,
+            72,
+            0.55
+        );
+
+    border-right:
+        4px solid rgba(
+            94,
+            87,
+            72,
+            0.55
+        );
+
+
+    border-radius:
+        46px 46px 28px 28px;
+
+
+    box-shadow:
+
+        0 8px 16px rgba(
+            0,
+            0,
+            0,
+            0.25
+        ),
+
+        inset 4px 0 8px rgba(
+            255,
+            255,
+            255,
+            0.20
+        ),
+
+        inset -4px 0 8px rgba(
+            0,
+            0,
+            0,
+            0.12
+        );
+
+
+    z-index: 40;
+
+    pointer-events: none;
+}
+
+
+/*====================================================*
+  WALKWAY INNER LIGHT
+*====================================================*/
+
+.oceania-path::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 10px;
+
+    transform: translateX(-50%);
+
+    width: 58px;
+
+    height: calc(100% - 20px);
+
+
+    background:
+
+        repeating-linear-gradient(
+            to bottom,
+            rgba(244, 239, 220, 0.65) 0px,
+            rgba(244, 239, 220, 0.65) 20px,
+            rgba(185, 177, 155, 0.45) 21px,
+            rgba(185, 177, 155, 0.45) 24px
+        );
+
+
+    border-radius: 30px;
+
+    opacity: 0.65;
+
+    pointer-events: none;
+}
+
+
+/*====================================================*
+  WALKWAY ENTRY CAP
+*====================================================*/
+
+.oceania-path::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: -8px;
+
+    transform: translateX(-50%);
+
+    width: 108px;
+
+    height: 22px;
+
+    border-radius: 50%;
+
+
+    background:
+        linear-gradient(
+            180deg,
+            #d8cfb5,
+            #aaa18b
+        );
+
+
+    box-shadow:
+        0 5px 10px rgba(
+            0,
+            0,
+            0,
+            0.25
+        );
+
+
+    pointer-events: none;
+}
+
+/* =====================================================
+   V5.2 — LIVING LANDSCAPE
+   ===================================================== */
+
+#museum-landscape-layer {
+    overflow: visible;
+}
+
+.landscape-tree {
+    transform-box: fill-box;
+    transform-origin: center bottom;
+}
+
+.landscape-flower-bed {
+    filter: drop-shadow(
+        0 4px 5px rgba(0,0,0,.16)
+    );
+}
+
+/* =========================================================
+   VOICES OF HUMANITY — VISUAL ENVIRONMENT UPDATE
+   First-pass refinement
+   ========================================================= */
+
+/* Keep the world surrounded by living green landscape when
+   the 3000px campus is viewed from farther out. */
+#viewport{
+    background:#5f8f52;
+}
+
+/* Asian Museum forecourt refinement.
+   The existing HTML already contains .asia-plaza and .asia-path,
+   so no new markup is required. */
+#asiaComplex .asia-plaza{
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            #f1eadc 0%,
+            #ddd2bf 62%,
+            #c8baa4 100%
+        );
+    border:8px solid #b9aa91;
+    border-radius:24px;
+    box-shadow:
+        inset 0 0 28px rgba(255,255,255,.45),
+        inset 0 -12px 18px rgba(0,0,0,.10),
+        0 14px 28px rgba(0,0,0,.16);
+}
+
+#asiaComplex .asia-path{
+    width:220px;
+    height:34px;
+    left:150px;
+    top:326px;
+    background:
+        linear-gradient(
+            to bottom,
+            #eee8dc,
+            #cec5b7
+        );
+    border:2px solid rgba(120,105,85,.25);
+    box-shadow:
+        0 4px 10px rgba(0,0,0,.18),
+        inset 0 2px 3px rgba(255,255,255,.65);
+}
+
+/* Give the Asian museum a stronger visual presence without
+   changing its established position or road geometry. */
+#asiaComplex #asiaMuseum{
+    /* Keep the museum anchored to its complex. The road is moved behind it;
+       the building itself must never be shifted to accommodate the road. */
+    left:100px;
+    top:0;
+    filter:drop-shadow(0 12px 14px rgba(0,0,0,.18));
+}
+
+#asiaComplex .asia-name{
+    text-shadow:0 2px 4px rgba(0,0,0,.16);
+}
+
+/* A little more depth around the entrance steps. */
+#asiaComplex .asia-steps{
+    box-shadow:
+        0 5px 8px rgba(0,0,0,.18),
+        inset 0 2px 2px rgba(255,255,255,.55);
+}
+
+/* ==================================================
+   IGEDE LANGUAGE LEARNING CENTRE
+   Scoped exclusively to the African Languages Museum
+================================================== */
+
+.igede-learning-exhibit{
+    position:absolute;
+    left:110px;
+    top:350px;
+    width:300px;
+    min-height:102px;
+    padding:13px 15px 12px;
+    display:block;
+    box-sizing:border-box;
+    border-radius:14px;
+    text-decoration:none;
+    background:linear-gradient(145deg, rgba(73,53,31,.97), rgba(38,30,21,.97));
+    border:1px solid rgba(255,215,145,.38);
+    box-shadow:0 10px 22px rgba(0,0,0,.22);
+    color:#fff;
+    z-index:8;
+}
+
+.igede-learning-kicker{
+    display:block;
+    font-size:8px;
+    letter-spacing:1.6px;
+    font-weight:700;
+    color:#e7c98d;
+    margin-bottom:4px;
+}
+
+.igede-learning-title{
+    display:block;
+    font-size:17px;
+    line-height:1.15;
+    font-weight:700;
+    margin-bottom:5px;
+}
+
+.igede-learning-text{
+    display:block;
+    font-size:10px;
+    line-height:1.35;
+    color:rgba(255,255,255,.80);
+}
+
+.igede-learning-meta{
+    display:inline-block;
+    margin-top:6px;
+    font-size:8px;
+    color:rgba(255,255,255,.55);
+}
+
+.igede-learning-button{
+    float:right;
+    margin-top:5px;
+    padding:6px 9px;
+    border-radius:999px;
+    background:#e3b85b;
+    color:#2c2114;
+    font-size:9px;
+    font-weight:700;
+}
+
+.igede-learning-exhibit:hover{
+    transform:translateY(-2px);
+    box-shadow:0 13px 25px rgba(0,0,0,.28);
+}
+
+#campus.night .igede-learning-exhibit{
+    background:linear-gradient(145deg, rgba(34,27,20,.98), rgba(18,16,14,.98));
+    border-color:rgba(255,211,125,.30);
+}
+
+/* =========================================================
+   NIGHT PLAZA ATMOSPHERE — CURVED LIGHT FALL-OFF
+   Soft circular illumination replaces the squared night feel.
+   ========================================================= */
+
+#viewport{
+    background:#29452f;
+}
+
+#skyOverlay{
+    background:var(--sky-darkness);
+}
+
+#grandPlaza{
+    position:relative;
+    z-index:10;
+}
+
+#grandPlaza::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:108%;
+    height:112%;
+    transform:translate(-50%,-50%);
+    border-radius:50%;
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255,220,145,.30) 0%,
+            rgba(255,210,120,.18) 30%,
+            rgba(255,205,105,.09) 52%,
+            rgba(255,205,105,0) 76%
+        );
+    filter:blur(18px);
+    opacity:0;
+    pointer-events:none;
+    z-index:-1;
+    transition:opacity:2s ease;
+}
+
+#campus.night #grandPlaza::before{
+    opacity:1;
+}
+
+#campus.night #grandPlaza .plazaCircle{
+    box-shadow:
+        inset 0 0 40px rgba(255,255,255,.32),
+        inset 0 -15px 25px rgba(0,0,0,.10),
+        0 0 42px rgba(255,210,120,.20);
+}
+
+#campus.night .museum-plaza{
+    box-shadow:
+        0 0 30px rgba(255,210,125,.10),
+        0 8px 18px rgba(0,0,0,.28);
+}
+
+
+/* =========================================================
+   DAY / NIGHT EXPERIENCE CONTROL
+   ========================================================= */
+
+#dayNightControl{
+    position:fixed;
+    top:20px;
+    right:22px;
+    z-index:10000;
+    text-align:right;
+    font-family:Arial, Helvetica, sans-serif;
+    pointer-events:auto;
+}
+
+#dayNightToggle{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    border:1px solid rgba(255,255,255,.28);
+    border-radius:999px;
+    padding:9px 13px;
+    background:rgba(255,255,255,.88);
+    color:#263323;
+    box-shadow:0 8px 24px rgba(0,0,0,.18);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    cursor:pointer;
+    transition:background 1.2s ease, color 1.2s ease, border-color 1.2s ease, box-shadow 1.2s ease;
+}
+
+#dayNightToggle .timeIcon{
+    font-size:15px;
+    opacity:.58;
+}
+
+#dayNightToggle .nightIcon{
+    font-size:17px;
+}
+
+#dayNightToggle .timeLabel{
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1px;
+    opacity:.42;
+    transition:opacity .8s ease;
+}
+
+#dayNightToggle .timeLabel.active{
+    opacity:1;
+}
+
+#dayNightToggle .timeDivider{
+    opacity:.25;
+}
+
+#dayNightToggle.is-night{
+    background:rgba(16,24,39,.82);
+    color:#fff4d2;
+    border-color:rgba(255,220,145,.26);
+    box-shadow:0 8px 30px rgba(0,0,0,.35), 0 0 22px rgba(255,205,115,.08);
+}
+
+#dayNightToggle:hover{
+    transform:translateY(-1px);
+}
+
+#timeHint{
+    margin-top:6px;
+    margin-right:5px;
+    color:rgba(255,255,255,.78);
+    font-size:9px;
+    letter-spacing:.2px;
+    text-shadow:0 1px 4px rgba(0,0,0,.45);
+    transition:color 1s ease;
+}
+
+/* Day feels open and sunlit. Night feels deeper, warmer and quieter. */
+#campus.day{
+    /* Keep the campus itself as the natural green ground.  The circular
+       promenade is drawn as a separate layer so it cannot inherit a
+       rectangular campus boundary. */
+    background:#7DBB63;
+    box-shadow:inset 0 0 0 9999px rgba(255,255,255,.015);
+}
+
+/* Soft forest fall-off outside the central clearing. */
+#campus.day::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+    background:
+        radial-gradient(
+            ellipse 50% 43% at 50% 47%,
+            rgba(255,255,255,0) 0%,
+            rgba(255,255,255,0) 45%,
+            rgba(44,78,43,.035) 55%,
+            rgba(31,61,34,.10) 68%,
+            rgba(22,48,29,.20) 82%,
+            rgba(15,37,24,.34) 100%
+        );
+    pointer-events:none;
+}
+
+/* The complete circular/elliptical promenade. */
+#campus.day::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:1415px;
+    width:1120px;
+    height:900px;
+    transform:translate(-50%,-50%);
+    border-radius:50%;
+    border:72px solid rgba(151,194,104,.48);
+    box-shadow:
+        inset 0 0 0 2px rgba(255,255,255,.16),
+        0 0 0 3px rgba(70,105,57,.12),
+        0 0 34px rgba(36,67,37,.16);
+    background:transparent;
+    pointer-events:none;
+    z-index:1;
+}
+
+/* The original plaza was carrying a large rectangular background.  The
+   plaza circle already provides the intended central hardscape, so remove
+   the rectangle and let the promenade wrap around it. */
+#campus.day #grandPlaza{
+    background:transparent;
+    box-shadow:none;
+}
+
+#campus.night{
+    box-shadow:inset 0 0 0 9999px rgba(4,10,25,.045);
+}
+
+#campus.day .museum-plaza,
+#campus.day #heritage-square{
+    box-shadow:0 8px 20px rgba(0,0,0,.13);
+}
+
+#campus.night .museum-plaza,
+#campus.night #heritage-square{
+    box-shadow:0 0 30px rgba(255,210,125,.10), 0 12px 24px rgba(0,0,0,.34);
+}
+
+@media (max-width:700px){
+    #dayNightControl{
+        top:12px;
+        right:12px;
+    }
+    #timeHint{
+        display:none;
+    }
+}
+
+/* =========================================================
+   HALL OF HUMANITY — ARCHITECTURAL REALISM PASS v1
+   Visual-only refinement. Position and interactions unchanged.
+   ========================================================= */
+
+#hall-humanity{
+    perspective:1400px;
+}
+
+#hall-humanity .hall-title{
+    position:relative;
+    z-index:12;
+    letter-spacing:3px;
+    text-shadow:0 1px 0 rgba(255,255,255,.95), 0 4px 8px rgba(0,0,0,.16);
+}
+
+#hall-humanity .hall-roof{
+    position:relative;
+    z-index:4;
+    height:82px;
+    background:
+        repeating-linear-gradient(
+            90deg,
+            rgba(255,255,255,.07) 0,
+            rgba(255,255,255,.07) 3px,
+            rgba(0,0,0,.035) 3px,
+            rgba(0,0,0,.035) 16px
+        ),
+        linear-gradient(180deg,#777b80 0%,#5d6166 58%,#41454a 100%);
+    border-radius:20px 20px 5px 5px;
+    border:1px solid rgba(255,255,255,.22);
+    border-bottom:9px solid #303338;
+    box-shadow:
+        0 7px 0 rgba(0,0,0,.10),
+        0 18px 30px rgba(0,0,0,.28),
+        inset 0 5px 8px rgba(255,255,255,.12);
+}
+
+#hall-humanity .hall-roof::before{
+    top:-15px;
+    left:18px;
+    right:18px;
+    height:13px;
+    background:linear-gradient(180deg,#f4dc83,#c49b34);
+    border:1px solid rgba(113,77,12,.35);
+    box-shadow:0 2px 4px rgba(0,0,0,.22), inset 0 2px rgba(255,255,255,.55);
+}
+
+#hall-humanity .hall-roof::after{
+    bottom:-12px;
+    height:9px;
+    background:linear-gradient(180deg,#e6c35c,#9c7218);
+    box-shadow:0 3px 5px rgba(0,0,0,.25);
+}
+
+#hall-humanity .hall-body{
+    position:relative;
+    z-index:3;
+    height:340px;
+    overflow:visible;
+    background:
+        linear-gradient(90deg,rgba(255,255,255,.36),transparent 13%,transparent 86%,rgba(0,0,0,.08)),
+        repeating-linear-gradient(0deg,rgba(130,120,105,.018) 0,rgba(130,120,105,.018) 2px,transparent 2px,transparent 12px),
+        linear-gradient(180deg,#fbf9f4 0%,#eee8de 52%,#ddd5ca 100%);
+    border:7px solid #b8b0a4;
+    border-top:4px solid #c8c0b5;
+    box-shadow:
+        inset 12px 0 18px rgba(255,255,255,.48),
+        inset -14px 0 20px rgba(0,0,0,.09),
+        inset 0 -22px 24px rgba(0,0,0,.09),
+        0 18px 34px rgba(0,0,0,.24);
+}
+
+/* Architectural side returns and lower plinth. */
+#hall-humanity .hall-body::before{
+    content:"";
+    position:absolute;
+    left:-13px;
+    top:8px;
+    width:13px;
+    height:320px;
+    background:linear-gradient(90deg,#8f8a82,#d6d0c7 55%,#aaa49b);
+    border-radius:3px 0 0 3px;
+    box-shadow:-8px 8px 15px rgba(0,0,0,.18);
+    z-index:1;
+}
+
+#hall-humanity .hall-body::after{
+    content:"";
+    position:absolute;
+    left:-7px;
+    right:-7px;
+    bottom:-16px;
+    height:16px;
+    background:linear-gradient(180deg,#c9c2b8,#9e978e);
+    border-radius:0 0 4px 4px;
+    box-shadow:0 8px 14px rgba(0,0,0,.22), inset 0 2px rgba(255,255,255,.45);
+    z-index:5;
+}
+
+#hall-humanity .windows{
+    position:relative;
+    z-index:6;
+    padding-top:31px;
+    gap:0;
+}
+
+#hall-humanity .window{
+    width:66px;
+    height:118px;
+    border:5px solid #77746f;
+    border-radius:7px 7px 3px 3px;
+    background:
+        linear-gradient(115deg,rgba(255,255,255,.75) 0%,rgba(255,255,255,.08) 22%,transparent 45%),
+        linear-gradient(180deg,#dff6ff 0%,#8bc9ed 48%,#4e7ea9 100%);
+    box-shadow:
+        inset 0 0 0 2px rgba(255,255,255,.35),
+        inset 0 -18px 20px rgba(17,53,78,.18),
+        0 5px 10px rgba(0,0,0,.20);
+}
+
+#hall-humanity .window::before{
+    left:10px;
+    top:7px;
+    width:16px;
+    height:92px;
+    background:linear-gradient(180deg,rgba(255,255,255,.62),rgba(255,255,255,.08));
+    filter:blur(.2px);
+}
+
+#hall-humanity .window::after{
+    left:50%;
+    top:0;
+    width:2px;
+    height:100%;
+    background:rgba(255,255,255,.34);
+    box-shadow:22px 0 0 rgba(70,80,88,.16), -22px 0 0 rgba(70,80,88,.10);
+}
+
+/* Subtle stone/plaster divisions give the façade scale. */
+#hall-humanity .windows::after{
+    content:"";
+    position:absolute;
+    left:22px;
+    right:22px;
+    top:171px;
+    height:3px;
+    background:linear-gradient(90deg,transparent,rgba(130,120,108,.22) 8%,rgba(130,120,108,.22) 92%,transparent);
+    box-shadow:0 24px 0 rgba(130,120,108,.08);
+    pointer-events:none;
+}
+
+#hall-humanity .hallEntrance{
+    z-index:10;
+    width:188px;
+    height:142px;
+    bottom:13px;
+    background:linear-gradient(180deg,rgba(44,59,72,.10),rgba(30,39,48,.22));
+    border-radius:8px 8px 2px 2px;
+    box-shadow:0 -3px 12px rgba(0,0,0,.10),0 7px 12px rgba(0,0,0,.18);
+}
+
+#hall-humanity .mainGlassDoor{
+    left:56px;
+    width:76px;
+    height:123px;
+    background:
+        linear-gradient(115deg,rgba(255,255,255,.70),transparent 25%),
+        linear-gradient(180deg,#bcecff 0%,#5b91bd 50%,#304f70 100%);
+    border:3px solid #6d7479;
+    box-shadow:inset 0 0 16px rgba(255,255,255,.45),0 5px 8px rgba(0,0,0,.20);
+}
+
+#hall-humanity .sideGlass{
+    width:46px;
+    height:113px;
+    top:7px;
+    border:3px solid #777d81;
+    background:
+        linear-gradient(115deg,rgba(255,255,255,.72),transparent 26%),
+        linear-gradient(180deg,#dff7ff,#7fb6dc 55%,#4b7192);
+    box-shadow:inset 0 0 12px rgba(255,255,255,.35);
+}
+
+#hall-humanity .pillar{
+    width:20px;
+    height:151px;
+    background:linear-gradient(90deg,#a6a6a3,#f5f4ef 35%,#d0cec8 72%,#8f8f8c);
+    box-shadow:0 7px 11px rgba(0,0,0,.20),inset 2px 0 rgba(255,255,255,.65);
+}
+
+#hall-humanity .hallGoldSign{
+    top:17px;
+    text-shadow:0 1px 2px rgba(0,0,0,.45);
+}
+
+#hall-humanity .hall-grand-entrance{
+    z-index:11;
+}
+
+#hall-humanity .grand-staircase .stair{
+    background:linear-gradient(180deg,#ffffff 0%,#e2ded7 58%,#bbb5ad 100%);
+    border-color:#aaa49c;
+    box-shadow:
+        inset 0 2px rgba(255,255,255,.95),
+        inset 0 -3px rgba(0,0,0,.14),
+        0 4px 7px rgba(0,0,0,.14);
+}
+
+#hall-humanity .grand-staircase .handrail{
+    background:linear-gradient(90deg,#8b691d,#f1d26a 45%,#9d771f);
+    box-shadow:0 0 9px rgba(255,215,0,.28),0 4px 7px rgba(0,0,0,.22);
+}
+
+#hall-humanity .entrance-terrace .terrace-floor{
+    background:
+        repeating-linear-gradient(90deg,rgba(120,110,100,.035) 0,rgba(120,110,100,.035) 2px,transparent 2px,transparent 72px),
+        linear-gradient(180deg,#fffdfa,#d8d3ca);
+    border:1px solid rgba(130,120,110,.25);
+}
+
+#hall-humanity .entrance-terrace .column{
+    background:linear-gradient(90deg,#a9a6a0,#fbfaf6 32%,#d5d2cb 70%,#99958f);
+    box-shadow:inset 2px 0 rgba(255,255,255,.72),0 5px 9px rgba(0,0,0,.22);
+}
+
+#hall-humanity .museumSeal{
+    background:radial-gradient(circle at 35% 30%,#fff3aa,#d1a936 68%,#8d6515 100%);
+    border:3px solid #8c681c;
+    box-shadow:0 7px 16px rgba(0,0,0,.30),inset 0 2px rgba(255,255,255,.55);
+}
+
+/* Warm architectural lighting at night; daylight remains natural. */
+#campus.night #hall-humanity .hall-body{
+    box-shadow:
+        inset 12px 0 18px rgba(255,255,255,.16),
+        inset -14px 0 20px rgba(0,0,0,.24),
+        inset 0 -22px 24px rgba(0,0,0,.20),
+        0 18px 34px rgba(0,0,0,.48),
+        0 0 34px rgba(255,211,128,.08);
+}
+
+#campus.night #hall-humanity .window{
+    box-shadow:
+        inset 0 0 16px rgba(255,255,255,.30),
+        0 0 13px rgba(137,205,255,.16),
+        0 6px 12px rgba(0,0,0,.38);
+}
+
+#campus.night #hall-humanity .mainGlassDoor,
+#campus.night #hall-humanity .sideGlass{
+    box-shadow:inset 0 0 18px rgba(255,255,255,.25),0 0 14px rgba(150,210,255,.14);
+}
+
+
+
+/* Interactive visitor destinations */
+#cinema, #lm247Building, .museum-garden[data-garden-id="reflection-garden"] {
+    cursor: pointer;
+}
+
+#cinema:focus, #lm247Building:focus, .museum-garden[data-garden-id="reflection-garden"]:focus {
+    outline: 3px solid rgba(255, 215, 100, .85);
+    outline-offset: 5px;
+}
+
+/* =========================================================
+   V22 — LIVING LANDSCAPE / BOTANICAL REALISM
+   ========================================================= */
+
+#museum-landscape-layer {
+    overflow: visible;
+}
+
+/* The SVG groups carry their own world-position transforms, so
+   we keep CSS transforms off the groups themselves. */
+.landscape-grass-patch {
+    pointer-events: none;
+}
+
+.landscape-tree {
+    pointer-events: none;
+}
+
+/* Richer ground variation while keeping the campus readable. */
+#campus {
+    background:
+        radial-gradient(ellipse at 18% 34%, rgba(148, 193, 94, .24), transparent 24%),
+        radial-gradient(ellipse at 78% 25%, rgba(107, 166, 76, .20), transparent 27%),
+        radial-gradient(ellipse at 72% 74%, rgba(155, 195, 101, .18), transparent 24%),
+        radial-gradient(ellipse at 28% 78%, rgba(73, 125, 61, .14), transparent 26%),
+        linear-gradient(135deg, #78ad5c 0%, #6da553 48%, #5f954a 100%);
+}
+
+
+/* =========================================================
+   VOICES OF HUMANITY — RESPONSIVE MUSEUM LAYER
+   Version 24 responsive pass
+   The museum remains a 3000×3000 world; these rules adapt
+   the viewport and visitor-facing controls without changing
+   the carefully placed campus geometry.
+   ========================================================= */
+
+/* Mobile browsers need the museum viewport to own touch gestures. */
+#viewport{
+    width:100vw;
+    width:100dvw;
+    height:100vh;
+    height:100dvh;
+    min-height:100svh;
+    touch-action:none;
+    -webkit-user-select:none;
+    user-select:none;
+    overscroll-behavior:none;
+}
+
+/* Keep the world geometry untouched. Only the camera scales it. */
+#world{
+    touch-action:none;
+}
+
+/* Tablet controls */
+@media (max-width: 1199px){
+    #dayNightControl{
+        top:14px;
+        right:14px;
+    }
+
+    #dayNightToggle{
+        padding:8px 11px;
+    }
+
+    #museumPanel{
+        width:min(340px, calc(100vw - 28px));
+        right:14px;
+    }
+}
+
+/* Phones */
+@media (max-width: 767px){
+    #dayNightControl{
+        top:9px;
+        right:9px;
+    }
+
+    #dayNightToggle{
+        gap:5px;
+        padding:7px 9px;
+    }
+
+    #dayNightToggle .timeIcon{
+        font-size:13px;
+    }
+
+    #dayNightToggle .nightIcon{
+        font-size:15px;
+    }
+
+    #dayNightToggle .timeLabel{
+        font-size:9px;
+        letter-spacing:.8px;
+    }
+
+    #timeHint{
+        display:none;
+    }
+
+    #museumPanel{
+        top:auto;
+        bottom:12px;
+        left:12px;
+        right:12px;
+        width:auto;
+        max-width:none;
+        transform:none;
+        padding:18px;
+        border-radius:16px;
+        max-height:44dvh;
+        overflow:auto;
+    }
+
+    #museumPanelHeader{
+        font-size:19px;
+        margin-bottom:10px;
+    }
+
+    #museumPanelBody{
+        font-size:14px;
+        line-height:1.5;
+    }
+
+    #enterMuseum{
+        margin-top:15px;
+        padding:12px;
+        font-size:15px;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 390px){
+    #museumPanel{
+        bottom:8px;
+        left:8px;
+        right:8px;
+        padding:14px;
+        max-height:40dvh;
+    }
+
+    #museumPanelHeader{
+        font-size:17px;
+    }
+
+    #museumPanelBody{
+        font-size:13px;
+    }
+}
+
+/* Landscape phones: give the museum more vertical room and keep
+   the information panel compact so it doesn't dominate the view. */
+@media (max-width: 900px) and (orientation: landscape){
+    #museumPanel{
+        top:auto;
+        bottom:8px;
+        left:50%;
+        right:auto;
+        width:min(430px, calc(100vw - 24px));
+        transform:translateX(-50%);
+        padding:14px 16px;
+        max-height:38dvh;
+    }
+
+    #museumPanelBody{
+        font-size:13px;
+        line-height:1.45;
+    }
+
+    #enterMuseum{
+        margin-top:10px;
+        padding:10px;
+    }
+}
+
+/* Respect reduced-motion preferences without removing the museum itself. */
+@media (prefers-reduced-motion: reduce){
+    #dayNightToggle,
+    #museumPanel,
+    #museumPanel *{
+        transition-duration:.01ms !important;
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+    }
+}

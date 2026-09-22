@@ -1,0 +1,2426 @@
+/*==================================================
+    VOICES OF HUMANITY
+    DOCUMENTARY CINEMA
+    CINEMA CSS v1.0
+==================================================*/
+
+
+/*==================================================
+    CINEMA BUILDING
+==================================================*/
+
+#cinema {
+
+    position: absolute;
+
+    left: 1330px;
+    top: 1820px;
+
+    width: 520px;
+    min-height: 620px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #252a32,
+            #15181d
+        );
+
+    border: 4px solid #8f7440;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 25px 55px rgba(0,0,0,.45),
+        inset 0 0 35px rgba(255,255,255,.04);
+
+    overflow: hidden;
+
+    z-index: 80;
+
+}
+
+
+/*==================================================
+    CINEMA INTERIOR
+==================================================*/
+
+.cinema-interior {
+
+    width: 100%;
+
+    padding: 30px;
+
+    color: #f4efe5;
+
+}
+
+
+/*==================================================
+    CINEMA HEADER
+==================================================*/
+
+.cinema-header {
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
+}
+
+
+.cinema-label {
+
+    display: block;
+
+    color: #d7b65a;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.cinema-header h2 {
+
+    margin: 0;
+
+    font-family: Georgia, serif;
+
+    font-size: 30px;
+
+    font-weight: normal;
+
+    letter-spacing: 1px;
+
+    color: #f7f2e8;
+
+}
+
+
+.cinema-header p {
+
+    margin: 10px auto 0;
+
+    max-width: 390px;
+
+    color: #b9b4aa;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+}
+
+
+/*==================================================
+    CINEMA SCREEN AREA
+==================================================*/
+
+.cinema-screen-area {
+
+    position: relative;
+
+    margin-bottom: 30px;
+
+    padding: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #343a44,
+            #20242b
+        );
+
+    border-radius: 18px;
+
+    box-shadow:
+        inset 0 0 20px rgba(0,0,0,.45);
+
+}
+
+
+/*==================================================
+    CINEMA SCREEN
+==================================================*/
+
+.cinema-screen {
+
+    position: relative;
+
+    height: 210px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #27394b,
+            #10151b 70%
+        );
+
+    border: 3px solid #7c7f83;
+
+    border-radius: 10px;
+
+    box-shadow:
+
+        0 0 25px rgba(0,0,0,.7),
+
+        inset 0 0 35px rgba(0,0,0,.75);
+
+}
+
+
+.cinema-screen > span {
+
+    position: relative;
+
+    z-index: 2;
+
+    color: #d8b967;
+
+    font-family: Georgia, serif;
+
+    font-size: 18px;
+
+    letter-spacing: 3px;
+
+    text-align: center;
+
+}
+
+
+/*==================================================
+    SCREEN GLOW
+==================================================*/
+
+.screen-glow {
+
+    position: absolute;
+
+    width: 180px;
+
+    height: 180px;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(91,180,255,.22),
+            rgba(91,180,255,.05) 45%,
+            transparent 70%
+        );
+
+    filter: blur(8px);
+
+}
+
+
+/*==================================================
+    LIBRARY
+==================================================*/
+
+.cinema-library {
+
+    width: 100%;
+
+}
+
+
+/*==================================================
+    LIBRARY HEADING
+==================================================*/
+
+.library-heading {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 15px;
+
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid rgba(215,182,90,.35);
+
+}
+
+
+.library-heading h3 {
+
+    margin: 0;
+
+    font-family: Georgia, serif;
+
+    font-size: 18px;
+
+    font-weight: normal;
+
+    color: #eee7da;
+
+}
+
+
+.library-heading span {
+
+    color: #a9a49a;
+
+    font-size: 11px;
+
+    white-space: nowrap;
+
+}
+
+
+/*==================================================
+    DOCUMENTARY GRID
+==================================================*/
+
+.documentary-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 14px;
+
+    max-height: 900px;
+
+    overflow-y: auto;
+
+    padding-right: 5px;
+
+}
+
+
+/*==================================================
+    SCROLLBAR
+==================================================*/
+
+.documentary-grid::-webkit-scrollbar {
+
+    width: 6px;
+
+}
+
+
+.documentary-grid::-webkit-scrollbar-track {
+
+    background: rgba(255,255,255,.04);
+
+    border-radius: 10px;
+
+}
+
+
+.documentary-grid::-webkit-scrollbar-thumb {
+
+    background: #806b3b;
+
+    border-radius: 10px;
+
+}
+
+
+/*==================================================
+    DOCUMENTARY CARD
+==================================================*/
+
+.documentary-card {
+
+    background:
+        linear-gradient(
+            145deg,
+            #343942,
+            #252930
+        );
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+
+}
+
+
+.documentary-card:hover {
+
+    transform: translateY(-3px);
+
+    border-color: rgba(215,182,90,.65);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.3);
+
+}
+
+
+/*==================================================
+    CARD TOP
+==================================================*/
+
+.documentary-card-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 10px 14px;
+
+    background: rgba(0,0,0,.22);
+
+}
+
+
+.episode-number {
+
+    color: #d7b65a;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.documentary-status {
+
+    color: #8fd5a1;
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+}
+
+
+/*==================================================
+    CARD BODY
+==================================================*/
+
+.documentary-card-body {
+
+    padding: 16px;
+
+}
+
+
+.documentary-card-body h4 {
+
+    margin: 0 0 6px;
+
+    color: #f4efe5;
+
+    font-family: Georgia, serif;
+
+    font-size: 19px;
+
+    font-weight: normal;
+
+}
+
+
+.documentary-language {
+
+    margin: 0 0 10px;
+
+    color: #d7b65a;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+}
+
+
+.documentary-description {
+
+    margin: 0;
+
+    color: #aaa7a0;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+}
+
+
+/*==================================================
+    CARD META
+==================================================*/
+
+.documentary-meta {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 13px;
+
+}
+
+
+.documentary-meta span {
+
+    padding: 5px 9px;
+
+    background: rgba(255,255,255,.06);
+
+    border-radius: 20px;
+
+    color: #aaa69d;
+
+    font-size: 9px;
+
+}
+
+
+/*==================================================
+    CARD FOOTER
+==================================================*/
+
+.documentary-card-footer {
+
+    padding: 12px 14px;
+
+    border-top: 1px solid rgba(255,255,255,.06);
+
+}
+
+
+/*==================================================
+    WATCH BUTTON
+==================================================*/
+
+.watch-documentary {
+
+    width: 100%;
+
+    padding: 11px;
+
+    border: 1px solid #b9953c;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #b9943d,
+            #806526
+        );
+
+    color: white;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+
+}
+
+
+.watch-documentary:hover {
+
+    background:
+        linear-gradient(
+            180deg,
+            #d0ad55,
+            #9b7a2d
+        );
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.35);
+
+}
+
+
+/*==================================================
+    EMPTY CINEMA
+==================================================*/
+
+.cinema-empty {
+
+    padding: 35px 20px;
+
+    text-align: center;
+
+    color: #aaa;
+
+    background: rgba(255,255,255,.04);
+
+    border-radius: 12px;
+
+    font-size: 13px;
+
+}
+
+
+/*==================================================
+    DOCUMENTARY VIEWER
+==================================================*/
+
+#documentary-viewer {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 10000;
+
+}
+
+
+/*==================================================
+    VIEWER BACKDROP
+==================================================*/
+
+.viewer-backdrop {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 30px;
+
+    background:
+        rgba(5,7,10,.88);
+
+    backdrop-filter: blur(10px);
+
+}
+
+
+/*==================================================
+    VIEWER PANEL
+==================================================*/
+
+.viewer-panel {
+
+    position: relative;
+
+    width: min(1100px, 95vw);
+
+    max-height: 94vh;
+
+    overflow-y: auto;
+
+    background:
+        linear-gradient(
+            145deg,
+            #252a31,
+            #14171c
+        );
+
+    border: 2px solid #8e733c;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.65);
+
+}
+
+
+/*==================================================
+    VIEWER CLOSE
+==================================================*/
+
+.viewer-close {
+
+    position: absolute;
+
+    top: 14px;
+
+    right: 14px;
+
+    z-index: 10;
+
+    width: 40px;
+
+    height: 40px;
+
+    border: 1px solid rgba(255,255,255,.25);
+
+    border-radius: 50%;
+
+    background: rgba(0,0,0,.65);
+
+    color: white;
+
+    font-size: 27px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+
+}
+
+
+.viewer-close:hover {
+
+    background: rgba(180,140,55,.9);
+
+    transform: rotate(90deg);
+
+}
+
+
+/*==================================================
+    VIEWER VIDEO
+==================================================*/
+
+.viewer-video {
+
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    background: #000;
+
+}
+
+
+.viewer-video iframe {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    border: 0;
+
+}
+
+
+/*==================================================
+    VIEWER INFORMATION
+==================================================*/
+
+.viewer-information {
+
+    padding: 28px 32px 32px;
+
+}
+
+
+.viewer-episode {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #d7b65a;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+}
+
+
+.viewer-information h2 {
+
+    margin: 0 0 8px;
+
+    color: #f5efe4;
+
+    font-family: Georgia, serif;
+
+    font-size: 30px;
+
+    font-weight: normal;
+
+}
+
+
+.viewer-language {
+
+    margin: 0 0 18px;
+
+    color: #d7b65a;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+}
+
+
+.viewer-information > p:not(.viewer-language) {
+
+    margin: 0;
+
+    max-width: 850px;
+
+    color: #b7b3ac;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+}
+
+
+/*==================================================
+    VIEWER META
+==================================================*/
+
+.viewer-meta {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 20px;
+
+}
+
+
+.viewer-meta span {
+
+    padding: 7px 12px;
+
+    background: rgba(255,255,255,.06);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius: 20px;
+
+    color: #aaa69d;
+
+    font-size: 10px;
+
+}
+
+
+/*==================================================
+    RESPONSIVE
+==================================================*/
+
+@media (max-width: 700px) {
+
+    #cinema {
+
+        width: 440px;
+
+        min-height: 580px;
+
+    }
+
+
+    .cinema-interior {
+
+        padding: 22px;
+
+    }
+
+
+    .cinema-screen {
+
+        height: 175px;
+
+    }
+
+
+    .viewer-backdrop {
+
+        padding: 10px;
+
+    }
+
+
+    .viewer-information {
+
+        padding: 22px;
+
+    }
+
+
+    .viewer-information h2 {
+
+        font-size: 24px;
+
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    #cinema {
+
+        width: 92vw;
+
+        left: 4vw;
+
+        top: 100px;
+
+    }
+
+
+    .cinema-screen {
+
+        height: 150px;
+
+    }
+
+
+    .cinema-header h2 {
+
+        font-size: 25px;
+
+    }
+
+}
+
+/*=========================================================
+    VOICES OF HUMANITY — DOCUMENTARY CINEMA
+    EXTERIOR ARCHITECTURE v1
+=========================================================*/
+
+/* Main Cinema Building */
+
+#cinema{
+
+    position:absolute;
+
+    left:1200px;
+
+    top:1600px;
+
+    width:600px;
+
+    height:760px;
+
+    min-height:0;
+
+    box-sizing:border-box;
+
+    padding:34px;
+
+    box-sizing:border-box;
+
+    background:
+        linear-gradient(
+            145deg,
+            #171b2a 0%,
+            #0d1020 55%,
+            #080a14 100%
+        );
+
+    border:3px solid #8f7734;
+
+    border-radius:30px;
+
+    box-shadow:
+
+        0 30px 60px rgba(0,0,0,.45),
+
+        0 0 35px rgba(212,175,55,.18),
+
+        inset 0 2px 0 rgba(255,255,255,.08),
+
+        inset 0 -15px 30px rgba(0,0,0,.35);
+
+    z-index:120;
+
+    overflow:visible;
+
+    color:white;
+
+}
+
+
+/*=========================================================
+    CINEMA OUTER FRAME
+=========================================================*/
+
+#cinema::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:-34px;
+
+    right:-34px;
+
+    bottom:-25px;
+
+    height:95px;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            #d9d4ca,
+            #b9b2a7
+        );
+
+    border-radius:24px;
+
+    border:4px solid #9f988e;
+
+    box-shadow:
+
+        0 15px 30px rgba(0,0,0,.25),
+
+        inset 0 4px rgba(255,255,255,.65);
+
+    z-index:-1;
+
+}
+
+
+/*=========================================================
+    CINEMA GOLDEN ARCHITECTURAL GLOW
+=========================================================*/
+
+#cinema::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:-18px;
+
+    transform:translateX(-50%);
+
+    width:390px;
+
+    height:18px;
+
+    border-radius:20px;
+
+    background:
+
+        linear-gradient(
+            to right,
+            #8b6a18,
+            #f3d36b,
+            #fff0a5,
+            #f3d36b,
+            #8b6a18
+        );
+
+    box-shadow:
+
+        0 0 18px rgba(255,215,100,.55),
+
+        0 6px 18px rgba(0,0,0,.25);
+
+}
+
+
+/*=========================================================
+    CINEMA INTERIOR
+=========================================================*/
+
+.cinema-interior{
+
+    position:relative;
+
+    width:100%;
+
+    height:100%;
+
+    box-sizing:border-box;
+
+    z-index:2;
+
+}
+
+
+/*=========================================================
+    CINEMA HEADER
+=========================================================*/
+
+.cinema-header{
+
+    text-align:center;
+
+    padding:8px 10px 18px;
+
+    position:relative;
+
+    z-index:10;
+
+}
+
+
+.cinema-label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    color:#d8b84f;
+
+    font-size:11px;
+
+    font-weight:bold;
+
+    letter-spacing:4px;
+
+}
+
+
+.cinema-header h2{
+
+    margin:0;
+
+    font-family:Georgia, "Times New Roman", serif;
+
+    font-size:30px;
+
+    font-weight:600;
+
+    letter-spacing:1px;
+
+    color:#f4e4a4;
+
+    text-shadow:
+
+        0 2px 5px rgba(0,0,0,.5);
+
+}
+
+
+.cinema-header p{
+
+    margin:0 auto;
+
+    max-width:390px;
+
+    color:#c5c7d0;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+}
+
+
+/*=========================================================
+    CINEMA SCREEN AREA
+=========================================================*/
+
+.cinema-screen-area{
+
+    position:relative;
+
+    padding:10px 0 25px;
+
+}
+
+
+/*=========================================================
+    CINEMA SCREEN
+=========================================================*/
+
+.cinema-screen{
+
+    position:relative;
+
+    width:100%;
+
+    height:210px;
+
+    border-radius:16px;
+
+    border:2px solid #8d7432;
+
+    overflow:hidden;
+
+    background:
+
+        radial-gradient(
+            ellipse at center,
+            #233a63 0%,
+            #101b35 45%,
+            #070a15 100%
+        );
+
+    box-shadow:
+
+        inset 0 0 35px rgba(0,0,0,.7),
+
+        0 0 25px rgba(74,132,255,.18),
+
+        0 10px 25px rgba(0,0,0,.35);
+
+}
+
+
+/* Screen inner frame */
+
+.cinema-screen::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:8px;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:10px;
+
+    pointer-events:none;
+
+}
+
+
+/* Screen text */
+
+.cinema-screen > span{
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:90%;
+
+    text-align:center;
+
+    color:#f1d46a;
+
+    font-family:Georgia, serif;
+
+    font-size:21px;
+
+    letter-spacing:4px;
+
+    text-shadow:
+
+        0 0 12px rgba(255,215,100,.45);
+
+}
+
+
+/*=========================================================
+    SCREEN LIGHT
+=========================================================*/
+
+.screen-glow{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:-30px;
+
+    transform:translateX(-50%);
+
+    width:240px;
+
+    height:80px;
+
+    background:
+
+        radial-gradient(
+            ellipse,
+            rgba(80,150,255,.32),
+            transparent 70%
+        );
+
+    filter:blur(8px);
+
+    pointer-events:none;
+
+}
+
+
+/*=========================================================
+    LIBRARY
+=========================================================*/
+
+.cinema-library{
+
+    position:relative;
+
+    padding-top:45px;
+
+    z-index:5;
+
+}
+
+
+.library-heading{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:14px;
+
+    padding-bottom:10px;
+
+    border-bottom:1px solid rgba(216,184,79,.25);
+
+}
+
+
+.library-heading h3{
+
+    margin:0;
+
+    color:#eee6cc;
+
+    font-family:Georgia, serif;
+
+    font-size:17px;
+
+}
+
+
+.library-heading span{
+
+    color:#aeb2bd;
+
+    font-size:11px;
+
+}
+
+
+/*=========================================================
+    DOCUMENTARY GRID
+=========================================================*/
+
+.documentary-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr;
+
+    gap:14px;
+
+    max-height:210px;
+
+    overflow-y:auto;
+
+    padding-right:5px;
+
+}
+
+
+/* Scrollbar */
+
+.documentary-grid::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+.documentary-grid::-webkit-scrollbar-track{
+
+    background:rgba(255,255,255,.05);
+
+    border-radius:10px;
+
+}
+
+.documentary-grid::-webkit-scrollbar-thumb{
+
+    background:#8f7734;
+
+    border-radius:10px;
+
+}
+
+
+/*=========================================================
+    DOCUMENTARY CARD
+=========================================================*/
+
+.documentary-card{
+
+    position:relative;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.07),
+            rgba(255,255,255,.025)
+        );
+
+    border:1px solid rgba(216,184,79,.28);
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    transition:
+
+        transform .25s ease,
+
+        border-color .25s ease,
+
+        box-shadow .25s ease;
+
+}
+
+
+.documentary-card:hover{
+
+    transform:translateY(-3px);
+
+    border-color:#d8b84f;
+
+    box-shadow:
+
+        0 10px 25px rgba(0,0,0,.35),
+
+        0 0 15px rgba(216,184,79,.12);
+
+}
+
+
+/*=========================================================
+    CARD TOP
+=========================================================*/
+
+.documentary-card-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:9px 12px;
+
+    background:rgba(0,0,0,.18);
+
+}
+
+
+.episode-number{
+
+    color:#d8b84f;
+
+    font-size:10px;
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+
+}
+
+
+.documentary-status{
+
+    color:#72d58a;
+
+    font-size:10px;
+
+    text-transform:uppercase;
+
+}
+
+
+/*=========================================================
+    CARD BODY
+=========================================================*/
+
+.documentary-card-body{
+
+    padding:13px;
+
+}
+
+
+.documentary-card-body h4{
+
+    margin:0 0 5px;
+
+    color:#f4f0e5;
+
+    font-family:Georgia, serif;
+
+    font-size:17px;
+
+}
+
+
+.documentary-language{
+
+    margin:0 0 8px;
+
+    color:#d8b84f;
+
+    font-size:11px;
+
+    font-weight:bold;
+
+}
+
+
+.documentary-description{
+
+    margin:0;
+
+    color:#b7bac5;
+
+    font-size:11px;
+
+    line-height:1.5;
+
+}
+
+
+.documentary-meta{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-top:10px;
+
+    padding-top:8px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    color:#8f94a1;
+
+    font-size:9px;
+
+}
+
+
+/*=========================================================
+    WATCH BUTTON
+=========================================================*/
+
+.documentary-card-footer{
+
+    padding:0 13px 13px;
+
+}
+
+
+.watch-documentary{
+
+    width:100%;
+
+    padding:10px;
+
+    border:none;
+
+    border-radius:9px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #b68a27,
+            #e0c15d
+        );
+
+    color:#17120a;
+
+    font-size:11px;
+
+    font-weight:bold;
+
+    letter-spacing:.5px;
+
+    cursor:pointer;
+
+    transition:
+
+        transform .2s ease,
+
+        box-shadow .2s ease,
+
+        filter .2s ease;
+
+}
+
+
+.watch-documentary:hover{
+
+    transform:translateY(-2px);
+
+    filter:brightness(1.08);
+
+    box-shadow:
+
+        0 6px 15px rgba(0,0,0,.35),
+
+        0 0 12px rgba(255,215,100,.25);
+
+}
+
+
+/*=========================================================
+    CINEMA APPROACH PATH
+=========================================================*/
+
+#cinemaWalkway{
+
+    position:absolute;
+
+    left:50%;
+
+    top:2295px;
+
+    transform:translateX(-50%);
+
+    width:150px;
+
+    height:145px;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            #d8d1c5,
+            #c1b9ac
+        );
+
+    border-left:5px solid #a9a196;
+
+    border-right:5px solid #a9a196;
+
+    border-radius:0 0 16px 16px;
+
+    box-shadow:
+
+        0 10px 20px rgba(0,0,0,.15);
+
+    z-index:40;
+
+}
+
+
+/*=========================================================
+    CINEMA ENTRANCE LIGHTS
+=========================================================*/
+
+.cinema-light{
+
+    position:absolute;
+
+    width:14px;
+
+    height:14px;
+
+    border-radius:50%;
+
+    background:#ffe58a;
+
+    box-shadow:
+
+        0 0 12px #ffd85c,
+
+        0 0 28px rgba(255,215,80,.7);
+
+    z-index:130;
+
+}
+
+
+.cinema-light-left{
+
+    left:1200px;
+
+    top:2240px;
+
+}
+
+
+.cinema-light-right{
+
+    left:1786px;
+
+    top:2240px;
+
+}
+
+
+/*=========================================================
+    CINEMA NIGHT EFFECT
+=========================================================*/
+
+#campus.night #cinema{
+
+    box-shadow:
+
+        0 30px 65px rgba(0,0,0,.65),
+
+        0 0 45px rgba(212,175,55,.25),
+
+        0 0 90px rgba(50,90,180,.12),
+
+        inset 0 2px 0 rgba(255,255,255,.08),
+
+        inset 0 -15px 30px rgba(0,0,0,.4);
+
+}
+
+/*=========================================================
+    CINEMA GRAND ENTRANCE
+=========================================================*/
+
+.cinema-entrance{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:-125px;
+
+    transform:translateX(-50%);
+
+    width:390px;
+
+    height:145px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:flex-end;
+
+    z-index:250;
+
+}
+
+.cinema-entrance{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:-125px;
+
+    transform:translateX(-50%);
+
+    width:390px;
+
+    height:145px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:flex-end;
+
+    z-index:250;
+
+}
+
+
+/* Entrance canopy */
+
+.cinema-canopy{
+
+    position:absolute;
+
+    left:50%;
+
+    top:0;
+
+    transform:translateX(-50%);
+
+    width:280px;
+
+    height:32px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #f4d76b,
+            #b68a27,
+            #76591d
+        );
+
+    border-radius:12px 12px 5px 5px;
+
+    box-shadow:
+
+        0 8px 18px rgba(0,0,0,.35),
+
+        0 0 20px rgba(255,215,100,.25);
+
+}
+
+
+/* Glass entrance */
+
+.cinema-glass-entrance{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:0;
+
+    transform:translateX(-50%);
+
+    width:170px;
+
+    height:92px;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(190,235,255,.85),
+            rgba(70,125,180,.65)
+        );
+
+    border:4px solid #b7b7b7;
+
+    border-radius:10px 10px 0 0;
+
+    box-shadow:
+
+        inset 0 0 20px rgba(255,255,255,.35),
+
+        0 8px 18px rgba(0,0,0,.35);
+
+}
+
+
+/* Door division */
+
+.cinema-glass-entrance::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:0;
+
+    width:3px;
+
+    height:100%;
+
+    background:rgba(255,255,255,.55);
+
+    transform:translateX(-50%);
+
+}
+
+
+/* Door highlights */
+
+.cinema-glass-entrance::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:15px;
+
+    top:12px;
+
+    width:12px;
+
+    height:60px;
+
+    border-radius:8px;
+
+    background:rgba(255,255,255,.30);
+
+}
+
+
+/* Cinema entrance glow */
+
+#campus.night .cinema-glass-entrance{
+
+    box-shadow:
+
+        inset 0 0 25px rgba(255,255,255,.4),
+
+        0 0 30px rgba(100,180,255,.25),
+
+        0 8px 20px rgba(0,0,0,.5);
+
+}
+
+/*=========================================================
+    CINEMA GRAND ENTRANCE
+=========================================================*/
+
+.cinema-entrance{
+
+    position:relative;
+
+    width:100%;
+
+    height:150px;
+
+    margin-bottom:25px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:flex-end;
+
+}
+
+
+/*=========================================================
+    ENTRANCE CANOPY
+=========================================================*/
+
+.cinema-entrance-canopy{
+
+    position:absolute;
+
+    top:0;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:360px;
+
+    height:48px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #24283b,
+            #101322
+        );
+
+    border:2px solid #9d8138;
+
+    border-radius:18px 18px 8px 8px;
+
+    box-shadow:
+
+        0 8px 20px rgba(0,0,0,.45),
+
+        0 0 22px rgba(216,184,79,.16);
+
+}
+
+
+/*=========================================================
+    CANOPY GOLD TRIM
+=========================================================*/
+
+.cinema-entrance-canopy::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:18px;
+
+    right:18px;
+
+    bottom:-5px;
+
+    height:5px;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            to right,
+            #80611e,
+            #f1d46b,
+            #fff1a4,
+            #f1d46b,
+            #80611e
+        );
+
+    box-shadow:
+        0 0 12px rgba(255,215,100,.55);
+
+}
+
+
+/*=========================================================
+    ENTRANCE LIGHTS
+=========================================================*/
+
+.cinema-entrance-light{
+
+    position:absolute;
+
+    bottom:8px;
+
+    width:9px;
+
+    height:9px;
+
+    border-radius:50%;
+
+    background:#ffe58a;
+
+    box-shadow:
+        0 0 8px #ffd65c,
+        0 0 18px rgba(255,215,90,.75);
+
+}
+
+
+/* distribute lights */
+
+.cinema-entrance-light:nth-child(1){
+    left:45px;
+}
+
+.cinema-entrance-light:nth-child(2){
+    left:110px;
+}
+
+.cinema-entrance-light:nth-child(3){
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.cinema-entrance-light:nth-child(4){
+    right:110px;
+}
+
+.cinema-entrance-light:nth-child(5){
+    right:45px;
+}
+
+
+/*=========================================================
+    ENTRANCE SIGN
+=========================================================*/
+
+.cinema-entrance-sign{
+
+    position:relative;
+
+    z-index:3;
+
+    margin-bottom:10px;
+
+    padding:8px 24px;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            180deg,
+            #161a2c,
+            #090b16
+        );
+
+    border:1px solid #9d8138;
+
+    border-radius:8px;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.4);
+
+}
+
+
+.cinema-entrance-sign span{
+
+    display:block;
+
+    color:#d8b84f;
+
+    font-size:8px;
+
+    letter-spacing:3px;
+
+}
+
+
+.cinema-entrance-sign strong{
+
+    display:block;
+
+    margin-top:3px;
+
+    color:#f4e4a4;
+
+    font-family:Georgia,serif;
+
+    font-size:13px;
+
+    letter-spacing:1px;
+
+}
+
+
+/*=========================================================
+    GLASS DOORS
+=========================================================*/
+
+.cinema-doors{
+
+    position:relative;
+
+    display:flex;
+
+    width:220px;
+
+    height:58px;
+
+    overflow:hidden;
+
+    border:3px solid #8f7734;
+
+    border-radius:12px 12px 4px 4px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(75,130,190,.55),
+            rgba(15,28,55,.9)
+        );
+
+    box-shadow:
+
+        inset 0 0 20px rgba(100,180,255,.15),
+
+        0 0 18px rgba(70,130,255,.15);
+
+}
+
+
+/*=========================================================
+    INDIVIDUAL DOORS
+=========================================================*/
+
+.cinema-door{
+
+    width:50%;
+
+    height:100%;
+
+    border-right:1px solid rgba(255,255,255,.22);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.06),
+            rgba(70,140,210,.16),
+            rgba(255,255,255,.04)
+        );
+
+}
+
+
+/* right door */
+
+.right-door{
+
+    border-right:none;
+
+    border-left:1px solid rgba(255,255,255,.22);
+
+}
+
+
+/*=========================================================
+    DOOR HANDLES
+=========================================================*/
+
+.cinema-door::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:24px;
+
+    width:3px;
+
+    height:16px;
+
+    border-radius:4px;
+
+    background:#d9bd62;
+
+    box-shadow:
+        0 0 5px rgba(255,215,100,.4);
+
+}
+
+
+.left-door::after{
+
+    right:calc(50% + 6px);
+
+}
+
+
+.right-door::after{
+
+    left:calc(50% + 6px);
+
+}
+
+
+/*=========================================================
+    NIGHT ENTRANCE LIGHTING
+=========================================================*/
+
+#campus.night .cinema-entrance-canopy{
+
+    box-shadow:
+
+        0 8px 25px rgba(0,0,0,.65),
+
+        0 0 35px rgba(216,184,79,.25);
+
+}
+
+
+#campus.night .cinema-entrance-light{
+
+    animation:
+        cinemaEntrancePulse 2s ease-in-out infinite;
+
+}
+
+
+@keyframes cinemaEntrancePulse{
+
+    0%,100%{
+        opacity:.65;
+        transform:scale(.9);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.15);
+    }
+
+}
+
+/*=========================================================
+    DOCUMENTARY COLLECTION — ELEVATED DISPLAY
+=========================================================*/
+
+#cinema .cinema-library {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 80px;
+
+    transform: translateX(-50%);
+
+    width: 480px;
+
+    z-index: 500;
+
+    padding: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(23,27,42,.98),
+            rgba(8,10,20,.98)
+        );
+
+    border: 2px solid #8f7734;
+
+    border-radius: 20px;
+
+    box-shadow:
+
+        0 20px 45px rgba(0,0,0,.45),
+
+        0 0 30px rgba(212,175,55,.18);
+
+}
+
+
+/* Collection heading */
+
+#cinema .library-heading {
+
+    margin-bottom: 12px;
+
+}
+
+
+/* Documentary cards */
+
+#cinema .documentary-grid {
+
+    max-height: 300px;
+
+    overflow-y: auto;
+
+}
+
+
+/* Keep cards compact */
+
+#cinema .documentary-card {
+
+    transform-origin: center;
+
+}
+
+
+/* Keep hover effect */
+
+#cinema .documentary-card:hover {
+
+    transform: translateY(-3px);
+
+}
+
+
+/*=========================================================
+    COLLECTION CONNECTION
+=========================================================*/
+
+#cinema .cinema-library::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: -45px;
+
+    transform: translateX(-50%);
+
+    width: 3px;
+
+    height: 45px;
+
+    background:
+
+        linear-gradient(
+            to bottom,
+            #d8b84f,
+            rgba(216,184,79,0)
+        );
+
+    box-shadow:
+
+        0 0 10px rgba(216,184,79,.45);
+
+}
+
+
+/*=========================================================
+    MOBILE
+=========================================================*/
+
+@media (max-width: 700px) {
+
+    #cinema .cinema-library {
+
+        position: relative;
+
+        left: auto;
+
+        top: auto;
+
+        transform: none;
+
+        width: 100%;
+
+        margin-top: 20px;
+
+    }
+
+    #cinema .cinema-library::after {
+
+        display: none;
+
+    }
+
+}
