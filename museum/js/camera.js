@@ -565,7 +565,12 @@ function touchDistance(a, b) {
 
 viewport.addEventListener("touchstart", (e) => {
 
-    e.preventDefault();
+    /*
+     * Do not cancel touchstart here.
+     * Mobile browsers use the normal touch sequence to generate
+     * a click after a simple tap. Cancelling touchstart prevents
+     * buttons and building click handlers from receiving that tap.
+     */
 
     Camera.isTouching = true;
 
