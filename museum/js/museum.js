@@ -109,7 +109,7 @@ function flyTo(newX,newY,newScale=1){
 
 }
 
-setMuseumTime("night");
+setMuseumTime("day");
 
 const dayNightToggle = document.getElementById("dayNightToggle");
 if(dayNightToggle){
