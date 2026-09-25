@@ -6,9 +6,11 @@
 window.MuseumVideoEngine = {
 
   collection: [],
+  publicContent: {},
 
   init() {
     this.collection = window.MuseumVideoCollection || [];
+    this.publicContent = window.MuseumPublicContent || {};
     this.attachBuildingEvents();
     console.log("✓ Museum Video Engine loaded:", this.collection.length, "curated videos");
   },
@@ -25,13 +27,18 @@ window.MuseumVideoEngine = {
       "americasMuseum",
       "oceaniaMuseum",
       "reflection-garden",
-      "hall-humanity"
+      "hall-humanity",
+      "cinema",
+      "visitor-centre",
+      "lm247Building"
     ];
 
     buildings.forEach(id => {
       const el = id === "reflection-garden"
         ? document.querySelector('[data-garden-id="reflection-garden"]')
-        : document.getElementById(id);
+        : id === "visitor-centre"
+          ? document.querySelector(".visitor-centre")
+          : document.getElementById(id);
       if (!el) return;
 
       el.style.cursor = "pointer";
@@ -44,7 +51,8 @@ window.MuseumVideoEngine = {
 
   openBuilding(buildingId) {
     const items = this.getForBuilding(buildingId);
-    if (!items.length) return;
+    const publicItems = this.publicContent[buildingId] || [];
+    if (!items.length && !publicItems.length) return;
 
     const buildingNames = {
       africaMuseum: "African Languages Museum",
@@ -53,7 +61,10 @@ window.MuseumVideoEngine = {
       americasMuseum: "Americas Languages Museum",
       oceaniaMuseum: "Oceania Languages Museum",
       "reflection-garden": "Reflection Garden",
-      "hall-humanity": "Hall of Humanity"
+      "hall-humanity": "Hall of Humanity",
+      "cinema": "Documentary Cinema",
+      "visitor-centre": "Visitor Centre",
+      "lm247Building": "LocalMedia247 Media Center"
     };
 
     this.close();
@@ -75,6 +86,17 @@ window.MuseumVideoEngine = {
           <div class="mvp-grid">
             ${items.map(item => this.card(item)).join("")}
           </div>
+
+          ${publicItems.length ? `
+            <div class="mvp-public-heading">
+              <span>PUBLIC COLLECTION</span>
+              <h3>Explore beyond the museum</h3>
+              <p>Curated public resources selected to deepen your visit.</p>
+            </div>
+            <div class="mvp-grid mvp-public-grid">
+              ${publicItems.map(item => this.publicCard(item)).join("")}
+            </div>
+          ` : ""}
         </div>
       </div>
     `;
@@ -105,6 +127,20 @@ window.MuseumVideoEngine = {
         <h3>${item.title}</h3>
         <p>${item.description}</p>
         <button class="mvp-watch" data-id="${item.id}" type="button">Watch Video →</button>
+      </article>
+    `;
+  },
+
+  publicCard(item) {
+    return `
+      <article class="mvp-card mvp-public-card">
+        <div class="mvp-card-top">
+          <span>${item.tag}</span>
+          <small>${item.source}</small>
+        </div>
+        <h3>${item.title}</h3>
+        <p>${item.description}</p>
+        <a class="mvp-watch mvp-public-link" href="${item.url}" target="_blank" rel="noopener noreferrer">Explore Resource ↗</a>
       </article>
     `;
   },
