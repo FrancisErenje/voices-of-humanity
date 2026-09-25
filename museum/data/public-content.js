@@ -6,7 +6,7 @@
 window.MuseumPublicContent = {
   africaMuseum: [
     {title:"World Atlas of Languages",tag:"GLOBAL REFERENCE",source:"UNESCO",description:"Explore global language diversity, language vitality and documentation resources.",url:"https://www.unesco.org/en/world-atlas-languages"},
-    {title:"African Languages Series",tag:"LANGUAGE & TECHNOLOGY",source:"Google Research",description:"Public introductions to Yoruba, Kiswahili, Akan and Amharic.",url:"https://research.google/blog/introducing-the-african-languages-series/"},
+    {title:"African Languages Series",tag:"LANGUAGE & TECHNOLOGY",source:"Google Research",description:"Public introductions to Yoruba, Kiswahili, Akan and Amharic.",url:"https://www.youtube.com/results?search_query=Google+Research+African+Languages+Series"},
     {title:"Language Resources",tag:"DOCUMENTATION",source:"Endangered Languages Project",description:"Browse videos, learning guides, research and language documentation resources.",url:"https://endangeredlanguages.com/resource-library"}
   ],
   asiaMuseum: [
@@ -30,7 +30,7 @@ window.MuseumPublicContent = {
     {title:"Recovering Voices",tag:"LISTEN",source:"Smithsonian",description:"Discover community collaboration around endangered languages and cultural knowledge.",url:"https://global.si.edu/projects/recovering-voices"}
   ],
   cinema: [
-    {title:"Smithsonian Mother Tongue Film Festival",tag:"FILM",source:"Smithsonian",description:"Explore films celebrating cultural and linguistic diversity from around the world.",url:"https://www.si.edu/mother-tongue-film-festival"},
+    {title:"Smithsonian Mother Tongue Film Festival",tag:"FILM",source:"Smithsonian",description:"Explore films celebrating cultural and linguistic diversity from around the world.",url:"https://mothertongue.si.edu/"},
     {title:"ELP Film & Video Resources",tag:"WATCH",source:"Endangered Languages Project",description:"Browse public films and videos about language documentation, communities and revitalization.",url:"https://endangeredlanguages.com/resource-library"},
     {title:"Public Folklife Programming",tag:"ORAL HISTORY",source:"Library of Congress",description:"Explore recorded storytelling, concerts, lectures and oral-history programs.",url:"https://guides.loc.gov/indigenous-peoples-of-the-americas-folklife/public-programming"}
   ],
