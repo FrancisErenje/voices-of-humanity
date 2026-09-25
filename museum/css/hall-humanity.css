@@ -515,3 +515,75 @@
 .hall-full-archive b{display:block;margin-top:4px;color:#edf2f4;font:700 12px Georgia,serif}
 .hall-full-archive span{display:block;margin-top:4px;color:#82919c;font-size:8px}
 @media(max-width:700px){.hall-doc-row,.hall-full-archive{grid-template-columns:1fr}.hall-living-title{font-size:18px}}
+
+
+/*==================================================
+  HALL EXPERIENCE OVERLAY
+  The Hall is an interactive destination, not only
+  a visual building. Open the collection on click/tap.
+==================================================*/
+
+.hall-exhibition-overlay{
+  position:fixed !important;
+  left:50% !important;
+  top:50% !important;
+  width:min(1080px,94vw) !important;
+  max-height:90vh;
+  min-height:0 !important;
+  transform:translate(-50%,-50%) !important;
+  z-index:20000 !important;
+  display:none;
+  overflow:auto !important;
+  pointer-events:auto !important;
+}
+
+.hall-exhibition-overlay.open{
+  display:block;
+}
+
+.hall-exhibition-overlay .hall-exhibition-close{
+  position:absolute;
+  right:16px;
+  top:14px;
+  z-index:5;
+  width:42px;
+  height:42px;
+  border:1px solid rgba(230,196,104,.35);
+  border-radius:50%;
+  background:rgba(0,0,0,.28);
+  color:#f4d67b;
+  font-size:27px;
+  line-height:1;
+  cursor:pointer;
+}
+
+.hall-exhibition-overlay .hall-exhibition-close:hover,
+.hall-exhibition-overlay .hall-exhibition-close:focus-visible{
+  background:rgba(230,196,104,.16);
+  outline:2px solid rgba(230,196,104,.55);
+  outline-offset:2px;
+}
+
+.hall-overlay-open::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:19999;
+  background:rgba(2,7,12,.66);
+  backdrop-filter:blur(4px);
+}
+
+@media(max-width:700px){
+  .hall-exhibition-overlay{
+    width:calc(100vw - 20px) !important;
+    max-height:86vh;
+    border-radius:17px !important;
+  }
+
+  .hall-exhibition-overlay .hall-exhibition-close{
+    right:10px;
+    top:10px;
+    width:38px;
+    height:38px;
+  }
+}
