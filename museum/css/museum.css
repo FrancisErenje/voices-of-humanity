@@ -5445,3 +5445,129 @@ transform:rotate(-1deg);
     font-size:9px;
     font-weight:700;
 }
+
+
+/* =========================================================
+   HALL OF HUMANITY — CEREMONIAL FORECOURT
+   A living symbolic garden for the museum's central building.
+   Visual-only: no position or interaction logic changed.
+   ========================================================= */
+
+#hall-humanity .hall-forecourt{
+    position:absolute;
+    left:50%;
+    bottom:-252px;
+    width:610px;
+    height:190px;
+    transform:translateX(-50%);
+    z-index:8;
+    pointer-events:none;
+}
+
+#hall-humanity .forecourt-ring{
+    position:absolute;
+    left:50%;
+    bottom:8px;
+    width:390px;
+    height:110px;
+    transform:translateX(-50%);
+    border:2px solid rgba(206,170,72,.55);
+    border-radius:50%;
+    background:
+        radial-gradient(ellipse at center, rgba(255,245,201,.35), rgba(255,255,255,0) 68%);
+    box-shadow:
+        inset 0 0 18px rgba(255,255,255,.32),
+        0 8px 22px rgba(0,0,0,.12);
+}
+
+#hall-humanity .forecourt-label{
+    position:absolute;
+    left:50%;
+    bottom:48px;
+    transform:translateX(-50%);
+    width:260px;
+    text-align:center;
+    font-family:Georgia,serif;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:2px;
+    color:#876919;
+    text-shadow:0 1px 0 rgba(255,255,255,.8);
+}
+
+#hall-humanity .voice-pillar{
+    position:absolute;
+    bottom:25px;
+    width:42px;
+    height:78px;
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    padding-top:11px;
+    border-radius:7px 7px 3px 3px;
+    background:
+        linear-gradient(90deg,#9b7421,#f0d474 42%,#b98b29 78%,#805d18);
+    border:2px solid rgba(255,239,166,.75);
+    color:#fff8dc;
+    font:700 9px Arial,sans-serif;
+    letter-spacing:1px;
+    text-shadow:0 1px 2px rgba(0,0,0,.45);
+    box-shadow:
+        0 7px 13px rgba(0,0,0,.24),
+        inset 0 2px rgba(255,255,255,.55);
+}
+
+#hall-humanity .voice-pillar::after{
+    content:"";
+    position:absolute;
+    left:-5px;
+    right:-5px;
+    bottom:-7px;
+    height:8px;
+    border-radius:4px;
+    background:linear-gradient(#ded8cc,#a7a097);
+    box-shadow:0 3px 5px rgba(0,0,0,.18);
+}
+
+#hall-humanity .pillar-igede{left:14px}
+#hall-humanity .pillar-yoruba{left:88px}
+#hall-humanity .pillar-igbo{left:162px}
+#hall-humanity .pillar-hausa{left:236px}
+#hall-humanity .pillar-swahili{right:236px}
+#hall-humanity .pillar-sami{right:162px}
+#hall-humanity .pillar-wukchumni{right:88px}
+#hall-humanity .pillar-samoan{right:14px}
+
+#hall-humanity .hall-flag-line{
+    position:absolute;
+    left:50%;
+    bottom:-178px;
+    transform:translateX(-50%);
+    width:470px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:#d1aa3c;
+    font-size:15px;
+    text-shadow:0 0 9px rgba(255,215,100,.35);
+    z-index:9;
+    pointer-events:none;
+}
+
+/* Warmer, quieter illumination after sunset. */
+#campus.night #hall-humanity .voice-pillar{
+    box-shadow:
+        0 7px 14px rgba(0,0,0,.42),
+        0 0 14px rgba(255,211,112,.18),
+        inset 0 2px rgba(255,255,255,.38);
+}
+
+#campus.night #hall-humanity .forecourt-ring{
+    box-shadow:
+        inset 0 0 22px rgba(255,220,150,.18),
+        0 0 24px rgba(255,205,105,.10);
+}
+
+#campus.night #hall-humanity .hall-flag-line{
+    text-shadow:0 0 14px rgba(255,215,100,.55);
+}
