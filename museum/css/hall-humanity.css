@@ -279,3 +279,210 @@
   .hall-exhibition-title{font-size:22px}
   .hall-exhibition-intro{font-size:11px}
 }
+
+
+/*==================================================
+  LIVING COLLECTION — OUR DOCUMENTARY ARCHIVE
+==================================================*/
+
+.hall-living-collection{
+  margin:0 18px 18px;
+  padding:18px;
+  border:1px solid rgba(126,176,206,.18);
+  border-radius:16px;
+  background:linear-gradient(145deg,rgba(71,112,137,.10),rgba(255,255,255,.025));
+}
+
+.hall-living-heading{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.hall-living-kicker{
+  color:#8fb8cf;
+  font-size:8px;
+  font-weight:800;
+  letter-spacing:1.8px;
+}
+
+.hall-living-title{
+  margin-top:4px;
+  color:#fff7df;
+  font:700 20px Georgia,serif;
+}
+
+.hall-living-count{
+  color:#e7c66b;
+  font-size:10px;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.hall-living-copy{
+  margin:7px 0 13px;
+  color:#9eabb5;
+  font-size:10px;
+  line-height:1.5;
+}
+
+.hall-doc-row{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+
+.hall-doc-card{
+  min-height:92px;
+  padding:11px;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:12px;
+  background:rgba(0,0,0,.14);
+}
+
+.hall-doc-episode{
+  color:#e2bd5b;
+  font-size:8px;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+.hall-doc-title{
+  margin-top:5px;
+  color:#eef3f5;
+  font:700 13px Georgia,serif;
+}
+
+.hall-doc-meta{
+  margin-top:5px;
+  color:#82919c;
+  font-size:8px;
+  line-height:1.35;
+}
+
+.hall-doc-watch{
+  display:inline-flex;
+  margin-top:7px;
+  padding:5px 7px;
+  border-radius:7px;
+  color:#e8cf83;
+  border:1px solid rgba(230,196,104,.24);
+  text-decoration:none;
+  font-size:7px;
+  font-weight:800;
+  letter-spacing:.7px;
+}
+
+.hall-archive-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:12px;
+}
+
+.hall-archive-button{
+  border:1px solid rgba(230,196,104,.28);
+  border-radius:9px;
+  padding:8px 11px;
+  background:rgba(230,196,104,.07);
+  color:#e9cf82;
+  font-size:8px;
+  font-weight:800;
+  letter-spacing:.6px;
+  cursor:pointer;
+}
+
+.hall-archive-button:hover{
+  background:rgba(230,196,104,.15);
+}
+
+.hall-living-modal{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  background:rgba(2,6,10,.78);
+  backdrop-filter:blur(8px);
+}
+
+.hall-living-modal.open{display:flex}
+
+.hall-living-dialog{
+  width:min(900px,94vw);
+  max-height:88vh;
+  overflow:auto;
+  padding:22px;
+  border:1px solid rgba(230,196,104,.38);
+  border-radius:20px;
+  background:linear-gradient(145deg,#182735,#09131c);
+  box-shadow:0 30px 80px rgba(0,0,0,.62);
+}
+
+.hall-living-dialog-head{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:flex-start;
+}
+
+.hall-living-dialog h3{
+  margin:0;
+  color:#f3d579;
+  font:700 25px Georgia,serif;
+}
+
+.hall-living-dialog p{
+  margin:7px 0 15px;
+  color:#9eabb5;
+  font-size:10px;
+  line-height:1.5;
+}
+
+.hall-living-close{
+  border:0;
+  background:transparent;
+  color:#b8c5ce;
+  font-size:24px;
+  cursor:pointer;
+}
+
+.hall-full-archive{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+
+.hall-full-archive article{
+  padding:10px;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:10px;
+  background:rgba(255,255,255,.025);
+}
+
+.hall-full-archive strong{
+  color:#f0d477;
+  font-size:8px;
+}
+
+.hall-full-archive b{
+  display:block;
+  margin-top:4px;
+  color:#edf2f4;
+  font:700 12px Georgia,serif;
+}
+
+.hall-full-archive span{
+  display:block;
+  margin-top:4px;
+  color:#82919c;
+  font-size:8px;
+}
+
+@media(max-width:700px){
+  .hall-doc-row,.hall-full-archive{grid-template-columns:1fr}
+  .hall-living-title{font-size:18px}
+}
