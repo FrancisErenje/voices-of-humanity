@@ -169,3 +169,12 @@
   .mvv-panel{padding:20px;}
   .mvp-grid{grid-template-columns:1fr;}
 }
+
+/* PUBLIC RESOURCE COLLECTION */
+.mvp-public-heading{margin:30px 0 14px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12)}
+.mvp-public-heading span{display:block;font-size:11px;letter-spacing:.18em;opacity:.65}
+.mvp-public-heading h3{margin:6px 0 4px;font-size:22px}
+.mvp-public-heading p{margin:0;opacity:.72}
+.mvp-public-card{border-color:rgba(255,255,255,.12)}
+.mvp-public-link{display:inline-flex;align-items:center;text-decoration:none;cursor:pointer}
+@media(max-width:700px){.mvp-public-heading h3{font-size:18px}}
