@@ -13,7 +13,7 @@
     if(!hall || !collection || hall.querySelector(".hall-exhibition")) return;
 
     const wrap=document.createElement("div");
-    wrap.className="hall-exhibition";
+    wrap.className="hall-exhibition hall-exhibition-overlay";
     wrap.addEventListener("click",stop);
 
     const header=document.createElement("div");
@@ -122,7 +122,45 @@
       '<a href="https://www.unesco.org/en/multilingualism-linguistic-diversity" target="_blank" rel="noopener noreferrer">Research framework ↗</a>';
     wrap.appendChild(source);
 
-    hall.appendChild(wrap);
+    const overlayClose=document.createElement("button");
+    overlayClose.className="hall-exhibition-close";
+    overlayClose.type="button";
+    overlayClose.setAttribute("aria-label","Close Hall of Humanity");
+    overlayClose.textContent="×";
+    wrap.appendChild(overlayClose);
+
+    overlayClose.addEventListener("click",e=>{
+      e.preventDefault();
+      e.stopPropagation();
+      wrap.classList.remove("open");
+      document.body.classList.remove("hall-overlay-open");
+    });
+
+    wrap.addEventListener("click",e=>{
+      if(e.target===wrap){
+        wrap.classList.remove("open");
+        document.body.classList.remove("hall-overlay-open");
+      }
+    });
+
+    document.body.appendChild(wrap);
+
+    const openHallExperience=event=>{
+      if(event){
+        event.preventDefault();
+        event.stopImmediatePropagation();
+      }
+      wrap.classList.add("open");
+      document.body.classList.add("hall-overlay-open");
+      overlayClose.focus();
+    };
+
+    hall.addEventListener("click",openHallExperience,true);
+    hall.addEventListener("keydown",event=>{
+      if(event.key==="Enter" || event.key===" "){
+        openHallExperience(event);
+      }
+    },true);
 
     const archiveModal=document.createElement("div");
     archiveModal.className="hall-living-modal";
