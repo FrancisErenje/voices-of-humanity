@@ -1,0 +1,171 @@
+/*==================================================
+  MUSEUM CURATED VIDEO UI
+==================================================*/
+
+#museum-video-panel,
+#museum-video-viewer{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  font-family:inherit;
+}
+
+.mvp-backdrop,
+.mvv-backdrop{
+  position:absolute;
+  inset:0;
+  background:rgba(5,8,14,.78);
+  backdrop-filter:blur(10px);
+  overflow:auto;
+  padding:6vh 4vw;
+}
+
+.mvp-panel,
+.mvv-panel{
+  width:min(1180px,96vw);
+  margin:0 auto;
+  background:linear-gradient(145deg,#111923,#0a1018);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:24px;
+  box-shadow:0 30px 100px rgba(0,0,0,.55);
+  color:#fff;
+  padding:32px;
+  position:relative;
+}
+
+.mvp-close,
+.mvv-close{
+  position:absolute;
+  top:18px;
+  right:20px;
+  width:42px;
+  height:42px;
+  border:0;
+  border-radius:50%;
+  background:rgba(255,255,255,.1);
+  color:#fff;
+  font-size:28px;
+  cursor:pointer;
+}
+
+.mvp-heading{
+  padding-right:55px;
+  margin-bottom:24px;
+}
+
+.mvp-heading span{
+  font-size:11px;
+  letter-spacing:2px;
+  opacity:.65;
+}
+
+.mvp-heading h2{
+  margin:7px 0;
+  font-size:clamp(24px,3vw,38px);
+}
+
+.mvp-heading p{
+  margin:0;
+  opacity:.72;
+}
+
+.mvp-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:18px;
+}
+
+.mvp-card{
+  background:rgba(255,255,255,.055);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:18px;
+  padding:20px;
+  min-height:220px;
+  display:flex;
+  flex-direction:column;
+}
+
+.mvp-card-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  opacity:.65;
+}
+
+.mvp-card h3{
+  font-size:20px;
+  line-height:1.25;
+  margin:16px 0 10px;
+}
+
+.mvp-card p{
+  color:rgba(255,255,255,.72);
+  line-height:1.55;
+  font-size:14px;
+  flex:1;
+}
+
+.mvp-watch{
+  border:0;
+  border-radius:10px;
+  padding:12px 14px;
+  cursor:pointer;
+  background:#fff;
+  color:#111;
+  font-weight:700;
+}
+
+.mvv-panel{
+  max-width:1100px;
+}
+
+.mvv-video{
+  aspect-ratio:16/9;
+  background:#000;
+  border-radius:16px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.mvv-video iframe{
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+.mvv-external{
+  color:#fff;
+  text-decoration:none;
+  padding:18px 24px;
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:12px;
+}
+
+.mvv-info{
+  padding-top:20px;
+}
+
+.mvv-info h2{
+  margin:0 0 10px;
+}
+
+.mvv-info p{
+  color:rgba(255,255,255,.72);
+  line-height:1.55;
+}
+
+.mvv-info span{
+  font-size:12px;
+  opacity:.6;
+}
+
+@media(max-width:700px){
+  .mvp-panel,
+  .mvv-panel{padding:20px;}
+  .mvp-grid{grid-template-columns:1fr;}
+}
