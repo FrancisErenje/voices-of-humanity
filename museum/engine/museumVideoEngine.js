@@ -29,7 +29,9 @@ window.MuseumVideoEngine = {
     ];
 
     buildings.forEach(id => {
-      const el = document.getElementById(id);
+      const el = id === "reflection-garden"
+        ? document.querySelector('[data-garden-id="reflection-garden"]')
+        : document.getElementById(id);
       if (!el) return;
 
       el.style.cursor = "pointer";
