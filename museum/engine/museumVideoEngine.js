@@ -23,7 +23,9 @@ window.MuseumVideoEngine = {
       "asiaMuseum",
       "europeMuseum",
       "americasMuseum",
-      "oceaniaMuseum"
+      "oceaniaMuseum",
+      "reflection-garden",
+      "hall-humanity"
     ];
 
     buildings.forEach(id => {
@@ -47,7 +49,9 @@ window.MuseumVideoEngine = {
       asiaMuseum: "Asian Languages Museum",
       europeMuseum: "European Languages Museum",
       americasMuseum: "Americas Languages Museum",
-      oceaniaMuseum: "Oceania Languages Museum"
+      oceaniaMuseum: "Oceania Languages Museum",
+      "reflection-garden": "Reflection Garden",
+      "hall-humanity": "Hall of Humanity"
     };
 
     this.close();
