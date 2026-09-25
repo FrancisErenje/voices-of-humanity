@@ -1,15 +1,17 @@
 /*======================================*
  * VOICES OF HUMANITY
- * VISITOR ENGINE v4.0
- * BUILDING-SAFE CAMPUS MOVEMENT
+ * VISITOR ENGINE v4.1
+ * BUILDING-SAFE, DISTRIBUTED CAMPUS MOVEMENT
  *======================================*
  *
  * Visitors use the museum's rendered circulation network, but they are
  * never allowed to enter a building footprint. Roads, walkways, footpaths
  * and roundabouts are legal movement surfaces; building interiors are not.
  *
- * The route is kept as a dense polyline so visitors follow the actual
- * curved path instead of cutting across lawns or cutting through buildings.
+ * Visitors are deliberately distributed across the museum's connected
+ * circulation areas rather than being spawned only in the largest area.
+ * Each visitor then explores within its assigned circulation component,
+ * creating visible life across the campus while preserving safe routing.
  * Visitors continuously circulate during daylight and remain still at night.
  *======================================*/
 
@@ -26,13 +28,6 @@
         researcher: { minSpeed: 0.25, maxSpeed: 0.40, minStay: 1800, maxStay: 3800 },
         family:     { minSpeed: 0.35, maxSpeed: 0.52, minStay: 1200, maxStay: 3000 }
     };
-
-    /*
-     * Visitors do not need to target building centres. A building centre is
-     * deliberately not a legal walking position. Instead, visitors circulate
-     * between safe points on the actual museum circulation network.
-     */
-    const Destinations = {};
 
     function randomBetween(min, max) {
         return min + Math.random() * (max - min);
@@ -237,7 +232,6 @@
                 roadType: path.dataset.roadType || "path"
             });
 
-            /* A blocked portion becomes a hard break in the movement graph. */
             if (id === null) {
                 previousId = null;
                 continue;
@@ -294,7 +288,6 @@
 
         refreshBuildingMap();
 
-        /* All rendered circulation types are legal; buildings are the hard boundary. */
         roadSvg.querySelectorAll("path.museum-road").forEach(function (path) {
             addSvgPath(path, 30);
         });
@@ -353,16 +346,20 @@
         return LargestCirculationComponent;
     }
 
-    function randomCirculationNode(visitor) {
-        const pool = LargestCirculationComponent;
-        if (!pool.length) return null;
+    function usableCirculationComponents() {
+        return CirculationComponents.filter(function (component) {
+            return component.length >= 4;
+        });
+    }
 
-        let id = pool[Math.floor(Math.random() * pool.length)];
+    function randomNodeFromComponent(component, visitor) {
+        if (!component || !component.length) return null;
+
+        let id = component[Math.floor(Math.random() * component.length)];
         let attempts = 0;
 
-        /* Prefer a destination with enough distance to make the movement visible. */
-        while (attempts < 20 && visitor) {
-            const candidate = pool[Math.floor(Math.random() * pool.length)];
+        while (attempts < 24 && visitor) {
+            const candidate = component[Math.floor(Math.random() * component.length)];
             const node = MovementGraph.nodes[candidate];
             if (node && distance(visitor, node) > 180) {
                 id = candidate;
@@ -374,16 +371,32 @@
         return MovementGraph.nodes[id] || null;
     }
 
-    function nearestNode(point) {
+    function randomCirculationNode(visitor) {
+        const component = visitor && visitor.component && visitor.component.length
+            ? visitor.component
+            : LargestCirculationComponent;
+
+        return randomNodeFromComponent(component, visitor);
+    }
+
+    function nearestNode(point, component) {
         let best = null;
         let bestDistance = Infinity;
-        MovementGraph.nodes.forEach(function (node) {
+        const pool = component && component.length ? component : MovementGraph.nodes.map(function (node) {
+            return node.id;
+        });
+
+        pool.forEach(function (id) {
+            const node = MovementGraph.nodes[id];
+            if (!node) return;
+
             const d = distance(point, node);
             if (d < bestDistance) {
                 bestDistance = d;
                 best = node;
             }
         });
+
         return best;
     }
 
@@ -441,18 +454,15 @@
         return route[0] === startId ? route : [];
     }
 
-    /* Preserve the rendered path geometry. Every sampled node stays in the
-       route so visitors follow curves instead of taking shortcuts across
-       lawns or building forecourts. */
     function compressRoute(route) {
         return route.slice();
     }
 
-    function buildRoute(startPoint, destinationPoint) {
+    function buildRoute(startPoint, destinationPoint, component) {
         if (!MovementGraph.ready) return [];
 
-        const startNode = nearestNode(startPoint);
-        const destinationNode = nearestNode(destinationPoint);
+        const startNode = nearestNode(startPoint, component);
+        const destinationNode = nearestNode(destinationPoint, component);
         if (!startNode || !destinationNode) return [];
 
         const nodeRoute = findNodeRoute(startNode.id, destinationNode.id);
@@ -468,7 +478,7 @@
      * VISITOR CREATION
      *----------------------------------*/
 
-    function createVisitor(x, y) {
+    function createVisitor(x, y, component) {
         const person = document.createElement("div");
         const type = VisitorTypes[Math.floor(Math.random() * VisitorTypes.length)];
         const behaviour = VisitorBehaviour[type];
@@ -493,12 +503,13 @@
             type,
             x,
             y,
+            component: component || LargestCirculationComponent,
             speed: randomBetween(behaviour.minSpeed, behaviour.maxSpeed),
             targetX: x,
             targetY: y,
             waiting: false,
             state: "night",
-            destination: "Visitor Centre",
+            destination: "circulation",
             route: [],
             routeIndex: 0,
             stayMin: behaviour.minStay,
@@ -527,7 +538,8 @@
 
         const route = buildRoute(
             { x: visitor.x, y: visitor.y },
-            { x: destinationNode.x, y: destinationNode.y }
+            { x: destinationNode.x, y: destinationNode.y },
+            visitor.component
         );
 
         if (!route.length) return false;
@@ -576,8 +588,6 @@
                 return;
             }
 
-            /* Continue along the same route, then immediately select another
-               safe circulation point. This keeps daytime life continuous. */
             if (visitor.routeIndex < visitor.route.length - 1) {
                 visitor.routeIndex++;
                 visitor.waiting = false;
@@ -598,7 +608,6 @@
         const night = isNight();
 
         visitors.forEach(function (visitor) {
-            /* Day/night rule: freeze visitors exactly where they are at night. */
             if (night) {
                 if (visitor.state !== "waiting") visitor.state = "night";
                 visitor.element.style.setProperty("--visitor-paused", "1");
@@ -635,11 +644,7 @@
                 y: visitor.y + directionY * visitor.speed
             };
 
-            /* Final runtime guard: never place a visitor inside a building. */
             if (!isLegalPoint(nextPoint) || !isLegalSegment({ x: visitor.x, y: visitor.y }, nextPoint)) {
-                /* A building can block the tail end of a rendered approach.
-                   Never step through it; simply select another legal network
-                   point and continue circulating. */
                 visitor.waiting = false;
                 visitor.state = "walking";
                 chooseNextStop(visitor);
@@ -680,53 +685,69 @@
         visitors.length = 0;
 
         buildCirculationComponents();
-        if (!LargestCirculationComponent.length) {
-            console.warn("Visitor Engine: no connected circulation component found.");
+
+        const usableComponents = usableCirculationComponents();
+        if (!usableComponents.length) {
+            console.warn("Visitor Engine: no usable connected circulation areas found.");
             return;
         }
 
-        const visitorCount = 15;
+        /*
+         * DISTRIBUTION RULE:
+         * Assign visitors round-robin across the largest usable circulation
+         * areas first. This prevents all 15 people from appearing in one
+         * location and makes the campus feel inhabited from the start.
+         */
+        const visitorCount = 18;
         const usedStarts = [];
 
         for (let i = 0; i < visitorCount; i++) {
+            const component = usableComponents[i % usableComponents.length];
+
             let node = null;
             let attempts = 0;
 
             while (attempts < 30) {
-                const candidateId = LargestCirculationComponent[
-                    Math.floor(Math.random() * LargestCirculationComponent.length)
-                ];
+                const candidateId = component[Math.floor(Math.random() * component.length)];
                 const candidate = MovementGraph.nodes[candidateId];
-                if (candidate && usedStarts.every(function (point) {
-                    return distance(candidate, point) > 55;
+
+                if (candidate && isLegalPoint(candidate) && usedStarts.every(function (point) {
+                    return distance(candidate, point) > 70;
                 })) {
                     node = candidate;
                     break;
                 }
+
                 attempts++;
             }
 
             if (!node) {
                 node = MovementGraph.nodes[
-                    LargestCirculationComponent[i % LargestCirculationComponent.length]
+                    component[i % component.length]
                 ];
             }
 
             usedStarts.push({ x: node.x, y: node.y });
-            const visitor = createVisitor(node.x, node.y);
-            window.setTimeout(function () { chooseNextStop(visitor); }, visitor.thinkingDelay);
+
+            const visitor = createVisitor(node.x, node.y, component);
+            window.setTimeout(function () {
+                chooseNextStop(visitor);
+            }, visitor.thinkingDelay + (i * 90));
         }
 
+        console.log("✓ Visitors distributed across", usableComponents.length, "circulation areas");
         updateVisitors();
     }
 
     function visitorStatus() {
         console.log("================================");
         console.log("VOICES OF HUMANITY");
-        console.log("VISITOR ENGINE v4.0");
+        console.log("VISITOR ENGINE v4.1");
         console.log("================================");
         console.log("Visitors:", visitors.length);
         console.log("Legal movement nodes:", MovementGraph.nodes.length);
+        console.log("Circulation areas:", CirculationComponents.length);
+        console.log("Usable circulation areas:", usableCirculationComponents().length);
         console.log("Buildings protected:", BuildingMap.rects.length);
         console.log("Night mode:", isNight());
         console.log("Network ready:", MovementGraph.ready);
@@ -740,5 +761,5 @@
         rebuildMovementGraph: buildMovementGraph
     };
 
-    console.log("✓ Visitor Engine v4.0 Loaded");
+    console.log("✓ Visitor Engine v4.1 Loaded");
 })();
