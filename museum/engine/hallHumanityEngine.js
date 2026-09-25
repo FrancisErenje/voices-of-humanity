@@ -63,6 +63,51 @@
 
     wrap.appendChild(grid);
 
+    const documentaries=Array.isArray(window.DocumentaryCollection) ? window.DocumentaryCollection : [];
+    const publishedDocs=documentaries.filter(item=>item.status==="published" && item.episode!==null);
+
+    const living=document.createElement("section");
+    living.className="hall-living-collection";
+    living.innerHTML='<div class="hall-living-heading"><div><div class="hall-living-kicker">VOICES OF OUR MUSEUM · LIVING COLLECTION</div><div class="hall-living-title">Our Field Archive</div></div><div class="hall-living-count">'+publishedDocs.length+' PUBLISHED EPISODES</div></div><p class="hall-living-copy">The museum's own growing record of language documentaries researched, produced and published through Voices of Humanity. The archive begins with Nigerian languages and is designed to expand across regions and generations.</p>';
+
+    const docRow=document.createElement("div");
+    docRow.className="hall-doc-row";
+
+    publishedDocs.slice(0,6).forEach(doc=>{
+      const card=document.createElement("article");
+      card.className="hall-doc-card";
+      card.innerHTML='<div class="hall-doc-episode">EPISODE '+doc.episode+'</div><div class="hall-doc-title">'+doc.title+'</div><div class="hall-doc-meta">'+(doc.region||"Nigeria")+' · '+(doc.languageFamily||"Language documentation")+'</div>';
+      if(doc.videoUrl){
+        const a=document.createElement("a");
+        a.className="hall-doc-watch";
+        a.href=doc.videoUrl;
+        a.target="_blank";
+        a.rel="noopener noreferrer";
+        a.textContent="WATCH DOCUMENTARY ↗";
+        card.appendChild(a);
+      }
+      docRow.appendChild(card);
+    });
+    living.appendChild(docRow);
+
+    const actions=document.createElement("div");
+    actions.className="hall-archive-actions";
+    const archiveButton=document.createElement("button");
+    archiveButton.className="hall-archive-button";
+    archiveButton.type="button";
+    archiveButton.textContent="OPEN FULL DOCUMENTARY ARCHIVE";
+    actions.appendChild(archiveButton);
+
+    const igede=document.createElement("a");
+    igede.className="hall-archive-button";
+    igede.href="academy/igede.html";
+    igede.target="_blank";
+    igede.rel="noopener noreferrer";
+    igede.textContent="ENTER IGEDE LEARNING CENTRE ↗";
+    actions.appendChild(igede);
+    living.appendChild(actions);
+    wrap.appendChild(living);
+
     const promise=document.createElement("div");
     promise.className="hall-promise";
     promise.innerHTML=
@@ -78,6 +123,30 @@
     wrap.appendChild(source);
 
     hall.appendChild(wrap);
+
+    const archiveModal=document.createElement("div");
+    archiveModal.className="hall-living-modal";
+    archiveModal.innerHTML='<div class="hall-living-dialog" role="dialog" aria-modal="true" aria-label="Full documentary archive"><div class="hall-living-dialog-head"><div><div class="hall-living-kicker">VOICES OF HUMANITY · DOCUMENTARY ARCHIVE</div><h3>Our Published Language Documentaries</h3><p>'+publishedDocs.length+' numbered documentary entries are currently connected to the museum archive.</p></div><button class="hall-living-close" aria-label="Close archive">×</button></div><div class="hall-full-archive"></div></div>';
+    document.body.appendChild(archiveModal);
+
+    const archiveGrid=archiveModal.querySelector(".hall-full-archive");
+    publishedDocs.forEach(doc=>{
+      const item=document.createElement("article");
+      item.innerHTML='<strong>EPISODE '+doc.episode+'</strong><b>'+doc.title+'</b><span>'+(doc.region||"Nigeria")+' · '+(doc.language||"Language")+'</span>';
+      if(doc.videoUrl){
+        const a=document.createElement("a");
+        a.className="hall-doc-watch";
+        a.href=doc.videoUrl;
+        a.target="_blank";
+        a.rel="noopener noreferrer";
+        a.textContent="WATCH ↗";
+        item.appendChild(a);
+      }
+      archiveGrid.appendChild(item);
+    });
+    archiveModal.querySelector(".hall-living-close").addEventListener("click",()=>archiveModal.classList.remove("open"));
+    archiveModal.addEventListener("click",e=>{if(e.target===archiveModal) archiveModal.classList.remove("open")});
+    archiveButton.addEventListener("click",()=>archiveModal.classList.add("open"));
 
     const modal=document.createElement("div");
     modal.className="hall-promise-modal";
