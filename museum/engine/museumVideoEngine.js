@@ -1,6 +1,6 @@
 /*==================================================
   VOICES OF HUMANITY
-  MUSEUM VIDEO ENGINE v1.0
+  MUSEUM VIDEO ENGINE v1.1
 ==================================================*/
 
 window.MuseumVideoEngine = {
@@ -39,10 +39,22 @@ window.MuseumVideoEngine = {
         : id === "visitor-centre"
           ? document.querySelector(".visitor-centre")
           : document.getElementById(id);
+
       if (!el) return;
 
       el.style.cursor = "pointer";
+      el.setAttribute("tabindex", "0");
+      el.setAttribute("role", "button");
+      el.setAttribute("aria-label", "Open " + (id === "reflection-garden" ? "Reflection Garden" : "museum collection"));
+
       el.addEventListener("click", event => {
+        event.stopPropagation();
+        this.openBuilding(id);
+      });
+
+      el.addEventListener("keydown", event => {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
         event.stopPropagation();
         this.openBuilding(id);
       });
@@ -74,12 +86,12 @@ window.MuseumVideoEngine = {
 
     panel.innerHTML = `
       <div class="mvp-backdrop">
-        <div class="mvp-panel">
-          <button class="mvp-close" aria-label="Close">×</button>
+        <div class="mvp-panel" role="dialog" aria-modal="true" aria-labelledby="mvp-title">
+          <button class="mvp-close" aria-label="Close museum collection">×</button>
 
           <div class="mvp-heading">
             <span>VOICES OF HUMANITY</span>
-            <h2>${buildingNames[buildingId] || "Museum Collection"}</h2>
+            <h2 id="mvp-title">${buildingNames[buildingId] || "Museum Collection"}</h2>
             <p>Curated public videos selected for this museum.</p>
           </div>
 
@@ -103,7 +115,9 @@ window.MuseumVideoEngine = {
 
     document.body.appendChild(panel);
 
-    panel.querySelector(".mvp-close").addEventListener("click", () => this.close());
+    const closeButton = panel.querySelector(".mvp-close");
+    closeButton.addEventListener("click", () => this.close());
+    closeButton.focus();
 
     panel.querySelector(".mvp-backdrop").addEventListener("click", e => {
       if (e.target === e.currentTarget) this.close();
@@ -114,6 +128,13 @@ window.MuseumVideoEngine = {
         const item = this.collection.find(v => v.id === button.dataset.id);
         if (item) this.openVideo(item);
       });
+    });
+
+    panel.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        this.close();
+      }
     });
   },
 
@@ -157,8 +178,8 @@ window.MuseumVideoEngine = {
 
     viewer.innerHTML = `
       <div class="mvv-backdrop">
-        <div class="mvv-panel">
-          <button class="mvv-close" aria-label="Close">×</button>
+        <div class="mvv-panel" role="dialog" aria-modal="true" aria-labelledby="mvv-title">
+          <button class="mvv-close" aria-label="Close video viewer">×</button>
           <div class="mvv-video">
             ${isChannelOrSearch
               ? `<a class="mvv-external" href="${item.videoUrl}" target="_blank" rel="noopener">Open this public YouTube collection →</a>`
@@ -166,7 +187,7 @@ window.MuseumVideoEngine = {
             }
           </div>
           <div class="mvv-info">
-            <h2>${item.title}</h2>
+            <h2 id="mvv-title">${item.title}</h2>
             <p>${item.description}</p>
             <span>${item.source} · ${item.language}</span>
           </div>
@@ -176,9 +197,19 @@ window.MuseumVideoEngine = {
 
     document.body.appendChild(viewer);
 
-    viewer.querySelector(".mvv-close").addEventListener("click", () => viewer.remove());
+    const closeButton = viewer.querySelector(".mvv-close");
+    closeButton.addEventListener("click", () => viewer.remove());
+    closeButton.focus();
+
     viewer.querySelector(".mvv-backdrop").addEventListener("click", e => {
       if (e.target === e.currentTarget) viewer.remove();
+    });
+
+    viewer.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        viewer.remove();
+      }
     });
   },
 
