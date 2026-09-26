@@ -5877,3 +5877,52 @@ body.lm247-overlay-open{
         width:100%;
     }
 }
+
+
+/*==================================================
+  BUILDING TITLES — SINGLE SOURCE OF VISIBLE NAMES
+  Keep the architectural title already present on
+  each building; do not add a second floating label.
+==================================================*/
+
+.building-name-label{
+    display:none !important;
+}
+
+#africaMuseum .museum-title,
+#asiaMuseum .asia-name,
+#europeMuseum .continental-title,
+#americasMuseum .continental-title,
+#oceaniaMuseum .continental-title{
+    position:relative;
+    z-index:20;
+    font-weight:800;
+    letter-spacing:.4px;
+    text-shadow:
+        0 2px 4px rgba(0,0,0,.65),
+        0 0 10px rgba(255,255,255,.16);
+}
+
+#africaMuseum .museum-title{
+    font-size:26px;
+}
+
+#asiaMuseum .asia-name{
+    font-size:25px;
+}
+
+#europeMuseum .continental-title,
+#americasMuseum .continental-title,
+#oceaniaMuseum .continental-title{
+    font-size:25px;
+}
+
+@media(max-width:700px){
+    #africaMuseum .museum-title,
+    #asiaMuseum .asia-name,
+    #europeMuseum .continental-title,
+    #americasMuseum .continental-title,
+    #oceaniaMuseum .continental-title{
+        font-size:20px;
+    }
+}
