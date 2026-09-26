@@ -158,56 +158,41 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 
         button.textContent = "EXPLORE THE HALL";
         panel.style.display = "block";
+
+        /* Bind the action directly to the actual button.
+           This avoids relying on document-level delegation and
+           keeps the interaction dependable on mouse, touch,
+           keyboard, tablet and mobile browsers. */
+        if(button.dataset.hallExploreBound !== "true"){
+            button.dataset.hallExploreBound = "true";
+
+            button.addEventListener("click", function(event){
+                event.preventDefault();
+                event.stopPropagation();
+
+                const open = window.openHallHumanityExperience;
+                if(typeof open === "function"){
+                    open(event);
+                    return;
+                }
+
+                const exhibition = document.querySelector(".hall-exhibition-overlay");
+                if(exhibition){
+                    exhibition.classList.add("open");
+                    exhibition.style.display = "block";
+                    document.body.classList.add("hall-overlay-open");
+                    panel.style.display = "none";
+
+                    const closeButton = exhibition.querySelector(".hall-exhibition-close");
+                    if(closeButton) setTimeout(() => closeButton.focus(), 120);
+                }
+            });
+        }
+
         button.focus();
 
     });
 
-})();
-
-
-/* Ensure the Hall information panel's Explore button opens the
-   exhibition through a document-level capture handler. This is deliberately
-   outside the Hall building itself so camera/focus handlers cannot swallow
-   the button interaction on desktop, tablet, or touch devices. */
-(function(){
-    function openHallFromPanel(event){
-        const button = event.target.closest("#enterMuseum");
-        if(!button || button.textContent.trim() !== "EXPLORE THE HALL") return;
-
-        event.preventDefault();
-        event.stopPropagation();
-
-        const open = window.openHallHumanityExperience;
-        if(typeof open === "function"){
-            open(event);
-            return;
-        }
-
-        const exhibition = document.querySelector(".hall-exhibition-overlay");
-        if(exhibition){
-            exhibition.classList.add("open");
-            exhibition.style.display = "block";
-            document.body.classList.add("hall-overlay-open");
-
-            const panel = document.getElementById("museumPanel");
-            if(panel) panel.style.display = "none";
-
-            const closeButton = exhibition.querySelector(".hall-exhibition-close");
-            if(closeButton) setTimeout(() => closeButton.focus(), 120);
-        }
-    }
-
-    document.addEventListener("click", openHallFromPanel, true);
-
-    /* Re-apply the action whenever the Hall panel is opened. */
-    document.addEventListener("keydown", function(event){
-        if(event.key !== "Enter" && event.key !== " ") return;
-        const button = document.activeElement;
-        if(!button || button.id !== "enterMuseum") return;
-        if(button.textContent.trim() !== "EXPLORE THE HALL") return;
-
-        openHallFromPanel(event);
-    }, true);
 })();
 
 
