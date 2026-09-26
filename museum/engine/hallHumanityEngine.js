@@ -154,7 +154,14 @@
       wrap.classList.add("open");
       wrap.style.display = "block";
       document.body.classList.add("hall-overlay-open");
-      overlayClose.focus();
+
+      /* The exhibition replaces the small visitor panel.
+         Hide it explicitly so the transition is clean on
+         desktop, tablet and mobile. */
+      const visitorPanel = document.getElementById("museumPanel");
+      if(visitorPanel) visitorPanel.style.display = "none";
+
+      setTimeout(() => overlayClose.focus(), 80);
     };
 
     /* The Hall is focused by the camera engine.
