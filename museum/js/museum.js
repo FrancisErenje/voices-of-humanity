@@ -311,3 +311,127 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
     setTimeout(setup, 1500);
 
 })();
+
+
+/*======================================
+   LOCALMEDIA247 — VISITOR EXPERIENCE
+   Keep the service information inside the
+   building experience rather than displaying
+   the full information on the campus.
+======================================*/
+
+(function setupLocalMedia247Experience(){
+
+    function createExperience(){
+
+        if(document.querySelector(".lm247-experience-overlay")) return;
+
+        const overlay = document.createElement("div");
+        overlay.className = "lm247-experience-overlay";
+        overlay.innerHTML = `
+            <div class="lm247-experience-card" role="dialog" aria-modal="true" aria-labelledby="lm247ExperienceTitle">
+                <button class="lm247-experience-close" type="button" aria-label="Close LocalMedia247 information">×</button>
+
+                <div class="lm247-experience-eyebrow">LOCALMEDIA247 MEDIA CENTER</div>
+                <h2 id="lm247ExperienceTitle">Documenting Today. Preserving Tomorrow.</h2>
+
+                <p class="lm247-experience-intro">
+                    A media and digital storytelling centre built around verified information,
+                    research, content production and digital communication.
+                </p>
+
+                <div class="lm247-experience-grid">
+                    <div>
+                        <span>MEDIA</span>
+                        <strong>News &amp; Media</strong>
+                        <p>Verified news publishing and media communication.</p>
+                    </div>
+                    <div>
+                        <span>RESEARCH</span>
+                        <strong>Research &amp; Fact-Checking</strong>
+                        <p>Careful research, verification and information development.</p>
+                    </div>
+                    <div>
+                        <span>CONTENT</span>
+                        <strong>Content Creation</strong>
+                        <p>Documentary, video, social media and editorial content.</p>
+                    </div>
+                    <div>
+                        <span>WEB</span>
+                        <strong>Digital &amp; Web Services</strong>
+                        <p>Websites, portfolios and digital presentation for people and organisations.</p>
+                    </div>
+                </div>
+
+                <div class="lm247-contact-box">
+                    <div>
+                        <small>CLIENT CONNECTION DESK</small>
+                        <h3>Have a story, project or business need?</h3>
+                        <p>Talk directly with LocalMedia247 on WhatsApp.</p>
+                        <strong>+234 806 413 7756</strong>
+                    </div>
+                    <a class="lm247-whatsapp" href="https://wa.me/2348064137756?text=Hello%20LocalMedia247%2C%20I%20would%20like%20to%20make%20an%20enquiry%20about%20your%20media%20and%20digital%20services." target="_blank" rel="noopener noreferrer">
+                        ☏&nbsp; CHAT ON WHATSAPP
+                    </a>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(overlay);
+
+        const close = overlay.querySelector(".lm247-experience-close");
+        close.addEventListener("click", closeExperience);
+
+        overlay.addEventListener("click", function(event){
+            if(event.target === overlay) closeExperience();
+        });
+
+        document.addEventListener("keydown", function(event){
+            if(event.key === "Escape" && overlay.classList.contains("open")){
+                closeExperience();
+            }
+        });
+
+        function closeExperience(){
+            overlay.classList.remove("open");
+            document.body.classList.remove("lm247-overlay-open");
+        }
+
+        overlay._open = function(){
+            overlay.classList.add("open");
+            document.body.classList.add("lm247-overlay-open");
+            setTimeout(() => close.focus(), 100);
+        };
+    }
+
+    function bind(){
+
+        const building = document.getElementById("lm247Building");
+        if(!building) return;
+
+        createExperience();
+
+        if(building.dataset.lm247ExperienceBound === "true") return;
+        building.dataset.lm247ExperienceBound = "true";
+
+        building.addEventListener("click", function(event){
+            event.preventDefault();
+            event.stopPropagation();
+
+            const overlay = document.querySelector(".lm247-experience-overlay");
+            if(overlay && typeof overlay._open === "function"){
+                overlay._open();
+            }
+        }, true);
+    }
+
+    if(document.readyState === "loading"){
+        document.addEventListener("DOMContentLoaded", bind);
+    }else{
+        bind();
+    }
+
+    setTimeout(bind, 500);
+    setTimeout(bind, 1500);
+
+})();
