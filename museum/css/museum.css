@@ -5688,3 +5688,192 @@ transform:rotate(-1deg);
         font-size:18px;
     }
 }
+
+
+/* ======================================
+   LOCALMEDIA247 VISITOR EXPERIENCE
+   Information appears only after the
+   building is clicked.
+   ====================================== */
+
+#lm247Building .lmClientDesk{
+    display:none !important;
+}
+
+.lm247-experience-overlay{
+    position:fixed;
+    inset:0;
+    z-index:21000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    background:rgba(5,10,16,.78);
+    backdrop-filter:blur(8px);
+}
+
+.lm247-experience-overlay.open{
+    display:flex;
+}
+
+.lm247-experience-card{
+    position:relative;
+    width:min(920px,94vw);
+    max-height:90vh;
+    overflow:auto;
+    padding:38px;
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:24px;
+    background:
+        radial-gradient(circle at 85% 10%,rgba(0,140,255,.18),transparent 30%),
+        linear-gradient(145deg,#111b25,#1d2c3b 55%,#0d141c);
+    color:#fff;
+    box-shadow:0 30px 90px rgba(0,0,0,.55);
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+.lm247-experience-close{
+    position:absolute;
+    top:16px;
+    right:18px;
+    width:42px;
+    height:42px;
+    border:1px solid rgba(255,255,255,.3);
+    border-radius:50%;
+    background:rgba(255,255,255,.1);
+    color:#fff;
+    font-size:28px;
+    line-height:1;
+    cursor:pointer;
+}
+
+.lm247-experience-eyebrow{
+    color:#55baff;
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.lm247-experience-card h2{
+    margin:8px 50px 12px 0;
+    font-size:clamp(28px,4vw,46px);
+    line-height:1.05;
+    letter-spacing:-.5px;
+}
+
+.lm247-experience-intro{
+    max-width:760px;
+    margin:0 0 26px;
+    color:#dce8f2;
+    font-size:16px;
+    line-height:1.65;
+}
+
+.lm247-experience-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:14px;
+}
+
+.lm247-experience-grid>div{
+    padding:18px;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:16px;
+    background:rgba(255,255,255,.06);
+}
+
+.lm247-experience-grid span{
+    display:block;
+    margin-bottom:6px;
+    color:#55baff;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:1.5px;
+}
+
+.lm247-experience-grid strong{
+    display:block;
+    font-size:19px;
+}
+
+.lm247-experience-grid p{
+    margin:7px 0 0;
+    color:#c5d2dd;
+    line-height:1.5;
+    font-size:14px;
+}
+
+.lm247-contact-box{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+    margin-top:22px;
+    padding:22px;
+    border-radius:18px;
+    background:linear-gradient(135deg,rgba(0,140,255,.20),rgba(0,90,150,.12));
+    border:1px solid rgba(85,186,255,.32);
+}
+
+.lm247-contact-box small{
+    color:#8fd5ff;
+    font-weight:800;
+    letter-spacing:1.5px;
+}
+
+.lm247-contact-box h3{
+    margin:6px 0;
+    font-size:21px;
+}
+
+.lm247-contact-box p{
+    margin:0 0 6px;
+    color:#d5e4ef;
+}
+
+.lm247-contact-box strong{
+    font-size:18px;
+}
+
+.lm247-whatsapp{
+    flex:0 0 auto;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:50px;
+    padding:0 20px;
+    border-radius:12px;
+    background:#20b85a;
+    color:#fff;
+    font-weight:900;
+    text-decoration:none;
+    box-shadow:0 8px 22px rgba(0,0,0,.25);
+}
+
+.lm247-whatsapp:hover{
+    filter:brightness(1.08);
+}
+
+body.lm247-overlay-open{
+    overflow:hidden;
+}
+
+@media(max-width:700px){
+    .lm247-experience-card{
+        padding:28px 20px 22px;
+        border-radius:18px;
+    }
+
+    .lm247-experience-grid{
+        grid-template-columns:1fr;
+    }
+
+    .lm247-contact-box{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .lm247-whatsapp{
+        width:100%;
+    }
+}
