@@ -119,79 +119,58 @@ window.CinemaEngine = {
 
             <div class="cinema-interior">
 
-
                 <!-- ==================================
-                     SHORT INTRODUCTION
-
-                     IMPORTANT:
-                     No duplicate "Documentary Cinema"
-                     heading here.
+                     LANGUAGE DOCUMENTARIES — FIRST VIEW
+                     Visitors encounter the Voices of Humanity
+                     language archive before secondary cinema
+                     experiences.
                 ================================== -->
 
-                <div class="cinema-header">
+                <div class="cinema-library cinema-language-library">
 
-                    <p>
-                        Enter the cinema and explore
-                        the voices preserved in our
-                        documentary collection.
-                    </p>
+                    <div class="library-heading">
+
+                        <div>
+                            <h3>Our Language Documentaries</h3>
+                            <p class="cinema-library-intro">
+                                The Voices of Humanity documentary archive —
+                                language by language, community by community.
+                            </p>
+                        </div>
+
+                        <span>
+                            ${this.collection.filter(item => item.episode !== null && item.status === "published").length}
+                            language documentaries
+                        </span>
+
+                    </div>
+
+                    <div class="documentary-grid" id="documentary-grid"></div>
 
                 </div>
 
 
                 <!-- ==================================
-                     CINEMA SCREEN
+                     CINEMA SCREEN — SECONDARY EXPERIENCE
                 ================================== -->
 
                 <div class="cinema-screen-area">
 
                     <div class="cinema-screen">
-
                         <div class="screen-glow"></div>
-
-                        <span>
-                            DOCUMENTARY CINEMA
-                        </span>
-
+                        <span>DOCUMENTARY CINEMA</span>
                     </div>
 
                 </div>
 
 
-                <!-- ==================================
-                     DOCUMENTARY LIBRARY
-                ================================== -->
-
-                <div class="cinema-library">
-
-
-                    <div class="library-heading">
-
-                        <h3>
-                            Documentary Collection
-                        </h3>
-
-
-                        <span>
-
-                            ${this.collection.length}
-                            documentaries
-
-                        </span>
-
-                    </div>
-
-
-                    <div
-                        class="documentary-grid"
-                        id="documentary-grid"
-                    >
-
-                    </div>
-
-
+                <div class="cinema-header">
+                    <p>
+                        After exploring our language documentaries,
+                        continue through the cinema for special
+                        screenings and other documentary experiences.
+                    </p>
                 </div>
-
 
             </div>
 
