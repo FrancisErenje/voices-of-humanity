@@ -157,12 +157,12 @@
       overlayClose.focus();
     };
 
-    hall.addEventListener("click",openHallExperience,true);
-    hall.addEventListener("keydown",event=>{
-      if(event.key==="Enter" || event.key===" "){
-        openHallExperience(event);
-      }
-    },true);
+    /* The Hall is focused by the camera engine.
+       The visitor panel in museum.js now provides the
+       explicit EXPLORE THE HALL action. Expose the
+       exhibition opener globally so that action remains
+       reliable across initialization order and devices. */
+    window.openHallHumanityExperience = openHallExperience;
 
     const archiveModal=document.createElement("div");
     archiveModal.className="hall-living-modal";
