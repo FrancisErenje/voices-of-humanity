@@ -123,3 +123,78 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 } else {
     console.warn("Visitor Engine: start function not available.");
 }
+
+/*======================================
+   HALL OF HUMANITY — VISITOR EXPERIENCE
+   Ensures the Hall click opens its exhibition
+   after the camera focuses on the entrance.
+======================================*/
+
+(function setupHallExperience(){
+
+    const hall = document.getElementById("hall-humanity");
+    if(!hall) return;
+
+    hall.addEventListener("click", function(){
+
+        /* The full Hall Exhibition Engine creates the
+           detailed overlay. Open it when available. */
+        const exhibition = document.querySelector(".hall-exhibition-overlay");
+
+        if(exhibition){
+            exhibition.classList.add("open");
+            exhibition.style.display = "block";
+            document.body.classList.add("hall-overlay-open");
+
+            const closeButton =
+                exhibition.querySelector(".hall-exhibition-close");
+
+            if(closeButton){
+                setTimeout(() => closeButton.focus(), 120);
+            }
+
+            return;
+        }
+
+        /* Safe fallback: use the existing museum information panel
+           if the full exhibition engine has not initialized. */
+        const panel = document.getElementById("museumPanel");
+        const header = document.getElementById("museumPanelHeader");
+        const body = document.getElementById("museumPanelBody");
+        const button = document.getElementById("enterMuseum");
+
+        if(!panel || !header || !body) return;
+
+        header.textContent = "🏛 Hall of Humanity";
+
+        body.innerHTML =
+            "<strong>The World of Voices</strong><br><br>" +
+            "The Hall of Humanity is the global orientation centre of " +
+            "Voices of Humanity — a place to encounter language as memory, " +
+            "identity, knowledge and living heritage.<br><br>" +
+            "Explore curated exhibits on the world's linguistic diversity, " +
+            "oral traditions, language documentation, writing systems, " +
+            "language transmission and the museum's growing documentary archive.";
+
+        if(button){
+            button.textContent = "EXPLORE THE HALL";
+            button.onclick = function(event){
+                event.preventDefault();
+
+                const fullExhibition =
+                    document.querySelector(".hall-exhibition-overlay");
+
+                if(fullExhibition){
+                    fullExhibition.classList.add("open");
+                    fullExhibition.style.display = "block";
+                    document.body.classList.add("hall-overlay-open");
+                    panel.style.display = "none";
+                }
+            };
+        }
+
+        panel.style.display = "block";
+
+    });
+
+})();
