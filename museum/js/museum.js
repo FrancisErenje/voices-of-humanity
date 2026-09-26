@@ -160,34 +160,37 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
         panel.style.display = "block";
 
         /* Bind the action directly to the actual button.
-           This avoids relying on document-level delegation and
-           keeps the interaction dependable on mouse, touch,
-           keyboard, tablet and mobile browsers. */
-        if(button.dataset.hallExploreBound !== "true"){
-            button.dataset.hallExploreBound = "true";
+           Use the element's native onclick property rather than
+           delegated bubbling. This makes the Hall action reliable
+           on mouse, touch, tablet and keyboard browsers. */
+        button.type = "button";
+        button.onclick = function(event){
+            event.preventDefault();
+            event.stopPropagation();
 
-            button.addEventListener("click", function(event){
-                event.preventDefault();
-                event.stopPropagation();
+            const open = window.openHallHumanityExperience;
 
-                const open = window.openHallHumanityExperience;
-                if(typeof open === "function"){
-                    open(event);
-                    return;
-                }
+            if(typeof open === "function"){
+                open(event);
+                return false;
+            }
 
-                const exhibition = document.querySelector(".hall-exhibition-overlay");
-                if(exhibition){
-                    exhibition.classList.add("open");
-                    exhibition.style.display = "block";
-                    document.body.classList.add("hall-overlay-open");
-                    panel.style.display = "none";
+            /* Safe fallback if the Hall engine has not finished
+               initializing yet. */
+            const exhibition = document.querySelector(".hall-exhibition-overlay");
 
-                    const closeButton = exhibition.querySelector(".hall-exhibition-close");
-                    if(closeButton) setTimeout(() => closeButton.focus(), 120);
-                }
-            });
-        }
+            if(exhibition){
+                exhibition.classList.add("open");
+                exhibition.style.display = "block";
+                document.body.classList.add("hall-overlay-open");
+                panel.style.display = "none";
+
+                const closeButton = exhibition.querySelector(".hall-exhibition-close");
+                if(closeButton) setTimeout(() => closeButton.focus(), 120);
+            }
+
+            return false;
+        };
 
         button.focus();
 
