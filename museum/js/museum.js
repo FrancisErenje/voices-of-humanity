@@ -198,3 +198,44 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
     });
 
 })();
+
+/* Ensure the Hall information panel's Explore button opens the
+   already-built Hall exhibition, regardless of initialization order. */
+(function(){
+    function bindHallExplore(){
+        const button = document.getElementById("enterMuseum");
+        if(!button || button.dataset.hallExploreBound === "true") return;
+
+        button.dataset.hallExploreBound = "true";
+
+        button.addEventListener("click", function(event){
+            if(this.textContent.trim() !== "EXPLORE THE HALL") return;
+
+            event.preventDefault();
+            event.stopImmediatePropagation();
+
+            const exhibition = document.querySelector(".hall-exhibition-overlay");
+
+            if(exhibition){
+                exhibition.classList.add("open");
+                exhibition.style.display = "block";
+                document.body.classList.add("hall-overlay-open");
+
+                const panel = document.getElementById("museumPanel");
+                if(panel) panel.style.display = "none";
+
+                const closeButton = exhibition.querySelector(".hall-exhibition-close");
+                if(closeButton) setTimeout(() => closeButton.focus(), 120);
+            }
+        }, true);
+    }
+
+    if(document.readyState === "loading"){
+        document.addEventListener("DOMContentLoaded", bindHallExplore);
+    }else{
+        bindHallExplore();
+    }
+
+    setTimeout(bindHallExplore, 300);
+    setTimeout(bindHallExplore, 1000);
+})();
