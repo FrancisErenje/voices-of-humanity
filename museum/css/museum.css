@@ -5571,3 +5571,120 @@ transform:rotate(-1deg);
 #campus.night #hall-humanity .hall-flag-line{
     text-shadow:0 0 14px rgba(255,215,100,.55);
 }
+
+
+/* ======================================
+   BUILDING NAME LABELS — CAMPUS-WIDE
+   High-contrast visitor-facing identifiers.
+   ====================================== */
+
+.building-name-label{
+    position:absolute;
+    left:50%;
+    top:-52px;
+    transform:translateX(-50%);
+    z-index:10000;
+    width:max-content;
+    max-width:340px;
+    padding:8px 15px;
+    border-radius:999px;
+    border:2px solid rgba(255,255,255,.92);
+    background:rgba(20,27,32,.90);
+    color:#fff;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:20px;
+    line-height:1.05;
+    font-weight:900;
+    letter-spacing:.5px;
+    text-align:center;
+    text-shadow:0 2px 3px rgba(0,0,0,.75);
+    box-shadow:
+        0 5px 14px rgba(0,0,0,.34),
+        0 0 0 2px rgba(0,0,0,.12);
+    white-space:nowrap;
+    pointer-events:none;
+    user-select:none;
+}
+
+.building-name-label::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:-9px;
+    width:14px;
+    height:14px;
+    transform:translateX(-50%) rotate(45deg);
+    background:rgba(20,27,32,.90);
+    border-right:2px solid rgba(255,255,255,.92);
+    border-bottom:2px solid rgba(255,255,255,.92);
+}
+
+#hall-humanity .building-name-label{
+    top:-58px;
+    font-size:25px;
+    letter-spacing:1px;
+    background:linear-gradient(135deg,#5b4311,#9d761c);
+}
+
+#lm247Building .building-name-label{
+    top:-48px;
+    background:linear-gradient(135deg,#075b91,#008cff);
+}
+
+#africaMuseum .building-name-label{
+    top:-48px;
+    background:linear-gradient(135deg,#5d3213,#a45b21);
+}
+
+#asiaMuseum .building-name-label{
+    top:-48px;
+    background:linear-gradient(135deg,#681c32,#a93756);
+}
+
+#europeMuseum .building-name-label,
+#americasMuseum .building-name-label,
+#oceaniaMuseum .building-name-label{
+    top:-48px;
+    background:linear-gradient(135deg,#5a3c12,#a87822);
+}
+
+#cinema .building-name-label{
+    top:-48px;
+    background:linear-gradient(135deg,#20293a,#52647f);
+}
+
+.visitor-centre .building-name-label{
+    top:-46px;
+    background:linear-gradient(135deg,#245c32,#4d944f);
+}
+
+#reflectionCenter .building-name-label,
+.reflection-center .building-name-label{
+    top:-48px;
+    background:linear-gradient(135deg,#62417b,#9b67bb);
+}
+
+[data-garden-id="reflection-garden"] .building-name-label{
+    top:-46px;
+    background:linear-gradient(135deg,#285d2e,#59a34f);
+}
+
+#campus.night .building-name-label{
+    border-color:rgba(255,225,145,.95);
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.55),
+        0 0 18px rgba(255,210,105,.20);
+}
+
+@media (max-width:767px){
+    .building-name-label{
+        font-size:15px;
+        padding:6px 10px;
+        border-width:1.5px;
+        max-width:240px;
+    }
+
+    #hall-humanity .building-name-label{
+        font-size:18px;
+    }
+}
