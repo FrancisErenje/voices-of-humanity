@@ -166,50 +166,48 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 
 
 /* Ensure the Hall information panel's Explore button opens the
-   already-built Hall exhibition, regardless of initialization order. */
+   exhibition through a document-level capture handler. This is deliberately
+   outside the Hall building itself so camera/focus handlers cannot swallow
+   the button interaction on desktop, tablet, or touch devices. */
 (function(){
-    function bindHallExplore(){
-        const button = document.getElementById("enterMuseum");
-        if(!button || button.dataset.hallExploreBound === "true") return;
+    function openHallFromPanel(event){
+        const button = event.target.closest("#enterMuseum");
+        if(!button || button.textContent.trim() !== "EXPLORE THE HALL") return;
 
-        button.dataset.hallExploreBound = "true";
+        event.preventDefault();
+        event.stopPropagation();
 
-        button.addEventListener("click", function(event){
-            if(this.textContent.trim() !== "EXPLORE THE HALL") return;
+        const open = window.openHallHumanityExperience;
+        if(typeof open === "function"){
+            open(event);
+            return;
+        }
 
-            event.preventDefault();
-            event.stopImmediatePropagation();
+        const exhibition = document.querySelector(".hall-exhibition-overlay");
+        if(exhibition){
+            exhibition.classList.add("open");
+            exhibition.style.display = "block";
+            document.body.classList.add("hall-overlay-open");
 
-            if(typeof window.openHallHumanityExperience === "function"){
-                window.openHallHumanityExperience(event);
-            }else{
-                const exhibition = document.querySelector(".hall-exhibition-overlay");
-                if(exhibition){
-                    exhibition.classList.add("open");
-                    exhibition.style.display = "block";
-                    document.body.classList.add("hall-overlay-open");
+            const panel = document.getElementById("museumPanel");
+            if(panel) panel.style.display = "none";
 
-                    const panel = document.getElementById("museumPanel");
-                    if(panel) panel.style.display = "none";
-
-                    const closeButton = exhibition.querySelector(".hall-exhibition-close");
-                    if(closeButton) setTimeout(() => closeButton.focus(), 120);
-                }
-            }
-        }, true);
+            const closeButton = exhibition.querySelector(".hall-exhibition-close");
+            if(closeButton) setTimeout(() => closeButton.focus(), 120);
+        }
     }
 
-    if(document.readyState === "loading"){
-        document.addEventListener("DOMContentLoaded", bindHallExplore);
-    }else{
-        bindHallExplore();
-    }
+    document.addEventListener("click", openHallFromPanel, true);
 
-    setTimeout(bindHallExplore, 300);
-    setTimeout(bindHallExplore, 1000);
+    /* Re-apply the action whenever the Hall panel is opened. */
+    document.addEventListener("keydown", function(event){
+        if(event.key !== "Enter" && event.key !== " ") return;
+        const button = document.activeElement;
+        if(!button || button.id !== "enterMuseum") return;
+        if(button.textContent.trim() !== "EXPLORE THE HALL") return;
 
-    const hallPanelObserver = new MutationObserver(bindHallExplore);
-    hallPanelObserver.observe(document.body, {childList:true, subtree:true});
+        openHallFromPanel(event);
+    }, true);
 })();
 
 
