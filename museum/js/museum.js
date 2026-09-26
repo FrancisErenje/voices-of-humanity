@@ -126,8 +126,9 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 
 /*======================================
    HALL OF HUMANITY — VISITOR EXPERIENCE
-   Ensures the Hall click opens its exhibition
-   after the camera focuses on the entrance.
+   Click the Hall to focus it and show the
+   visitor information panel. The full
+   exhibition opens from EXPLORE THE HALL.
 ======================================*/
 
 (function setupHallExperience(){
@@ -137,33 +138,12 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 
     hall.addEventListener("click", function(){
 
-        /* The full Hall Exhibition Engine creates the
-           detailed overlay. Open it when available. */
-        const exhibition = document.querySelector(".hall-exhibition-overlay");
-
-        if(exhibition){
-            exhibition.classList.add("open");
-            exhibition.style.display = "block";
-            document.body.classList.add("hall-overlay-open");
-
-            const closeButton =
-                exhibition.querySelector(".hall-exhibition-close");
-
-            if(closeButton){
-                setTimeout(() => closeButton.focus(), 120);
-            }
-
-            return;
-        }
-
-        /* Safe fallback: use the existing museum information panel
-           if the full exhibition engine has not initialized. */
         const panel = document.getElementById("museumPanel");
         const header = document.getElementById("museumPanelHeader");
         const body = document.getElementById("museumPanelBody");
         const button = document.getElementById("enterMuseum");
 
-        if(!panel || !header || !body) return;
+        if(!panel || !header || !body || !button) return;
 
         header.textContent = "🏛 Hall of Humanity";
 
@@ -176,28 +156,14 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
             "oral traditions, language documentation, writing systems, " +
             "language transmission and the museum's growing documentary archive.";
 
-        if(button){
-            button.textContent = "EXPLORE THE HALL";
-            button.onclick = function(event){
-                event.preventDefault();
-
-                const fullExhibition =
-                    document.querySelector(".hall-exhibition-overlay");
-
-                if(fullExhibition){
-                    fullExhibition.classList.add("open");
-                    fullExhibition.style.display = "block";
-                    document.body.classList.add("hall-overlay-open");
-                    panel.style.display = "none";
-                }
-            };
-        }
-
+        button.textContent = "EXPLORE THE HALL";
         panel.style.display = "block";
+        button.focus();
 
     });
 
 })();
+
 
 /* Ensure the Hall information panel's Explore button opens the
    already-built Hall exhibition, regardless of initialization order. */
@@ -214,18 +180,21 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
             event.preventDefault();
             event.stopImmediatePropagation();
 
-            const exhibition = document.querySelector(".hall-exhibition-overlay");
+            if(typeof window.openHallHumanityExperience === "function"){
+                window.openHallHumanityExperience(event);
+            }else{
+                const exhibition = document.querySelector(".hall-exhibition-overlay");
+                if(exhibition){
+                    exhibition.classList.add("open");
+                    exhibition.style.display = "block";
+                    document.body.classList.add("hall-overlay-open");
 
-            if(exhibition){
-                exhibition.classList.add("open");
-                exhibition.style.display = "block";
-                document.body.classList.add("hall-overlay-open");
+                    const panel = document.getElementById("museumPanel");
+                    if(panel) panel.style.display = "none";
 
-                const panel = document.getElementById("museumPanel");
-                if(panel) panel.style.display = "none";
-
-                const closeButton = exhibition.querySelector(".hall-exhibition-close");
-                if(closeButton) setTimeout(() => closeButton.focus(), 120);
+                    const closeButton = exhibition.querySelector(".hall-exhibition-close");
+                    if(closeButton) setTimeout(() => closeButton.focus(), 120);
+                }
             }
         }, true);
     }
@@ -238,79 +207,18 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 
     setTimeout(bindHallExplore, 300);
     setTimeout(bindHallExplore, 1000);
+
+    const hallPanelObserver = new MutationObserver(bindHallExplore);
+    hallPanelObserver.observe(document.body, {childList:true, subtree:true});
 })();
 
 
 /*======================================
    BUILDING NAME VISIBILITY
-   Clear, high-contrast labels stay attached
-   to each major visitor destination so names
-   remain easy to identify before clicking.
+   Building names are kept to their original
+   architectural title elements to avoid
+   duplicate labels across the campus.
 ======================================*/
-
-(function setupBuildingNameLabels(){
-
-    function addLabel(target, name){
-
-        if(!target || !name) return;
-        if(target.querySelector(":scope > .building-name-label")) return;
-
-        const label = document.createElement("div");
-        label.className = "building-name-label";
-        label.textContent = name;
-        label.setAttribute("aria-label", name);
-        label.setAttribute("title", name);
-
-        target.appendChild(label);
-    }
-
-    function setup(){
-
-        const buildings = [
-            ["#hall-humanity", "Hall of Humanity"],
-            ["#lm247Building", "LocalMedia247 Studio"],
-            ["#africaMuseum", "African Languages Museum"],
-            ["#asiaMuseum", "Asian Languages Museum"],
-            ["#europeMuseum", "European Languages Museum"],
-            ["#americasMuseum", "Americas Languages Museum"],
-            ["#oceaniaMuseum", "Oceania Languages Museum"],
-            ["#cinema", "Documentary Cinema"],
-            [".visitor-centre", "Visitor Centre"],
-            ["#reflectionCenter", "Reflection Center"],
-            [".reflection-center", "Reflection Center"],
-            ["[data-garden-id='reflection-garden']", "Reflection Garden"]
-        ];
-
-        buildings.forEach(([selector, name]) => {
-            document.querySelectorAll(selector).forEach(el => addLabel(el, name));
-        });
-
-        /* Any future museum building carrying an aria-label can
-           automatically receive the same readable treatment. */
-        document.querySelectorAll(
-            "#campus [aria-label*='Museum'], #campus [aria-label*='Centre'], #campus [aria-label*='Center']"
-        ).forEach(el => {
-
-            const raw = el.getAttribute("aria-label") || "";
-            const name = raw
-                .replace(/^Focus on /i, "")
-                .replace(/^Enter /i, "")
-                .trim();
-
-            if(name) addLabel(el, name);
-        });
-    }
-
-    if(document.readyState === "loading"){
-        document.addEventListener("DOMContentLoaded", setup);
-    }else{
-        setup();
-    }
-
-    setTimeout(setup, 500);
-    setTimeout(setup, 1500);
-
-})();
 
 
 /*======================================
