@@ -3,7 +3,7 @@
   Global exhibition layer
 ==================================================*/
 
-#hall-humanity .hall-exhibition{
+.hall-exhibition{
   position:absolute;
   left:50%;
   top:118px;
@@ -23,7 +23,7 @@
   overflow:hidden;
 }
 
-#hall-humanity .hall-exhibition::before{
+.hall-exhibition::before{
   content:"";
   position:absolute;
   inset:0;
@@ -263,7 +263,7 @@
 }
 
 @media(max-width:900px){
-  #hall-humanity .hall-exhibition{
+  .hall-exhibition{
     width:680px;
     top:110px;
   }
@@ -271,7 +271,7 @@
 }
 
 @media(max-width:700px){
-  #hall-humanity .hall-exhibition{
+  .hall-exhibition{
     width:calc(100% - 28px);
     top:82px;
   }
