@@ -239,3 +239,75 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
     setTimeout(bindHallExplore, 300);
     setTimeout(bindHallExplore, 1000);
 })();
+
+
+/*======================================
+   BUILDING NAME VISIBILITY
+   Clear, high-contrast labels stay attached
+   to each major visitor destination so names
+   remain easy to identify before clicking.
+======================================*/
+
+(function setupBuildingNameLabels(){
+
+    function addLabel(target, name){
+
+        if(!target || !name) return;
+        if(target.querySelector(":scope > .building-name-label")) return;
+
+        const label = document.createElement("div");
+        label.className = "building-name-label";
+        label.textContent = name;
+        label.setAttribute("aria-label", name);
+        label.setAttribute("title", name);
+
+        target.appendChild(label);
+    }
+
+    function setup(){
+
+        const buildings = [
+            ["#hall-humanity", "Hall of Humanity"],
+            ["#lm247Building", "LocalMedia247 Studio"],
+            ["#africaMuseum", "African Languages Museum"],
+            ["#asiaMuseum", "Asian Languages Museum"],
+            ["#europeMuseum", "European Languages Museum"],
+            ["#americasMuseum", "Americas Languages Museum"],
+            ["#oceaniaMuseum", "Oceania Languages Museum"],
+            ["#cinema", "Documentary Cinema"],
+            [".visitor-centre", "Visitor Centre"],
+            ["#reflectionCenter", "Reflection Center"],
+            [".reflection-center", "Reflection Center"],
+            ["[data-garden-id='reflection-garden']", "Reflection Garden"]
+        ];
+
+        buildings.forEach(([selector, name]) => {
+            document.querySelectorAll(selector).forEach(el => addLabel(el, name));
+        });
+
+        /* Any future museum building carrying an aria-label can
+           automatically receive the same readable treatment. */
+        document.querySelectorAll(
+            "#campus [aria-label*='Museum'], #campus [aria-label*='Centre'], #campus [aria-label*='Center']"
+        ).forEach(el => {
+
+            const raw = el.getAttribute("aria-label") || "";
+            const name = raw
+                .replace(/^Focus on /i, "")
+                .replace(/^Enter /i, "")
+                .trim();
+
+            if(name) addLabel(el, name);
+        });
+    }
+
+    if(document.readyState === "loading"){
+        document.addEventListener("DOMContentLoaded", setup);
+    }else{
+        setup();
+    }
+
+    setTimeout(setup, 500);
+    setTimeout(setup, 1500);
+
+})();
