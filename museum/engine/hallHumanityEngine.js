@@ -133,6 +133,7 @@
       e.preventDefault();
       e.stopPropagation();
       wrap.classList.remove("open");
+      wrap.style.display = "none";
       document.body.classList.remove("hall-overlay-open");
     });
 
@@ -151,6 +152,7 @@
         event.stopImmediatePropagation();
       }
       wrap.classList.add("open");
+      wrap.style.display = "block";
       document.body.classList.add("hall-overlay-open");
       overlayClose.focus();
     };
