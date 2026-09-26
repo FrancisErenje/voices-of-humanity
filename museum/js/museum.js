@@ -219,6 +219,132 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 ======================================*/
 
 
+
+/*======================================
+   AFRICAN LANGUAGES MUSEUM — VISITOR EXPERIENCE
+   The museum stays clean from a distance.
+   Its curated content appears when the
+   building is opened, with the Igede Language
+   Learning Centre as the first featured item.
+======================================*/
+
+(function setupAfricanLanguagesExperience(){
+
+    function createExperience(){
+
+        if(document.querySelector(".african-languages-experience-overlay")) return;
+
+        const overlay = document.createElement("div");
+        overlay.className = "african-languages-experience-overlay";
+
+        overlay.innerHTML = `
+            <div class="african-languages-experience-card" role="dialog" aria-modal="true" aria-labelledby="africanLanguagesExperienceTitle">
+                <button class="african-languages-experience-close" type="button" aria-label="Close African Languages Museum">×</button>
+
+                <div class="african-languages-experience-eyebrow">AFRICAN LANGUAGES MUSEUM</div>
+                <h2 id="africanLanguagesExperienceTitle">African Languages Museum</h2>
+
+                <p class="african-languages-experience-intro">
+                    Explore Africa's extraordinary linguistic diversity through language learning,
+                    documentary records, cultural knowledge and living community voices.
+                </p>
+
+                <div class="african-languages-experience-list">
+
+                    <a class="african-language-feature featured" href="academy/igede.html" aria-label="Open Igede Language Learning Centre">
+                        <span class="feature-number">01</span>
+                        <span class="feature-content">
+                            <span class="feature-kicker">FIRST FEATURED EXPERIENCE</span>
+                            <strong>Igede Language Learning Centre</strong>
+                            <span>Begin with the Igede language learning series — lessons, pronunciation and everyday language knowledge.</span>
+                            <small>22 videos · Launched 26 May 2026</small>
+                        </span>
+                        <span class="feature-action">ENTER CENTRE →</span>
+                    </a>
+
+                    <div class="african-language-feature">
+                        <span class="feature-number">02</span>
+                        <span class="feature-content">
+                            <span class="feature-kicker">LANGUAGES OF AFRICA</span>
+                            <strong>Explore African Language Voices</strong>
+                            <span>Discover the museum's growing collection of African languages, documentaries and cultural records.</span>
+                        </span>
+                    </div>
+
+                    <div class="african-language-feature">
+                        <span class="feature-number">03</span>
+                        <span class="feature-content">
+                            <span class="feature-kicker">DOCUMENTARY ARCHIVE</span>
+                            <strong>Language, Culture &amp; Memory</strong>
+                            <span>Encounter stories that connect language with identity, history, community and living heritage.</span>
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(overlay);
+
+        const close = overlay.querySelector(".african-languages-experience-close");
+
+        function closeExperience(){
+            overlay.classList.remove("open");
+            document.body.classList.remove("african-languages-overlay-open");
+        }
+
+        close.addEventListener("click", closeExperience);
+
+        overlay.addEventListener("click", function(event){
+            if(event.target === overlay) closeExperience();
+        });
+
+        document.addEventListener("keydown", function(event){
+            if(event.key === "Escape" && overlay.classList.contains("open")){
+                closeExperience();
+            }
+        });
+
+        overlay._open = function(){
+            overlay.classList.add("open");
+            document.body.classList.add("african-languages-overlay-open");
+            setTimeout(() => close.focus(), 100);
+        };
+    }
+
+    function bind(){
+
+        const building = document.getElementById("africaMuseum");
+        if(!building) return;
+
+        createExperience();
+
+        if(building.dataset.africanLanguagesExperienceBound === "true") return;
+        building.dataset.africanLanguagesExperienceBound = "true";
+
+        building.addEventListener("click", function(event){
+            event.preventDefault();
+            event.stopPropagation();
+
+            const overlay = document.querySelector(".african-languages-experience-overlay");
+            if(overlay && typeof overlay._open === "function"){
+                overlay._open();
+            }
+        }, true);
+    }
+
+    if(document.readyState === "loading"){
+        document.addEventListener("DOMContentLoaded", bind);
+    }else{
+        bind();
+    }
+
+    setTimeout(bind, 500);
+    setTimeout(bind, 1500);
+
+})();
+
+
 /*======================================
    LOCALMEDIA247 — VISITOR EXPERIENCE
    Keep the service information inside the
