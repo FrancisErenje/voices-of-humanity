@@ -6549,3 +6549,17 @@ body.lm247-overlay-open{
         top:-58px !important;
     }
 }
+
+
+/* HALL OF HUMANITY — reliable interactive surface */
+#hall-humanity{
+  pointer-events:auto !important;
+  cursor:pointer !important;
+}
+#hall-humanity .hall-body,
+#hall-humanity .hall-roof,
+#hall-humanity .hall-title,
+#hall-humanity .hallEntrance,
+#hall-humanity .hall-grand-entrance{
+  pointer-events:auto;
+}
