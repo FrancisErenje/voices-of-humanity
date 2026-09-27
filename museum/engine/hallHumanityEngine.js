@@ -7,30 +7,35 @@
 
   function stop(e){ if(e) e.stopPropagation(); }
   function bindReliableHallClick(){
-    const hall=document.getElementById("hall-humanity");
-    if(!hall || hall.dataset.reliableHallClick==="true") return;
-    hall.dataset.reliableHallClick="true";
+    if(document.documentElement.dataset.hallDelegatedClick==="true") return;
+    document.documentElement.dataset.hallDelegatedClick="true";
 
-    const open=function(event){
+    document.addEventListener("click",function(event){
+      const hall=event.target && event.target.closest
+        ? event.target.closest("#hall-humanity")
+        : null;
+      if(!hall) return;
+
       event.preventDefault();
-      event.stopPropagation();
-      if(typeof focusWorldPoint==="function") focusWorldPoint(1500,1145,1.35);
+      event.stopImmediatePropagation();
 
-      const show=function(){
+      const open=function(){
         if(typeof window.openHallHumanityExperience==="function"){
           window.openHallHumanityExperience(event);
           return true;
         }
         return false;
       };
-      if(!show()) setTimeout(show,150);
-      if(!show()) setTimeout(show,500);
-      if(!show()) setTimeout(show,1000);
-    };
 
-    hall.addEventListener("click",open,true);
-    hall.style.cursor="pointer";
-    hall.style.pointerEvents="auto";
+      /* The building may be created by the building engine after
+         this file runs, so retry until the exhibition renderer exists. */
+      if(!open()){
+        setTimeout(open,100);
+        setTimeout(open,300);
+        setTimeout(open,700);
+        setTimeout(open,1200);
+      }
+    },true);
   }
 
 
