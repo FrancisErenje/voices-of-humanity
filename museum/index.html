@@ -832,6 +832,54 @@
 
 <script src="js/museum.js"></script>
 
+
+<script>
+/* FINAL HALL OF HUMANITY FALLBACK
+   Kept inline so the Hall remains interactive even if another museum
+   engine changes the event stack. */
+(function(){
+  function installHallFallback(){
+    var hall=document.getElementById("hall-humanity");
+    if(!hall || hall.dataset.finalHallFallback==="true") return;
+    hall.dataset.finalHallFallback="true";
+
+    function openHall(){
+      if(typeof window.openHallHumanityExperience==="function"){
+        window.openHallHumanityExperience();
+        return;
+      }
+      var overlay=document.querySelector(".hall-exhibition-overlay");
+      if(overlay){
+        overlay.classList.add("open");
+        overlay.style.display="block";
+        document.body.classList.add("hall-overlay-open");
+      }
+    }
+
+    hall.addEventListener("click",function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      openHall();
+    },true);
+
+    document.addEventListener("pointerdown",function(e){
+      var rect=hall.getBoundingClientRect();
+      if(e.clientX>=rect.left && e.clientX<=rect.right &&
+         e.clientY>=rect.top && e.clientY<=rect.bottom){
+        openHall();
+      }
+    },true);
+  }
+
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded",installHallFallback);
+  }else{
+    installHallFallback();
+  }
+  window.addEventListener("load",installHallFallback,{once:true});
+})();
+</script>
+
 </body>
 
 </html>
