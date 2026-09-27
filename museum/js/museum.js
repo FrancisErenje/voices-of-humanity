@@ -126,50 +126,13 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 
 /*======================================
    HALL OF HUMANITY — DIRECT EXHIBITION
-   Clicking the Hall opens its exhibits immediately.
-   No camera zoom and no intermediate visitor panel.
+   The Hall engine owns the opening action.
+   No camera zoom and no intermediate panel.
 ======================================*/
 
-(function setupHallExperience(){
-
-    const hall = document.getElementById("hall-humanity");
-    if(!hall) return;
-
-    function openHall(event){
-        if(event){
-            event.preventDefault();
-            event.stopImmediatePropagation();
-        }
-
-        const open = window.openHallHumanityExperience;
-        if(typeof open === "function"){
-            open(event);
-            return;
-        }
-
-        const exhibition = document.querySelector(".hall-exhibition-overlay");
-        const panel = document.getElementById("museumPanel");
-
-        if(exhibition){
-            exhibition.classList.add("open");
-            exhibition.style.display = "block";
-            document.body.classList.add("hall-overlay-open");
-            if(panel) panel.style.display = "none";
-
-            const closeButton = exhibition.querySelector(".hall-exhibition-close");
-            if(closeButton) setTimeout(() => closeButton.focus(), 120);
-        }
-    }
-
-    hall.addEventListener("click", openHall, true);
-
-    hall.addEventListener("keydown", function(event){
-        if(event.key !== "Enter" && event.key !== " ") return;
-        openHall(event);
-    }, true);
-
-})();
-
+/* Kept intentionally minimal here. The dedicated
+   Hall Humanity Engine binds directly to the building
+   after its exhibition has been rendered. */
 
 /*======================================
    BUILDING NAME VISIBILITY
