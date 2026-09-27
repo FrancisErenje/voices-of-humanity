@@ -350,13 +350,21 @@
         event.preventDefault();
         event.stopPropagation();
 
-        if(typeof focusWorldPoint === "function"){
-          focusWorldPoint(1500, 1145, 1.35);
-        }else if(typeof focusBuilding === "function"){
-          focusBuilding("hall-humanity");
-        }
+        if(typeof focusWorldPoint==="function"){
+        focusWorldPoint(1500,1145,1.35);
+      }else if(typeof focusBuilding==="function"){
+        focusBuilding("hall-humanity");
+      }
 
-        openJourney();
+      if(typeof window.openHallHumanityExperience==="function"){
+        window.openHallHumanityExperience(event);
+      }else{
+        setTimeout(function(){
+          if(typeof window.openHallHumanityExperience==="function"){
+            window.openHallHumanityExperience(event);
+          }
+        },250);
+      }
       }, true);
     }
 
