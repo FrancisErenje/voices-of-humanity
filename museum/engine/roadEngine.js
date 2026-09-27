@@ -1117,24 +1117,9 @@ function createLandscapeNode(cx, cy, radius, id) {
 }
 
 
-/* Western landscape node */
-
-createLandscapeNode(
-    980,
-    1090,
-    78,
-    "western-landscape-node"
-);
-
-
-/* Eastern landscape node */
-
-createLandscapeNode(
-    2020,
-    1430,
-    78,
-    "eastern-landscape-node"
-);
+/* Decorative landscape nodes removed.
+   These circles were visually spilling into nearby road corridors.
+   Keep the circulation lanes completely clear. */
 
 
 /*========================================================*
