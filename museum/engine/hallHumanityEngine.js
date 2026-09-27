@@ -164,12 +164,20 @@
       setTimeout(() => overlayClose.focus(), 80);
     };
 
-    /* The Hall is focused by the camera engine.
-       The visitor panel in museum.js now provides the
-       explicit EXPLORE THE HALL action. Expose the
-       exhibition opener globally so that action remains
-       reliable across initialization order and devices. */
+    /* The Hall opens its exhibition directly when the
+       building itself is clicked. No camera zoom is used. */
     window.openHallHumanityExperience = openHallExperience;
+
+    if(hall.dataset.hallExperienceBound !== "true"){
+      hall.dataset.hallExperienceBound = "true";
+
+      hall.addEventListener("click", function(event){
+        /* Ignore clicks that originate inside the exhibition itself. */
+        if(event.target.closest(".hall-exhibition-overlay")) return;
+
+        openHallExperience(event);
+      }, false);
+    }
 
     const archiveModal=document.createElement("div");
     archiveModal.className="hall-living-modal";
