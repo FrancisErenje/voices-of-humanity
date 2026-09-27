@@ -6148,3 +6148,145 @@ body.lm247-overlay-open{
         font-size:20px;
     }
 }
+
+
+/* ======================================
+   LOCALMEDIA247 — DAILY DESK
+   A living newsroom/archive inside the
+   LocalMedia247 visitor experience.
+   ====================================== */
+
+.lm247-daily-desk{
+    margin:30px 0 24px;
+    padding:22px;
+    border-radius:20px;
+    background:
+        linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));
+    border:1px solid rgba(85,186,255,.24);
+}
+
+.lm247-daily-desk-heading{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:18px;
+    margin-bottom:16px;
+}
+
+.lm247-daily-desk-eyebrow{
+    display:block;
+    color:#8fd5ff;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:1.7px;
+}
+
+.lm247-daily-desk-heading h3{
+    margin:5px 0 0;
+    font-size:clamp(22px,3vw,30px);
+    line-height:1.1;
+}
+
+.lm247-daily-desk-status{
+    flex:0 0 auto;
+    padding:7px 10px;
+    border:1px solid rgba(84,214,145,.38);
+    border-radius:999px;
+    color:#8ff0b9;
+    background:rgba(50,190,110,.09);
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:1.4px;
+}
+
+.lm247-desk-story{
+    padding:18px;
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:16px;
+    background:rgba(0,0,0,.14);
+}
+
+.lm247-desk-story + .lm247-desk-story{
+    margin-top:12px;
+}
+
+.lm247-desk-kicker{
+    display:block;
+    margin-bottom:7px;
+    color:#55baff;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:1.5px;
+}
+
+.lm247-desk-story h4{
+    margin:0 0 8px;
+    font-size:20px;
+    line-height:1.25;
+}
+
+.lm247-desk-story p{
+    margin:0;
+    color:#cbd9e4;
+    font-size:14px;
+    line-height:1.55;
+}
+
+.lm247-desk-story a{
+    display:inline-block;
+    margin-top:11px;
+    color:#8fd5ff;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:.8px;
+    text-decoration:none;
+}
+
+.lm247-desk-story a:hover{
+    text-decoration:underline;
+}
+
+.lm247-desk-headlines{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:10px;
+}
+
+.lm247-desk-headlines > div{
+    padding:14px;
+    border-radius:13px;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.lm247-desk-headlines strong{
+    display:block;
+    margin-bottom:6px;
+    color:#f4cf55;
+    font-size:13px;
+}
+
+.lm247-desk-headlines p{
+    font-size:12px;
+    line-height:1.5;
+}
+
+.lm247-desk-headlines a{
+    font-size:9px;
+}
+
+@media(max-width:700px){
+    .lm247-daily-desk{
+        padding:16px;
+        margin-top:22px;
+    }
+
+    .lm247-daily-desk-heading{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .lm247-desk-headlines{
+        grid-template-columns:1fr;
+    }
+}
