@@ -93,7 +93,15 @@
         focusBuilding("hall-humanity");
       }
 
-      openJourney();
+      if(typeof window.openHallHumanityExperience==="function"){
+        window.openHallHumanityExperience(event);
+      }else{
+        setTimeout(function(){
+          if(typeof window.openHallHumanityExperience==="function"){
+            window.openHallHumanityExperience(event);
+          }
+        },250);
+      }
     },true);
 
     /* Also bind directly to the Hall as a fallback for unusual browsers. */
@@ -109,7 +117,15 @@
         focusBuilding("hall-humanity");
       }
 
-      openJourney();
+      if(typeof window.openHallHumanityExperience==="function"){
+        window.openHallHumanityExperience(event);
+      }else{
+        setTimeout(function(){
+          if(typeof window.openHallHumanityExperience==="function"){
+            window.openHallHumanityExperience(event);
+          }
+        },250);
+      }
     },true);
   }
 
