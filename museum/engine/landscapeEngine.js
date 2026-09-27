@@ -464,48 +464,12 @@
 
 
     /* =====================================================
-       CINEMA APPROACH
+       CINEMA / REFLECTION GARDEN APPROACH
+       -----------------------------------------------------
+       The flower beds in this corridor were visually
+       spilling into the road and circular circulation lanes.
+       Keep this entire approach open and unobstructed.
        ===================================================== */
-
-    createFlowerBed(
-        1200,
-        1940,
-        210,
-        65,
-        -8
-    );
-
-    createFlowerBed(
-        1800,
-        1940,
-        210,
-        65,
-        8
-    );
-
-
-    /* =====================================================
-       REFLECTION GARDEN
-       CONFIRMED POSITION:
-       x = 1930
-       y = 1910
-       ===================================================== */
-
-    createFlowerBed(
-        1790,
-        1910,
-        150,
-        55,
-        -20
-    );
-
-    createFlowerBed(
-        2070,
-        1910,
-        150,
-        55,
-        20
-    );
 
 
     treeGroup([
