@@ -11,10 +11,25 @@
     document.documentElement.dataset.hallDelegatedClick="true";
 
     document.addEventListener("click",function(event){
-      const hall=event.target && event.target.closest
+      const targetHall=event.target && event.target.closest
         ? event.target.closest("#hall-humanity")
         : null;
-      if(!hall) return;
+      const hallElement=document.getElementById("hall-humanity");
+
+      /* Also accept a click anywhere inside the Hall's rendered
+         screen rectangle. This catches clicks when a decorative
+         layer, road SVG or other visual element sits above it. */
+      let insideHall=false;
+      if(hallElement){
+        const r=hallElement.getBoundingClientRect();
+        insideHall=
+          event.clientX>=r.left &&
+          event.clientX<=r.right &&
+          event.clientY>=r.top &&
+          event.clientY<=r.bottom;
+      }
+
+      if(!targetHall && !insideHall) return;
 
       event.preventDefault();
       event.stopImmediatePropagation();
