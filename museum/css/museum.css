@@ -6563,3 +6563,90 @@ body.lm247-overlay-open{
 #hall-humanity .hall-grand-entrance{
   pointer-events:auto;
 }
+
+
+/* =========================================================
+   CAMPUS TITLE & LANDSCAPE ALIGNMENT — FINAL REFINEMENT
+   ========================================================= */
+
+/* Give every regional museum name enough horizontal room while
+   keeping the two-line treatment: REGION / Museum. */
+#africaMuseum .museum-title,
+#asiaMuseum .asia-name,
+#europeMuseum .continental-title,
+#americasMuseum .continental-title,
+#oceaniaMuseum .continental-title{
+    width:300px !important;
+    max-width:calc(100% - 10px) !important;
+    left:50% !important;
+    margin-left:0 !important;
+    transform:translateX(-50%) !important;
+    text-align:center !important;
+    overflow:visible !important;
+}
+
+#africaMuseum .museum-title,
+#asiaMuseum .asia-name,
+#europeMuseum .continental-title,
+#americasMuseum .continental-title,
+#oceaniaMuseum .continental-title{
+    top:-62px !important;
+}
+
+#africaMuseum .museum-title .title-main,
+#asiaMuseum .asia-name .title-main,
+#europeMuseum .continental-title .title-main,
+#americasMuseum .continental-title .title-main,
+#oceaniaMuseum .continental-title .title-main{
+    white-space:nowrap !important;
+}
+
+#africaMuseum .museum-title .title-sub,
+#asiaMuseum .asia-name .title-sub,
+#europeMuseum .continental-title .title-sub,
+#americasMuseum .continental-title .title-sub,
+#oceaniaMuseum .continental-title .title-sub{
+    white-space:nowrap !important;
+}
+
+/* Keep the African title precisely centred on its own building. */
+#africaComplex #africaMuseum{
+    left:100px !important;
+    top:0 !important;
+}
+#africaComplex #africaMuseum .museum-title{
+    left:50% !important;
+}
+
+/* The Asian information board must remain above environmental trees. */
+#asiaComplex .asia-board{
+    z-index:60 !important;
+    position:absolute !important;
+}
+
+/* Environmental trees stay behind museum signage. */
+#campus > .tree{
+    z-index:4;
+}
+
+/* Documentary Cinema title: clearly above, close to the building roof. */
+#cinema h2{
+    top:-88px !important;
+    z-index:120 !important;
+}
+
+@media(max-width:700px){
+    #africaMuseum .museum-title,
+    #asiaMuseum .asia-name,
+    #europeMuseum .continental-title,
+    #americasMuseum .continental-title,
+    #oceaniaMuseum .continental-title{
+        width:240px !important;
+        max-width:calc(100% - 8px) !important;
+        top:-50px !important;
+    }
+
+    #cinema h2{
+        top:-62px !important;
+    }
+}
