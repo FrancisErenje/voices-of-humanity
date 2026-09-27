@@ -409,10 +409,8 @@ function activateBuildingFocus(element, id) {
  * 360px to the right. The explicit target fixes that.
  */
 
-activateBuildingFocus(
-    document.getElementById("hall-humanity"),
-    "hall-humanity"
-);
+/* Hall of Humanity intentionally has no camera zoom.
+ * Clicking the building opens its exhibition directly. */
 
 activateBuildingFocus(
     document.getElementById("africaMuseum"),
