@@ -168,16 +168,26 @@
        building itself is clicked. No camera zoom is used. */
     window.openHallHumanityExperience = openHallExperience;
 
-    if(hall.dataset.hallExperienceBound !== "true"){
+    function bindHallExperience(){
+      if(hall.dataset.hallExperienceBound === "true") return;
+
       hall.dataset.hallExperienceBound = "true";
 
+      /* Capture the click at the Hall itself so child architectural
+         elements cannot swallow the interaction. This mirrors the
+         reliable building-experience pattern used by the other museums. */
       hall.addEventListener("click", function(event){
-        /* Ignore clicks that originate inside the exhibition itself. */
         if(event.target.closest(".hall-exhibition-overlay")) return;
-
         openHallExperience(event);
-      }, false);
+      }, true);
     }
+
+    bindHallExperience();
+
+    /* Re-bind once after the other museum engines have initialized,
+       without creating duplicate listeners. */
+    setTimeout(bindHallExperience, 500);
+    setTimeout(bindHallExperience, 1500);
 
     const archiveModal=document.createElement("div");
     archiveModal.className="hall-living-modal";
