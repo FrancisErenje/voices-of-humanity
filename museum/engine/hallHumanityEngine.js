@@ -194,12 +194,49 @@
     }
     surface.onclick=e=>{e.preventDefault();e.stopPropagation();open();};
 
-    if(!document.documentElement.dataset.hallGlobalClick){
-      document.documentElement.dataset.hallGlobalClick="true";
-      document.addEventListener("click",e=>{
+    /* Use pointerup as the primary activation event. The museum viewport
+       owns drag/touch gestures, so pointerup is more reliable than click
+       when a visitor simply taps/clicks the Hall without moving the camera. */
+    if(!document.documentElement.dataset.hallPointerActivation){
+      document.documentElement.dataset.hallPointerActivation="true";
+      let hallPointerStartX=null;
+      let hallPointerStartY=null;
+
+      document.addEventListener("pointerdown",e=>{
         const r=hall.getBoundingClientRect();
-        const inside=e.clientX>=r.left && e.clientX<=r.right && e.clientY>=r.top && e.clientY<=r.bottom;
-        if(e.target.closest?.("#hall-humanity") || inside){
+        const inside=e.clientX>=r.left && e.clientX<=r.right &&
+                     e.clientY>=r.top && e.clientY<=r.bottom;
+        if(inside){
+          hallPointerStartX=e.clientX;
+          hallPointerStartY=e.clientY;
+        }else{
+          hallPointerStartX=null;
+          hallPointerStartY=null;
+        }
+      },true);
+
+      document.addEventListener("pointerup",e=>{
+        if(hallPointerStartX===null || hallPointerStartY===null) return;
+        const moved=Math.hypot(
+          e.clientX-hallPointerStartX,
+          e.clientY-hallPointerStartY
+        );
+        hallPointerStartX=null;
+        hallPointerStartY=null;
+        if(moved>12) return;
+
+        const r=hall.getBoundingClientRect();
+        const inside=e.clientX>=r.left && e.clientX<=r.right &&
+                     e.clientY>=r.top && e.clientY<=r.bottom;
+        if(inside){
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          open();
+        }
+      },true);
+
+      document.addEventListener("click",e=>{
+        if(e.target.closest?.("#hall-humanity")){
           e.preventDefault();
           e.stopImmediatePropagation();
           open();
