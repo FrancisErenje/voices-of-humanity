@@ -279,9 +279,9 @@
        a small invitation appears → "Click to Explore Hall"
        opens the full exhibition. */
     function bindHallExperience(){
-      if(document.body.dataset.hallJourneyBound === "true") return;
+      if(document.body.dataset.hallJourneyInstalled === "true") return;
 
-      document.body.dataset.hallJourneyBound = "true";
+      document.body.dataset.hallJourneyInstalled = "true";
 
       const journey = document.createElement("div");
       journey.className = "hall-explore-prompt";
