@@ -517,3 +517,323 @@
         animation: none;
     }
 }
+
+/*==================================================
+  REFLECTION GARDEN — LIVING ARCHIVE EXPERIENCE
+==================================================*/
+
+.reflection-garden-overlay{
+    position:fixed;
+    inset:0;
+    z-index:25000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:28px;
+    box-sizing:border-box;
+    background:rgba(0,0,0,.78);
+    backdrop-filter:blur(10px);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity .28s ease, visibility .28s ease;
+}
+
+.reflection-garden-overlay.open{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+
+.reflection-garden-dialog{
+    position:relative;
+    width:min(980px,96vw);
+    max-height:92vh;
+    overflow:auto;
+    box-sizing:border-box;
+    padding:30px;
+    border:1px solid rgba(220,185,91,.65);
+    border-radius:28px;
+    background:
+        radial-gradient(circle at 50% 0%,rgba(154,111,27,.18),transparent 42%),
+        linear-gradient(145deg,#17130b,#050505 58%,#151006);
+    color:#f7e7ad;
+    box-shadow:0 30px 90px rgba(0,0,0,.65), inset 0 0 45px rgba(255,215,120,.04);
+    font-family:Georgia,"Times New Roman",serif;
+}
+
+.reflection-garden-close{
+    position:absolute;
+    top:16px;
+    right:18px;
+    width:42px;
+    height:42px;
+    border:1px solid rgba(238,210,133,.55);
+    border-radius:50%;
+    background:#0c0b08;
+    color:#f7df9a;
+    font-size:28px;
+    line-height:1;
+    cursor:pointer;
+    z-index:4;
+}
+
+.reflection-garden-kicker{
+    text-align:center;
+    letter-spacing:2.5px;
+    font-size:11px;
+    color:#e5c76f;
+}
+
+.reflection-garden-dialog h2{
+    margin:5px 0 6px;
+    text-align:center;
+    font-size:clamp(30px,4vw,48px);
+    color:#ffd96b;
+    text-shadow:0 2px 14px rgba(255,210,88,.18);
+}
+
+.reflection-garden-intro{
+    max-width:650px;
+    margin:0 auto 22px;
+    text-align:center;
+    color:#d7cda9;
+    line-height:1.6;
+}
+
+.reflection-garden-menu{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin:0 auto 24px;
+}
+
+.reflection-garden-menu button{
+    padding:11px 18px;
+    border:1px solid rgba(221,190,103,.5);
+    border-radius:999px;
+    background:#100e09;
+    color:#dbc77f;
+    font:700 11px/1.1 Arial,sans-serif;
+    letter-spacing:1.2px;
+    cursor:pointer;
+}
+
+.reflection-garden-menu button.active,
+.reflection-garden-menu button:hover{
+    background:linear-gradient(180deg,#d9b24e,#8f6a1b);
+    color:#080705;
+}
+
+.reflection-garden-view{
+    display:block;
+}
+
+.reflection-garden-view[hidden]{
+    display:none;
+}
+
+/* The live card deliberately echoes the locked Daily Reflection
+   identity: black field, gold circular frame, ornate museum feel. */
+.reflection-card-live{
+    position:relative;
+    width:min(650px,100%);
+    min-height:650px;
+    margin:0 auto;
+    padding:54px 48px 38px;
+    box-sizing:border-box;
+    overflow:hidden;
+    border:7px solid #d6a936;
+    border-radius:46% 46% 45% 45% / 13% 13% 13% 13%;
+    background:
+        radial-gradient(circle at 50% 25%,rgba(255,205,65,.10),transparent 24%),
+        radial-gradient(circle at 50% 85%,rgba(255,205,65,.06),transparent 28%),
+        #030303;
+    box-shadow:
+        0 0 0 3px #17130a,
+        0 0 0 8px #b48624,
+        0 0 45px rgba(218,170,47,.24),
+        inset 0 0 35px rgba(255,210,75,.06);
+    color:#ffd968;
+    text-align:center;
+}
+
+.reflection-card-live:before,
+.reflection-card-live:after{
+    content:"✦";
+    position:absolute;
+    color:#f5c94f;
+    font-size:34px;
+    text-shadow:0 0 18px rgba(255,210,80,.8);
+}
+
+.reflection-card-live:before{top:18px;left:28px}
+.reflection-card-live:after{top:18px;right:28px}
+
+.reflection-card-orbit{
+    position:absolute;
+    inset:16px;
+    border:1px solid rgba(255,216,101,.48);
+    border-radius:46% 46% 45% 45% / 12% 12% 12% 12%;
+    pointer-events:none;
+}
+
+.reflection-card-brand{
+    font-size:clamp(23px,4vw,35px);
+    line-height:.82;
+    font-weight:900;
+    letter-spacing:1px;
+    color:#f4c94f;
+    text-shadow:0 2px 0 #5b3b06,0 0 15px rgba(255,205,70,.2);
+}
+
+.reflection-card-brand span{
+    font-size:.62em;
+}
+
+.reflection-card-motto{
+    margin-top:9px;
+    font:700 11px Arial,sans-serif;
+    letter-spacing:2px;
+    color:#ffe37d;
+}
+
+.reflection-card-title{
+    margin:25px auto 11px;
+    padding:9px 20px;
+    width:max-content;
+    max-width:90%;
+    border-top:2px solid #b98b28;
+    border-bottom:2px solid #b98b28;
+    font-size:clamp(25px,4vw,38px);
+    font-weight:900;
+    color:#ffd65d;
+}
+
+.reflection-card-number{
+    display:inline-block;
+    padding:11px 25px;
+    border:2px solid #b98b28;
+    border-radius:999px;
+    background:linear-gradient(180deg,#f0cf68,#9a711d);
+    color:#080705;
+    font:900 clamp(15px,2.5vw,22px)/1 Arial,sans-serif;
+    box-shadow:0 4px 16px rgba(0,0,0,.45);
+}
+
+.reflection-card-heading{
+    margin:20px 0 14px;
+    font:900 clamp(14px,2vw,20px)/1.25 Georgia,serif;
+    letter-spacing:1px;
+    color:#f5d36e;
+}
+
+.reflection-card-quote{
+    max-width:540px;
+    margin:0 auto;
+    font-size:clamp(20px,3vw,31px);
+    line-height:1.28;
+    font-weight:700;
+    color:#ffe8a0;
+    text-shadow:0 2px 8px rgba(0,0,0,.9);
+}
+
+.reflection-card-icons{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:7px;
+    margin:30px auto 17px;
+    font:700 9px Arial,sans-serif;
+    letter-spacing:1px;
+    color:#f2cf59;
+}
+
+.reflection-card-icons i{
+    width:1px;
+    height:23px;
+    background:#b88c2c;
+}
+
+.reflection-card-footer{
+    padding-top:15px;
+    border-top:1px solid rgba(204,160,49,.7);
+    font:700 10px/1.5 Arial,sans-serif;
+    letter-spacing:1.5px;
+    color:#e5c34f;
+}
+
+.reflection-card-footer small{
+    font-size:9px;
+    letter-spacing:1px;
+}
+
+.reflection-card-date{
+    margin-top:12px;
+    font:700 9px Arial,sans-serif;
+    letter-spacing:1.5px;
+    color:#a9945b;
+}
+
+.reflection-today-note{
+    margin:14px auto 0;
+    text-align:center;
+    color:#9f956f;
+    font:12px Arial,sans-serif;
+}
+
+.reflection-archive-empty{
+    min-height:360px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    border:1px dashed rgba(217,180,86,.35);
+    border-radius:22px;
+    padding:30px;
+    box-sizing:border-box;
+    background:rgba(255,210,90,.025);
+}
+
+.archive-symbol{
+    font-size:42px;
+    color:#e4be54;
+}
+
+.reflection-archive-empty h3{
+    margin:8px 0;
+    font-size:26px;
+    color:#f0d277;
+}
+
+.reflection-archive-empty p{
+    max-width:550px;
+    line-height:1.6;
+    color:#bdb18b;
+}
+
+.reflection-archive-empty span{
+    margin-top:10px;
+    font:700 11px Arial,sans-serif;
+    letter-spacing:1.3px;
+    color:#e0bd58;
+}
+
+body.reflection-garden-open{
+    overflow:hidden;
+}
+
+@media (max-width:700px){
+    .reflection-garden-overlay{padding:12px}
+    .reflection-garden-dialog{padding:22px 14px}
+    .reflection-card-live{
+        min-height:570px;
+        padding:45px 25px 28px;
+        border-radius:34% 34% 32% 32% / 9% 9% 9% 9%;
+    }
+    .reflection-card-quote{font-size:20px}
+    .reflection-card-title{font-size:25px}
+}
