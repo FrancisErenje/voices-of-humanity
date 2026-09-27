@@ -125,10 +125,9 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 }
 
 /*======================================
-   HALL OF HUMANITY — VISITOR EXPERIENCE
-   Click the Hall to focus it and show the
-   visitor information panel. The full
-   exhibition opens from EXPLORE THE HALL.
+   HALL OF HUMANITY — DIRECT EXHIBITION
+   Clicking the Hall opens its exhibits immediately.
+   No camera zoom and no intermediate visitor panel.
 ======================================*/
 
 (function setupHallExperience(){
@@ -136,65 +135,38 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
     const hall = document.getElementById("hall-humanity");
     if(!hall) return;
 
-    hall.addEventListener("click", function(){
-
-        const panel = document.getElementById("museumPanel");
-        const header = document.getElementById("museumPanelHeader");
-        const body = document.getElementById("museumPanelBody");
-        const button = document.getElementById("enterMuseum");
-
-        if(!panel || !header || !body || !button) return;
-
-        header.textContent = "🏛 Hall of Humanity";
-
-        body.innerHTML =
-            "<strong>The World of Voices</strong><br><br>" +
-            "The Hall of Humanity is the global orientation centre of " +
-            "Voices of Humanity — a place to encounter language as memory, " +
-            "identity, knowledge and living heritage.<br><br>" +
-            "Explore curated exhibits on the world's linguistic diversity, " +
-            "oral traditions, language documentation, writing systems, " +
-            "language transmission and the museum's growing documentary archive.";
-
-        button.textContent = "EXPLORE THE HALL";
-        panel.style.display = "block";
-
-        /* Bind the action directly to the actual button.
-           Use the element's native onclick property rather than
-           delegated bubbling. This makes the Hall action reliable
-           on mouse, touch, tablet and keyboard browsers. */
-        button.type = "button";
-        button.onclick = function(event){
+    function openHall(event){
+        if(event){
             event.preventDefault();
-            event.stopPropagation();
+            event.stopImmediatePropagation();
+        }
 
-            const open = window.openHallHumanityExperience;
+        const open = window.openHallHumanityExperience;
+        if(typeof open === "function"){
+            open(event);
+            return;
+        }
 
-            if(typeof open === "function"){
-                open(event);
-                return false;
-            }
+        const exhibition = document.querySelector(".hall-exhibition-overlay");
+        const panel = document.getElementById("museumPanel");
 
-            /* Safe fallback if the Hall engine has not finished
-               initializing yet. */
-            const exhibition = document.querySelector(".hall-exhibition-overlay");
+        if(exhibition){
+            exhibition.classList.add("open");
+            exhibition.style.display = "block";
+            document.body.classList.add("hall-overlay-open");
+            if(panel) panel.style.display = "none";
 
-            if(exhibition){
-                exhibition.classList.add("open");
-                exhibition.style.display = "block";
-                document.body.classList.add("hall-overlay-open");
-                panel.style.display = "none";
+            const closeButton = exhibition.querySelector(".hall-exhibition-close");
+            if(closeButton) setTimeout(() => closeButton.focus(), 120);
+        }
+    }
 
-                const closeButton = exhibition.querySelector(".hall-exhibition-close");
-                if(closeButton) setTimeout(() => closeButton.focus(), 120);
-            }
+    hall.addEventListener("click", openHall, true);
 
-            return false;
-        };
-
-        button.focus();
-
-    });
+    hall.addEventListener("keydown", function(event){
+        if(event.key !== "Enter" && event.key !== " ") return;
+        openHall(event);
+    }, true);
 
 })();
 
