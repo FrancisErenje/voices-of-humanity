@@ -6,8 +6,6 @@ const campus = document.getElementById("campus");
 
 loadTrees();
 loadGardens();
-loadTrees();
-loadGardens();
 
 /*======================================
         MUSEUM LIGHT ENGINE
