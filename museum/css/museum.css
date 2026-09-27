@@ -6716,3 +6716,15 @@ body.lm247-overlay-open{
         top:-66px !important;
     }
 }
+
+
+/* Keep the eight symbolic voice pillars as a ceremonial feature,
+   but move them outward so the central approach/road remains clear. */
+#hall-humanity .pillar-igede{left:0 !important}
+#hall-humanity .pillar-yoruba{left:52px !important}
+#hall-humanity .pillar-igbo{left:104px !important}
+#hall-humanity .pillar-hausa{left:156px !important}
+#hall-humanity .pillar-swahili{right:156px !important}
+#hall-humanity .pillar-sami{right:104px !important}
+#hall-humanity .pillar-wukchumni{right:52px !important}
+#hall-humanity .pillar-samoan{right:0 !important}
