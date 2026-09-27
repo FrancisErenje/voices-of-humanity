@@ -7,6 +7,112 @@
 
   function stop(e){ if(e) e.stopPropagation(); }
 
+  /*
+   * HALL CLICK JOURNEY — installed independently of exhibition rendering.
+   * This is intentionally outside render() so the Hall remains clickable
+   * even if another museum module delays the exhibition data.
+   */
+  function installHallJourney(){
+    if(document.body.dataset.hallJourneyInstalled === "true") return;
+
+    const hall=document.getElementById("hall-humanity");
+    if(!hall) return;
+
+    document.body.dataset.hallJourneyInstalled="true";
+
+    const journey=document.createElement("div");
+    journey.className="hall-explore-prompt";
+    journey.innerHTML=
+      '<div class="hall-explore-prompt-card" role="dialog" aria-label="Explore Hall of Humanity">'+
+        '<div class="hall-explore-prompt-kicker">VOICES OF HUMANITY</div>'+
+        '<div class="hall-explore-prompt-title">Hall of Humanity</div>'+
+        '<p>Welcome to the symbolic heart of the museum — a place where the world's voices meet.</p>'+
+        '<button type="button" class="hall-explore-button">CLICK TO EXPLORE HALL</button>'+
+      '</div>';
+    document.body.appendChild(journey);
+
+    const button=journey.querySelector(".hall-explore-button");
+
+    function closeJourney(){
+      journey.classList.remove("open");
+      document.body.classList.remove("hall-journey-open");
+    }
+
+    function openJourney(){
+      journey.classList.add("open");
+      document.body.classList.add("hall-journey-open");
+    }
+
+    button.addEventListener("click",function(event){
+      event.preventDefault();
+      event.stopPropagation();
+      closeJourney();
+
+      if(typeof window.openHallHumanityExperience === "function"){
+        window.openHallHumanityExperience(event);
+      }else{
+        /* Exhibition rendering may still be finishing. */
+        setTimeout(function(){
+          if(typeof window.openHallHumanityExperience === "function"){
+            window.openHallHumanityExperience(event);
+          }
+        },250);
+      }
+    });
+
+    journey.addEventListener("click",function(event){
+      if(event.target===journey) closeJourney();
+    });
+
+    document.addEventListener("keydown",function(event){
+      if(event.key==="Escape" && journey.classList.contains("open")){
+        closeJourney();
+      }
+    });
+
+    /*
+     * Capture phase is deliberate: the Hall contains many decorative
+     * child elements, some of which have their own interactions.
+     */
+    document.addEventListener("click",function(event){
+      const target=event.target;
+      const hallTarget=target && typeof target.closest==="function"
+        ? target.closest("#hall-humanity")
+        : null;
+
+      if(!hallTarget) return;
+      if(target.closest(".hall-exhibition-overlay")) return;
+      if(target.closest(".hall-explore-prompt")) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      if(typeof focusWorldPoint==="function"){
+        focusWorldPoint(1500,1145,1.35);
+      }else if(typeof focusBuilding==="function"){
+        focusBuilding("hall-humanity");
+      }
+
+      openJourney();
+    },true);
+
+    /* Also bind directly to the Hall as a fallback for unusual browsers. */
+    hall.addEventListener("click",function(event){
+      if(event.target.closest(".hall-exhibition-overlay")) return;
+      if(event.target.closest(".hall-explore-prompt")) return;
+      event.preventDefault();
+      event.stopPropagation();
+
+      if(typeof focusWorldPoint==="function"){
+        focusWorldPoint(1500,1145,1.35);
+      }else if(typeof focusBuilding==="function"){
+        focusBuilding("hall-humanity");
+      }
+
+      openJourney();
+    },true);
+  }
+
   function render(){
     const hall=document.getElementById("hall-humanity");
     const collection=window.HallOfHumanityCollection;
@@ -240,9 +346,14 @@
 
     bindHallExperience();
 
+    /* Keep the journey binding independent of exhibition rendering. */
+    installHallJourney();
+
     /* Re-check after the rest of the museum has initialized. */
     setTimeout(bindHallExperience, 500);
     setTimeout(bindHallExperience, 1500);
+    setTimeout(installHallJourney, 500);
+    setTimeout(installHallJourney, 1500);
 
     const archiveModal=document.createElement("div");
     archiveModal.className="hall-living-modal";
