@@ -6,6 +6,33 @@
   "use strict";
 
   function stop(e){ if(e) e.stopPropagation(); }
+  function bindReliableHallClick(){
+    const hall=document.getElementById("hall-humanity");
+    if(!hall || hall.dataset.reliableHallClick==="true") return;
+    hall.dataset.reliableHallClick="true";
+
+    const open=function(event){
+      event.preventDefault();
+      event.stopPropagation();
+      if(typeof focusWorldPoint==="function") focusWorldPoint(1500,1145,1.35);
+
+      const show=function(){
+        if(typeof window.openHallHumanityExperience==="function"){
+          window.openHallHumanityExperience(event);
+          return true;
+        }
+        return false;
+      };
+      if(!show()) setTimeout(show,150);
+      if(!show()) setTimeout(show,500);
+      if(!show()) setTimeout(show,1000);
+    };
+
+    hall.addEventListener("click",open,true);
+    hall.style.cursor="pointer";
+    hall.style.pointerEvents="auto";
+  }
+
 
   /*
    * HALL CLICK JOURNEY — installed independently of exhibition rendering.
@@ -130,6 +157,7 @@
   }
 
   function render(){
+    bindReliableHallClick();
     const hall=document.getElementById("hall-humanity");
     const collection=window.HallOfHumanityCollection;
     if(!hall || !collection || hall.querySelector(".hall-exhibition")) return;
@@ -432,6 +460,13 @@
     });
   }
 
-  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",render);
-  else render();
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded",function(){
+      bindReliableHallClick();
+      render();
+    });
+  }else{
+    bindReliableHallClick();
+    render();
+  }
 })();
