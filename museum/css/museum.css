@@ -6728,3 +6728,21 @@ body.lm247-overlay-open{
 #hall-humanity .pillar-sami{right:104px !important}
 #hall-humanity .pillar-wukchumni{right:52px !important}
 #hall-humanity .pillar-samoan{right:0 !important}
+
+
+/* Keep the Hall forecourt approach completely clear.
+   The four left Voice Pillars are hidden so the ceremonial right group
+   remains visible without obstructing the main road view. */
+#hall-humanity .pillar-igede,
+#hall-humanity .pillar-yoruba,
+#hall-humanity .pillar-igbo,
+#hall-humanity .pillar-hausa{
+  display:none !important;
+}
+
+#hall-humanity .pillar-swahili,
+#hall-humanity .pillar-sami,
+#hall-humanity .pillar-wukchumni,
+#hall-humanity .pillar-samoan{
+  position:absolute !important;
+}
