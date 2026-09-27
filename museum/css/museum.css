@@ -64,7 +64,34 @@ body{
 
 }
 
-/* ======================================
+/* HALL OF HUMANITY — reliable interactive surface */
+#hall-humanity{
+  pointer-events:auto !important;
+  cursor:pointer !important;
+}
+
+/* Transparent click layer: decoration remains visible while the
+   whole Hall building becomes a dependable interaction target. */
+#hall-humanity .hall-click-surface{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  opacity:0 !important;
+  cursor:pointer !important;
+  z-index:10000 !important;
+  pointer-events:auto !important;
+}
+#hall-humanity .hall-click-surface:focus{
+  outline:2px solid rgba(255,214,112,.9);
+  outline-offset:-4px;
+}
+* ======================================
    CAMPUS ZONES
 ====================================== */
 
