@@ -6650,3 +6650,42 @@ body.lm247-overlay-open{
         top:-62px !important;
     }
 }
+
+
+/* Final compact campus titles: keep the elegant plaques, reduce only the text. */
+#africaMuseum .museum-title,
+#europeMuseum .continental-title,
+#americasMuseum .continental-title,
+#oceaniaMuseum .continental-title{
+    font-size:22px !important;
+}
+#asiaMuseum .asia-name{
+    font-size:22px !important;
+}
+
+/* Documentary Cinema: force the title to sit immediately above its own structure. */
+#cinema{
+    position:relative !important;
+}
+#cinema h2{
+    position:absolute !important;
+    left:50% !important;
+    top:-92px !important;
+    transform:translateX(-50%) !important;
+    margin:0 !important;
+    z-index:1000 !important;
+    white-space:nowrap !important;
+}
+
+@media(max-width:700px){
+    #africaMuseum .museum-title,
+    #europeMuseum .continental-title,
+    #americasMuseum .continental-title,
+    #oceaniaMuseum .continental-title,
+    #asiaMuseum .asia-name{
+        font-size:18px !important;
+    }
+    #cinema h2{
+        top:-66px !important;
+    }
+}
