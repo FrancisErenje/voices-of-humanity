@@ -6290,3 +6290,200 @@ body.lm247-overlay-open{
         grid-template-columns:1fr;
     }
 }
+
+
+/* =========================================================
+   VOH MUSEUM — HIGH-VISIBILITY BUILDING TITLES
+   Titles remain architectural, but are now readable from
+   a distance in both day and night modes.
+   ========================================================= */
+
+.hall-title{
+    position:relative;
+    z-index:100;
+    display:block;
+    width:max-content;
+    max-width:92%;
+    margin:0 auto 24px;
+    padding:10px 24px 12px;
+    border:2px solid rgba(188,143,42,.95);
+    border-radius:999px;
+    background:linear-gradient(180deg,rgba(255,250,225,.98),rgba(239,219,166,.94));
+    color:#4d3509 !important;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:clamp(32px,3vw,48px) !important;
+    font-weight:900 !important;
+    letter-spacing:1.8px !important;
+    line-height:1.05;
+    text-transform:uppercase;
+    text-shadow:0 2px 1px rgba(255,255,255,.8),0 4px 8px rgba(0,0,0,.28);
+    box-shadow:0 7px 18px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.95);
+}
+
+.museum-title,
+#asiaMuseum .asia-name,
+#europeMuseum .continental-title,
+#americasMuseum .continental-title,
+#oceaniaMuseum .continental-title{
+    z-index:100 !important;
+    display:block !important;
+    box-sizing:border-box;
+    width:max-content;
+    max-width:calc(100% - 20px);
+    margin-left:50%;
+    transform:translateX(-50%);
+    padding:9px 17px 10px;
+    border:2px solid rgba(255,239,181,.96);
+    border-radius:999px;
+    font-family:Arial,Helvetica,sans-serif !important;
+    font-size:clamp(20px,2.2vw,30px) !important;
+    font-weight:900 !important;
+    line-height:1.08;
+    letter-spacing:.7px !important;
+    text-align:center;
+    white-space:nowrap;
+    text-shadow:0 2px 3px rgba(0,0,0,.82);
+    box-shadow:0 7px 18px rgba(0,0,0,.28),0 0 12px rgba(255,220,120,.10);
+}
+
+#africaMuseum .museum-title{
+    position:absolute;
+    top:-58px;
+    left:50%;
+    background:linear-gradient(180deg,#fff7dc,#e9c779);
+    color:#4a2a0d !important;
+}
+
+#asiaMuseum .asia-name{
+    position:absolute;
+    top:-58px;
+    background:linear-gradient(180deg,#fff0e5,#d99583);
+    color:#541b25 !important;
+}
+
+#europeMuseum .continental-title,
+#americasMuseum .continental-title,
+#oceaniaMuseum .continental-title{
+    top:-58px;
+    background:linear-gradient(180deg,#fff7dc,#e6c36f);
+    color:#4a320c !important;
+}
+
+#lm247Building .lm247Title{
+    z-index:100 !important;
+    top:-58px !important;
+    left:50%;
+    transform:translateX(-50%);
+    width:max-content;
+    max-width:92%;
+    padding:9px 18px 10px;
+    border:2px solid rgba(157,220,255,.96);
+    border-radius:999px;
+    background:linear-gradient(180deg,#e9f8ff,#8fd5ff);
+    color:#063d68 !important;
+    font-size:clamp(19px,2vw,28px) !important;
+    font-weight:900 !important;
+    letter-spacing:1.1px !important;
+    text-shadow:0 2px 3px rgba(255,255,255,.65),0 3px 7px rgba(0,0,0,.25);
+    box-shadow:0 7px 18px rgba(0,0,0,.25);
+    white-space:nowrap;
+}
+
+#lm247Building .lm247Title span{
+    display:block;
+    margin-top:4px;
+    color:#214c66 !important;
+    font-size:10px !important;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+#cinema h2{
+    position:absolute;
+    top:-58px;
+    left:50%;
+    z-index:100;
+    transform:translateX(-50%);
+    width:max-content;
+    max-width:92%;
+    margin:0;
+    padding:9px 18px 10px;
+    border:2px solid rgba(214,226,255,.96);
+    border-radius:999px;
+    background:linear-gradient(180deg,#f1f5ff,#9baac4);
+    color:#172033;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:clamp(20px,2.2vw,30px);
+    font-weight:900;
+    line-height:1.05;
+    letter-spacing:1px;
+    text-align:center;
+    white-space:nowrap;
+    text-shadow:0 2px 3px rgba(255,255,255,.65);
+    box-shadow:0 7px 18px rgba(0,0,0,.28);
+}
+
+.visitor-centre{
+    z-index:100;
+    position:absolute;
+    top:185px;
+    left:280px;
+    width:340px;
+    height:120px;
+    box-sizing:border-box;
+    border:3px solid rgba(255,255,255,.96);
+    background:linear-gradient(180deg,#fffdf4,#d9d0bd);
+    color:#26321f;
+    font-size:clamp(24px,2.5vw,34px) !important;
+    font-weight:900 !important;
+    letter-spacing:1px;
+    text-shadow:0 2px 3px rgba(255,255,255,.9);
+    box-shadow:0 9px 22px rgba(0,0,0,.28);
+}
+
+#campus.night .hall-title,
+#campus.night .museum-title,
+#campus.night #asiaMuseum .asia-name,
+#campus.night #europeMuseum .continental-title,
+#campus.night #americasMuseum .continental-title,
+#campus.night #oceaniaMuseum .continental-title,
+#campus.night #lm247Building .lm247Title,
+#campus.night #cinema h2,
+#campus.night .visitor-centre{
+    box-shadow:0 7px 20px rgba(0,0,0,.55),0 0 22px rgba(255,214,116,.24);
+}
+
+@media(max-width:700px){
+    .hall-title{
+        font-size:24px !important;
+        padding:8px 15px 9px;
+        letter-spacing:1px !important;
+    }
+
+    .museum-title,
+    #asiaMuseum .asia-name,
+    #europeMuseum .continental-title,
+    #americasMuseum .continental-title,
+    #oceaniaMuseum .continental-title,
+    #lm247Building .lm247Title,
+    #cinema h2{
+        font-size:17px !important;
+        padding:7px 11px 8px;
+    }
+
+    #africaMuseum .museum-title,
+    #asiaMuseum .asia-name,
+    #europeMuseum .continental-title,
+    #americasMuseum .continental-title,
+    #oceaniaMuseum .continental-title,
+    #lm247Building .lm247Title,
+    #cinema h2{
+        top:-43px !important;
+    }
+}
+
+/* The old floating duplicate labels are intentionally disabled;
+   the architectural titles above are the single visible names. */
+.building-name-label{
+    display:none !important;
+}
