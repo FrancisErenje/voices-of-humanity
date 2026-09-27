@@ -587,3 +587,88 @@
     height:38px;
   }
 }
+
+
+/*==================================================
+  HALL VISITOR JOURNEY PROMPT
+==================================================*/
+
+.hall-explore-prompt{
+  position:fixed;
+  inset:0;
+  z-index:19000;
+  display:none;
+  align-items:flex-end;
+  justify-content:center;
+  padding:0 20px 46px;
+  pointer-events:none;
+}
+
+.hall-explore-prompt.open{
+  display:flex;
+}
+
+.hall-explore-prompt-card{
+  width:min(520px,92vw);
+  padding:22px 24px 20px;
+  border:1px solid rgba(230,196,104,.42);
+  border-radius:18px;
+  background:linear-gradient(145deg,rgba(16,27,38,.96),rgba(7,14,22,.97));
+  box-shadow:0 22px 60px rgba(0,0,0,.48);
+  color:#f7f1df;
+  text-align:center;
+  pointer-events:auto;
+  backdrop-filter:blur(8px);
+}
+
+.hall-explore-prompt-kicker{
+  color:#e3bd55;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:2.2px;
+}
+
+.hall-explore-prompt-title{
+  margin-top:5px;
+  color:#fff7df;
+  font:700 25px Georgia,serif;
+}
+
+.hall-explore-prompt-card p{
+  margin:8px auto 15px;
+  max-width:420px;
+  color:#aebbc4;
+  font-size:11px;
+  line-height:1.55;
+}
+
+.hall-explore-button{
+  border:1px solid rgba(230,196,104,.45);
+  border-radius:10px;
+  padding:11px 18px;
+  background:linear-gradient(135deg,rgba(230,196,104,.18),rgba(230,196,104,.06));
+  color:#f1d477;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:1.1px;
+  cursor:pointer;
+}
+
+.hall-explore-button:hover{
+  background:rgba(230,196,104,.18);
+}
+
+.hall-journey-open::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:18999;
+  background:rgba(2,7,12,.16);
+  pointer-events:none;
+}
+
+@media(max-width:700px){
+  .hall-explore-prompt{padding-bottom:25px}
+  .hall-explore-prompt-card{padding:18px 17px}
+  .hall-explore-prompt-title{font-size:21px}
+}
