@@ -168,24 +168,79 @@
        building itself is clicked. No camera zoom is used. */
     window.openHallHumanityExperience = openHallExperience;
 
+    /* The Hall returns to the original visitor journey:
+       click the building → camera focuses on the entrance →
+       a small invitation appears → "Click to Explore Hall"
+       opens the full exhibition. */
     function bindHallExperience(){
-      if(hall.dataset.hallExperienceBound === "true") return;
+      if(document.body.dataset.hallJourneyBound === "true") return;
 
-      hall.dataset.hallExperienceBound = "true";
+      document.body.dataset.hallJourneyBound = "true";
 
-      /* Capture the click at the Hall itself so child architectural
-         elements cannot swallow the interaction. This mirrors the
-         reliable building-experience pattern used by the other museums. */
-      hall.addEventListener("click", function(event){
-        if(event.target.closest(".hall-exhibition-overlay")) return;
+      const journey = document.createElement("div");
+      journey.className = "hall-explore-prompt";
+      journey.innerHTML =
+        '<div class="hall-explore-prompt-card" role="dialog" aria-label="Explore Hall of Humanity">' +
+          '<div class="hall-explore-prompt-kicker">VOICES OF HUMANITY</div>' +
+          '<div class="hall-explore-prompt-title">Hall of Humanity</div>' +
+          '<p>Welcome to the symbolic heart of the museum — a place where the world's voices meet.</p>' +
+          '<button type="button" class="hall-explore-button">CLICK TO EXPLORE HALL</button>' +
+        '</div>';
+      document.body.appendChild(journey);
+
+      const button = journey.querySelector(".hall-explore-button");
+
+      function closeJourney(){
+        journey.classList.remove("open");
+        document.body.classList.remove("hall-journey-open");
+      }
+
+      function openJourney(){
+        journey.classList.add("open");
+        document.body.classList.add("hall-journey-open");
+      }
+
+      button.addEventListener("click", function(event){
+        event.preventDefault();
+        event.stopPropagation();
+        closeJourney();
         openHallExperience(event);
+      });
+
+      journey.addEventListener("click", function(event){
+        if(event.target === journey) closeJourney();
+      });
+
+      document.addEventListener("keydown", function(event){
+        if(event.key === "Escape" && journey.classList.contains("open")){
+          closeJourney();
+        }
+      });
+
+      /* Capture at document level so the Hall's many architectural
+         child elements cannot swallow the building interaction. */
+      document.addEventListener("click", function(event){
+        const hallTarget = event.target.closest("#hall-humanity");
+        if(!hallTarget) return;
+        if(event.target.closest(".hall-exhibition-overlay")) return;
+        if(event.target.closest(".hall-explore-prompt")) return;
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        if(typeof focusWorldPoint === "function"){
+          focusWorldPoint(1500, 1145, 1.35);
+        }else if(typeof focusBuilding === "function"){
+          focusBuilding("hall-humanity");
+        }
+
+        openJourney();
       }, true);
     }
 
     bindHallExperience();
 
-    /* Re-bind once after the other museum engines have initialized,
-       without creating duplicate listeners. */
+    /* Re-check after the rest of the museum has initialized. */
     setTimeout(bindHallExperience, 500);
     setTimeout(bindHallExperience, 1500);
 
