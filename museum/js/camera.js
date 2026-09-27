@@ -70,7 +70,7 @@ const Camera = {
  */
 
 const openingGateX = 1500;
-const openingGateY = 1650;
+const openingGateY = 1450;
 
 Camera.x =
     (viewport.clientWidth / 2) -
