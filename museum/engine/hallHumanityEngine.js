@@ -201,6 +201,24 @@
        building itself is clicked. No camera zoom is used. */
     window.openHallHumanityExperience = openHallExperience;
 
+    /* A dedicated transparent interaction surface sits above the
+       architectural decoration. This prevents roofs, columns,
+       signs or decorative layers from swallowing the Hall click. */
+    if(!hall.querySelector(".hall-click-surface")){
+      const clickSurface=document.createElement("button");
+      clickSurface.type="button";
+      clickSurface.className="hall-click-surface";
+      clickSurface.setAttribute("aria-label","Open Hall of Humanity exhibition");
+      clickSurface.title="Open Hall of Humanity";
+      hall.appendChild(clickSurface);
+
+      clickSurface.addEventListener("click",function(event){
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        openHallExperience(event);
+      });
+    }
+
     /* One canonical Hall interaction: the building opens the exhibition directly. */
     bindReliableHallClick();
 
