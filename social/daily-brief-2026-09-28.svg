@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f4f0e6"/><stop offset="1" stop-color="#dfe7e2"/></linearGradient></defs>
+<rect width="1080" height="1080" fill="url(#bg)"/>
+<rect x="0" y="0" width="1080" height="170" fill="#173b35"/>
+<text x="540" y="72" fill="#f2cf7a" font-family="Georgia,serif" font-size="38" text-anchor="middle" letter-spacing="4">LOCALMEDIA247</text>
+<text x="540" y="125" fill="#fff" font-family="Arial,sans-serif" font-size="25" text-anchor="middle" letter-spacing="3">DAILY BRIEF • MONDAY, SEPTEMBER 28, 2026</text>
+<!-- Nigeria -->
+<rect x="55" y="205" width="970" height="245" rx="24" fill="#fff" stroke="#c8c5bb"/>
+<circle cx="175" cy="325" r="82" fill="#e5eee8"/>
+<path d="M125 355 L150 290 L200 255 L235 305 L218 370 L170 390Z" fill="#2f6f55"/>
+<rect x="150" y="325" width="52" height="48" fill="#b98245"/><path d="M176 275v50" stroke="#6b5135" stroke-width="6"/>
+<text x="290" y="260" fill="#173b35" font-family="Arial,sans-serif" font-size="25" font-weight="700">🇳🇬 NIGERIA</text>
+<text x="290" y="305" fill="#222" font-family="Arial,sans-serif" font-size="29" font-weight="700">Federal Government approves</text>
+<text x="290" y="342" fill="#222" font-family="Arial,sans-serif" font-size="29" font-weight="700">upgrade of four major ports</text>
+<text x="290" y="390" fill="#5b625e" font-family="Arial,sans-serif" font-size="20">Onne • Rivers • Delta • Calabar</text>
+<!-- Africa -->
+<rect x="55" y="475" width="970" height="245" rx="24" fill="#fff" stroke="#c8c5bb"/>
+<circle cx="175" cy="595" r="82" fill="#f0e8d8"/>
+<path d="M155 520 L205 535 L225 585 L205 625 L218 690 L170 665 L145 620 L125 580Z" fill="#c58b55"/>
+<circle cx="184" cy="575" r="7" fill="#173b35"/><path d="M184 575 L210 605" stroke="#173b35" stroke-width="4"/>
+<text x="290" y="530" fill="#173b35" font-family="Arial,sans-serif" font-size="25" font-weight="700">🌍 AFRICA</text>
+<text x="290" y="575" fill="#222" font-family="Arial,sans-serif" font-size="29" font-weight="700">Tigray tensions remain a focus</text>
+<text x="290" y="612" fill="#222" font-family="Arial,sans-serif" font-size="29" font-weight="700">of regional peace concerns</text>
+<text x="290" y="660" fill="#5b625e" font-family="Arial,sans-serif" font-size="20">Developments reported from Ethiopia</text>
+<!-- World -->
+<rect x="55" y="745" width="970" height="245" rx="24" fill="#fff" stroke="#c8c5bb"/>
+<circle cx="175" cy="865" r="82" fill="#dce8ed"/><circle cx="175" cy="865" r="58" fill="none" stroke="#34728a" stroke-width="4"/>
+<path d="M117 850 Q175 820 233 850 M117 880 Q175 910 233 880 M150 810 Q175 865 150 920 M200 810 Q175 865 200 920" fill="none" stroke="#34728a" stroke-width="4"/>
+<text x="290" y="800" fill="#173b35" font-family="Arial,sans-serif" font-size="25" font-weight="700">🌎 WORLD</text>
+<text x="290" y="845" fill="#222" font-family="Arial,sans-serif" font-size="29" font-weight="700">Global leaders continue diplomacy</text>
+<text x="290" y="882" fill="#222" font-family="Arial,sans-serif" font-size="29" font-weight="700">and talks on international security</text>
+<text x="290" y="930" fill="#5b625e" font-family="Arial,sans-serif" font-size="20">UN General Assembly • September 2026</text>
+<text x="540" y="1040" fill="#173b35" font-family="Arial,sans-serif" font-size="21" text-anchor="middle" letter-spacing="2">DOCUMENTING TODAY. PRESERVING TOMORROW.</text>
+</svg>
