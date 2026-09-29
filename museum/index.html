@@ -856,16 +856,33 @@
       }
     }
 
+    /* Reliable activation: the museum's navigation engine also listens
+       for pointer events, so catch a clean tap/click at window level. */
+    function isInsideHall(e){
+      var rect=hall.getBoundingClientRect();
+      return e.clientX>=rect.left && e.clientX<=rect.right &&
+             e.clientY>=rect.top && e.clientY<=rect.bottom;
+    }
+
     hall.addEventListener("click",function(e){
       e.preventDefault();
       e.stopPropagation();
       openHall();
     },true);
 
-    document.addEventListener("pointerdown",function(e){
-      var rect=hall.getBoundingClientRect();
-      if(e.clientX>=rect.left && e.clientX<=rect.right &&
-         e.clientY>=rect.top && e.clientY<=rect.bottom){
+    window.addEventListener("pointerup",function(e){
+      if(e.button!==undefined && e.button!==0) return;
+      if(isInsideHall(e)){
+        e.preventDefault();
+        e.stopPropagation();
+        openHall();
+      }
+    },true);
+
+    window.addEventListener("click",function(e){
+      if(isInsideHall(e)){
+        e.preventDefault();
+        e.stopPropagation();
         openHall();
       }
     },true);
