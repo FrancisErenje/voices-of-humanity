@@ -116,11 +116,11 @@
     living.appendChild(actions);
     overlay.appendChild(living);
 
-    const promise=document.createElement("div");
-    promise.className="hall-promise";
-    promise.innerHTML='<div class="hall-promise-quote">“A language is more than words.<br>It is memory. It is identity. It is knowledge. It is home.”</div>'+
+    const promiseSection=document.createElement("div");
+    promiseSection.className="hall-promise";
+    promiseSection.innerHTML='<div class="hall-promise-quote">“A language is more than words.<br>It is memory. It is identity. It is knowledge. It is home.”</div>'+
       '<div class="hall-promise-sub">The museum’s living promise</div>';
-    overlay.appendChild(promise);
+    overlay.appendChild(promiseSection);
 
     const source=document.createElement("div");
     source.className="hall-source-strip";
