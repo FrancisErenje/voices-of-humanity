@@ -5,10 +5,10 @@
 
 window.ReflectionGardenCollection = {
   current: {
-    number: "060",
-    date: "MONDAY, SEPTEMBER 28, 2026",
-    heading: "HAPPY WORLD RABIES DAY 🌍",
-    quote: "When knowledge is shared freely, communities become stronger, safer, and better prepared for the future.",
+    number: "061",
+    date: "TUESDAY, SEPTEMBER 29, 2026",
+    heading: "HAPPY WORLD HEART DAY 🌍",
+    quote: "A healthier world begins when we care not only for our own hearts, but for the lives and people connected to them.",
     note: "A daily reflection from Voices of Humanity."
   },
   archive: []
