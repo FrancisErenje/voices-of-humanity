@@ -296,37 +296,37 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
                 <section class="lm247-daily-desk" aria-labelledby="lm247DailyDeskTitle">
                     <div class="lm247-daily-desk-heading">
                         <div>
-                            <span class="lm247-daily-desk-eyebrow">PUBLISHED TODAY · 27 SEPTEMBER 2026</span>
+                            <span class="lm247-daily-desk-eyebrow">PUBLISHED TODAY · 29 SEPTEMBER 2026</span>
                             <h3 id="lm247DailyDeskTitle">LocalMedia247 Daily Desk</h3>
                         </div>
                         <span class="lm247-daily-desk-status">LIVE DESK</span>
                     </div>
 
                     <article class="lm247-desk-story lm247-desk-reflection">
-                        <span class="lm247-desk-kicker">DAILY REFLECTION 059</span>
-                        <h4>Happy World Tourism Day 🌍</h4>
-                        <p>Every journey becomes more meaningful when we take the time to understand the people, culture and stories of the places we visit.</p>
-                        <a href="https://indonesia.un.org/en/322925-world-tourism-day-2026-secretary-generals-message-ant%C3%B3nio-guterres" target="_blank" rel="noopener noreferrer">READ THE WORLD TOURISM DAY MESSAGE →</a>
+                        <span class="lm247-desk-kicker">DAILY REFLECTION 061</span>
+                        <h4>EVERY HEART CARRIES A STORY</h4>
+                        <p>A healthier world begins when we care not only for our own hearts, but for the lives and people connected to them.</p>
+                        <a href="https://www.who.int/campaigns/world-heart-day" target="_blank" rel="noopener noreferrer">READ ABOUT WORLD HEART DAY →</a>
                     </article>
 
                     <article class="lm247-desk-story">
                         <span class="lm247-desk-kicker">DAILY BRIEF</span>
-                        <h4>27 September 2026 — Three stories to know</h4>
+                        <h4>29 September 2026 — Three stories to know</h4>
                         <div class="lm247-desk-headlines">
                             <div>
                                 <strong>🇳🇬 Nigeria</strong>
-                                <p>105 more Nigerians return from South Africa after the latest evacuation.</p>
-                                <a href="https://punchng.com/xenophobia-105-more-nigerians-return-home-from-safrica/" target="_blank" rel="noopener noreferrer">SOURCE · PUNCH</a>
+                                <p>Heavy floods caused the Ojirami Dam to overflow in Enwan Community, Akoko-Edo, destroying an oil mill and poultry farm and disrupting homes, schools, farms and businesses.</p>
+                                <a href="https://punchng.com/dam-overflow-floods-edo-community-residents-fear-disaster/" target="_blank" rel="noopener noreferrer">SOURCE · PUNCH</a>
                             </div>
                             <div>
                                 <strong>🌍 Africa</strong>
-                                <p>At least 27 people were killed in two separate South Africa mass shootings.</p>
-                                <a href="https://amp.dw.com/en/gunmen-kill-27-people-in-two-mass-shootings-in-south-africa/a-79447130" target="_blank" rel="noopener noreferrer">SOURCE · DW</a>
+                                <p>Ethiopian pro-government forces and allied militias reportedly captured the strategic town of Alamata amid renewed fighting in Tigray.</p>
+                                <a href="https://www.reuters.com/world/africa/ethiopian-pro-government-forces-claim-capture-of-strategic-tigray-town-2026-09-28/" target="_blank" rel="noopener noreferrer">SOURCE · DW</a>
                             </div>
                             <div>
                                 <strong>🌎 World</strong>
-                                <p>The US and China agreed on tariff reductions covering $30 billion of goods and continued AI dialogue.</p>
-                                <a href="https://www.tbsnews.net/worldbiz/usa/china-us-agree-ai-dialogue-tariff-cuts-30-billion-goods-during-xi-visit-1554756" target="_blank" rel="noopener noreferrer">SOURCE · REUTERS</a>
+                                <p>Brent crude rose above $107 a barrel as concerns about Middle East energy-supply disruptions continued.</p>
+                                <a href="https://www.reuters.com/world/india/indian-rupee-drops-to-two-month-low-past-key-96usd-barrier-as-oil-worries-deepen-2026-09-29/" target="_blank" rel="noopener noreferrer">SOURCE · REUTERS</a>
                             </div>
                         </div>
                     </article>
