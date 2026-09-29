@@ -154,6 +154,18 @@ window.CinemaEngine = {
         this.cinema.innerHTML = `
 
             <!-- ======================================
+                 EXTERIOR CINEMA TITLE
+                 Kept outside the visitor interior so the
+                 building is clearly identifiable on campus.
+            ======================================= -->
+
+            <div class="cinema-exterior-title" aria-label="Documentary Cinema">
+                <span>VOICES OF HUMANITY</span>
+                <strong>DOCUMENTARY CINEMA</strong>
+                <small>FILM · LANGUAGE · MEMORY</small>
+            </div>
+
+            <!-- ======================================
                  CINEMA ENTRANCE
             ======================================= -->
 
