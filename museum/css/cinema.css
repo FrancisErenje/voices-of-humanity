@@ -999,6 +999,91 @@
 
 
 /*=========================================================
+    CINEMA EXTERIOR TITLE
+    A permanent architectural sign above the building.
+=========================================================*/
+
+.cinema-exterior-title{
+    position:absolute;
+    left:50%;
+    top:-108px;
+    transform:translateX(-50%);
+    width:430px;
+    min-height:76px;
+    box-sizing:border-box;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:12px 22px 11px;
+    text-align:center;
+    border:2px solid #9d8138;
+    border-radius:16px 16px 10px 10px;
+    background:
+        linear-gradient(145deg,#20253a 0%,#0b0e19 100%);
+    box-shadow:
+        0 12px 28px rgba(0,0,0,.42),
+        0 0 24px rgba(216,184,79,.16),
+        inset 0 1px 0 rgba(255,255,255,.10);
+    z-index:300;
+    pointer-events:none;
+}
+
+.cinema-exterior-title::after{
+    content:"";
+    position:absolute;
+    left:30px;
+    right:30px;
+    bottom:-5px;
+    height:5px;
+    border-radius:10px;
+    background:linear-gradient(to right,#80611e,#f1d46b,#fff1a4,#f1d46b,#80611e);
+    box-shadow:0 0 12px rgba(255,215,100,.45);
+}
+
+.cinema-exterior-title span{
+    color:#d8b84f;
+    font-size:9px;
+    font-weight:800;
+    letter-spacing:3px;
+}
+
+.cinema-exterior-title strong{
+    margin-top:3px;
+    color:#f4e4a4;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:25px;
+    font-weight:normal;
+    letter-spacing:1.5px;
+    text-shadow:0 2px 6px rgba(0,0,0,.55);
+}
+
+.cinema-exterior-title small{
+    margin-top:4px;
+    color:#aeb2bd;
+    font-size:8px;
+    letter-spacing:2px;
+}
+
+#campus.night .cinema-exterior-title{
+    box-shadow:
+        0 14px 32px rgba(0,0,0,.65),
+        0 0 32px rgba(216,184,79,.24),
+        inset 0 1px 0 rgba(255,255,255,.10);
+}
+
+@media(max-width:700px){
+    .cinema-exterior-title{
+        width:min(88vw,430px);
+        top:-92px;
+    }
+
+    .cinema-exterior-title strong{
+        font-size:21px;
+    }
+}
+
+/*=========================================================
     CINEMA OUTER FRAME
 =========================================================*/
 
