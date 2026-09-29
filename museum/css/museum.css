@@ -1859,6 +1859,13 @@ bottom:126px;
 
 }
 
+/* ASIAN LANGUAGES MUSEUM — clear the two trees that obscure the building title */
+.treeB,
+.treeD{
+    display:none !important;
+}
+
+
 /* ===================================
       LM247 AVENUE
 =================================== */
