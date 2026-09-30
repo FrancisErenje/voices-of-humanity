@@ -158,6 +158,7 @@ function createReflectionGardenExperience(gardenElement) {
     todayPanel.innerHTML =
         '<article class="reflection-card-live">' +
             '<div class="reflection-card-orbit"></div>' +
+            (current.image ? '<img class="reflection-card-image" src="' + current.image + '" alt="Voices of Humanity Reflection No. ' + current.number + ' — ' + current.heading + '">' : '') +
             '<div class="reflection-card-brand">VOICES<br><span>OF</span><br>HUMANITY</div>' +
             '<div class="reflection-card-motto">EVERY VOICE MATTERS</div>' +
             '<div class="reflection-card-title">DAILY REFLECTION</div>' +
