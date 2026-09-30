@@ -172,13 +172,13 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 
                 <div class="african-languages-experience-list">
 
-                    <a class="african-language-feature featured" href="academy/igede.html" aria-label="Open Igede Language Learning Centre">
+                    <a class="african-language-feature featured" href="academy/igede.html" aria-label="Open Igede Language Series">
                         <span class="feature-number">01</span>
                         <span class="feature-content">
-                            <span class="feature-kicker">FIRST FEATURED EXPERIENCE</span>
-                            <strong>Igede Language Learning Centre</strong>
-                            <span>Begin with the Igede language learning series — lessons, pronunciation and everyday language knowledge.</span>
-                            <small>22 videos · Launched 26 May 2026</small>
+                            <span class="feature-kicker">EXHIBIT 01 · FIRST EXHIBIT</span>
+                            <strong>Igede Language Series</strong>
+                            <span>The first language series of Voices of Humanity — a living record of Igede language, pronunciation, everyday expressions and learning.</span>
+                            <small>Igede Language Learning Centre · 22 lessons · Launched 26 May 2026</small>
                         </span>
                         <span class="feature-action">ENTER CENTRE →</span>
                     </a>
