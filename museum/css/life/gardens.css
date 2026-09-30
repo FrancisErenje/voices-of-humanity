@@ -671,6 +671,19 @@
 .reflection-card-live:before{top:18px;left:28px}
 .reflection-card-live:after{top:18px;right:28px}
 
+.reflection-card-image{
+    display:block;
+    position:relative;
+    z-index:1;
+    width:100%;
+    max-width:560px;
+    margin:18px auto 24px;
+    border:2px solid rgba(214,169,54,.85);
+    border-radius:28px;
+    box-shadow:0 0 28px rgba(218,170,47,.20);
+    object-fit:cover;
+}
+
 .reflection-card-orbit{
     position:absolute;
     inset:16px;
