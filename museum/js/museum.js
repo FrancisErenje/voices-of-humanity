@@ -296,37 +296,37 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
                 <section class="lm247-daily-desk" aria-labelledby="lm247DailyDeskTitle">
                     <div class="lm247-daily-desk-heading">
                         <div>
-                            <span class="lm247-daily-desk-eyebrow">PUBLISHED TODAY · 29 SEPTEMBER 2026</span>
+                            <span class="lm247-daily-desk-eyebrow">PUBLISHED TODAY · 30 SEPTEMBER 2026</span>
                             <h3 id="lm247DailyDeskTitle">LocalMedia247 Daily Desk</h3>
                         </div>
                         <span class="lm247-daily-desk-status">LIVE DESK</span>
                     </div>
 
                     <article class="lm247-desk-story lm247-desk-reflection">
-                        <span class="lm247-desk-kicker">DAILY REFLECTION 061</span>
-                        <h4>EVERY HEART CARRIES A STORY</h4>
-                        <p>A healthier world begins when we care not only for our own hearts, but for the lives and people connected to them.</p>
-                        <a href="https://www.who.int/campaigns/world-heart-day" target="_blank" rel="noopener noreferrer">READ ABOUT WORLD HEART DAY →</a>
+                        <span class="lm247-desk-kicker">DAILY REFLECTION 062</span>
+                        <h4>EVERY LANGUAGE CARRIES A WORLD WITHIN IT</h4>
+                        <p>When we make room for another language, we make room for another way of seeing the world.</p>
+                        <a href="https://www.un.org/en/observances/international-translation-day" target="_blank" rel="noopener noreferrer">READ ABOUT INTERNATIONAL TRANSLATION DAY →</a>
                     </article>
 
                     <article class="lm247-desk-story">
                         <span class="lm247-desk-kicker">DAILY BRIEF</span>
-                        <h4>29 September 2026 — Three stories to know</h4>
+                        <h4>30 September 2026 — Three stories to know</h4>
                         <div class="lm247-desk-headlines">
                             <div>
                                 <strong>🇳🇬 Nigeria</strong>
-                                <p>Heavy floods caused the Ojirami Dam to overflow in Enwan Community, Akoko-Edo, destroying an oil mill and poultry farm and disrupting homes, schools, farms and businesses.</p>
-                                <a href="https://punchng.com/dam-overflow-floods-edo-community-residents-fear-disaster/" target="_blank" rel="noopener noreferrer">SOURCE · PUNCH</a>
+                                <p>Public health advocates called for an evidence-based tobacco harm-reduction policy alongside existing tobacco-control measures.</p>
+                                <a href="https://punchng.com/nigeria-urged-to-develop-evidence-based-tobacco-harm-reduction-policy/" target="_blank" rel="noopener noreferrer">SOURCE · PUNCH</a>
                             </div>
                             <div>
                                 <strong>🌍 Africa</strong>
-                                <p>Ethiopian pro-government forces and allied militias reportedly captured the strategic town of Alamata amid renewed fighting in Tigray.</p>
-                                <a href="https://www.reuters.com/world/africa/ethiopian-pro-government-forces-claim-capture-of-strategic-tigray-town-2026-09-28/" target="_blank" rel="noopener noreferrer">SOURCE · DW</a>
+                                <p>Aliko Dangote and Kenyan President William Ruto are launching construction of a proposed $16bn refinery project in Kenya.</p>
+                                <a href="https://www.reuters.com/world/africa/dangote-launches-16-bln-east-africa-refinery-project-kenya-2026-09-30/" target="_blank" rel="noopener noreferrer">SOURCE · DW</a>
                             </div>
                             <div>
                                 <strong>🌎 World</strong>
-                                <p>Brent crude rose above $107 a barrel as concerns about Middle East energy-supply disruptions continued.</p>
-                                <a href="https://www.reuters.com/world/india/indian-rupee-drops-to-two-month-low-past-key-96usd-barrier-as-oil-worries-deepen-2026-09-29/" target="_blank" rel="noopener noreferrer">SOURCE · REUTERS</a>
+                                <p>Inflation concerns, borrowing costs and geopolitical tensions have kept major government bond markets under pressure.</p>
+                                <a href="https://www.reuters.com/markets/global-markets-bond-markets-face-difficult-september-2026-09-30/" target="_blank" rel="noopener noreferrer">SOURCE · REUTERS</a>
                             </div>
                         </div>
                     </article>
