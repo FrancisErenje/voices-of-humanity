@@ -48,9 +48,12 @@ window.MuseumVideoEngine = {
       el.setAttribute("aria-label", "Open " + (id === "reflection-garden" ? "Reflection Garden" : "museum collection"));
 
       el.addEventListener("click", event => {
+        event.preventDefault();
         event.stopPropagation();
+        /* Exhibition buildings open directly from the museum overview.
+         * Capture phase prevents legacy camera-focus handlers from firing. */
         this.openBuilding(id);
-      });
+      }, true);
 
       el.addEventListener("keydown", event => {
         if (event.key !== "Enter" && event.key !== " ") return;
