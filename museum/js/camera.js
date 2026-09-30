@@ -412,42 +412,13 @@ function activateBuildingFocus(element, id) {
 /* Hall of Humanity intentionally has no camera zoom.
  * Clicking the building opens its exhibition directly. */
 
-activateBuildingFocus(
-    document.getElementById("africaMuseum"),
-    "africaMuseum"
-);
+/*
+ * Exhibition buildings intentionally open their visitor experience
+ * directly from the museum overview. They do not fly/zoom the camera.
+ * This keeps the interaction consistent: OPEN EXHIBIT → CLOSE →
+ * normal museum overview.
+ */
 
-activateBuildingFocus(
-    document.getElementById("asiaMuseum"),
-    "asiaMuseum"
-);
-
-activateBuildingFocus(
-    document.getElementById("europeMuseum"),
-    "europeMuseum"
-);
-
-activateBuildingFocus(
-    document.getElementById("americasMuseum"),
-    "americasMuseum"
-);
-
-activateBuildingFocus(
-    document.getElementById("oceaniaMuseum"),
-    "oceaniaMuseum"
-);
-
-/* Documentary Cinema */
-activateBuildingFocus(
-    document.getElementById("cinema"),
-    "documentary-cinema"
-);
-
-/* LocalMedia247 Studio / Headquarters building */
-activateBuildingFocus(
-    document.getElementById("lm247Building"),
-    "lm247-studio"
-);
 
 /* Reflection Garden is created later by the Garden Engine, so use
  * delegated events and catch it as soon as the visitor clicks it. */
