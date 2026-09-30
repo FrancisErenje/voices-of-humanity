@@ -28,9 +28,8 @@ function createGarden(garden) {
 
         element.addEventListener("click", (event) => {
             event.stopPropagation();
-            if (typeof focusBuilding === "function") {
-                focusBuilding("reflection-garden");
-            }
+            /* The Reflection Garden opens directly, like LocalMedia247.
+             * Do not move the museum camera when opening an exhibit. */
         });
 
         element.addEventListener("keydown", (event) => {
@@ -184,10 +183,9 @@ function createReflectionGardenExperience(gardenElement) {
     gardenElement.addEventListener("click", function(event) {
         event.preventDefault();
         event.stopPropagation();
-        if (typeof focusBuilding === "function") {
-            focusBuilding("reflection-garden");
-        }
-        setTimeout(open, 120);
+        /* Keep the current museum overview position. The exhibit is an
+         * overlay, so closing it returns the visitor to the same overview. */
+        open();
     }, true);
 
     gardenElement.addEventListener("keydown", function(event) {
