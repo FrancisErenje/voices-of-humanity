@@ -155,8 +155,16 @@ window.MuseumVideoEngine = {
   },
 
   publicCard(item) {
+    const visual = item.image
+      ? `<div class="mvp-card-image-wrap">
+          <img class="mvp-card-image" src="${item.image}" alt="${item.imageAlt || item.title}" loading="lazy" decoding="async">
+          ${item.imageCredit ? `<small class="mvp-image-credit">${item.imageCredit}</small>` : ""}
+        </div>`
+      : `<div class="mvp-card-image-wrap mvp-card-image-fallback" aria-hidden="true"><span>VOICES</span></div>`;
+
     return `
       <article class="mvp-card mvp-public-card">
+        ${visual}
         <div class="mvp-card-top">
           <span>${item.tag}</span>
           <small>${item.source}</small>
