@@ -268,9 +268,9 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 
 /*======================================
    LOCALMEDIA247 — VISITOR EXPERIENCE
-   Keep the service information inside the
-   building experience rather than displaying
-   the full information on the campus.
+   One clean visitor page: today first,
+   yesterday next, dated archive links,
+   then the service/contact desk.
 ======================================*/
 
 (function setupLocalMedia247Experience(){
@@ -289,29 +289,66 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
                 <h2 id="lm247ExperienceTitle">Documenting Today. Preserving Tomorrow.</h2>
 
                 <p class="lm247-experience-intro">
-                    A media and digital storytelling centre built around verified information,
-                    research, content production and digital communication.
+                    A living newsroom and digital storytelling centre for verified information,
+                    research, content creation and digital communication.
                 </p>
 
-                <section class="lm247-daily-desk" aria-labelledby="lm247DailyDeskTitle">
+                <section class="lm247-daily-desk" aria-labelledby="lm247TodayTitle">
                     <div class="lm247-daily-desk-heading">
                         <div>
-                            <span class="lm247-daily-desk-eyebrow">PUBLISHED TODAY · 30 SEPTEMBER 2026</span>
-                            <h3 id="lm247DailyDeskTitle">LocalMedia247 Daily Desk</h3>
+                            <span class="lm247-daily-desk-eyebrow">TODAY · 1 OCTOBER 2026</span>
+                            <h3 id="lm247TodayTitle">Today's LocalMedia247 Desk</h3>
                         </div>
-                        <span class="lm247-daily-desk-status">LIVE DESK</span>
+                        <span class="lm247-daily-desk-status">LIVE TODAY</span>
+                    </div>
+
+                    <article class="lm247-desk-story lm247-desk-reflection">
+                        <span class="lm247-desk-kicker">DAILY REFLECTION 063</span>
+                        <h4>WHAT WE INHERIT, WHAT WE LEAVE BEHIND</h4>
+                        <p>Every generation inherits a story. Our responsibility is to make sure it is not forgotten.</p>
+                        <small class="lm247-desk-date-note">Nigeria's 66th Independence Anniversary · International Day of Older Persons</small>
+                    </article>
+
+                    <article class="lm247-desk-story">
+                        <span class="lm247-desk-kicker">DAILY BRIEF</span>
+                        <h4>1 October 2026 — Three stories to know</h4>
+                        <div class="lm247-desk-headlines">
+                            <div>
+                                <strong>🇳🇬 Nigeria</strong>
+                                <p>Nigeria marks 66 years of independence today. The Federal Government declared October 1 a public holiday.</p>
+                                <a href="https://fmino.gov.ng/fg-declares-thursday-october-1st-2026-public-holiday-to-mark-nigerias-66th-independence-anniversary/" target="_blank" rel="noopener noreferrer">SOURCE · FEDERAL MINISTRY OF INFORMATION</a>
+                            </div>
+                            <div>
+                                <strong>🌍 Africa</strong>
+                                <p>Construction has begun on a planned $16 billion refinery at Kenya's Lamu Port, with completion scheduled for 2030.</p>
+                                <a href="https://www.reuters.com/business/energy/dangote-begin-construction-16-billion-east-africa-refinery-kenya-2026-09-30/" target="_blank" rel="noopener noreferrer">SOURCE · REUTERS</a>
+                            </div>
+                            <div>
+                                <strong>🌎 World</strong>
+                                <p>Oil prices eased as Gulf crude exports recovered and U.S. inventories unexpectedly increased.</p>
+                                <a href="https://www.reuters.com/business/energy/oil-prices-barely-changed-investors-assess-us-iran-peace-talks-gulf-exports-2026-10-01/" target="_blank" rel="noopener noreferrer">SOURCE · REUTERS</a>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="lm247-yesterday" aria-labelledby="lm247YesterdayTitle">
+                    <div class="lm247-daily-desk-heading">
+                        <div>
+                            <span class="lm247-daily-desk-eyebrow">YESTERDAY · 30 SEPTEMBER 2026</span>
+                            <h3 id="lm247YesterdayTitle">Yesterday's Desk</h3>
+                        </div>
                     </div>
 
                     <article class="lm247-desk-story lm247-desk-reflection">
                         <span class="lm247-desk-kicker">DAILY REFLECTION 062</span>
                         <h4>EVERY LANGUAGE CARRIES A WORLD WITHIN IT</h4>
                         <p>When we make room for another language, we make room for another way of seeing the world.</p>
-                        <a href="https://www.un.org/en/observances/international-translation-day" target="_blank" rel="noopener noreferrer">READ ABOUT INTERNATIONAL TRANSLATION DAY →</a>
+                        <a href="https://www.un.org/en/observances/international-translation-day" target="_blank" rel="noopener noreferrer">SOURCE · UNITED NATIONS</a>
                     </article>
 
                     <article class="lm247-desk-story">
-                        <span class="lm247-desk-kicker">DAILY BRIEF</span>
-                        <h4>30 September 2026 — Three stories to know</h4>
+                        <span class="lm247-desk-kicker">DAILY BRIEF · 30 SEPTEMBER 2026</span>
                         <div class="lm247-desk-headlines">
                             <div>
                                 <strong>🇳🇬 Nigeria</strong>
@@ -320,16 +357,29 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
                             </div>
                             <div>
                                 <strong>🌍 Africa</strong>
-                                <p>Aliko Dangote and Kenyan President William Ruto are launching construction of a proposed $16bn refinery project in Kenya.</p>
-                                <a href="https://www.reuters.com/world/africa/dangote-launches-16-bln-east-africa-refinery-project-kenya-2026-09-30/" target="_blank" rel="noopener noreferrer">SOURCE · DW</a>
+                                <p>Aliko Dangote and Kenyan President William Ruto launched construction of a proposed $16 billion refinery project in Kenya.</p>
+                                <a href="https://www.reuters.com/world/africa/dangote-launches-16-bln-east-africa-refinery-project-kenya-2026-09-30/" target="_blank" rel="noopener noreferrer">SOURCE · REUTERS</a>
                             </div>
                             <div>
                                 <strong>🌎 World</strong>
-                                <p>Inflation concerns, borrowing costs and geopolitical tensions have kept major government bond markets under pressure.</p>
+                                <p>Inflation concerns, borrowing costs and geopolitical tensions kept major government bond markets under pressure.</p>
                                 <a href="https://www.reuters.com/markets/global-markets-bond-markets-face-difficult-september-2026-09-30/" target="_blank" rel="noopener noreferrer">SOURCE · REUTERS</a>
                             </div>
                         </div>
                     </article>
+                </section>
+
+                <section class="lm247-archive" aria-labelledby="lm247ArchiveTitle">
+                    <div class="lm247-archive-heading">
+                        <span class="lm247-daily-desk-eyebrow">ARCHIVE</span>
+                        <h3 id="lm247ArchiveTitle">Previous Desk Records</h3>
+                        <p>Older daily reflections, briefs and newsroom records are kept by date so the current desk remains clean.</p>
+                    </div>
+                    <div class="lm247-archive-links">
+                        <a href="https://www.facebook.com/_voicesofhumanity" target="_blank" rel="noopener noreferrer">30 SEP 2026 · Reflection 062 &amp; Daily Brief →</a>
+                        <a href="https://www.facebook.com/_voicesofhumanity" target="_blank" rel="noopener noreferrer">29 SEP 2026 · Previous Daily Records →</a>
+                        <a href="https://www.facebook.com/_voicesofhumanity" target="_blank" rel="noopener noreferrer">EARLIER DATES · Explore the archive →</a>
+                    </div>
                 </section>
 
                 <div class="lm247-experience-grid">
@@ -397,7 +447,6 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
     }
 
     function bind(){
-
         const building = document.getElementById("lm247Building");
         if(!building) return;
 
