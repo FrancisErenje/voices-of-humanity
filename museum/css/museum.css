@@ -6753,3 +6753,89 @@ body.lm247-overlay-open{
 #hall-humanity .pillar-samoan{
   position:absolute !important;
 }
+
+
+/* ======================================
+   LOCALMEDIA247 — DATED NEWSROOM ARCHIVE
+   One-page hierarchy: today → yesterday →
+   dated archive → services → contact.
+   ====================================== */
+
+.lm247-yesterday{
+    margin:0 0 24px;
+    padding:22px;
+    border-radius:20px;
+    background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+    border:1px solid rgba(255,255,255,.10);
+}
+
+.lm247-yesterday .lm247-daily-desk-heading{
+    margin-bottom:14px;
+}
+
+.lm247-desk-date-note{
+    display:block;
+    margin-top:10px;
+    color:#8fd5ff;
+    font-size:11px;
+    line-height:1.5;
+}
+
+.lm247-archive{
+    margin:0 0 24px;
+    padding:22px;
+    border-radius:20px;
+    background:rgba(0,0,0,.12);
+    border:1px solid rgba(244,207,85,.20);
+}
+
+.lm247-archive-heading h3{
+    margin:5px 0 7px;
+    font-size:clamp(20px,3vw,28px);
+}
+
+.lm247-archive-heading p{
+    margin:0;
+    color:#cbd9e4;
+    font-size:13px;
+    line-height:1.55;
+}
+
+.lm247-archive-links{
+    display:grid;
+    gap:9px;
+    margin-top:16px;
+}
+
+.lm247-archive-links a{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:13px 15px;
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:12px;
+    background:rgba(255,255,255,.045);
+    color:#f4cf55;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:.35px;
+    text-decoration:none;
+}
+
+.lm247-archive-links a:hover{
+    background:rgba(255,255,255,.08);
+    text-decoration:none;
+}
+
+@media(max-width:700px){
+    .lm247-yesterday,
+    .lm247-archive{
+        padding:16px;
+    }
+
+    .lm247-archive-links a{
+        align-items:flex-start;
+        line-height:1.45;
+    }
+}
