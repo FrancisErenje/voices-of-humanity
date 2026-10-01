@@ -150,7 +150,19 @@ function createReflectionGardenExperience(gardenElement) {
     document.body.appendChild(overlay);
 
     const todayPanel = overlay.querySelector('[data-view-panel="today"]');
-    const current = data.current;
+    /* The Garden's "today" card is deliberately anchored to the
+     * current Voices of Humanity daily reflection rather than any
+     * older cached reflection record. This keeps the elegant Garden
+     * presentation while ensuring the first thing visitors see is
+     * today's reflection. */
+    const current = {
+        number: 63,
+        heading: "WHAT WE INHERIT, WHAT WE LEAVE BEHIND",
+        quote: "Every generation inherits a story. Our responsibility is to make sure it is not forgotten.",
+        date: "1 OCTOBER 2026",
+        image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/African_elders_from_past_generation.jpg",
+        note: "Today, Nigeria marks 66 years of independence. We also honour older generations whose stories, languages, memories and wisdom connect yesterday to tomorrow. Happy 66th Independence Anniversary, Nigeria. Happy International Day of Older Persons."
+    };
 
     todayPanel.innerHTML =
         '<article class="reflection-card-live">' +
