@@ -26,7 +26,6 @@ window.MuseumVideoEngine = {
       "europeMuseum",
       "americasMuseum",
       "oceaniaMuseum",
-      "reflection-garden",
       "hall-humanity",
       "cinema",
       "visitor-centre"
