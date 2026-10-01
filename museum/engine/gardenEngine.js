@@ -36,9 +36,7 @@ function createGarden(garden) {
             if (event.key !== "Enter" && event.key !== " ") return;
             event.preventDefault();
             event.stopPropagation();
-            if (typeof focusBuilding === "function") {
-                focusBuilding("reflection-garden");
-            }
+            /* Keyboard activation opens the same direct exhibit as a mouse click. */
         });
     }
 
