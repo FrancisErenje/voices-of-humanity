@@ -29,8 +29,7 @@ window.MuseumVideoEngine = {
       "reflection-garden",
       "hall-humanity",
       "cinema",
-      "visitor-centre",
-      "lm247Building"
+      "visitor-centre"
     ];
 
     buildings.forEach(id => {
