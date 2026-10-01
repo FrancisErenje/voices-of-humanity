@@ -420,29 +420,10 @@ function activateBuildingFocus(element, id) {
  */
 
 
-/* Reflection Garden is created later by the Garden Engine, so use
- * delegated events and catch it as soon as the visitor clicks it. */
-if (typeof campus !== "undefined" && campus) {
-    campus.addEventListener("click", (event) => {
-        const garden = event.target.closest(
-            '.museum-garden[data-garden-id="reflection-garden"]'
-        );
-        if (!garden) return;
-        event.stopPropagation();
-        focusBuilding("reflection-garden");
-    });
-
-    campus.addEventListener("keydown", (event) => {
-        if (event.key !== "Enter" && event.key !== " ") return;
-        const garden = event.target.closest(
-            '.museum-garden[data-garden-id="reflection-garden"]'
-        );
-        if (!garden) return;
-        event.preventDefault();
-        event.stopPropagation();
-        focusBuilding("reflection-garden");
-    });
-}
+/* Reflection Garden owns its own direct exhibition opening in
+ * gardenEngine.js. No delegated camera-focus handler is needed here.
+ * This prevents opening/closing the garden from changing the visitor's
+ * museum position or revealing a legacy reflection view underneath. */
 
 /*======================================*
  * CAMERA STATUS
