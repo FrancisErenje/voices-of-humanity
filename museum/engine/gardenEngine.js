@@ -156,12 +156,12 @@ function createReflectionGardenExperience(gardenElement) {
      * presentation while ensuring the first thing visitors see is
      * today's reflection. */
     const current = {
-        number: 63,
-        heading: "WHAT WE INHERIT, WHAT WE LEAVE BEHIND",
-        quote: "Every generation inherits a story. Our responsibility is to make sure it is not forgotten.",
-        date: "1 OCTOBER 2026",
-        image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/African_elders_from_past_generation.jpg",
-        note: "Today, Nigeria marks 66 years of independence. We also honour older generations whose stories, languages, memories and wisdom connect yesterday to tomorrow. Happy 66th Independence Anniversary, Nigeria. Happy International Day of Older Persons."
+        number: 64,
+        heading: "THE KIND OF WORLD WE LEAVE BEHIND",
+        quote: "Every action teaches the future what kind of world we are building.",
+        date: "2 OCTOBER 2026",
+        image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Peace_dove.jpg",
+        note: "Today, on the International Day of Non-Violence, we reflect on the choices that shape the world we pass to the next generation. Non-violence can mean choosing dialogue over hostility, understanding over hatred, and dignity over humiliation."
     };
 
     todayPanel.innerHTML =
