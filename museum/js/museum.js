@@ -245,7 +245,7 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 
         building.addEventListener("click", function(event){
             event.preventDefault();
-            event.stopPropagation();
+            event.stopImmediatePropagation();
 
             const overlay = document.querySelector(".african-languages-experience-overlay");
             if(overlay && typeof overlay._open === "function"){
