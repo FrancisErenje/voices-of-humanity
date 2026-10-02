@@ -332,6 +332,38 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
                     </article>
                 </section>
 
+                <section class="lm247-afternoon" aria-labelledby="lm247AfternoonTitle">
+                    <div class="lm247-daily-desk-heading">
+                        <div>
+                            <span class="lm247-daily-desk-eyebrow">AFTERNOON UPDATE · 2 OCTOBER 2026</span>
+                            <h3 id="lm247AfternoonTitle">This Afternoon</h3>
+                        </div>
+                        <span class="lm247-daily-desk-status">AFTERNOON UPDATE</span>
+                    </div>
+
+                    <article class="lm247-desk-story">
+                        <span class="lm247-desk-kicker">AFTERNOON UPDATE</span>
+                        <div class="lm247-desk-headlines">
+                            <div>
+                                <strong>🇳🇬 Nigeria</strong>
+                                <p>A public-service warning strike is scheduled for October 2–4, with developments being closely watched.</p>
+                            </div>
+                            <div>
+                                <strong>🕋 Nigeria — Hajj</strong>
+                                <p>Nigeria's allocation for the 2027 Hajj pilgrimage has risen to 60,000 places.</p>
+                            </div>
+                            <div>
+                                <strong>🌍 Africa</strong>
+                                <p>Fighting and tensions continue to draw attention in Ethiopia's Tigray region.</p>
+                            </div>
+                            <div>
+                                <strong>🌾 World — Food</strong>
+                                <p>The FAO Food Price Index stood at 136.0 in September, up 1.5% from the previous month and 5.8% from a year earlier.</p>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
                 <section class="lm247-yesterday" aria-labelledby="lm247YesterdayTitle">
                     <div class="lm247-daily-desk-heading">
                         <div>
