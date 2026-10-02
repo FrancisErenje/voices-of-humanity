@@ -296,37 +296,37 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
                 <section class="lm247-daily-desk" aria-labelledby="lm247TodayTitle">
                     <div class="lm247-daily-desk-heading">
                         <div>
-                            <span class="lm247-daily-desk-eyebrow">TODAY · 1 OCTOBER 2026</span>
+                            <span class="lm247-daily-desk-eyebrow">TODAY · 2 OCTOBER 2026</span>
                             <h3 id="lm247TodayTitle">Today's LocalMedia247 Desk</h3>
                         </div>
                         <span class="lm247-daily-desk-status">LIVE TODAY</span>
                     </div>
 
                     <article class="lm247-desk-story lm247-desk-reflection">
-                        <span class="lm247-desk-kicker">DAILY REFLECTION 063</span>
-                        <h4>WHAT WE INHERIT, WHAT WE LEAVE BEHIND</h4>
-                        <p>Every generation inherits a story. Our responsibility is to make sure it is not forgotten.</p>
-                        <small class="lm247-desk-date-note">Nigeria's 66th Independence Anniversary · International Day of Older Persons</small>
+                        <span class="lm247-desk-kicker">DAILY REFLECTION 064</span>
+                        <h4>THE KIND OF WORLD WE LEAVE BEHIND</h4>
+                        <p>Every action teaches the future what kind of world we are building.</p>
+                        <small class="lm247-desk-date-note">International Day of Non-Violence</small>
                     </article>
 
                     <article class="lm247-desk-story">
                         <span class="lm247-desk-kicker">DAILY BRIEF</span>
-                        <h4>1 October 2026 — Three stories to know</h4>
+                        <h4>2 October 2026 — Three stories to know</h4>
                         <div class="lm247-desk-headlines">
                             <div>
                                 <strong>🇳🇬 Nigeria</strong>
-                                <p>Nigeria marks 66 years of independence today. The Federal Government declared October 1 a public holiday.</p>
-                                <a href="https://fmino.gov.ng/fg-declares-thursday-october-1st-2026-public-holiday-to-mark-nigerias-66th-independence-anniversary/" target="_blank" rel="noopener noreferrer">SOURCE · FEDERAL MINISTRY OF INFORMATION</a>
+                                <p>Troops neutralised 16 terrorists and rescued 10 prospective corps members in a reported security operation.</p>
+                                <a href="https://www.premiumtimesng.com/news/top-news/826000-troops-neutralise-16-terrorists-rescue-10-prospective-corps-members.html" target="_blank" rel="noopener noreferrer">SOURCE · PREMIUM TIMES</a>
                             </div>
                             <div>
                                 <strong>🌍 Africa</strong>
-                                <p>Construction has begun on a planned $16 billion refinery at Kenya's Lamu Port, with completion scheduled for 2030.</p>
-                                <a href="https://www.reuters.com/business/energy/dangote-begin-construction-16-billion-east-africa-refinery-kenya-2026-09-30/" target="_blank" rel="noopener noreferrer">SOURCE · REUTERS</a>
+                                <p>Eritrea severed diplomatic ties with Ethiopia after Ethiopia ordered the closure of its embassy in Asmara and expelled 10 Eritrean diplomats. The African Union urged restraint and peaceful dialogue.</p>
+                                <a href="https://www.reuters.com/world/africa/explosions-heard-overnight-ethiopias-capital-diplomatic-sources-say-2026-10-01/" target="_blank" rel="noopener noreferrer">SOURCE · REUTERS</a>
                             </div>
                             <div>
                                 <strong>🌎 World</strong>
-                                <p>Oil prices eased as Gulf crude exports recovered and U.S. inventories unexpectedly increased.</p>
-                                <a href="https://www.reuters.com/business/energy/oil-prices-barely-changed-investors-assess-us-iran-peace-talks-gulf-exports-2026-10-01/" target="_blank" rel="noopener noreferrer">SOURCE · REUTERS</a>
+                                <p>Oil prices eased today as markets weighed signs of recovering Middle Eastern supply against continuing geopolitical risks.</p>
+                                <a href="https://www.reuters.com/business/energy/oil-rises-slightly-market-weighs-mixed-supply-signals-2026-10-02/" target="_blank" rel="noopener noreferrer">SOURCE · REUTERS</a>
                             </div>
                         </div>
                     </article>
