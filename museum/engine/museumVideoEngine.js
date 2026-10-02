@@ -21,7 +21,6 @@ window.MuseumVideoEngine = {
 
   attachBuildingEvents() {
     const buildings = [
-      "africaMuseum",
       "asiaMuseum",
       "europeMuseum",
       "americasMuseum",
