@@ -277,7 +277,16 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 
     function createExperience(){
 
-        if(document.querySelector(".lm247-experience-overlay")) return;
+        /* Hard singleton: the LocalMedia247 studio must have exactly one
+           visitor overlay, even if this script is initialised more than once
+           or an older page state has left a duplicate in the DOM. */
+        const existingOverlays = document.querySelectorAll(".lm247-experience-overlay");
+        if(existingOverlays.length){
+            existingOverlays.forEach((node, index) => {
+                if(index > 0) node.remove();
+            });
+            return document.querySelector(".lm247-experience-overlay");
+        }
 
         const overlay = document.createElement("div");
         overlay.className = "lm247-experience-overlay";
@@ -482,7 +491,7 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
         const building = document.getElementById("lm247Building");
         if(!building) return;
 
-        createExperience();
+        const overlay = createExperience();
 
         if(building.dataset.lm247ExperienceBound === "true") return;
         building.dataset.lm247ExperienceBound = "true";
@@ -491,6 +500,11 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
             event.preventDefault();
             event.stopPropagation();
 
+            /* Remove any duplicate studio panels before opening. */
+            const overlays = document.querySelectorAll(".lm247-experience-overlay");
+            overlays.forEach((node, index) => {
+                if(index > 0) node.remove();
+            });
             const overlay = document.querySelector(".lm247-experience-overlay");
             if(overlay && typeof overlay._open === "function"){
                 overlay._open();
