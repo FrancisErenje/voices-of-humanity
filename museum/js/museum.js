@@ -263,6 +263,13 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
     setTimeout(bind, 500);
     setTimeout(bind, 1500);
 
+    /* Defend against late DOM injections by other museum subsystems. */
+    const singletonObserver = new MutationObserver(() => {
+        const building = document.getElementById("lm247Building");
+        if(building) enforceLocalMedia247Singleton(building);
+    });
+    singletonObserver.observe(document.body, {childList:true, subtree:true});
+
 })();
 
 
@@ -487,9 +494,20 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
         };
     }
 
+    function enforceLocalMedia247Singleton(building){
+        /* The studio has one architectural title and one visitor panel only. */
+        const titles = building.querySelectorAll(".lm247Title");
+        titles.forEach((node, index) => { if(index > 0) node.remove(); });
+
+        const panels = document.querySelectorAll(".lm247-experience-overlay");
+        panels.forEach((node, index) => { if(index > 0) node.remove(); });
+    }
+
     function bind(){
         const building = document.getElementById("lm247Building");
         if(!building) return;
+
+        enforceLocalMedia247Singleton(building);
 
         const overlay = createExperience();
 
@@ -498,7 +516,14 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 
         building.addEventListener("click", function(event){
             event.preventDefault();
-            event.stopPropagation();
+            event.stopImmediatePropagation();
+
+            /* LocalMedia247 owns this building. Close any generic museum
+               collection panel before opening the dedicated studio. */
+            const genericPanel = document.getElementById("museum-video-panel");
+            if(genericPanel) genericPanel.remove();
+
+            enforceLocalMedia247Singleton(building);
 
             /* Remove any duplicate studio panels before opening. */
             const overlays = document.querySelectorAll(".lm247-experience-overlay");
