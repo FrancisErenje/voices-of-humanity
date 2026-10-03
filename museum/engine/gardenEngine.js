@@ -142,7 +142,7 @@ function createReflectionGardenExperience(gardenElement) {
                     '<div class="archive-symbol">✦</div>' +
                     '<h3>The archive is growing.</h3>' +
                     '<p>Reflection Nos. 001–058 will be added here when the historical card collection is uploaded.</p>' +
-                    '<span>Today begins the living archive.</span>' +
+                    '<span>The living archive continues with each new reflection.</span>' +
                 '</div>' +
             '</div>' +
         '</div>';
@@ -155,13 +155,15 @@ function createReflectionGardenExperience(gardenElement) {
      * older cached reflection record. This keeps the elegant Garden
      * presentation while ensuring the first thing visitors see is
      * today's reflection. */
+    /* Always use the current reflection from data/reflections.js.
+     * This prevents the Garden from displaying an older hard-coded card. */
     const current = {
-        number: 64,
-        heading: "THE KIND OF WORLD WE LEAVE BEHIND",
-        quote: "Every action teaches the future what kind of world we are building.",
-        date: "2 OCTOBER 2026",
-        image: "https://commons.wikimedia.org/wiki/Special:Redirect/file/Peace_dove.jpg",
-        note: "Today, on the International Day of Non-Violence, we reflect on the choices that shape the world we pass to the next generation. Non-violence can mean choosing dialogue over hostility, understanding over hatred, and dignity over humiliation."
+        number: Number(data.current.number),
+        heading: data.current.heading,
+        quote: data.current.quote,
+        date: data.current.date,
+        image: data.current.image || "",
+        note: data.current.note
     };
 
     todayPanel.innerHTML =
