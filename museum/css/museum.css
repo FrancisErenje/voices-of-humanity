@@ -6856,3 +6856,276 @@ body.lm247-overlay-open{
 #lm247Building .lm247Title span{
     text-transform:none !important;
 }
+
+
+/* =========================================================
+   LOCALMEDIA247 — LIVING NEWS WALL
+   Animated architectural newsroom display.
+   Lightweight visual cards avoid unlicensed image hotlinks;
+   story sources remain clickable in the visitor newsroom.
+========================================================= */
+
+#lm247Complex .ledScreen{
+    width:190px;
+    height:142px;
+    right:-8px;
+    top:48px;
+    overflow:hidden;
+    text-align:left;
+    border:2px solid rgba(132,255,205,.48);
+    border-radius:10px;
+    background:
+        radial-gradient(circle at 75% 20%,rgba(0,255,170,.16),transparent 30%),
+        linear-gradient(145deg,#06100e,#0a1816 55%,#020605);
+    box-shadow:0 0 10px rgba(0,255,170,.28),0 0 28px rgba(0,255,170,.14),inset 0 0 22px rgba(0,255,170,.06);
+    color:#d8fff1;
+    z-index:80;
+}
+
+.lm247-news-wall-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:7px 9px 4px;
+    border-bottom:1px solid rgba(118,255,204,.16);
+    font:800 7px/1 Arial,sans-serif;
+    letter-spacing:1px;
+}
+
+.lm247-news-live{
+    color:#ff7272;
+}
+
+.lm247-news-live i{
+    display:inline-block;
+    width:5px;
+    height:5px;
+    margin-right:4px;
+    border-radius:50%;
+    background:#ff4c4c;
+    box-shadow:0 0 7px #ff4c4c;
+    animation:lm247LivePulse 1.15s ease-in-out infinite;
+}
+
+.lm247-news-date{
+    color:#79f4bd;
+}
+
+.lm247-news-visual{
+    position:absolute;
+    left:8px;
+    top:31px;
+    width:62px;
+    height:48px;
+    display:grid;
+    place-items:center;
+    overflow:hidden;
+    border-radius:7px;
+    background:
+        radial-gradient(circle at 30% 30%,rgba(255,255,255,.18),transparent 25%),
+        linear-gradient(145deg,#173d35,#07110f);
+    border:1px solid rgba(118,255,204,.20);
+}
+
+.lm247-news-visual::after{
+    content:"";
+    position:absolute;
+    inset:-50%;
+    background:linear-gradient(120deg,transparent 42%,rgba(255,255,255,.13) 50%,transparent 58%);
+    transform:translateX(-60%);
+    animation:lm247NewsShimmer 3.4s ease-in-out infinite;
+}
+
+.lm247-news-visual span{
+    position:relative;
+    z-index:2;
+    font-size:27px;
+    filter:drop-shadow(0 0 7px rgba(121,244,189,.32));
+    animation:lm247NewsFloat 2.8s ease-in-out infinite;
+}
+
+.lm247-news-copy{
+    position:absolute;
+    left:77px;
+    right:7px;
+    top:31px;
+    height:68px;
+}
+
+.lm247-news-category{
+    display:block;
+    color:#7af4bd;
+    font:900 7px/1 Arial,sans-serif;
+    letter-spacing:1px;
+    margin-bottom:4px;
+}
+
+.lm247-news-headline{
+    display:block;
+    color:#effff8;
+    font:800 11px/1.18 Arial,sans-serif;
+    text-shadow:0 0 7px rgba(0,255,170,.18);
+}
+
+.lm247-news-source{
+    display:block;
+    margin-top:5px;
+    color:#8daaa0;
+    font:700 6px/1 Arial,sans-serif;
+    letter-spacing:.7px;
+}
+
+.lm247-news-progress{
+    position:absolute;
+    left:8px;
+    right:8px;
+    bottom:8px;
+    height:2px;
+    overflow:hidden;
+    border-radius:99px;
+    background:rgba(118,255,204,.12);
+}
+
+.lm247-news-progress span{
+    display:block;
+    width:25%;
+    height:100%;
+    background:#62f2b3;
+    box-shadow:0 0 7px #62f2b3;
+    animation:lm247NewsProgress 5.8s linear infinite;
+}
+
+@keyframes lm247LivePulse{
+    0%,100%{opacity:.45;transform:scale(.85)}
+    50%{opacity:1;transform:scale(1.15)}
+}
+
+@keyframes lm247NewsFloat{
+    0%,100%{transform:translateY(0) scale(1)}
+    50%{transform:translateY(-2px) scale(1.04)}
+}
+
+@keyframes lm247NewsShimmer{
+    0%,45%{transform:translateX(-70%)}
+    70%,100%{transform:translateX(70%)}
+}
+
+@keyframes lm247NewsProgress{
+    from{width:0}
+    to{width:100%}
+}
+
+/* Visitor newsroom receives the same living-news dataset. */
+.lm247-living-news-feed{
+    display:grid;
+    gap:12px;
+}
+
+.lm247-live-story{
+    display:grid;
+    grid-template-columns:120px minmax(0,1fr);
+    gap:15px;
+    padding:14px;
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:16px;
+    background:rgba(0,0,0,.14);
+    transition:transform .22s ease,border-color .22s ease,background .22s ease;
+}
+
+.lm247-live-story:hover{
+    transform:translateY(-2px);
+    border-color:rgba(85,186,255,.30);
+    background:rgba(255,255,255,.045);
+}
+
+.lm247-live-story-visual{
+    min-height:100px;
+    display:grid;
+    place-items:center;
+    overflow:hidden;
+    position:relative;
+    border-radius:12px;
+    background:
+        radial-gradient(circle at 35% 25%,rgba(255,255,255,.16),transparent 25%),
+        linear-gradient(145deg,#163c36,#08110f);
+    border:1px solid rgba(85,214,170,.20);
+}
+
+.lm247-live-story-visual::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(120deg,transparent 40%,rgba(255,255,255,.10) 50%,transparent 60%);
+    animation:lm247NewsShimmer 4.5s ease-in-out infinite;
+}
+
+.lm247-live-story-visual span{
+    position:relative;
+    z-index:2;
+    font-size:42px;
+    animation:lm247NewsFloat 3s ease-in-out infinite;
+}
+
+.lm247-live-story-body h4{
+    margin:2px 0 7px;
+    font-size:18px;
+    line-height:1.25;
+}
+
+.lm247-live-story-body p{
+    margin:0;
+    color:#cbd9e4;
+    font-size:13px;
+    line-height:1.55;
+}
+
+.lm247-live-story-body a{
+    display:inline-block;
+    margin-top:9px;
+    color:#8fd5ff;
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:.8px;
+    text-decoration:none;
+}
+
+.lm247-live-story-body a:hover{
+    text-decoration:underline;
+}
+
+.lm247-live-story.is-featured{
+    border-color:rgba(85,186,255,.20);
+}
+
+@media(max-width:700px){
+    #lm247Complex .ledScreen{
+        width:164px;
+        height:124px;
+        right:2px;
+        top:52px;
+    }
+
+    .lm247-live-story{
+        grid-template-columns:88px minmax(0,1fr);
+        gap:11px;
+    }
+
+    .lm247-live-story-visual{
+        min-height:82px;
+    }
+
+    .lm247-live-story-visual span{
+        font-size:32px;
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+    .lm247-news-live i,
+    .lm247-news-visual::after,
+    .lm247-news-visual span,
+    .lm247-news-progress span,
+    .lm247-live-story-visual::before,
+    .lm247-live-story-visual span{
+        animation:none !important;
+    }
+}
