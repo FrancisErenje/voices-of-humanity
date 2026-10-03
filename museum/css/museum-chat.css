@@ -6,7 +6,9 @@
   position:fixed;
   right:24px;
   bottom:24px;
-  z-index:10000;
+  z-index:2147483646 !important;
+  isolation:isolate;
+  pointer-events:auto !important;
   display:flex;
   align-items:center;
   gap:10px;
@@ -40,7 +42,8 @@
   position:fixed;
   right:24px;
   bottom:82px;
-  z-index:10001;
+  z-index:2147483647 !important;
+  isolation:isolate;
   width:min(390px,calc(100vw - 28px));
   height:min(590px,calc(100dvh - 112px));
   display:flex;
@@ -62,7 +65,7 @@
 #museumChat.is-open{
   opacity:1;
   transform:translateY(0) scale(1);
-  pointer-events:auto;
+  pointer-events:auto !important;
 }
 .museum-chat-header{
   display:flex;
@@ -245,9 +248,7 @@
 }
 
 
-/* Chat input visibility safeguard
-   Keep the visitor's typing area permanently visible above
-   any late-loaded museum interface styles. */
+/* Chat input visibility safeguard */
 #museumChat .museum-chat-form{
   flex:0 0 auto;
   min-height:66px;
@@ -272,4 +273,15 @@
   flex:0 0 42px;
   height:42px;
   min-height:42px;
+}
+
+/* Final interaction safeguard:
+   Keep the museum guide above the interactive campus layers. */
+#museumChatLauncher,
+#museumChatLauncher *{
+  pointer-events:auto !important;
+}
+#museumChat,
+#museumChat *{
+  pointer-events:auto;
 }
