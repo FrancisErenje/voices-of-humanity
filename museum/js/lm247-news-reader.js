@@ -20,6 +20,7 @@
 
         const reader = document.createElement("div");
         reader.className = "lm247-news-reader";
+        reader.setAttribute("aria-hidden","true");
         reader.innerHTML = `
             <div class="lm247-news-reader-backdrop" data-news-reader-close></div>
             <section class="lm247-news-reader-card" role="dialog" aria-modal="true"
@@ -106,12 +107,14 @@
             lastFocused = document.activeElement;
             render(index);
             reader.classList.add("open");
+            reader.setAttribute("aria-hidden","false");
             document.body.classList.add("lm247-news-reader-open");
             setTimeout(() => closeButton.focus(), 80);
         }
 
         function close(){
             reader.classList.remove("open");
+            reader.setAttribute("aria-hidden","true");
             document.body.classList.remove("lm247-news-reader-open");
             if(lastFocused && typeof lastFocused.focus === "function"){
                 setTimeout(() => lastFocused.focus(), 50);
@@ -140,10 +143,19 @@
         });
 
         reader.addEventListener("click", function(event){
-            if(event.target.closest("[data-news-reader-close]")) close();
+            const closeTarget = event.target.closest("[data-news-reader-close]");
+            if(closeTarget){
+                event.preventDefault();
+                event.stopPropagation();
+                close();
+            }
         });
 
-        closeButton.addEventListener("click", close);
+        closeButton.addEventListener("click", function(event){
+            event.preventDefault();
+            event.stopPropagation();
+            close();
+        });
 
         prev.addEventListener("click", function(){
             render(currentIndex - 1);
