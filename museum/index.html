@@ -933,14 +933,16 @@
         </div>
     </div>
 
-    <form id="museumChatForm" class="museum-chat-form">
+    <div id="museumChatForm" class="museum-chat-form" role="search" aria-label="Ask the Museum question">
         <input id="museumChatInput" type="text"
                autocomplete="off"
                maxlength="500"
                placeholder="Ask about the museum…"
-               aria-label="Your question">
-        <button type="submit" aria-label="Send message">➤</button>
-    </form>
+               aria-label="Your question"
+               onkeydown="if(event.key==='Enter'){event.preventDefault();event.stopImmediatePropagation();document.getElementById('museumChatSend').click();return false;}">
+        <button id="museumChatSend" type="button" aria-label="Send message"
+                onclick="window.__vohSendMuseumQuestion && window.__vohSendMuseumQuestion()">➤</button>
+    </div>
     <div class="museum-chat-note">Museum Guide · Built into Voices of Humanity</div>
 </section>
 
@@ -1008,7 +1010,9 @@ window.__vohOpenMuseumChat = function(event){
       return '<a href="https://wa.me/2348064137756" target="_blank" rel="noopener noreferrer">Continue with a human on LocalMedia247 WhatsApp →</a>';
     if(s.indexOf("what can")>=0 || s.indexOf("what do")>=0 || s.indexOf("see")>=0)
       return "You can explore the Hall of Humanity, Reflection Garden, Documentary Cinema, continental language museums and the LocalMedia247 media space.";
-    return "Voices of Humanity is a digital museum dedicated to documenting, preserving and celebrating the world's languages and cultures. Its guiding principle is: <em>Every Voice Matters.</em>";
+    if(s.indexOf("what is voices")>=0 || s.indexOf("voices of humanity")>=0 || s.indexOf("about voices")>=0)
+      return "<strong>Voices of Humanity</strong> is an independent documentary and digital museum project dedicated to documenting, preserving and celebrating the world's languages, cultures and human stories. It brings language documentaries, cultural knowledge, reflections and living archives together in one place so that voices that are often overlooked can be seen, heard and remembered. Its guiding principle is: <em>Every Voice Matters.</em>";
+    return "<strong>Voices of Humanity</strong> is an independent documentary and digital museum project dedicated to documenting, preserving and celebrating the world's languages, cultures and human stories. It brings language documentaries, cultural knowledge, reflections and living archives together in one place. Its guiding principle is: <em>Every Voice Matters.</em>";
   }
 
   function send(q){
@@ -1018,13 +1022,19 @@ window.__vohOpenMuseumChat = function(event){
     input.value="";
     setTimeout(function(){show(answer(q),"bot");},150);
   }
-
-  form.addEventListener("submit",function(e){
-    e.preventDefault();
-    e.stopPropagation();
+  window.__vohSendMuseumQuestion=function(){
     send(input.value);
     return false;
-  },true);
+  };
+
+  if(form.tagName==="FORM"){
+    form.addEventListener("submit",function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      send(input.value);
+      return false;
+    },true);
+  }
 
   input.addEventListener("keydown",function(e){
     if(e.key==="Enter"){
