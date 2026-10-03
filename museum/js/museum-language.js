@@ -108,9 +108,16 @@
         if(value) {
           if(el.querySelector(".title-main")){
             const main=el.querySelector(".title-main"), sub=el.querySelector(".title-sub");
-            const parts=value.split(" Museum");
+            const mw={en:"Museum",fr:"Musée",es:"Museo",pt:"Museu",de:"Museum",ar:"متحف",zh:"博物馆",hi:"संग्रहालय",ja:"博物館",ru:"Музей",pl:"Muzeum",ko:"박물관",nl:"Museum"}[current]||"Museum";
+            const suffix=" "+mw;
+            const parts=value.endsWith(suffix)?[value.slice(0,-suffix.length),mw]:[value,mw];
             text(main,parts[0]);
-            if(sub) text(sub,"Museum");
+            if(sub) text(sub,parts[1]);
+          } else if((el.querySelector("span") && (key==="HALL OF HUMANITY" || key==="A HOME FOR HUMANITY'S VOICES"))){
+            const span=el.querySelector("span");
+            const mainText=value;
+            Array.from(el.childNodes).forEach(n=>{if(n.nodeType===3)n.textContent="";});
+            if(span) span.textContent=(ui[current]&&ui[current]["EVERY VOICE MATTERS"])||"Every Voice Matters";
           } else if(el.querySelector("span") && key==="LOCALMEDIA247") {
             el.childNodes.forEach(n=>{if(n.nodeType===3)n.textContent="LOCALMEDIA247";});
           } else text(el,value);
