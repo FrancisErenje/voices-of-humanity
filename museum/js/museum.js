@@ -559,19 +559,23 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
         });
 
         const title = building.querySelector(".lm247Title");
-        if(title){
-            title.style.textTransform = "none";
-            const textNodes = Array.from(title.childNodes).filter(n => n.nodeType === Node.TEXT_NODE);
-            textNodes.forEach((node, index) => {
-                if(index === 0) node.textContent = "LocalMedia247";
-                else node.remove();
-            });
+        if(!title) return;
 
-            let subtitle = title.querySelector("span");
-            if(!subtitle){
-                subtitle = document.createElement("span");
-                title.appendChild(subtitle);
-            }
+        title.style.textTransform = "none";
+
+        const textNodes = Array.from(title.childNodes).filter(n => n.nodeType === Node.TEXT_NODE);
+        if(textNodes.length > 0 && textNodes[0].textContent !== "LocalMedia247"){
+            textNodes[0].textContent = "LocalMedia247";
+        }
+        textNodes.slice(1).forEach(node => node.remove());
+
+        let subtitle = title.querySelector("span");
+        if(!subtitle){
+            subtitle = document.createElement("span");
+            subtitle = document.createElement("span");
+            subtitle.textContent = "Documenting Today. Preserving Tomorrow.";
+            title.appendChild(subtitle);
+        }else if(subtitle.textContent !== "Documenting Today. Preserving Tomorrow."){
             subtitle.textContent = "Documenting Today. Preserving Tomorrow.";
         }
     });
