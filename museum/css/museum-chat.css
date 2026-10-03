@@ -243,3 +243,33 @@
   }
   #museumLanguageSelect{max-width:112px;}
 }
+
+
+/* Chat input visibility safeguard
+   Keep the visitor's typing area permanently visible above
+   any late-loaded museum interface styles. */
+#museumChat .museum-chat-form{
+  flex:0 0 auto;
+  min-height:66px;
+  position:relative;
+  z-index:3;
+  display:flex !important;
+  visibility:visible !important;
+  opacity:1 !important;
+}
+#museumChat #museumChatInput{
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  height:42px;
+  min-height:42px;
+  width:auto;
+  flex:1 1 auto;
+}
+#museumChat .museum-chat-form button{
+  display:grid !important;
+  place-items:center;
+  flex:0 0 42px;
+  height:42px;
+  min-height:42px;
+}
