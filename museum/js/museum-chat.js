@@ -283,6 +283,10 @@
   function submitQuestion(question){
     const q=String(question||"").trim();
     if(!q) return;
+    if(/^intent:/i.test(q)){
+      setTimeout(()=>addMessage(answerFor(q),"bot"),80);
+      return;
+    }
     addMessage(q.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"),"user");
     input.value="";
     setTimeout(()=>addMessage(answerFor(q),"bot"),220);
@@ -292,8 +296,19 @@
   closeBtn.addEventListener("click",closeChat);
   form.addEventListener("submit",(e)=>{e.preventDefault();submitQuestion(input.value);});
   messages.addEventListener("click",(e)=>{
-    const btn=e.target.closest("[data-chat-question]");
-    if(btn) submitQuestion(btn.getAttribute("data-chat-question"));
+    const btn=e.target.closest("[data-chat-intent]");
+    if(btn) submitQuestion("intent:"+btn.getAttribute("data-chat-intent"));
+  });
+
+  document.addEventListener("voh:languageChanged",()=>{
+    const l=window.VOHCurrentLanguage?window.VOHCurrentLanguage():"en";
+    const r=localized[l]||localized.en;
+    const tr=(window.VOH_TRANSLATIONS||{})[l]||{};
+    const first=messages.querySelector(".museum-chat-bot");
+    const suggestions=messages.querySelector(".museum-chat-suggestions");
+    if(first && suggestions && !messages.querySelector(".museum-chat-user")){
+      first.innerHTML="<strong>"+(tr.welcome||"Welcome.")+"</strong><br>"+(r.welcome||r.fallback)+suggestions.outerHTML;
+    }
   });
 
   document.addEventListener("keydown",(e)=>{
