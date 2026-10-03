@@ -1068,6 +1068,21 @@ window.__vohOpenMuseumChat = function(event){
   },true);
 
   messages.addEventListener("click",function(e){
+    var admin=e.target.closest("[data-admin-choice]");
+    if(admin){
+      e.preventDefault();
+      e.stopPropagation();
+      var choice=admin.getAttribute("data-admin-choice");
+      museumAdminContactPending=false;
+      if(choice==="yes"){
+        show('<strong>Yes, I would like to contact an admin.</strong>',"user");
+        show('<strong>You can contact a museum administrator here:</strong><br><br><a href="https://wa.me/2348064137756" target="_blank" rel="noopener noreferrer">Open WhatsApp → +234 806 413 7756</a>',"bot");
+      }else{
+        show('<strong>No, thank you.</strong>',"user");
+        show("No problem. You can continue exploring the museum or ask me another question.","bot");
+      }
+      return;
+    }
     var btn=e.target.closest("[data-chat-intent]");
     if(!btn) return;
     e.preventDefault();
