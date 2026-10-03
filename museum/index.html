@@ -997,10 +997,27 @@ window.__vohOpenMuseumChat = function(event){
     messages.scrollTop=messages.scrollHeight;
   }
 
+  var museumAdminContactPending=false;
+
+  function adminPrompt(){
+    museumAdminContactPending=true;
+    return '<strong>I don’t have a direct answer to that question in the museum’s current knowledge base.</strong><br><br>Would you like to get in touch with a museum administrator for further help?<br><br><button type="button" class="museum-chat-choice" data-admin-choice="yes">Yes, contact an admin</button> <button type="button" class="museum-chat-choice" data-admin-choice="no">No, thank you</button>';
+  }
+
   function answer(q){
     var localKnowledge=window.VOHMuseumKnowledge && window.VOHMuseumKnowledge.search(q);
-    if(localKnowledge && localKnowledge.score>=18) return localKnowledge.answer;
-    var s=String(q||"").toLowerCase();
+    if(localKnowledge && localKnowledge.score>=18){
+      museumAdminContactPending=false;
+      return localKnowledge.answer;
+    }
+
+    var s=String(q||"").toLowerCase().trim();
+
+    if(museumAdminContactPending && /^(yes|yeah|yep|sure|okay|ok|please|contact|contact admin|talk to admin|speak to admin)$/i.test(s)){
+      museumAdminContactPending=false;
+      return '<strong>You can contact a museum administrator here:</strong><br><br><a href="https://wa.me/2348064137756" target="_blank" rel="noopener noreferrer">Open WhatsApp → +234 806 413 7756</a>';
+    }
+
     if(s.indexOf("reflection")>=0 || s.indexOf("garden")>=0)
       return "The Reflection Garden is the museum's quiet space for daily reflections. It preserves the numbered Voices of Humanity reflection cards as a living archive.";
     if(s.indexOf("hall")>=0)
@@ -1013,11 +1030,12 @@ window.__vohOpenMuseumChat = function(event){
       return "<strong>Voices of Humanity</strong> is an independent documentary and digital museum project dedicated to documenting, preserving and celebrating the world's languages, cultures and human stories. It brings language documentaries, cultural knowledge, reflections and living archives together in one place so that voices that are often overlooked can be seen, heard and remembered. Its guiding principle is: <em>Every Voice Matters.</em>";
     if(s.indexOf("service")>=0 || s.indexOf("localmedia")>=0)
       return '<strong>LocalMedia247 services</strong><br><br>Verified news reporting, fact-checking, documentary research and production, video editing, content creation, website creation and digital media projects.<br><br><a href="https://wa.me/2348064137756" target="_blank" rel="noopener noreferrer">Chat on WhatsApp →</a>';
-    if(/\b(human|person|team)\b/.test(s))
+    if(/\\b(human|person|team)\\b/.test(s))
       return '<a href="https://wa.me/2348064137756" target="_blank" rel="noopener noreferrer">Continue with a human on LocalMedia247 WhatsApp →</a>';
     if(s.indexOf("what can")>=0 || s.indexOf("what do")>=0 || s.indexOf("see")>=0)
       return "You can explore the Hall of Humanity, Reflection Garden, Documentary Cinema, continental language museums and the LocalMedia247 media space.";
-    return "<strong>Voices of Humanity</strong> is an independent documentary and digital museum project dedicated to documenting, preserving and celebrating the world's languages, cultures and human stories. It brings language documentaries, cultural knowledge, reflections and living archives together in one place. Its guiding principle is: <em>Every Voice Matters.</em>";
+
+    return adminPrompt();
   }
 
   function send(q){
