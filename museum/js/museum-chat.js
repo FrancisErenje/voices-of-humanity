@@ -53,7 +53,7 @@
     },
     {
       keys:["localmedia247","local media 247","localmedia","daily brief"],
-      answer:"LocalMedia247 is the media and documentary production home associated with Voices of Humanity. Its motto is <em>Documenting Today. Preserving Tomorrow.</em><br><br>We can help with <strong>verified news reporting and publishing, fact-checking, documentary research and production, video editing, content creation, research-based media content, website creation and digital media projects</strong>. If you have a story, project, organisation or business that needs professional media support, ask about a service or connect with the team on WhatsApp: <a href="https://wa.me/2348064137756" target="_blank" rel="noopener noreferrer">+234 806 413 7756</a>.
+      answer:"LocalMedia247 is the media and documentary production home associated with Voices of Humanity. Its motto is <em>Documenting Today. Preserving Tomorrow.</em><br><br>We can help with <strong>verified news reporting and publishing, fact-checking, documentary research and production, video editing, content creation, research-based media content, website creation and digital media projects</strong>. If you have a story, project, organisation or business that needs professional media support, ask about a service or connect with the team on WhatsApp: <a href="https://wa.me/2348064137756" target="_blank" rel="noopener noreferrer">+234 806 413 7756</a>."
     },
     {
       keys:["services","what services","localmedia services","what can localmedia247 do","what can localmedia do","hire localmedia247","hire localmedia","media services","services you offer","jobs you can do","work you can do","can you help my business"],
