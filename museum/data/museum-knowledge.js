@@ -1,5 +1,5 @@
 /* Voices of Humanity — Local Museum Knowledge Base
-   Builds its searchable knowledge from the museum's own data objects.
+   Intent-aware local retrieval. Uses the museum's own live data objects.
 */
 (function(){
   "use strict";
@@ -15,7 +15,9 @@
   function esc(v){
     return text(v).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
   }
-
+  function has(s, terms){
+    return terms.some(function(t){ return s.indexOf(t) >= 0; });
+  }
   function build(){
     var docs=Array.isArray(window.DocumentaryCollection) ? window.DocumentaryCollection : [];
     var refs=window.ReflectionGardenCollection || {};
@@ -25,26 +27,18 @@
     var entries=[];
 
     entries.push({
-      id:"about",
-      type:"museum",
-      keys:["voices of humanity","what is this museum","about voices","museum purpose","museum project","what is voh"],
-      title:"Voices of Humanity",
+      id:"about", type:"museum",
+      keys:["voices of humanity","what is voices of humanity","about voices of humanity","what is this museum","museum purpose","museum project","what is voh"],
       answer:"<strong>Voices of Humanity</strong> is an independent documentary and digital museum project dedicated to documenting, preserving and celebrating the world's languages, cultures and human stories. It brings language documentaries, cultural knowledge, reflections and living archives together in one place. Its guiding principle is: <em>Every Voice Matters.</em>"
     });
-
     entries.push({
-      id:"preservation",
-      type:"topic",
-      keys:["preserve language","preserving language","language preservation","save a language","protect a language","language disappear","endangered language","revitalize language"],
-      title:"Language preservation",
-      answer:"<strong>Language preservation</strong> means helping a language continue across generations. Practical steps include speaking and teaching it, recording elders and everyday speech, documenting words and stories, creating learning materials, supporting community use, and preserving recordings and written materials carefully. Voices of Humanity contributes through documentaries, language lessons, research and digital archiving."
+      id:"preservation", type:"topic",
+      keys:["preserve a language","preserving a language","language preservation","save a language","protect a language","language disappear","endangered language","revitalize a language","how can i preserve","how to preserve"],
+      answer:"<strong>Yes.</strong> Preserving a language means helping its words, stories, pronunciation, cultural knowledge and everyday use continue across generations. Practical steps include speaking and teaching it, recording elders and everyday speech, documenting words and stories, creating learning materials, supporting community use, and carefully preserving recordings and written materials. Voices of Humanity contributes through documentaries, language lessons, research and digital archiving."
     });
-
     entries.push({
-      id:"hall",
-      type:"building",
-      keys:["hall of humanity","hall","world of voices","voice archive","memory gallery","writing wall","language through generations","living heritage","documentation lab","archive room","community first","promise wall","future voices"],
-      title:"Hall of Humanity",
+      id:"hall", type:"building",
+      keys:["hall of humanity","world of voices","voice archive","memory gallery","writing wall","language through generations","living heritage","documentation lab","archive room","community first","promise wall","future voices chamber"],
       answer:function(){
         var intro=text(hall.intro) || "The Hall of Humanity is the symbolic heart of the museum.";
         var exhibits=Array.isArray(hall.exhibits) ? hall.exhibits : [];
@@ -52,130 +46,99 @@
         return esc(intro)+(names ? "<br><br><strong>Exhibits include:</strong> "+names+"." : "");
       }
     });
-
     entries.push({
-      id:"reflection",
-      type:"garden",
-      keys:["reflection garden","daily reflection","reflection card","reflection"],
-      title:"Reflection Garden",
+      id:"reflection", type:"garden",
+      keys:["reflection garden","daily reflection","reflection card","current reflection","what is the reflection","today reflection"],
       answer:function(){
         var c=refs.current;
-        if(c && c.number){
-          return "<strong>Reflection "+esc(c.number)+"</strong> · "+esc(c.heading||"")+
-            "<br><br><em>“"+esc(c.quote||"")+"”</em><br><br>"+esc(c.note||"");
-        }
+        if(c && c.number) return "<strong>Reflection "+esc(c.number)+"</strong> · "+esc(c.heading||"")+
+          "<br><br><em>“"+esc(c.quote||"")+"”</em><br><br>"+esc(c.note||"");
         return "The Reflection Garden is the museum's quiet space for daily reflections and preserves the numbered reflection cards as a living archive.";
       }
     });
-
     entries.push({
-      id:"cinema",
-      type:"cinema",
-      keys:["documentary cinema","cinema","documentaries","films","documentary collection","language documentaries","episodes"],
-      title:"Documentary Cinema",
+      id:"cinema", type:"cinema",
+      keys:["documentary cinema","documentary collection","language documentaries","documentary films","documentaries in the museum","how many documentaries","how many films","episodes"],
       answer:function(){
         var published=docs.filter(function(d){return !d.status || d.status==="published";});
-        var names=published.slice(0,10).map(function(d){
-          return "<strong>"+esc(d.language||d.title||"Documentary")+"</strong>";
-        }).join(", ");
+        var names=published.slice(0,10).map(function(d){return "<strong>"+esc(d.language||d.title||"Documentary")+"</strong>";}).join(", ");
         return "<strong>Documentary Cinema</strong> presents the Voices of Humanity language documentaries and serves as the museum's moving-image archive."+
-          (published.length ? "<br><br>The current collection contains <strong>"+published.length+"</strong> documented entries in its local data. Recent entries include: "+names+"." : "");
+          (published.length ? "<br><br>The current local collection contains <strong>"+published.length+"</strong> documentary entries. Examples include: "+names+"." : "");
       }
     });
+    entries.push({id:"africa",type:"museum",keys:["african languages museum","african languages","igede language series"],answer:"The <strong>African Languages Museum</strong> explores Africa's linguistic diversity through language learning, documentary records, cultural knowledge and living community voices. Its first featured language series is <strong>Igede</strong>."});
+    entries.push({id:"asia",type:"museum",keys:["asian languages museum","asian languages"],answer:"The <strong>Asian Languages Museum</strong> explores the linguistic heritage of Asia and its many languages and cultures."});
+    entries.push({id:"europe",type:"museum",keys:["european languages museum","european languages"],answer:"The <strong>European Languages Museum</strong> explores Europe's languages, cultures and linguistic histories."});
+    entries.push({id:"americas",type:"museum",keys:["americas languages museum","americas languages","american languages"],answer:"The <strong>Americas Languages Museum</strong> explores the languages and cultural voices of North, Central and South America."});
+    entries.push({id:"oceania",type:"museum",keys:["oceania languages museum","oceania languages","oceanic languages","pacific languages"],answer:"The <strong>Oceania Languages Museum</strong> explores the linguistic diversity of Australia, the Pacific region and the wider voices of Oceania."});
+    entries.push({id:"localmedia247",type:"organization",keys:["localmedia247","local media 247","localmedia services","what services does localmedia247 offer","services offered by localmedia247"],answer:"<strong>LocalMedia247</strong> is the media and digital storytelling centre associated with Voices of Humanity. Its motto is <em>Documenting Today. Preserving Tomorrow.</em><br><br>Services include verified news reporting and publishing, fact-checking, documentary research and production, video editing, content creation, website creation and digital media projects."});
 
-    entries.push({
-      id:"africa",
-      type:"museum",
-      keys:["african languages","africa","african language museum","african museum","igede language series"],
-      title:"African Languages Museum",
-      answer:"The <strong>African Languages Museum</strong> explores Africa's linguistic diversity through language learning, documentary records, cultural knowledge and living community voices. Its first featured language series is <strong>Igede</strong>, with the Igede Language Learning Centre presented as the first exhibit."
+    docs.forEach(function(d){
+      var keys=[d.language,d.title,d.id,d.episode ? "episode "+d.episode : "",d.region,d.country,d.category].filter(Boolean);
+      entries.push({id:"doc-"+(d.id||d.episode),type:"documentary",keys:keys,answer:function(){
+        return "<strong>"+esc(d.title||d.language||"Documentary")+"</strong>"+(d.episode ? " · Episode "+esc(d.episode) : "")+
+          (d.language ? "<br><br><strong>Language:</strong> "+esc(d.language) : "")+
+          (d.region ? "<br><strong>Region:</strong> "+esc(d.region) : "")+
+          (d.country ? "<br><strong>Country:</strong> "+esc(d.country) : "")+
+          (d.languageFamily ? "<br><strong>Language family:</strong> "+esc(d.languageFamily) : "")+
+          (d.description ? "<br><br>"+esc(d.description) : "")+
+          (d.videoUrl ? '<br><br><a href="'+esc(d.videoUrl)+'" target="_blank" rel="noopener noreferrer">Watch documentary →</a>' : "");
+      }});
     });
-
-    entries.push({id:"asia",type:"museum",keys:["asian languages","asia","asian museum"],title:"Asian Languages Museum",answer:"The <strong>Asian Languages Museum</strong> explores the rich linguistic heritage of Asia and its many languages and cultures."});
-    entries.push({id:"europe",type:"museum",keys:["european languages","europe","european museum"],title:"European Languages Museum",answer:"The <strong>European Languages Museum</strong> explores Europe's languages, cultures and linguistic histories."});
-    entries.push({id:"americas",type:"museum",keys:["americas languages","americas","american languages","americas museum"],title:"Americas Languages Museum",answer:"The <strong>Americas Languages Museum</strong> explores the languages and cultural voices of North, Central and South America."});
-    entries.push({id:"oceania",type:"museum",keys:["oceania languages","oceania","oceanic","pacific","oceania museum"],title:"Oceania Languages Museum",answer:"The <strong>Oceania Languages Museum</strong> explores the extraordinary linguistic diversity of Australia's Pacific region and the wider voices of Oceania."});
-
-    entries.push({
-      id:"localmedia247",
-      type:"organization",
-      keys:["localmedia247","local media 247","localmedia","media services","services"],
-      title:"LocalMedia247",
-      answer:"<strong>LocalMedia247</strong> is the media and digital storytelling centre associated with Voices of Humanity. Its motto is <em>Documenting Today. Preserving Tomorrow.</em><br><br>Services include verified news reporting and publishing, fact-checking, documentary research and production, video editing, content creation, website creation and digital media projects."
-    });
-
-    if(docs.length){
-      docs.forEach(function(d){
-        var keys=[d.language,d.title,d.id,"episode "+d.episode,d.region,d.country,d.category].filter(Boolean);
-        entries.push({
-          id:"doc-"+(d.id||d.episode),
-          type:"documentary",
-          keys:keys,
-          title:d.title||d.language||("Episode "+d.episode),
-          answer:function(){
-            return "<strong>"+esc(d.title||d.language||"Documentary")+"</strong>"+
-              (d.episode ? " · Episode "+esc(d.episode) : "")+
-              (d.language ? "<br><br><strong>Language:</strong> "+esc(d.language) : "")+
-              (d.region ? "<br><strong>Region:</strong> "+esc(d.region) : "")+
-              (d.languageFamily ? "<br><strong>Language family:</strong> "+esc(d.languageFamily) : "")+
-              (d.description ? "<br><br>"+esc(d.description) : "")+
-              (d.videoUrl ? "<br><br><a href=""+esc(d.videoUrl)+"" target="_blank" rel="noopener noreferrer">Watch documentary →</a>" : "");
-          }
-        });
-      });
-    }
-
     languages.forEach(function(l){
-      entries.push({
-        id:"language-"+l.id,
-        type:"language",
-        keys:[l.name,l.id,l.continent,l.country],
-        title:l.name,
-        answer:"<strong>"+esc(l.name)+"</strong> is represented in the museum's language archive."+
-          (l.country ? " Country: "+esc(l.country)+"." : "")+
-          (l.continent ? " Continent: "+esc(l.continent)+"." : "")+
-          (l.documentary ? " It is linked to documentary entry "+esc(l.documentary)+"." : "")
-      });
+      entries.push({id:"language-"+l.id,type:"language",keys:[l.name,l.id,l.continent,l.country].filter(Boolean),answer:"<strong>"+esc(l.name)+"</strong> is represented in the museum's language archive."+(l.country ? " Country: "+esc(l.country)+"." : "")+(l.continent ? " Continent: "+esc(l.continent)+"." : "")+(l.documentary ? " It is linked to documentary entry "+esc(l.documentary)+"." : "")});
     });
-
     collections.forEach(function(c){
-      entries.push({
-        id:"collection-"+c.id,
-        type:"collection",
-        keys:[c.name,c.id],
-        title:c.name,
-        answer:"<strong>"+esc(c.name)+"</strong> is one of the museum's recorded collections."
-      });
+      entries.push({id:"collection-"+c.id,type:"collection",keys:[c.name,c.id],answer:"<strong>"+esc(c.name)+"</strong> is one of the museum's recorded collections."});
     });
-
     return entries;
   }
 
-  function score(q, entry){
-    var s=clean(q), score=0;
+  function score(q,entry){
+    var s=clean(q), total=0;
     entry.keys.forEach(function(k){
       var key=clean(k);
       if(!key) return;
-      if(s===key) score+=100;
-      else if(s.indexOf(key)>=0) score+=35 + Math.min(key.length,30);
+      if(s===key) total+=140;
+      else if(key.length>=5 && s.indexOf(key)>=0) total+=80;
       else {
-        var words=key.split(" ");
-        var hits=words.filter(function(w){return w.length>2 && s.indexOf(w)>=0;}).length;
-        if(hits) score+=hits*6;
+        var words=key.split(" ").filter(function(w){return w.length>=4;});
+        var hits=words.filter(function(w){return s.split(" ").indexOf(w)>=0;}).length;
+        if(hits>=2) total+=hits*10;
+        else if(hits===1 && words.length===1) total+=4;
       }
     });
-    return score;
+    return total;
+  }
+
+  function intentBoost(q,entry){
+    var s=clean(q), b=0;
+    if(has(s,["preserve","preserving","preservation","save","protect","revitalize"]) && has(s,["language","languages"])) b += entry.id==="preservation" ? 180 : -25;
+    if(has(s,["reflection","garden"])) b += entry.id==="reflection" ? 160 : 0;
+    if(has(s,["today","current","latest"]) && has(s,["reflection"])) b += entry.id==="reflection" ? 80 : 0;
+    if(has(s,["hall of humanity"])) b += entry.id==="hall" ? 180 : -20;
+    if(has(s,["documentary","documentaries","film","films","episode","cinema"])) b += ["cinema","documentary"].indexOf(entry.type)>=0 ? 55 : 0;
+    if(has(s,["localmedia247","local media 247"])) b += entry.id==="localmedia247" ? 180 : -20;
+    if(has(s,["african languages","african language"])) b += entry.id==="africa" ? 150 : 0;
+    if(has(s,["asian languages","asian language"])) b += entry.id==="asia" ? 150 : 0;
+    if(has(s,["european languages","european language"])) b += entry.id==="europe" ? 150 : 0;
+    if(has(s,["americas languages","american languages"])) b += entry.id==="americas" ? 150 : 0;
+    if(has(s,["oceania languages","oceanic languages","pacific languages"])) b += entry.id==="oceania" ? 150 : 0;
+    if(has(s,["what is voices of humanity","about voices of humanity"])) b += entry.id==="about" ? 180 : -30;
+    return b;
   }
 
   window.VOHMuseumKnowledge={
     build:build,
     search:function(q){
-      var entries=build();
-      var ranked=entries.map(function(e){return {entry:e,score:score(q,e)};})
+      var entries=build(), s=clean(q);
+      var ranked=entries.map(function(e){return {entry:e,score:score(q,e)+intentBoost(q,e)};})
         .filter(function(x){return x.score>0;})
         .sort(function(a,b){return b.score-a.score;});
       if(!ranked.length) return null;
       var best=ranked[0];
+      /* Avoid generic one-word matches being presented as confident answers. */
+      if(best.score<18) return null;
       return {title:best.entry.title,type:best.entry.type,score:best.score,answer:typeof best.entry.answer==="function" ? best.entry.answer() : best.entry.answer};
     }
   };
