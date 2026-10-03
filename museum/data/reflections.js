@@ -5,12 +5,12 @@
 
 window.ReflectionGardenCollection = {
   current: {
-    number: "065",
-    date: "SATURDAY, OCTOBER 3, 2026",
-    heading: "THE VOICES WE CHOOSE TO HEAR",
-    quote: "A better world begins when we listen to voices beyond our own.",
-    note: "Every community carries stories that deserve to be heard. When we make room for different languages, cultures, generations and experiences, we begin to see the world through more than one window. Listening does not require us to agree with everyone; it simply requires us to recognize that every human voice can teach us something.",
-    image: "https://static.metricool.com/planner/202610/7093598-file-16577290569546149607.jpeg"
+    number: "066",
+    date: "SUNDAY, OCTOBER 4, 2026",
+    heading: "KINDNESS EXTENDS BEYOND OUR OWN KIND",
+    quote: "Compassion is measured by how gently we treat those who cannot speak for themselves.",
+    note: "Today, on World Animal Day, we are reminded that humanity's relationship with animals carries a responsibility of care. Kindness is not only something we show to people who can answer us; it is also reflected in how we protect living beings that depend on our choices. When we choose respect over cruelty and care over neglect, we make the world gentler for every life that shares it with us.",
+    image: ""
   },
   archive: []
 };
