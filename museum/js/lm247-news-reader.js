@@ -106,6 +106,11 @@
         function open(index){
             lastFocused = document.activeElement;
             render(index);
+            reader.style.display = "grid";
+            reader.style.visibility = "visible";
+            reader.style.opacity = "1";
+            reader.style.pointerEvents = "auto";
+            reader.style.zIndex = "2147483647";
             reader.classList.add("open");
             reader.setAttribute("aria-hidden","false");
             document.body.classList.add("lm247-news-reader-open");
@@ -113,8 +118,16 @@
         }
 
         function close(){
+            /* Use both the class state and explicit inline state. This
+               guarantees the reader disappears even if another museum
+               stylesheet/overlay has altered the modal's computed state. */
             reader.classList.remove("open");
             reader.setAttribute("aria-hidden","true");
+            reader.style.display = "none";
+            reader.style.visibility = "hidden";
+            reader.style.opacity = "0";
+            reader.style.pointerEvents = "none";
+            reader.style.zIndex = "-1";
             document.body.classList.remove("lm247-news-reader-open");
             if(lastFocused && typeof lastFocused.focus === "function"){
                 setTimeout(() => lastFocused.focus(), 50);
