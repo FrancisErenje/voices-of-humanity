@@ -974,6 +974,92 @@ window.__vohOpenMuseumChat = function(event){
 <script src="data/interface-languages.js"></script>
 <script src="js/museum-language.js"></script>
 <script src="js/museum-chat.js"></script>
+<script>
+/* Independent chat interaction fallback.
+   Keeps the Museum Guide usable even if a non-chat museum script fails. */
+(function(){
+  var panel=document.getElementById("museumChat");
+  var form=document.getElementById("museumChatForm");
+  var input=document.getElementById("museumChatInput");
+  var messages=document.getElementById("museumChatMessages");
+  var launcher=document.getElementById("museumChatLauncher");
+  var close=document.getElementById("museumChatClose");
+  if(!panel||!form||!input||!messages) return;
+
+  function show(text,who){
+    var el=document.createElement("div");
+    el.className="museum-chat-message "+(who==="user"?"museum-chat-user":"museum-chat-bot");
+    el.innerHTML=text;
+    messages.appendChild(el);
+    messages.scrollTop=messages.scrollHeight;
+  }
+
+  function answer(q){
+    var s=String(q||"").toLowerCase();
+    if(s.indexOf("reflection")>=0 || s.indexOf("garden")>=0)
+      return "The Reflection Garden is the museum's quiet space for daily reflections. It preserves the numbered Voices of Humanity reflection cards as a living archive.";
+    if(s.indexOf("hall")>=0)
+      return "The Hall of Humanity is the symbolic heart of the museum. It represents a shared home for humanity's many voices and carries the message: Every Voice Matters.";
+    if(s.indexOf("cinema")>=0 || s.indexOf("document")>=0 || s.indexOf("film")>=0)
+      return "Documentary Cinema presents the Voices of Humanity language documentaries and serves as the museum's moving-image archive.";
+    if(s.indexOf("service")>=0 || s.indexOf("localmedia")>=0)
+      return '<strong>LocalMedia247 services</strong><br><br>Verified news reporting, fact-checking, documentary research and production, video editing, content creation, website creation and digital media projects.<br><br><a href="https://wa.me/2348064137756" target="_blank" rel="noopener noreferrer">Chat on WhatsApp →</a>';
+    if(s.indexOf("human")>=0 || s.indexOf("person")>=0 || s.indexOf("team")>=0)
+      return '<a href="https://wa.me/2348064137756" target="_blank" rel="noopener noreferrer">Continue with a human on LocalMedia247 WhatsApp →</a>';
+    if(s.indexOf("what can")>=0 || s.indexOf("what do")>=0 || s.indexOf("see")>=0)
+      return "You can explore the Hall of Humanity, Reflection Garden, Documentary Cinema, continental language museums and the LocalMedia247 media space.";
+    return "Voices of Humanity is a digital museum dedicated to documenting, preserving and celebrating the world's languages and cultures. Its guiding principle is: <em>Every Voice Matters.</em>";
+  }
+
+  function send(q){
+    q=String(q||"").trim();
+    if(!q) return;
+    show(q.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"),"user");
+    input.value="";
+    setTimeout(function(){show(answer(q),"bot");},150);
+  }
+
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    send(input.value);
+    return false;
+  },true);
+
+  input.addEventListener("keydown",function(e){
+    if(e.key==="Enter"){
+      e.preventDefault();
+      e.stopPropagation();
+      send(input.value);
+    }
+  },true);
+
+  messages.addEventListener("click",function(e){
+    var btn=e.target.closest("[data-chat-intent]");
+    if(!btn) return;
+    e.preventDefault();
+    e.stopPropagation();
+    var intent=btn.getAttribute("data-chat-intent");
+    var q={
+      voices:"What is Voices of Humanity?",
+      whatSee:"What can I see?",
+      reflection:"Tell me about the Reflection Garden.",
+      hall:"Tell me about the Hall of Humanity.",
+      services:"What services does LocalMedia247 offer?",
+      human:"I want to speak to a human."
+    }[intent]||btn.textContent;
+    send(q);
+  },true);
+
+  if(close) close.addEventListener("click",function(e){
+    e.preventDefault();
+    e.stopPropagation();
+    panel.classList.remove("is-open");
+    panel.setAttribute("aria-hidden","true");
+    if(launcher) launcher.setAttribute("aria-expanded","false");
+  },true);
+})();
+</script>
 
 </body>
 
