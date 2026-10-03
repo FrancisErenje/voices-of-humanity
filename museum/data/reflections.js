@@ -5,12 +5,12 @@
 
 window.ReflectionGardenCollection = {
   current: {
-    number: "062",
-    date: "WEDNESDAY, SEPTEMBER 30, 2026",
-    heading: "INTERNATIONAL TRANSLATION DAY 🌍",
-    quote: "When we make room for another language, we make room for another way of seeing the world.",
-    note: "Every language carries a world within it. Today we celebrate those who build bridges between languages and remember that every voice deserves to be heard, documented and respected.",
-    image: "https://static.metricool.com/planner/202609/7093598-file-8973393282993607915.jpeg"
+    number: "065",
+    date: "SATURDAY, OCTOBER 3, 2026",
+    heading: "THE VOICES WE CHOOSE TO HEAR",
+    quote: "A better world begins when we listen to voices beyond our own.",
+    note: "Every community carries stories that deserve to be heard. When we make room for different languages, cultures, generations and experiences, we begin to see the world through more than one window. Listening does not require us to agree with everyone; it simply requires us to recognize that every human voice can teach us something.",
+    image: "https://static.metricool.com/planner/202610/7093598-file-16577290569546149607.jpeg"
   },
   archive: []
 };
