@@ -6,11 +6,11 @@
 window.ReflectionGardenCollection = {
   current: {
     number: "066",
-    date: "SUNDAY, OCTOBER 4, 2026",
-    heading: "KINDNESS EXTENDS BEYOND OUR OWN KIND",
-    quote: "Compassion is measured by how gently we treat those who cannot speak for themselves.",
-    note: "Today, on World Animal Day, we are reminded that humanity's relationship with animals carries a responsibility of care. Kindness is not only something we show to people who can answer us; it is also reflected in how we protect living beings that depend on our choices. When we choose respect over cruelty and care over neglect, we make the world gentler for every life that shares it with us.",
-    image: ""
+    date: "SATURDAY, OCTOBER 3, 2026",
+    heading: "LISTENING BEYOND OUR OWN VOICES",
+    quote: "A better world begins when we listen to voices beyond our own.",
+    note: "Today, we pause to remember that every community, language, culture and generation carries something worth hearing. Listening beyond our own experience expands our understanding and makes room for wisdom that might otherwise remain unseen. When we make room for other voices, we make room for a fuller picture of humanity.",
+    image: "https://static.metricool.com/planner/202610/7093598-file-16577290569546149607.jpeg"
   },
   archive: []
 };
