@@ -902,7 +902,8 @@
 ====================================== -->
 <button id="museumChatLauncher" type="button"
         aria-label="Open Ask the Museum"
-        aria-expanded="false">
+        aria-expanded="false"
+        onclick="window.__vohOpenMuseumChat && window.__vohOpenMuseumChat(event)">
     <span class="museum-chat-icon" aria-hidden="true">✦</span>
     <span class="museum-chat-launcher-label">Ask the Museum</span>
 </button>
@@ -943,6 +944,33 @@
     <div class="museum-chat-note">Museum Guide · Built into Voices of Humanity</div>
 </section>
 
+<script>
+/* Independent emergency opener for the Museum Guide.
+   This keeps the visitor button functional even if another museum
+   subsystem changes the normal event stack. */
+window.__vohOpenMuseumChat = function(event){
+    if(event){
+        event.preventDefault();
+        event.stopPropagation();
+    }
+    var panel=document.getElementById("museumChat");
+    var launcher=document.getElementById("museumChatLauncher");
+    if(!panel || !launcher) return false;
+    var open=panel.classList.contains("is-open");
+    if(open){
+        panel.classList.remove("is-open");
+        panel.setAttribute("aria-hidden","true");
+        launcher.setAttribute("aria-expanded","false");
+    }else{
+        panel.classList.add("is-open");
+        panel.setAttribute("aria-hidden","false");
+        launcher.setAttribute("aria-expanded","true");
+        var input=document.getElementById("museumChatInput");
+        if(input) setTimeout(function(){ input.focus(); },120);
+    }
+    return false;
+};
+</script>
 <script src="data/interface-languages.js"></script>
 <script src="js/museum-language.js"></script>
 <script src="js/museum-chat.js"></script>
