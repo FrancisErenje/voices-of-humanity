@@ -209,7 +209,28 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 
         const close = overlay.querySelector(".african-languages-experience-close");
 
-        function closeExperience(){
+        function renderLivingNews(overlay){
+        const feed = overlay.querySelector("#lm247LivingNewsFeed");
+        const eyebrow = overlay.querySelector("#lm247TodayEyebrow");
+        const data = window.LocalMedia247News;
+        if(!feed || !data || !Array.isArray(data.stories)) return;
+
+        if(eyebrow) eyebrow.textContent = data.updatedLabel || data.date || "TODAY";
+
+        feed.innerHTML = data.stories.map((story, index) => `
+            <article class="lm247-live-story ${story.featured ? "is-featured" : ""}" data-news-index="${index}">
+                <div class="lm247-live-story-visual" aria-hidden="true"><span>${story.visual || "📰"}</span></div>
+                <div class="lm247-live-story-body">
+                    <span class="lm247-desk-kicker">${story.category} · ${story.location}</span>
+                    <h4>${story.headline}</h4>
+                    <p>${story.summary}</p>
+                    <a href="${story.url}" target="_blank" rel="noopener noreferrer">SOURCE · ${story.source}</a>
+                </div>
+            </article>
+        `).join("");
+    }
+
+    function closeExperience(){
             overlay.classList.remove("open");
             document.body.classList.remove("african-languages-overlay-open");
         }
@@ -312,40 +333,12 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
                 <section class="lm247-daily-desk" aria-labelledby="lm247TodayTitle">
                     <div class="lm247-daily-desk-heading">
                         <div>
-                            <span class="lm247-daily-desk-eyebrow">TODAY · 2 OCTOBER 2026</span>
+                            <span class="lm247-daily-desk-eyebrow" id="lm247TodayEyebrow">TODAY</span>
                             <h3 id="lm247TodayTitle">Today's LocalMedia247 Desk</h3>
                         </div>
                         <span class="lm247-daily-desk-status">LIVE TODAY</span>
                     </div>
-
-                    <article class="lm247-desk-story lm247-desk-reflection">
-                        <span class="lm247-desk-kicker">DAILY REFLECTION 064</span>
-                        <h4>THE KIND OF WORLD WE LEAVE BEHIND</h4>
-                        <p>Every action teaches the future what kind of world we are building.</p>
-                        <small class="lm247-desk-date-note">International Day of Non-Violence</small>
-                    </article>
-
-                    <article class="lm247-desk-story">
-                        <span class="lm247-desk-kicker">DAILY BRIEF</span>
-                        <h4>2 October 2026 — Three stories to know</h4>
-                        <div class="lm247-desk-headlines">
-                            <div>
-                                <strong>🇳🇬 Nigeria</strong>
-                                <p>Troops neutralised 16 terrorists and rescued 10 prospective corps members in a reported security operation.</p>
-                                <a href="https://www.premiumtimesng.com/news/top-news/826000-troops-neutralise-16-terrorists-rescue-10-prospective-corps-members.html" target="_blank" rel="noopener noreferrer">SOURCE · PREMIUM TIMES</a>
-                            </div>
-                            <div>
-                                <strong>🌍 Africa</strong>
-                                <p>Eritrea severed diplomatic ties with Ethiopia after Ethiopia ordered the closure of its embassy in Asmara and expelled 10 Eritrean diplomats. The African Union urged restraint and peaceful dialogue.</p>
-                                <a href="https://www.reuters.com/world/africa/explosions-heard-overnight-ethiopias-capital-diplomatic-sources-say-2026-10-01/" target="_blank" rel="noopener noreferrer">SOURCE · REUTERS</a>
-                            </div>
-                            <div>
-                                <strong>🌎 World</strong>
-                                <p>Oil prices eased today as markets weighed signs of recovering Middle Eastern supply against continuing geopolitical risks.</p>
-                                <a href="https://www.reuters.com/business/energy/oil-rises-slightly-market-weighs-mixed-supply-signals-2026-10-02/" target="_blank" rel="noopener noreferrer">SOURCE · REUTERS</a>
-                            </div>
-                        </div>
-                    </article>
+                    <div id="lm247LivingNewsFeed" class="lm247-living-news-feed" aria-live="polite"></div>
                 </section>
 
                 <section class="lm247-afternoon" aria-labelledby="lm247AfternoonTitle">
