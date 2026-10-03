@@ -115,8 +115,7 @@
             if(sub) text(sub,parts[1]);
           } else if((el.querySelector("span") && (key==="HALL OF HUMANITY" || key==="A HOME FOR HUMANITY'S VOICES"))){
             const span=el.querySelector("span");
-            const mainText=value;
-            Array.from(el.childNodes).forEach(n=>{if(n.nodeType===3)n.textContent="";});
+            Array.from(el.childNodes).forEach(n=>{if(n.nodeType===3)n.textContent=value;});
             if(span) span.textContent=(ui[current]&&ui[current]["EVERY VOICE MATTERS"])||"Every Voice Matters";
           } else if(el.querySelector("span") && key==="LOCALMEDIA247") {
             el.childNodes.forEach(n=>{if(n.nodeType===3)n.textContent="LOCALMEDIA247";});
