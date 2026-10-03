@@ -1004,6 +1004,8 @@ window.__vohOpenMuseumChat = function(event){
       return "The Hall of Humanity is the symbolic heart of the museum. It represents a shared home for humanity's many voices and carries the message: Every Voice Matters.";
     if(s.indexOf("cinema")>=0 || s.indexOf("document")>=0 || s.indexOf("film")>=0)
       return "Documentary Cinema presents the Voices of Humanity language documentaries and serves as the museum's moving-image archive.";
+    if((s.indexOf("preserve")>=0 || s.indexOf("preservation")>=0 || s.indexOf("save")>=0 || s.indexOf("protect")>=0) && (s.indexOf("language")>=0 || s.indexOf("languages")>=0))
+      return "<strong>Yes.</strong> Preserving a language means helping its words, stories, pronunciation, cultural knowledge and everyday use continue across generations. Voices of Humanity supports this through language documentaries, recorded knowledge, educational materials and a growing digital museum archive. You can also contribute by sharing the language, teaching younger speakers, recording elders and documenting words and stories carefully.";
     if(s.indexOf("what is voices")>=0 || s.indexOf("voices of humanity")>=0 || s.indexOf("about voices")>=0)
       return "<strong>Voices of Humanity</strong> is an independent documentary and digital museum project dedicated to documenting, preserving and celebrating the world's languages, cultures and human stories. It brings language documentaries, cultural knowledge, reflections and living archives together in one place so that voices that are often overlooked can be seen, heard and remembered. Its guiding principle is: <em>Every Voice Matters.</em>";
     if(s.indexOf("service")>=0 || s.indexOf("localmedia")>=0)
