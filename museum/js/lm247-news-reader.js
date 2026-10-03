@@ -165,11 +165,27 @@
 
         window.addEventListener("pointerdown", handleReaderCloseInteraction, true);
         window.addEventListener("click", handleReaderCloseInteraction, true);
-        closeButton.onclick = function(event){
-            event.preventDefault();
-            event.stopPropagation();
+        /* Give the close control its own interaction path. The museum canvas
+           has many delegated/global handlers, so we consume pointer and click
+           events directly on the button before they can reach the museum. */
+        function closeFromButton(event){
+            if(event){
+                event.preventDefault();
+                event.stopPropagation();
+                if(typeof event.stopImmediatePropagation === "function"){
+                    event.stopImmediatePropagation();
+                }
+            }
             close();
-        };
+        }
+
+        closeButton.addEventListener("pointerdown", closeFromButton, true);
+        closeButton.addEventListener("pointerup", closeFromButton, true);
+        closeButton.addEventListener("mousedown", closeFromButton, true);
+        closeButton.addEventListener("mouseup", closeFromButton, true);
+        closeButton.addEventListener("touchend", closeFromButton, true);
+        closeButton.addEventListener("click", closeFromButton, true);
+        closeButton.onclick = closeFromButton;
 
         prev.addEventListener("click", function(){
             render(currentIndex - 1);
