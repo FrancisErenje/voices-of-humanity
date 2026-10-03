@@ -166,19 +166,12 @@ function createReflectionGardenExperience(gardenElement) {
         note: data.current.note
     };
 
+    /* The Reflection Garden displays the actual official reflection card
+     * supplied for today's reflection. The card itself contains the
+     * complete visual identity, numbering, quote and artwork. */
     todayPanel.innerHTML =
-        '<article class="reflection-card-live">' +
-            '<div class="reflection-card-orbit"></div>' +
+        '<article class="reflection-card-live reflection-card-image-only">' +
             (current.image ? '<img class="reflection-card-image" src="' + current.image + '" alt="Voices of Humanity Reflection No. ' + current.number + ' — ' + current.heading + '">' : '') +
-            '<div class="reflection-card-brand">VOICES<br><span>OF</span><br>HUMANITY</div>' +
-            '<div class="reflection-card-motto">EVERY VOICE MATTERS</div>' +
-            '<div class="reflection-card-title">DAILY REFLECTION</div>' +
-            '<div class="reflection-card-number">REFLECTION No. ' + current.number + '</div>' +
-            '<div class="reflection-card-heading">' + current.heading + '</div>' +
-            '<div class="reflection-card-quote">“' + current.quote + '”</div>' +
-            '<div class="reflection-card-icons"><span>◉</span><span>OUR LANGUAGES</span><i></i><span>●</span><span>OUR CULTURES</span><i></i><span>▢</span><span>OUR FUTURE</span></div>' +
-            '<div class="reflection-card-footer">VOICES OF HUMANITY DIGITAL MUSEUM<br><small>DAILY REFLECTION ARCHIVE</small></div>' +
-            '<div class="reflection-card-date">' + current.date + '</div>' +
         '</article>' +
         '<div class="reflection-today-note">' + current.note + '</div>';
 
