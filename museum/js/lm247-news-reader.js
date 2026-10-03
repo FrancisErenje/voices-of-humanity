@@ -151,11 +151,25 @@
             }
         });
 
-        closeButton.addEventListener("click", function(event){
+        /* Capture close interaction before any museum/world click handler can consume it. */
+        function handleReaderCloseInteraction(event){
+            const target = event.target && event.target.closest
+                ? event.target.closest("[data-news-reader-close], .lm247-news-reader-close")
+                : null;
+            if(!target) return;
+            event.preventDefault();
+            event.stopPropagation();
+            if(typeof event.stopImmediatePropagation === "function") event.stopImmediatePropagation();
+            close();
+        }
+
+        window.addEventListener("pointerdown", handleReaderCloseInteraction, true);
+        window.addEventListener("click", handleReaderCloseInteraction, true);
+        closeButton.onclick = function(event){
             event.preventDefault();
             event.stopPropagation();
             close();
-        });
+        };
 
         prev.addEventListener("click", function(){
             render(currentIndex - 1);
