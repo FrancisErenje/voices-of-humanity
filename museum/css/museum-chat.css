@@ -198,3 +198,48 @@
 @media(prefers-reduced-motion:reduce){
   #museumChatLauncher,#museumChat{transition-duration:.01ms}
 }
+
+
+/* Multilingual museum selector */
+#museumLanguageSelector{
+  position:fixed;
+  top:20px;
+  left:24px;
+  z-index:10002;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:7px 9px;
+  border:1px solid rgba(226,188,82,.42);
+  border-radius:999px;
+  background:rgba(8,8,9,.88);
+  box-shadow:0 8px 24px rgba(0,0,0,.35);
+  backdrop-filter:blur(8px);
+}
+#museumLanguageSelector .museum-language-globe{
+  color:#e8ca70;
+  font-size:15px;
+}
+#museumLanguageSelect{
+  border:0;
+  outline:0;
+  background:transparent;
+  color:#ead58f;
+  font:600 12px Arial,sans-serif;
+  cursor:pointer;
+}
+#museumLanguageSelect option{
+  background:#11100d;
+  color:#f5ebd0;
+}
+.museum-language-hint{
+  display:none;
+}
+@media(max-width:600px){
+  #museumLanguageSelector{
+    top:12px;
+    left:12px;
+    padding:6px 8px;
+  }
+  #museumLanguageSelect{max-width:112px;}
+}
