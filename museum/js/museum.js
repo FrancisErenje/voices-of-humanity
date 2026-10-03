@@ -546,4 +546,35 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
     setTimeout(bind, 500);
     setTimeout(bind, 1500);
 
+    /* Keep the LocalMedia247 architectural brand lockup strictly singular.
+       Some late museum initialization can rebuild building children after
+       the first bind, so enforce the final DOM shape here as well. */
+    const brandObserver = new MutationObserver(() => {
+        const building = document.getElementById("lm247Building");
+        if(!building) return;
+
+        const titles = building.querySelectorAll(".lm247Title");
+        titles.forEach((node, index) => {
+            if(index > 0) node.remove();
+        });
+
+        const title = building.querySelector(".lm247Title");
+        if(title){
+            title.style.textTransform = "none";
+            const textNodes = Array.from(title.childNodes).filter(n => n.nodeType === Node.TEXT_NODE);
+            textNodes.forEach((node, index) => {
+                if(index === 0) node.textContent = "LocalMedia247";
+                else node.remove();
+            });
+
+            let subtitle = title.querySelector("span");
+            if(!subtitle){
+                subtitle = document.createElement("span");
+                title.appendChild(subtitle);
+            }
+            subtitle.textContent = "Documenting Today. Preserving Tomorrow.";
+        }
+    });
+    brandObserver.observe(document.body, {childList:true, subtree:true});
+
 })();
