@@ -53,7 +53,19 @@
     },
     {
       keys:["localmedia247","local media 247","localmedia","daily brief"],
-      answer:"LocalMedia247 is the media and documentary production home associated with Voices of Humanity. Its motto is <em>Documenting Today. Preserving Tomorrow.</em>"
+      answer:"LocalMedia247 is the media and documentary production home associated with Voices of Humanity. Its motto is <em>Documenting Today. Preserving Tomorrow.</em><br><br>We can help with <strong>verified news reporting and publishing, fact-checking, documentary research and production, video editing, content creation, research-based media content, website creation and digital media projects</strong>. If you have a story, project, organisation or business that needs professional media support, ask about a service or connect with the team on WhatsApp: <a href="https://wa.me/2348064137756" target="_blank" rel="noopener noreferrer">+234 806 413 7756</a>.
+    },
+    {
+      keys:["services","what services","localmedia services","what can localmedia247 do","what can localmedia do","hire localmedia247","hire localmedia","media services","services you offer","jobs you can do","work you can do","can you help my business"],
+      answer:"<strong>LocalMedia247 services</strong><br><br>• <strong>News &amp; media publishing:</strong> verified news reporting, editorial publishing and fact-checking support.<br>• <strong>Documentary work:</strong> documentary research, scripting, production and story development.<br>• <strong>Video services:</strong> video editing and preparation of content for digital platforms.<br>• <strong>Content creation:</strong> research-based articles, social media content and other media materials.<br>• <strong>Website services:</strong> website creation and digital presentation projects.<br>• <strong>Research &amp; information:</strong> careful research, fact-checking and turning information into clear public-facing content.<br><br>These services can support individuals, creators, businesses, organisations, schools, media projects and other clients who need reliable media or digital-content support.<br><br><strong>Ready to discuss a project?</strong> <a href="https://wa.me/2348064137756" target="_blank" rel="noopener noreferrer">Chat with LocalMedia247 on WhatsApp →</a>"
+    },
+    {
+      keys:["hire","quotation","quote","price","pricing","how much","book a service","need a service","i need help with a project","work with localmedia247"],
+      answer:"Absolutely. Tell us what you need—news/media work, fact-checking, documentary research or production, video editing, content creation, website creation or another digital-media project—and the LocalMedia247 team can discuss the project with you. <a href="https://wa.me/2348064137756" target="_blank" rel="noopener noreferrer">Contact LocalMedia247 on WhatsApp →</a>"
+    },
+    {
+      keys:["human","human being","real person","talk to someone","speak to someone","speak with someone","contact a person","customer service","staff","team","operator","representative"],
+      answer:"Of course. I can hand you over to the human team. <a href="https://wa.me/2348064137756" target="_blank" rel="noopener noreferrer">Continue with a human on LocalMedia247 WhatsApp →</a><br><br><strong>WhatsApp:</strong> +234 806 413 7756"
     },
     {
       keys:["every voice matters","motto"],
@@ -104,7 +116,7 @@
     if(q.includes("hello")||q.includes("hi")||q.includes("greetings")){
       return "Welcome to Voices of Humanity. Ask me about a museum building, the Reflection Garden, Documentary Cinema, languages, or how to explore the campus.";
     }
-    return "I am the museum's first built-in guide, so I answer from the museum information currently available to me. Try asking about the Hall of Humanity, Reflection Garden, Documentary Cinema, African/Asian/European/Americas/Oceania Languages Museums, or Voices of Humanity itself.";
+    return "I am the museum's built-in guide. Try asking about the Hall of Humanity, Reflection Garden, Documentary Cinema, our languages museums, Voices of Humanity, or <strong>LocalMedia247 services</strong>. If you would rather speak with a person, <a href="https://wa.me/2348064137756" target="_blank" rel="noopener noreferrer">contact LocalMedia247 on WhatsApp →</a>";
   }
 
   function addMessage(textValue,who){
