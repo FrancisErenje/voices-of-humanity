@@ -230,6 +230,39 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
         `).join("");
     }
 
+    function setupNewsWall(){
+        const wall = document.getElementById("lm247NewsWall");
+        const data = window.LocalMedia247News;
+        if(!wall || !data || !Array.isArray(data.stories) || !data.stories.length) return;
+        if(wall.dataset.newsWallBound === "true") return;
+        wall.dataset.newsWallBound = "true";
+
+        const visual = wall.querySelector(".lm247-news-visual span");
+        const category = wall.querySelector(".lm247-news-category");
+        const headline = wall.querySelector(".lm247-news-headline");
+        const source = wall.querySelector(".lm247-news-source");
+        const date = wall.querySelector(".lm247-news-date");
+        let index = 0;
+
+        function showStory(story){
+            wall.classList.remove("is-switching");
+            void wall.offsetWidth;
+            wall.classList.add("is-switching");
+            if(visual) visual.textContent = story.visual || "📰";
+            if(category) category.textContent = story.category || "NEWS";
+            if(headline) headline.textContent = story.headline || "";
+            if(source) source.textContent = story.source ? "SOURCE · " + story.source.toUpperCase() : "LOCALMEDIA247";
+            if(date) date.textContent = "TODAY";
+        }
+
+        showStory(data.stories[index]);
+
+        window.setInterval(function(){
+            index = (index + 1) % data.stories.length;
+            showStory(data.stories[index]);
+        }, 5800);
+    }
+
     function closeExperience(){
             overlay.classList.remove("open");
             document.body.classList.remove("african-languages-overlay-open");
