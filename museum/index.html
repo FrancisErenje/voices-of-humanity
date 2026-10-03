@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="css/life/gardens.css">
     <link rel="stylesheet" href="css/museum-videos.css">
     <link rel="stylesheet" href="css/hall-humanity.css">
+    <link rel="stylesheet" href="css/museum-chat.css">
 
 </head>
 
@@ -896,6 +897,51 @@
   window.addEventListener("load",installHallFallback,{once:true});
 })();
 </script>
+
+
+<!-- ======================================
+     VOICES OF HUMANITY MUSEUM GUIDE
+====================================== -->
+<button id="museumChatLauncher" type="button"
+        aria-label="Open Ask the Museum"
+        aria-expanded="false">
+    <span class="museum-chat-icon" aria-hidden="true">✦</span>
+    <span class="museum-chat-launcher-label">Ask the Museum</span>
+</button>
+
+<section id="museumChat" aria-label="Ask the Museum" aria-hidden="true">
+    <div class="museum-chat-header">
+        <div>
+            <span class="museum-chat-kicker">VOICES OF HUMANITY</span>
+            <h2>Ask the Museum</h2>
+            <p>Your digital museum guide</p>
+        </div>
+        <button id="museumChatClose" type="button" aria-label="Close chat">×</button>
+    </div>
+
+    <div id="museumChatMessages" class="museum-chat-messages" aria-live="polite">
+        <div class="museum-chat-message museum-chat-bot">
+            <strong>Welcome.</strong><br>
+            I can guide you around Voices of Humanity and explain the museum's main spaces, exhibits and purpose.
+            <div class="museum-chat-suggestions">
+                <button type="button" data-chat-question="What is Voices of Humanity?">What is Voices of Humanity?</button>
+                <button type="button" data-chat-question="What can I see in the museum?">What can I see?</button>
+                <button type="button" data-chat-question="Tell me about the Reflection Garden.">Reflection Garden</button>
+                <button type="button" data-chat-question="Tell me about the Hall of Humanity.">Hall of Humanity</button>
+            </div>
+        </div>
+    </div>
+
+    <form id="museumChatForm" class="museum-chat-form">
+        <input id="museumChatInput" type="text"
+               autocomplete="off"
+               maxlength="500"
+               placeholder="Ask about the museum…"
+               aria-label="Your question">
+        <button type="submit" aria-label="Send message">➤</button>
+    </form>
+    <div class="museum-chat-note">Museum Guide · Built into Voices of Humanity</div>
+</section>
 
 </body>
 
