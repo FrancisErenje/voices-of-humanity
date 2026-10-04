@@ -7920,3 +7920,95 @@ body.continental-language-overlay-open{
 #oceaniaComplex .continental-title{
   pointer-events:none !important;
 }
+
+
+/* =========================================================
+   REFLECTION GARDEN — PERMANENT ARCHIVE
+   ========================================================= */
+.reflection-garden-archive{
+  padding:2px 2px 10px;
+}
+.reflection-archive-heading{
+  margin:0 0 18px;
+  padding:18px 20px;
+  border:1px solid rgba(232,194,91,.24);
+  border-radius:18px;
+  background:linear-gradient(145deg,rgba(24,19,11,.9),rgba(8,8,8,.96));
+  box-shadow:0 12px 28px rgba(0,0,0,.24);
+}
+.reflection-archive-heading span{
+  display:block;
+  color:#e8c25b;
+  font:900 12px/1.2 Arial,sans-serif;
+  letter-spacing:2px;
+}
+.reflection-archive-heading small{
+  display:block;
+  margin-top:7px;
+  color:#aaa397;
+  font:400 12px/1.5 Arial,sans-serif;
+}
+.reflection-archive-list{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+}
+.reflection-archive-card{
+  padding:18px;
+  border:1px solid rgba(232,194,91,.18);
+  border-radius:18px;
+  background:linear-gradient(145deg,rgba(17,15,11,.94),rgba(7,7,7,.98));
+  box-shadow:0 12px 30px rgba(0,0,0,.24);
+}
+.reflection-archive-card.is-pending{
+  border-style:dashed;
+  opacity:.82;
+}
+.reflection-archive-number{
+  color:#e8c25b;
+  font:900 10px/1 Arial,sans-serif;
+  letter-spacing:1.8px;
+}
+.reflection-archive-date{
+  margin-top:6px;
+  color:#8f8a80;
+  font:600 9px/1.4 Arial,sans-serif;
+  letter-spacing:1px;
+}
+.reflection-archive-card h3{
+  margin:13px 0 10px;
+  color:#fff7e2;
+  font:900 19px/1.2 Georgia,serif;
+}
+.reflection-archive-card blockquote{
+  margin:0 0 12px;
+  padding:11px 12px;
+  border-left:3px solid #e8c25b;
+  color:#f1dfa7;
+  font:600 13px/1.55 Georgia,serif;
+}
+.reflection-archive-card p{
+  margin:0;
+  color:#c7c1b5;
+  font:400 12px/1.6 Arial,sans-serif;
+}
+.reflection-archive-format{
+  display:inline-block;
+  margin-top:13px;
+  padding:6px 8px;
+  border:1px solid rgba(232,194,91,.16);
+  border-radius:999px;
+  color:#968d7b;
+  font:800 8px/1 Arial,sans-serif;
+  letter-spacing:1px;
+}
+.reflection-archive-empty{
+  padding:35px 20px;
+  text-align:center;
+  border:1px dashed rgba(232,194,91,.2);
+  border-radius:18px;
+  color:#aaa397;
+}
+@media(max-width:700px){
+  .reflection-archive-list{grid-template-columns:1fr;}
+}
