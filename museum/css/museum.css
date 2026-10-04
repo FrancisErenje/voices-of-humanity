@@ -8012,3 +8012,21 @@ body.continental-language-overlay-open{
 @media(max-width:700px){
   .reflection-archive-list{grid-template-columns:1fr;}
 }
+
+
+/* =========================================================
+   REFLECTION GARDEN — EXCLUSIVE VIEW VISIBILITY
+   Only the selected Garden tab may occupy the content area.
+========================================================= */
+.reflection-garden-view[hidden]{
+  display:none !important;
+  visibility:hidden !important;
+  opacity:0 !important;
+  pointer-events:none !important;
+}
+.reflection-garden-view:not([hidden]){
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  pointer-events:auto !important;
+}
