@@ -164,6 +164,7 @@
     const shut=()=>{
       overlay.classList.remove("open");
       document.body.classList.remove("hall-overlay-open");
+      if(typeof returnToMuseumHomepage === "function") returnToMuseumHomepage();
     };
 
     window.openHallHumanityExperience=open;
