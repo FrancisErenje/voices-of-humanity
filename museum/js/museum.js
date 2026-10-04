@@ -265,6 +265,7 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
     function closeExperience(){
             overlay.classList.remove("open");
             document.body.classList.remove("african-languages-overlay-open");
+            if(typeof returnToMuseumHomepage === "function") returnToMuseumHomepage();
         }
 
         close.addEventListener("click", closeExperience);
@@ -510,6 +511,7 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
         function closeExperience(){
             overlay.classList.remove("open");
             document.body.classList.remove("lm247-overlay-open");
+            if(typeof returnToMuseumHomepage === "function") returnToMuseumHomepage();
         }
 
         overlay._open = function(){
