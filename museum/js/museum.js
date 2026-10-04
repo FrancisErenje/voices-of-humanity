@@ -262,17 +262,38 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
         }, 5800);
     }
 
-    function closeExperience(){
+    function closeExperience(event){
+            if(event){
+                event.preventDefault();
+                event.stopImmediatePropagation();
+            }
+
+            /* Hard-close the African Languages Museum visitor panel.
+               The close control is deliberately handled independently
+               of the general museum interaction layer. */
             overlay.classList.remove("open");
+            overlay.hidden = true;
+            overlay.setAttribute("aria-hidden","true");
+            overlay.style.display = "none";
+            overlay.style.visibility = "hidden";
+            overlay.style.opacity = "0";
+            overlay.style.pointerEvents = "none";
+            overlay.style.zIndex = "-1";
             document.body.classList.remove("african-languages-overlay-open");
-            if(typeof returnToMuseumHomepage === "function") returnToMuseumHomepage();
+
+            if(typeof window.returnToMuseumHomepage === "function"){
+                window.returnToMuseumHomepage();
+            }
         }
 
-        close.addEventListener("click", closeExperience);
+        close.addEventListener("pointerdown", closeExperience, true);
+        close.addEventListener("pointerup", closeExperience, true);
+        close.addEventListener("touchend", closeExperience, true);
+        close.addEventListener("click", closeExperience, true);
 
         overlay.addEventListener("click", function(event){
-            if(event.target === overlay) closeExperience();
-        });
+            if(event.target === overlay) closeExperience(event);
+        }, true);
 
         document.addEventListener("keydown", function(event){
             if(event.key === "Escape" && overlay.classList.contains("open")){
