@@ -1635,7 +1635,6 @@ window.__vohOpenMuseumChat = function(event){
       overlay.dataset.building=id;
       overlay.hidden=true;
       overlay.setAttribute("aria-hidden","true");
-
       overlay.innerHTML=
         '<div class="voh-continental-direct-card" role="dialog" aria-modal="true" aria-labelledby="'+id+'Title">'+
           '<button type="button" class="voh-continental-direct-close" aria-label="Close '+title+'">×</button>'+
@@ -1648,11 +1647,9 @@ window.__vohOpenMuseumChat = function(event){
             '<article><span>HERITAGE</span><strong>Stories That Endure</strong><p>Encounter linguistic histories preserved through living voices.</p></article>'+
           '</div>'+
         '</div>';
-
       document.body.appendChild(overlay);
 
       var close=overlay.querySelector(".voh-continental-direct-close");
-
       function shut(e){
         if(e){
           e.preventDefault();
@@ -1668,11 +1665,9 @@ window.__vohOpenMuseumChat = function(event){
         overlay.style.zIndex="-1";
         home();
       }
-
       close.addEventListener("click",shut,true);
       close.addEventListener("pointerup",shut,true);
       close.addEventListener("touchend",shut,true);
-
       overlay.addEventListener("click",function(e){
         if(e.target===overlay) shut(e);
       });
@@ -1691,8 +1686,26 @@ window.__vohOpenMuseumChat = function(event){
     if(closeButton) setTimeout(function(){ closeButton.focus(); },60);
   }
 
+  function getBuilding(id){
+    return document.getElementById(id);
+  }
+
+  function pointInside(el,e){
+    if(!el || !e || typeof e.clientX!=="number" || typeof e.clientY!=="number") return false;
+    var r=el.getBoundingClientRect();
+    return e.clientX>=r.left && e.clientX<=r.right && e.clientY>=r.top && e.clientY<=r.bottom;
+  }
+
+  function activate(id,e){
+    if(e){
+      e.preventDefault();
+      e.stopImmediatePropagation();
+    }
+    show(id);
+  }
+
   function bindBuilding(id){
-    var building=document.getElementById(id);
+    var building=getBuilding(id);
     if(!building) return;
 
     building.setAttribute("tabindex","0");
@@ -1701,36 +1714,39 @@ window.__vohOpenMuseumChat = function(event){
     building.style.pointerEvents="auto";
     building.style.cursor="pointer";
 
-    function activate(e){
-      if(e){
-        e.preventDefault();
-        e.stopImmediatePropagation();
-      }
-      show(id);
-    }
-
-    /* Desktop mouse click + touch/pointer activation. */
-    building.addEventListener("click",activate,true);
+    building.addEventListener("click",function(e){ activate(id,e); },true);
     building.addEventListener("pointerup",function(e){
-      if(e.pointerType!=="mouse") activate(e);
+      if(e.pointerType!=="mouse") activate(id,e);
     },true);
-    building.addEventListener("touchend",activate,true);
-
-    /* Keyboard activation: Enter and Space. */
+    building.addEventListener("touchend",function(e){ activate(id,e); },true);
     building.addEventListener("keydown",function(e){
       if(e.key==="Enter" || e.key===" "){
-        activate(e);
+        activate(id,e);
       }
     },true);
   }
 
-  bindBuilding("oceaniaMuseum");
-  bindBuilding("asiaMuseum");
+  /*
+    HARD HIT-TEST FALLBACK:
+    The museum world contains decorative layers and camera surfaces.
+    If one of those layers becomes the event target, use the actual
+    on-screen building rectangle so a visible Oceania/Asia building
+    remains clickable regardless of which child/layer receives the event.
+  */
+  function delegatedPointer(e){
+    if(e.type==="click" && e.target && e.target.closest && e.target.closest(".voh-continental-direct")) return;
 
-  window.addEventListener("load",function(){
-    bindBuilding("oceaniaMuseum");
-    bindBuilding("asiaMuseum");
-  },{once:true});
+    var oceania=getBuilding("oceaniaMuseum");
+    var asia=getBuilding("asiaMuseum");
+
+    if(oceania && pointInside(oceania,e)){
+      activate("oceaniaMuseum",e);
+      return;
+    }
+    if(asia && pointInside(asia,e)){
+      activate("asiaMuseum",e);
+    }
+  }
 
   document.addEventListener("keydown",function(e){
     if(e.key==="Escape"){
@@ -1747,6 +1763,23 @@ window.__vohOpenMuseumChat = function(event){
       home();
     }
   },true);
+
+  bindBuilding("oceaniaMuseum");
+  bindBuilding("asiaMuseum");
+
+  window.addEventListener("load",function(){
+    bindBuilding("oceaniaMuseum");
+    bindBuilding("asiaMuseum");
+  },{once:true});
+
+  /* Capture at the window/document level so decorative layers cannot swallow the click. */
+  window.addEventListener("click",delegatedPointer,true);
+  window.addEventListener("pointerup",function(e){
+    if(e.pointerType==="mouse") return;
+    delegatedPointer(e);
+  },true);
+  window.addEventListener("touchend",delegatedPointer,true);
+
 })();
 </script>
 </body>
