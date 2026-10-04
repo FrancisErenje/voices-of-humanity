@@ -120,6 +120,7 @@ window.CinemaEngine = {
             this.cinema.appendChild(interior);
             overlay.classList.remove("open");
             document.body.classList.remove("cinema-overlay-open");
+            if (typeof returnToMuseumHomepage === "function") returnToMuseumHomepage();
         };
 
         close.addEventListener("click", closeExperience);
