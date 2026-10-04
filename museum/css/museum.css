@@ -7881,3 +7881,34 @@ body.continental-language-overlay-open{
   .reflection-text-content h3{font-size:25px;}
   .reflection-text-content p{font-size:14px;line-height:1.7;}
 }
+
+/* =====================================================
+   FINAL CONTINENTAL MUSEUM GEOMETRY + CLICK SURFACES
+   Fix legacy absolute positioning inside complex wrappers.
+===================================================== */
+#asiaComplex,
+#oceaniaComplex{
+  position:absolute !important;
+  z-index:1000 !important;
+  pointer-events:none !important;
+}
+#asiaComplex #asiaMuseum,
+#oceaniaComplex #oceaniaMuseum{
+  position:absolute !important;
+  left:85px !important;
+  top:40px !important;
+  width:330px !important;
+  height:230px !important;
+  z-index:1001 !important;
+  pointer-events:auto !important;
+  cursor:pointer !important;
+  box-sizing:border-box !important;
+}
+#asiaComplex #asiaMuseum *,
+#oceaniaComplex #oceaniaMuseum *{
+  pointer-events:none !important;
+}
+#asiaComplex .asia-name,
+#oceaniaComplex .continental-title{
+  pointer-events:none !important;
+}
