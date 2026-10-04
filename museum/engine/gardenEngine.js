@@ -176,12 +176,24 @@ function createReflectionGardenExperience(gardenElement) {
         '<div class="reflection-today-note">' + current.note + '</div>';
 
     function open() {
+        overlay.hidden = false;
+        overlay.style.display = "flex";
+        overlay.style.visibility = "visible";
+        overlay.style.opacity = "1";
+        overlay.style.pointerEvents = "auto";
+        overlay.style.zIndex = "2147483646";
         overlay.classList.add("open");
         document.body.classList.add("reflection-garden-open");
     }
 
     function close() {
         overlay.classList.remove("open");
+        overlay.hidden = true;
+        overlay.style.display = "none";
+        overlay.style.visibility = "hidden";
+        overlay.style.opacity = "0";
+        overlay.style.pointerEvents = "none";
+        overlay.style.zIndex = "-1";
         document.body.classList.remove("reflection-garden-open");
     }
 
@@ -200,7 +212,26 @@ function createReflectionGardenExperience(gardenElement) {
         open();
     });
 
-    overlay.querySelector(".reflection-garden-close").addEventListener("click", close);
+    const closeButton = overlay.querySelector(".reflection-garden-close");
+
+    function closeFromButton(event) {
+        if (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            if (typeof event.stopImmediatePropagation === "function") {
+                event.stopImmediatePropagation();
+            }
+        }
+        close();
+    }
+
+    closeButton.addEventListener("pointerdown", closeFromButton, true);
+    closeButton.addEventListener("pointerup", closeFromButton, true);
+    closeButton.addEventListener("mousedown", closeFromButton, true);
+    closeButton.addEventListener("mouseup", closeFromButton, true);
+    closeButton.addEventListener("touchend", closeFromButton, true);
+    closeButton.addEventListener("click", closeFromButton, true);
+    closeButton.onclick = closeFromButton;
     overlay.addEventListener("click", function(event) {
         if (event.target === overlay) close();
     });
