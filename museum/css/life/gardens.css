@@ -914,3 +914,4 @@ body.reflection-garden-open{
         min-width:0;
     }
 }
+\n/* Reflection Garden interaction priority — preserve the existing visual design. */\n.museum-garden[data-garden-id="reflection-garden"]{\n    position:absolute !important;\n    z-index:1500 !important;\n    pointer-events:auto !important;\n    cursor:pointer !important;\n}\n
