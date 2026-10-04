@@ -600,4 +600,29 @@ viewport.addEventListener("touchcancel", finishTouch, { passive:true });
 /* Apply the responsive opening view after all camera code is loaded. */
 applyResponsiveCameraDefaults();
 
+
+
+/*======================================*
+ * RETURN TO MUSEUM HOMEPAGE / OVERVIEW
+ *======================================*
+ * Exhibition close buttons should always return the visitor to the
+ * museum's normal opening view, not leave a focused/zoomed exhibit
+ * underneath the closed overlay.
+ *======================================*/
+function returnToMuseumHomepage(){
+    if(typeof applyResponsiveCameraDefaults === "function"){
+        applyResponsiveCameraDefaults();
+    }else{
+        const width = viewport.clientWidth;
+        const height = viewport.clientHeight;
+        Camera.scale = 0.34;
+        Camera.minScale = 0.30;
+        Camera.x = (width / 2) - (openingGateX * Camera.scale);
+        Camera.y = (height / 2) - (openingGateY * Camera.scale);
+    }
+    Camera.isDragging = false;
+    Camera.isTouching = false;
+    viewport.classList.remove("camera-dragging");
+}
+
 console.log("✓ Responsive Camera + Touch Layer Loaded");
