@@ -496,11 +496,19 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
         document.body.appendChild(overlay);
 
         const close = overlay.querySelector(".lm247-experience-close");
-        close.addEventListener("click", closeExperience);
+
+        /* Capture the close action at the overlay itself so camera/world
+           handlers cannot swallow it. */
+        if(close){
+            close.addEventListener("pointerdown", closeExperience, true);
+            close.addEventListener("pointerup", closeExperience, true);
+            close.addEventListener("touchend", closeExperience, true);
+            close.addEventListener("click", closeExperience, true);
+        }
 
         overlay.addEventListener("click", function(event){
-            if(event.target === overlay) closeExperience();
-        });
+            if(event.target === overlay) closeExperience(event);
+        }, true);
 
         document.addEventListener("keydown", function(event){
             if(event.key === "Escape" && overlay.classList.contains("open")){
@@ -508,10 +516,28 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
             }
         });
 
-        function closeExperience(){
+        function closeExperience(event){
+            if(event){
+                event.preventDefault();
+                event.stopImmediatePropagation();
+            }
+
+            /* Hard-close the LocalMedia247 visitor panel before handing
+               control back to the museum homepage. This deliberately does
+               not depend on the global museum close layer. */
             overlay.classList.remove("open");
+            overlay.hidden = true;
+            overlay.setAttribute("aria-hidden","true");
+            overlay.style.display = "none";
+            overlay.style.visibility = "hidden";
+            overlay.style.opacity = "0";
+            overlay.style.pointerEvents = "none";
+            overlay.style.zIndex = "-1";
             document.body.classList.remove("lm247-overlay-open");
-            if(typeof returnToMuseumHomepage === "function") returnToMuseumHomepage();
+
+            if(typeof window.returnToMuseumHomepage === "function"){
+                window.returnToMuseumHomepage();
+            }
         }
 
         overlay._open = function(){
