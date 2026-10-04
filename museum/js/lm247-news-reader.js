@@ -131,6 +131,9 @@
             reader.style.pointerEvents = "none";
             reader.style.zIndex = "-1";
             document.body.classList.remove("lm247-news-reader-open");
+            if(typeof window.returnToMuseumHomepage === "function"){
+                window.returnToMuseumHomepage();
+            }
             if(lastFocused && typeof lastFocused.focus === "function"){
                 setTimeout(() => lastFocused.focus(), 50);
             }
