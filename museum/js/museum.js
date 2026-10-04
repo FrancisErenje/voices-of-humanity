@@ -521,9 +521,9 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
         /* Capture the close action at the overlay itself so camera/world
            handlers cannot swallow it. */
         if(close){
-            close.addEventListener("pointerdown", closeExperience, true);
-            close.addEventListener("pointerup", closeExperience, true);
-            close.addEventListener("touchend", closeExperience, true);
+            /* Complete the click before closing. Pointerdown/pointerup can
+               expose the building underneath during the same mouse gesture,
+               making the panel appear to refuse the close action. */
             close.addEventListener("click", closeExperience, true);
         }
 
