@@ -7463,3 +7463,26 @@ body.lm247-news-reader-open{
         animation:none !important;
     }
 }
+
+/* ==========================================
+   EXHIBIT HIT-TARGET HARDENING
+========================================== */
+#africaComplex{
+    z-index:70;
+}
+#africaMuseum{
+    z-index:80;
+    pointer-events:auto;
+    cursor:pointer;
+}
+.african-languages-experience-overlay{
+    z-index:2147483645 !important;
+}
+.reflection-garden-overlay{
+    z-index:2147483646 !important;
+}
+.reflection-garden-close,
+.african-languages-experience-close{
+    pointer-events:auto !important;
+    cursor:pointer !important;
+}
