@@ -286,9 +286,9 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
             }
         }
 
-        close.addEventListener("pointerdown", closeExperience, true);
-        close.addEventListener("pointerup", closeExperience, true);
-        close.addEventListener("touchend", closeExperience, true);
+        /* Use the completed click gesture. Closing on pointerdown/pointerup
+           can expose #africaMuseum underneath before the same gesture ends,
+           causing the museum to reopen immediately. */
         close.addEventListener("click", closeExperience, true);
 
         overlay.addEventListener("click", function(event){
