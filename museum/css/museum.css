@@ -5152,6 +5152,7 @@ transform:rotate(-1deg);
 
 #hall-humanity .hall-title{
     position:relative;
+    top:22px;
     z-index:12;
     letter-spacing:3px;
     text-shadow:0 1px 0 rgba(255,255,255,.95), 0 4px 8px rgba(0,0,0,.16);
