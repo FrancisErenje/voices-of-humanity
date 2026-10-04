@@ -1614,43 +1614,138 @@ window.__vohOpenMuseumChat = function(event){
 <script>
 (function(){
   "use strict";
-  function home(){ if(typeof window.returnToMuseumHomepage==="function") window.returnToMuseumHomepage(); }
+
+  function home(){
+    if(typeof window.returnToMuseumHomepage==="function"){
+      window.returnToMuseumHomepage();
+    }
+  }
+
   function show(id){
-    var title=id==="asiaMuseum"?"Asian Languages Museum":"Oceania Languages Museum";
-    var intro=id==="asiaMuseum"?"Explore Asia's extraordinary linguistic diversity — languages, writing traditions, cultures, histories and living community voices.":"Discover the extraordinary linguistic diversity of Australia and the Pacific, and the communities whose languages carry living knowledge.";
-    var overlay=document.querySelector('.voh-continental-direct[data-building="'+id+'"]');
+    var title = id === "asiaMuseum" ? "Asian Languages Museum" : "Oceania Languages Museum";
+    var intro = id === "asiaMuseum"
+      ? "Explore Asia's extraordinary linguistic diversity — languages, writing traditions, cultures, histories and living community voices."
+      : "Discover the extraordinary linguistic diversity of Australia and the Pacific, and the communities whose languages carry living knowledge.";
+
+    var overlay = document.querySelector('.voh-continental-direct[data-building="'+id+'"]');
+
     if(!overlay){
       overlay=document.createElement("div");
       overlay.className="voh-continental-direct";
       overlay.dataset.building=id;
-      overlay.innerHTML='<div class="voh-continental-direct-card" role="dialog" aria-modal="true">'+
-        '<button type="button" class="voh-continental-direct-close" aria-label="Close '+title+'">×</button>'+
-        '<div class="voh-continental-direct-kicker">VOICES OF HUMANITY · LIVING LANGUAGE ARCHIVE</div>'+
-        '<h2>'+title+'</h2><p>'+intro+'</p>'+
-        '<div class="voh-continental-direct-grid">'+
-        '<article><span>LANGUAGES</span><strong>Living Voices</strong><p>Discover languages and the communities that keep them alive.</p></article>'+
-        '<article><span>CULTURE</span><strong>Language &amp; Identity</strong><p>Explore language as a carrier of memory, identity and knowledge.</p></article>'+
-        '<article><span>HERITAGE</span><strong>Stories That Endure</strong><p>Encounter linguistic histories preserved through living voices.</p></article>'+
-        '</div></div>';
+      overlay.hidden=true;
+      overlay.setAttribute("aria-hidden","true");
+
+      overlay.innerHTML=
+        '<div class="voh-continental-direct-card" role="dialog" aria-modal="true" aria-labelledby="'+id+'Title">'+
+          '<button type="button" class="voh-continental-direct-close" aria-label="Close '+title+'">×</button>'+
+          '<div class="voh-continental-direct-kicker">VOICES OF HUMANITY · LIVING LANGUAGE ARCHIVE</div>'+
+          '<h2 id="'+id+'Title">'+title+'</h2>'+
+          '<p>'+intro+'</p>'+
+          '<div class="voh-continental-direct-grid">'+
+            '<article><span>LANGUAGES</span><strong>Living Voices</strong><p>Discover languages and the communities that keep them alive.</p></article>'+
+            '<article><span>CULTURE</span><strong>Language &amp; Identity</strong><p>Explore language as a carrier of memory, identity and knowledge.</p></article>'+
+            '<article><span>HERITAGE</span><strong>Stories That Endure</strong><p>Encounter linguistic histories preserved through living voices.</p></article>'+
+          '</div>'+
+        '</div>';
+
       document.body.appendChild(overlay);
+
       var close=overlay.querySelector(".voh-continental-direct-close");
-      close.addEventListener("click",function(e){e.preventDefault();e.stopImmediatePropagation();overlay.classList.remove("open");home();},true);
-      overlay.addEventListener("click",function(e){if(e.target===overlay){overlay.classList.remove("open");home();}});
+
+      function shut(e){
+        if(e){
+          e.preventDefault();
+          e.stopImmediatePropagation();
+        }
+        overlay.classList.remove("open");
+        overlay.hidden=true;
+        overlay.setAttribute("aria-hidden","true");
+        overlay.style.display="none";
+        overlay.style.visibility="hidden";
+        overlay.style.opacity="0";
+        overlay.style.pointerEvents="none";
+        overlay.style.zIndex="-1";
+        home();
+      }
+
+      close.addEventListener("click",shut,true);
+      close.addEventListener("pointerup",shut,true);
+      close.addEventListener("touchend",shut,true);
+
+      overlay.addEventListener("click",function(e){
+        if(e.target===overlay) shut(e);
+      });
     }
-    overlay.hidden=false; overlay.classList.add("open");
+
+    overlay.hidden=false;
+    overlay.setAttribute("aria-hidden","false");
+    overlay.style.display="flex";
+    overlay.style.visibility="visible";
+    overlay.style.opacity="1";
+    overlay.style.pointerEvents="auto";
+    overlay.style.zIndex="2147483647";
+    overlay.classList.add("open");
+
+    var closeButton=overlay.querySelector(".voh-continental-direct-close");
+    if(closeButton) setTimeout(function(){ closeButton.focus(); },60);
   }
-  function handle(e){
-    var t=e.target&&e.target.closest?e.target.closest("#asiaMuseum,#oceaniaMuseum"):null;
-    if(!t) return;
-    e.preventDefault(); e.stopImmediatePropagation(); show(t.id);
+
+  function bindBuilding(id){
+    var building=document.getElementById(id);
+    if(!building) return;
+
+    building.setAttribute("tabindex","0");
+    building.setAttribute("role","button");
+    building.setAttribute("aria-label",id==="oceaniaMuseum" ? "Open Oceania Languages Museum" : "Open Asian Languages Museum");
+    building.style.pointerEvents="auto";
+    building.style.cursor="pointer";
+
+    function activate(e){
+      if(e){
+        e.preventDefault();
+        e.stopImmediatePropagation();
+      }
+      show(id);
+    }
+
+    /* Desktop mouse click + touch/pointer activation. */
+    building.addEventListener("click",activate,true);
+    building.addEventListener("pointerup",function(e){
+      if(e.pointerType!=="mouse") activate(e);
+    },true);
+    building.addEventListener("touchend",activate,true);
+
+    /* Keyboard activation: Enter and Space. */
+    building.addEventListener("keydown",function(e){
+      if(e.key==="Enter" || e.key===" "){
+        activate(e);
+      }
+    },true);
   }
-  window.addEventListener("pointerdown",handle,true);
-  window.addEventListener("pointerup",handle,true);
-  window.addEventListener("click",handle,true);
-  window.addEventListener("touchend",handle,true);
+
+  bindBuilding("oceaniaMuseum");
+  bindBuilding("asiaMuseum");
+
+  window.addEventListener("load",function(){
+    bindBuilding("oceaniaMuseum");
+    bindBuilding("asiaMuseum");
+  },{once:true});
+
   document.addEventListener("keydown",function(e){
-    if((e.key==="Enter"||e.key===" ")&&document.activeElement&&document.activeElement.matches("#asiaMuseum,#oceaniaMuseum")){e.preventDefault();show(document.activeElement.id);}
-    if(e.key==="Escape"){document.querySelectorAll(".voh-continental-direct.open").forEach(function(o){o.classList.remove("open");});home();}
+    if(e.key==="Escape"){
+      document.querySelectorAll(".voh-continental-direct.open").forEach(function(overlay){
+        overlay.classList.remove("open");
+        overlay.hidden=true;
+        overlay.setAttribute("aria-hidden","true");
+        overlay.style.display="none";
+        overlay.style.visibility="hidden";
+        overlay.style.opacity="0";
+        overlay.style.pointerEvents="none";
+        overlay.style.zIndex="-1";
+      });
+      home();
+    }
   },true);
 })();
 </script>
