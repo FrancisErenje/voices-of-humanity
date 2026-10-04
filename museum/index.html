@@ -979,7 +979,7 @@
   }
   function start(){
     loadScript("js/museum-chat.js").then(function(){
-      setTimeout(function(){ loadScript("data/interface-languages.js").then(function(){ loadScript("js/museum-language.js"); }); },250);
+      setTimeout(function(){ loadScript("js/museum-language.js"); },250);
     });
   }
   if(document.readyState==="complete") setTimeout(start,350);
