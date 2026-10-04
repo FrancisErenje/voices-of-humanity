@@ -966,6 +966,28 @@
 
 
 <script>
+/* PERFORMANCE: non-critical museum UI loads after the core museum is interactive. */
+(function(){
+  function loadScript(src){
+    return new Promise(function(resolve){
+      var s=document.createElement("script");
+      s.src=src;
+      s.onload=resolve;
+      s.onerror=resolve;
+      document.head.appendChild(s);
+    });
+  }
+  function start(){
+    loadScript("js/museum-chat.js").then(function(){
+      setTimeout(function(){ loadScript("data/interface-languages.js").then(function(){ loadScript("js/museum-language.js"); }); },250);
+    });
+  }
+  if(document.readyState==="complete") setTimeout(start,350);
+  else window.addEventListener("load",function(){ setTimeout(start,350); },{once:true});
+})();
+</script>
+
+<script>
 /* FINAL HALL OF HUMANITY FALLBACK
    Kept inline so the Hall remains interactive even if another museum
    engine changes the event stack. */
@@ -1340,8 +1362,6 @@ window.__vohOpenMuseumChat = function(event){
 };
 </script>
 <script src="data/interface-languages.js"></script>
-<script src="js/museum-language.js"></script>
-<script src="js/museum-chat.js"></script>
 <script>
 /* Independent chat interaction fallback.
    Keeps the Museum Guide usable even if a non-chat museum script fails. */
