@@ -5992,15 +5992,22 @@ transform:rotate(-1deg);
     position:absolute;
     top:16px;
     right:18px;
-    width:42px;
-    height:42px;
+    width:52px;
+    height:52px;
+    padding:0;
     border:1px solid rgba(255,255,255,.3);
     border-radius:50%;
     background:rgba(255,255,255,.1);
     color:#fff;
-    font-size:28px;
-    line-height:1;
+    font-size:30px;
+    line-height:52px;
+    text-align:center;
     cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-sizing:border-box;
+    z-index:10;
 }
 
 .lm247-experience-eyebrow{
