@@ -228,16 +228,32 @@ function createReflectionGardenExperience(gardenElement) {
                 event.stopImmediatePropagation();
             }
         }
+
+        /* Hard-close the Garden first. */
         close();
-        if (typeof returnToMuseumHomepage === "function") returnToMuseumHomepage();
+
+        /* Then restore the normal museum opening view. */
+        if (typeof window.returnToMuseumHomepage === "function") {
+            window.returnToMuseumHomepage();
+        } else if (typeof returnToMuseumHomepage === "function") {
+            returnToMuseumHomepage();
+        }
+
+        /* Keep the overview visibly interactive after closing. */
+        document.body.classList.remove("reflection-garden-open");
+        overlay.hidden = true;
+        overlay.style.display = "none";
+        overlay.style.visibility = "hidden";
+        overlay.style.opacity = "0";
+        overlay.style.pointerEvents = "none";
+        overlay.style.zIndex = "-1";
     }
 
-    closeButton.addEventListener("pointerdown", closeFromButton, true);
-    closeButton.addEventListener("pointerup", closeFromButton, true);
-    closeButton.addEventListener("mousedown", closeFromButton, true);
-    closeButton.addEventListener("mouseup", closeFromButton, true);
-    closeButton.addEventListener("touchend", closeFromButton, true);
+    /* One authoritative close handler. The capture phase makes the
+     * button independent of any older museum event listeners. */
     closeButton.addEventListener("click", closeFromButton, true);
+    closeButton.addEventListener("pointerup", closeFromButton, true);
+    closeButton.addEventListener("touchend", closeFromButton, true);
     closeButton.onclick = closeFromButton;
     overlay.addEventListener("click", function(event) {
         if (event.target === overlay) close();
