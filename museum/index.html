@@ -921,6 +921,68 @@
 
 
 <!-- ======================================
+     EXHIBIT CLOSE SAFETY LAYER
+     Handles close controls before the museum's
+     other global interaction handlers.
+====================================== -->
+<script>
+(function(){
+  function forceClose(target){
+    if(!target || !target.closest) return false;
+
+    var reflectionClose=target.closest(".reflection-garden-close");
+    if(reflectionClose){
+      var reflection=reflectionClose.closest(".reflection-garden-overlay");
+      if(reflection){
+        reflection.classList.remove("open");
+        reflection.hidden=true;
+        reflection.style.display="none";
+        reflection.style.visibility="hidden";
+        reflection.style.opacity="0";
+        reflection.style.pointerEvents="none";
+        reflection.style.zIndex="-1";
+        document.body.classList.remove("reflection-garden-open");
+        return true;
+      }
+    }
+
+    var newsClose=target.closest(".lm247-news-reader-close,[data-news-reader-close]");
+    if(newsClose){
+      var reader=newsClose.closest(".lm247-news-reader");
+      if(reader){
+        reader.classList.remove("open");
+        reader.setAttribute("aria-hidden","true");
+        reader.hidden=true;
+        reader.style.display="none";
+        reader.style.visibility="hidden";
+        reader.style.opacity="0";
+        reader.style.pointerEvents="none";
+        reader.style.zIndex="-1";
+        document.body.classList.remove("lm247-news-reader-open");
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  function capture(event){
+    if(forceClose(event.target)){
+      event.preventDefault();
+      event.stopPropagation();
+      if(typeof event.stopImmediatePropagation==="function"){
+        event.stopImmediatePropagation();
+      }
+    }
+  }
+
+  window.addEventListener("pointerdown",capture,true);
+  window.addEventListener("click",capture,true);
+  window.addEventListener("touchend",capture,true);
+})();
+</script>
+
+<!-- ======================================
      VOICES OF HUMANITY MUSEUM GUIDE
 ====================================== -->
 <button id="museumChatLauncher" type="button"
