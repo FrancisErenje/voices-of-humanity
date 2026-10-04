@@ -280,17 +280,56 @@ function createReflectionGardenExperience(gardenElement) {
         if (event.target === overlay) close();
     });
 
-    overlay.querySelectorAll(".reflection-garden-menu button").forEach(function(button) {
-        button.addEventListener("click", function() {
-            const view = button.dataset.view;
-            overlay.querySelectorAll(".reflection-garden-menu button").forEach(function(item) {
-                item.classList.toggle("active", item === button);
-            });
-            overlay.querySelectorAll(".reflection-garden-view").forEach(function(panel) {
-                panel.hidden = panel.dataset.viewPanel !== view;
-            });
+    const gardenMenu = overlay.querySelector(".reflection-garden-menu");
+    const gardenMenuButtons = overlay.querySelectorAll(".reflection-garden-menu button");
+
+    function showGardenView(view, activeButton) {
+        gardenMenuButtons.forEach(function(item) {
+            item.classList.toggle("active", item === activeButton);
+            item.setAttribute("aria-selected", item === activeButton ? "true" : "false");
         });
+
+        overlay.querySelectorAll(".reflection-garden-view").forEach(function(panel) {
+            const shouldShow = panel.dataset.viewPanel === view;
+            panel.hidden = !shouldShow;
+            panel.style.display = shouldShow ? "block" : "none";
+        });
+    }
+
+    /* Use a capture-layer handler for the Garden tabs so the Archive button
+     * cannot be swallowed by any legacy museum click/camera listeners. */
+    gardenMenuButtons.forEach(function(button) {
+        button.style.pointerEvents = "auto";
+        button.style.position = "relative";
+        button.style.zIndex = "5";
+        button.setAttribute("aria-selected", button.classList.contains("active") ? "true" : "false");
+
+        function activateTab(event) {
+            if (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                if (typeof event.stopImmediatePropagation === "function") {
+                    event.stopImmediatePropagation();
+                }
+            }
+            showGardenView(button.dataset.view, button);
+        }
+
+        button.addEventListener("click", activateTab, true);
+        button.addEventListener("pointerup", function(event) {
+            /* Fallback for browsers/devices where the final click is swallowed. */
+            activateTab(event);
+        }, true);
     });
+
+    if (gardenMenu) {
+        gardenMenu.style.pointerEvents = "auto";
+        gardenMenu.style.position = "relative";
+        gardenMenu.style.zIndex = "5";
+    }
+
+    /* Start explicitly on today's reflection. */
+    showGardenView("today", overlay.querySelector('.reflection-garden-menu button[data-view="today"]'));
 
     document.addEventListener("keydown", function(event) {
         if (event.key === "Escape" && overlay.classList.contains("open")) close();
