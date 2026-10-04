@@ -223,6 +223,7 @@ function createReflectionGardenExperience(gardenElement) {
             }
         }
         close();
+        if (typeof returnToMuseumHomepage === "function") returnToMuseumHomepage();
     }
 
     closeButton.addEventListener("pointerdown", closeFromButton, true);
