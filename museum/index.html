@@ -1439,6 +1439,176 @@ window.__vohOpenMuseumChat = function(event){
 })();
 </script>
 
+<!-- ======================================
+     FINAL VOH INTERACTION SAFETY NET
+     Asia · Oceania · universal close/reset
+     This layer deliberately runs last so legacy
+     museum handlers cannot swallow visitor actions.
+====================================== -->
+<script>
+(function(){
+  "use strict";
+
+  function home(){
+    if(typeof window.returnToMuseumHomepage === "function"){
+      window.returnToMuseumHomepage();
+    }
+  }
+
+  function showOverlay(overlay){
+    if(!overlay) return false;
+    overlay.hidden=false;
+    overlay.setAttribute("aria-hidden","false");
+    overlay.style.display="flex";
+    overlay.style.visibility="visible";
+    overlay.style.opacity="1";
+    overlay.style.pointerEvents="auto";
+    overlay.style.zIndex="2147483647";
+    overlay.classList.add("open");
+    return true;
+  }
+
+  function buildSimpleMuseum(id,title,intro){
+    var existing=document.querySelector(".final-museum-experience[data-building='"+id+"']");
+    if(existing) return existing;
+
+    var overlay=document.createElement("div");
+    overlay.className="final-museum-experience";
+    overlay.dataset.building=id;
+    overlay.hidden=true;
+    overlay.setAttribute("aria-hidden","true");
+    overlay.innerHTML=
+      '<div class="final-museum-experience-card" role="dialog" aria-modal="true" aria-labelledby="'+id+'FinalTitle">'+
+        '<button class="final-museum-close" type="button" aria-label="Close '+title+'">×</button>'+
+        '<div class="final-museum-kicker">VOICES OF HUMANITY · LIVING LANGUAGE ARCHIVE</div>'+
+        '<h2 id="'+id+'FinalTitle">'+title+'</h2>'+
+        '<p>'+intro+'</p>'+
+        '<div class="final-museum-panels">'+
+          '<article><span>LANGUAGES</span><h3>Living Voices</h3><p>Explore languages and the communities that carry them across generations.</p></article>'+
+          '<article><span>CULTURE</span><h3>Language & Identity</h3><p>Discover how language preserves memory, identity, knowledge and tradition.</p></article>'+
+          '<article><span>HERITAGE</span><h3>Stories That Endure</h3><p>Encounter linguistic histories and cultural knowledge preserved through living voices.</p></article>'+
+        '</div>'+
+      '</div>';
+    document.body.appendChild(overlay);
+
+    var close=overlay.querySelector(".final-museum-close");
+    function shut(e){
+      if(e){ e.preventDefault(); e.stopPropagation(); if(e.stopImmediatePropagation) e.stopImmediatePropagation(); }
+      overlay.classList.remove("open");
+      overlay.hidden=true;
+      overlay.setAttribute("aria-hidden","true");
+      overlay.style.display="none";
+      overlay.style.visibility="hidden";
+      overlay.style.opacity="0";
+      overlay.style.pointerEvents="none";
+      overlay.style.zIndex="-1";
+      home();
+    }
+    close.addEventListener("click",shut,true);
+    close.addEventListener("pointerup",shut,true);
+    overlay.addEventListener("click",function(e){ if(e.target===overlay) shut(e); });
+    overlay._open=function(){ showOverlay(overlay); setTimeout(function(){close.focus();},80); };
+    overlay._close=shut;
+    return overlay;
+  }
+
+  function bind(id,title,intro){
+    var building=document.getElementById(id);
+    if(!building) return;
+    var overlay=buildSimpleMuseum(id,title,intro);
+    building.setAttribute("tabindex","0");
+    building.setAttribute("role","button");
+    building.setAttribute("aria-label","Open "+title);
+    building.style.cursor="pointer";
+
+    function open(e){
+      if(e){ e.preventDefault(); e.stopImmediatePropagation(); }
+      if(overlay && overlay._open) overlay._open();
+    }
+
+    if(building.dataset.finalInteractionBound!=="true"){
+      building.dataset.finalInteractionBound="true";
+      building.addEventListener("click",open,true);
+      building.addEventListener("pointerup",function(e){
+        if(e.pointerType!=="mouse") open(e);
+      },true);
+      building.addEventListener("keydown",function(e){
+        if(e.key==="Enter" || e.key===" "){ open(e); }
+      },true);
+    }
+  }
+
+  function bindAll(){
+    bind("asiaMuseum","Asian Languages Museum","Explore Asia's extraordinary linguistic diversity — languages, writing traditions, cultures, histories and living community voices.");
+    bind("oceaniaMuseum","Oceania Languages Museum","Discover the extraordinary linguistic diversity of Australia and the Pacific, and the communities whose languages carry living knowledge.");
+  }
+
+  /*
+     Universal close safety: every major exhibit close button
+     returns visitors to the museum homepage/overview.
+  */
+  function closeTarget(target,event){
+    if(!target || !target.closest) return false;
+    var button=target.closest(
+      ".final-museum-close,"+
+      ".continental-language-experience-close,"+
+      ".oceania-languages-experience-close,"+
+      ".african-languages-experience-close,"+
+      ".cinema-experience-close,"+
+      ".viewer-close,"+
+      ".reflection-garden-close,"+
+      ".lm247-news-reader-close"
+    );
+    if(!button) return false;
+    var chatButton=button.closest("#museumChat");
+    if(chatButton) return false;
+
+    if(event){ event.preventDefault(); event.stopImmediatePropagation(); }
+
+    var overlay=button.closest(
+      ".final-museum-experience,"+
+      ".continental-language-experience-overlay,"+
+      ".oceania-languages-experience-overlay,"+
+      ".african-languages-experience-overlay,"+
+      ".cinema-experience-overlay,"+
+      "#documentary-viewer,"+
+      ".reflection-garden-overlay,"+
+      ".lm247-news-reader"
+    );
+
+    if(overlay){
+      overlay.classList.remove("open");
+      overlay.hidden=true;
+      overlay.setAttribute("aria-hidden","true");
+      overlay.style.display="none";
+      overlay.style.visibility="hidden";
+      overlay.style.opacity="0";
+      overlay.style.pointerEvents="none";
+      overlay.style.zIndex="-1";
+    }
+    document.body.classList.remove(
+      "continental-language-overlay-open",
+      "oceania-languages-overlay-open",
+      "african-languages-overlay-open",
+      "cinema-overlay-open",
+      "reflection-garden-open",
+      "lm247-news-reader-open"
+    );
+    home();
+    return true;
+  }
+
+  window.addEventListener("click",function(e){ closeTarget(e.target,e); },true);
+  window.addEventListener("pointerup",function(e){ closeTarget(e.target,e); },true);
+  window.addEventListener("touchend",function(e){ closeTarget(e.target,e); },true);
+
+  bindAll();
+  window.addEventListener("load",bindAll,{once:true});
+  setTimeout(bindAll,500);
+  setTimeout(bindAll,1500);
+})();
+</script>
+
 </body>
 
 </html>
