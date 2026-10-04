@@ -77,7 +77,38 @@
             return true;
         }
 
+        function africanClose(target){
+            var button = target && target.closest ? target.closest(".african-languages-experience-close") : null;
+            if(!button) return false;
+
+            var overlay = button.closest(".african-languages-experience-overlay");
+            if(!overlay) return false;
+
+            overlay.classList.remove("open");
+            overlay.hidden = true;
+            overlay.setAttribute("aria-hidden","true");
+            overlay.style.display = "none";
+            overlay.style.visibility = "hidden";
+            overlay.style.opacity = "0";
+            overlay.style.pointerEvents = "none";
+            overlay.style.zIndex = "-1";
+            document.body.classList.remove("african-languages-overlay-open");
+
+            if(typeof window.returnToMuseumHomepage === "function"){
+                window.returnToMuseumHomepage();
+            }
+            return true;
+        }
+
         function capture(event){
+            /* African Museum close gets first priority at the window
+               capture layer, before any building/camera handlers. */
+            if(africanClose(event.target)){
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                return;
+            }
+
             if(reflectionClose(event.target)){
                 event.preventDefault();
                 event.stopImmediatePropagation();
