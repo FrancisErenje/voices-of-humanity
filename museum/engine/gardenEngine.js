@@ -138,16 +138,37 @@ function createReflectionGardenExperience(gardenElement) {
             '</nav>' +
             '<div class="reflection-garden-view" data-view-panel="today"></div>' +
             '<div class="reflection-garden-view reflection-garden-archive" data-view-panel="archive" hidden>' +
-                '<div class="reflection-archive-empty">' +
-                    '<div class="archive-symbol">✦</div>' +
-                    '<h3>The archive is growing.</h3>' +
-                    '<p>Reflection Nos. 001–058 will be added here when the historical card collection is uploaded.</p>' +
-                    '<span>The living archive continues with each new reflection.</span>' +
+                '<div class="reflection-archive-heading">' +
+                    '<span>DAILY REFLECTION ARCHIVE</span>' +
+                    '<small>Preserved reflections remain here even when the current Garden changes.</small>' +
                 '</div>' +
+                '<div class="reflection-archive-list"></div>' +
             '</div>' +
         '</div>';
 
     document.body.appendChild(overlay);
+
+    /* Build the permanent reflection archive from the living data source. */
+    const archivePanel = overlay.querySelector('.reflection-archive-list');
+    const archiveItems = Array.isArray(data.archive) ? data.archive : [];
+
+    if (archiveItems.length) {
+        archivePanel.innerHTML = archiveItems.map(function(item){
+            const isPending = item.format === "pending";
+            const title = item.heading || ("Reflection " + item.number);
+            const quote = item.quote ? '“' + item.quote + '”' : "Original card awaiting restoration from the saved source collection.";
+            return '<article class="reflection-archive-card ' + (isPending ? 'is-pending' : '') + '">' +
+                '<div class="reflection-archive-number">REFLECTION ' + item.number + '</div>' +
+                '<div class="reflection-archive-date">' + (item.date || 'DATE TO BE RESTORED') + '</div>' +
+                '<h3>' + title + '</h3>' +
+                '<blockquote>' + quote + '</blockquote>' +
+                '<p>' + (item.note || '') + '</p>' +
+                '<span class="reflection-archive-format">' + (isPending ? 'SOURCE CARD TO BE RESTORED' : 'PRESERVED TEXT RECORD') + '</span>' +
+            '</article>';
+        }).join('');
+    } else {
+        archivePanel.innerHTML = '<div class="reflection-archive-empty"><div class="archive-symbol">✦</div><h3>The archive is ready.</h3><p>New reflection records will appear here automatically.</p></div>';
+    }
 
     const todayPanel = overlay.querySelector('[data-view-panel="today"]');
     /* The Garden's "today" card is deliberately anchored to the
