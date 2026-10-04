@@ -252,7 +252,7 @@ viewport.addEventListener(
                     )
                 );
 
-
+            requestCameraRender();
             return;
 
         }
@@ -310,6 +310,7 @@ function focusWorldPoint(worldX, worldY, scale = 1.35) {
         (viewportHeight / 2) -
         (worldY * Camera.scale);
 
+    requestCameraRender();
 }
 
 
@@ -492,6 +493,8 @@ function applyResponsiveCameraDefaults() {
     Camera.y =
         (height / 2) -
         (openingGateY * Camera.scale);
+
+    requestCameraRender();
 }
 
 /*
@@ -602,6 +605,8 @@ viewport.addEventListener("touchmove", (e) => {
                     touchStartScale * ratio
                 )
             );
+
+        requestCameraRender();
     }
 
 }, { passive:false });
