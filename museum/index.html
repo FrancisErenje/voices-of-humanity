@@ -1635,9 +1635,10 @@ window.__vohOpenMuseumChat = function(event){
     return true;
   }
 
+  /* Use the completed click gesture for the universal close layer.
+     Pointer/touch end handlers can fire while the hidden museum building
+     is being exposed underneath the LocalMedia247 panel. */
   window.addEventListener("click",function(e){ closeTarget(e.target,e); },true);
-  window.addEventListener("pointerup",function(e){ closeTarget(e.target,e); },true);
-  window.addEventListener("touchend",function(e){ closeTarget(e.target,e); },true);
 
   bindAll();
   window.addEventListener("load",bindAll,{once:true});
