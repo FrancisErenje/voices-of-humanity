@@ -42,6 +42,22 @@ window.CinemaEngine = {
         this.collection =
             window.DocumentaryCollection || [];
 
+        /* First in the cinema: The Hidden Empress, followed by
+           the complete Voices of Humanity language documentary archive.
+           Other cinema items come after the language collection. */
+        this.collection = this.collection.slice().sort((a, b) => {
+            const hiddenA = a && a.id === "special-hidden-empress";
+            const hiddenB = b && b.id === "special-hidden-empress";
+            if (hiddenA && !hiddenB) return -1;
+            if (!hiddenA && hiddenB) return 1;
+
+            const languageA = a && a.episode !== null && a.episode !== undefined;
+            const languageB = b && b.episode !== null && b.episode !== undefined;
+            if (languageA && !languageB) return -1;
+            if (!languageA && languageB) return 1;
+
+            return 0;
+        });
 
         this.render();
 
