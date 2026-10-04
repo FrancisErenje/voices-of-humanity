@@ -106,6 +106,7 @@
         function open(index){
             lastFocused = document.activeElement;
             render(index);
+            reader.hidden = false;
             reader.style.display = "grid";
             reader.style.visibility = "visible";
             reader.style.opacity = "1";
@@ -123,6 +124,7 @@
                stylesheet/overlay has altered the modal's computed state. */
             reader.classList.remove("open");
             reader.setAttribute("aria-hidden","true");
+            reader.hidden = true;
             reader.style.display = "none";
             reader.style.visibility = "hidden";
             reader.style.opacity = "0";
