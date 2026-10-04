@@ -239,6 +239,31 @@ function createReflectionGardenExperience(gardenElement) {
         open();
     });
 
+    /* Hard hit-test fallback: the Garden can still open even when a
+     * decorative campus layer becomes the browser event target. */
+    if (!window.__vohReflectionGardenPriorityBound) {
+        window.__vohReflectionGardenPriorityBound = true;
+        function reflectionGardenPointInside(event) {
+            if (!event || typeof event.clientX !== "number" || typeof event.clientY !== "number") return false;
+            if (overlay.classList.contains("open")) return false;
+            const rect = gardenElement.getBoundingClientRect();
+            return event.clientX >= rect.left && event.clientX <= rect.right &&
+                   event.clientY >= rect.top && event.clientY <= rect.bottom;
+        }
+        window.addEventListener("click", function(event) {
+            if (!reflectionGardenPointInside(event)) return;
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            open();
+        }, true);
+        window.addEventListener("pointerup", function(event) {
+            if (event.pointerType === "mouse" || !reflectionGardenPointInside(event)) return;
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            open();
+        }, true);
+    }
+
     const closeButton = overlay.querySelector(".reflection-garden-close");
 
     function closeFromButton(event) {
