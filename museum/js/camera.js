@@ -85,18 +85,29 @@ Camera.y =
  * CAMERA RENDER
  *======================================*/
 
+let cameraRenderPending = false;
+let lastRenderedCameraX = null;
+let lastRenderedCameraY = null;
+let lastRenderedCameraScale = null;
+
 function updateCamera() {
+    cameraRenderPending = false;
 
-    world.style.transform =
-        `translate(${Camera.x}px, ${Camera.y}px)
-         scale(${Camera.scale})`;
+    if (Camera.x === lastRenderedCameraX && Camera.y === lastRenderedCameraY && Camera.scale === lastRenderedCameraScale) return;
 
-    requestAnimationFrame(updateCamera);
-
+    world.style.transform = `translate(${Camera.x}px, ${Camera.y}px) scale(${Camera.scale})`;
+    lastRenderedCameraX = Camera.x;
+    lastRenderedCameraY = Camera.y;
+    lastRenderedCameraScale = Camera.scale;
 }
 
+function requestCameraRender() {
+    if (cameraRenderPending) return;
+    cameraRenderPending = true;
+    requestAnimationFrame(updateCamera);
+}
 
-updateCamera();
+requestCameraRender();
 
 
 console.log(
@@ -173,10 +184,14 @@ window.addEventListener(
             e.clientX -
             Camera.startX;
 
+        requestCameraRender();
+
 
         Camera.y =
             e.clientY -
             Camera.startY;
+
+        requestCameraRender();
 
     }
 );
@@ -255,6 +270,8 @@ viewport.addEventListener(
         Camera.x -= e.deltaX;
 
         Camera.y -= e.deltaY;
+
+        requestCameraRender();
 
     },
 
@@ -558,9 +575,13 @@ viewport.addEventListener("touchmove", (e) => {
             touchStartCameraX +
             (t.clientX - touchStartX);
 
+        requestCameraRender();
+
         Camera.y =
             touchStartCameraY +
             (t.clientY - touchStartY);
+
+        requestCameraRender();
 
     }
     else if (e.touches.length >= 2) {
