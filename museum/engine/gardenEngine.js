@@ -170,10 +170,16 @@ function createReflectionGardenExperience(gardenElement) {
      * supplied for today's reflection. The card itself contains the
      * complete visual identity, numbering, quote and artwork. */
     todayPanel.innerHTML =
-        '<article class="reflection-card-live reflection-card-image-only">' +
+        '<article class="reflection-card-live reflection-card-textual">' +
             (current.image ? '<img class="reflection-card-image" src="' + current.image + '" alt="Voices of Humanity Reflection No. ' + current.number + ' — ' + current.heading + '">' : '') +
-        '</article>' +
-        '<div class="reflection-today-note">' + current.note + '</div>';
+            '<div class="reflection-text-content">' +
+                '<div class="reflection-text-number">REFLECTION ' + String(current.number).padStart(3, "0") + '</div>' +
+                '<div class="reflection-text-date">' + current.date + '</div>' +
+                '<h3>' + current.heading + '</h3>' +
+                '<blockquote>“' + current.quote + '”</blockquote>' +
+                '<p>' + current.note + '</p>' +
+            '</div>' +
+        '</article>';
 
     function open() {
         overlay.hidden = false;
