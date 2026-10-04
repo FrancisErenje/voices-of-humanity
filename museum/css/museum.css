@@ -7486,3 +7486,143 @@ body.lm247-news-reader-open{
     pointer-events:auto !important;
     cursor:pointer !important;
 }
+
+
+/* ==========================================
+   OCEANIA LANGUAGES MUSEUM — VISITOR EXPERIENCE
+========================================== */
+#oceaniaComplex{
+    z-index:70;
+}
+#oceaniaMuseum{
+    z-index:80;
+    pointer-events:auto;
+    cursor:pointer;
+}
+.oceania-languages-experience-overlay{
+    position:fixed;
+    inset:0;
+    display:none;
+    place-items:center;
+    padding:24px;
+    box-sizing:border-box;
+    background:rgba(2,5,12,.78);
+    backdrop-filter:blur(9px);
+    visibility:hidden;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .24s ease,visibility .24s ease;
+}
+.oceania-languages-experience-overlay.open{
+    display:flex;
+    visibility:visible;
+    opacity:1;
+    pointer-events:auto;
+}
+.oceania-languages-experience-card{
+    position:relative;
+    width:min(820px,94vw);
+    max-height:88vh;
+    overflow:auto;
+    box-sizing:border-box;
+    padding:34px;
+    border:1px solid rgba(232,194,91,.42);
+    border-radius:26px;
+    color:#f8f2df;
+    background:
+        radial-gradient(circle at 85% 10%,rgba(232,194,91,.13),transparent 27%),
+        linear-gradient(145deg,#090909,#17140d 55%,#050505);
+    box-shadow:0 28px 90px rgba(0,0,0,.68),0 0 42px rgba(232,194,91,.10);
+    transform:translateY(16px) scale(.97);
+    opacity:0;
+    transition:transform .28s ease,opacity .28s ease;
+}
+.oceania-languages-experience-overlay.open .oceania-languages-experience-card{
+    transform:translateY(0) scale(1);
+    opacity:1;
+}
+.oceania-languages-experience-close{
+    position:absolute;
+    top:14px;
+    right:14px;
+    z-index:4;
+    width:46px;
+    height:46px;
+    border:1px solid rgba(232,194,91,.35);
+    border-radius:50%;
+    background:rgba(0,0,0,.48);
+    color:#fff7df;
+    font:300 29px/1 Arial,sans-serif;
+    cursor:pointer;
+}
+.oceania-languages-experience-close:hover,
+.oceania-languages-experience-close:focus-visible{
+    background:rgba(232,194,91,.12);
+    border-color:rgba(232,194,91,.75);
+}
+.oceania-languages-experience-eyebrow{
+    color:#e8c25b;
+    font:900 10px/1 Arial,sans-serif;
+    letter-spacing:2px;
+    padding-right:54px;
+}
+.oceania-languages-experience-card h2{
+    margin:12px 0 13px;
+    color:#fff8e8;
+    font:900 clamp(28px,4vw,44px)/1.08 Arial,sans-serif;
+}
+.oceania-languages-experience-card > p{
+    max-width:700px;
+    margin:0;
+    color:#d8d1c1;
+    font:400 15px/1.7 Arial,sans-serif;
+}
+.oceania-experience-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:14px;
+    margin-top:25px;
+}
+.oceania-experience-grid > div{
+    padding:18px;
+    border:1px solid rgba(232,194,91,.16);
+    border-radius:18px;
+    background:rgba(255,255,255,.035);
+}
+.oceania-experience-grid span{
+    display:block;
+    margin-bottom:8px;
+    color:#e8c25b;
+    font:900 8px/1 Arial,sans-serif;
+    letter-spacing:1.2px;
+}
+.oceania-experience-grid strong{
+    display:block;
+    margin-bottom:7px;
+    color:#fff5d8;
+    font:800 17px/1.25 Arial,sans-serif;
+}
+.oceania-experience-grid p{
+    margin:0;
+    color:#bdb6a7;
+    font:400 12px/1.55 Arial,sans-serif;
+}
+.oceania-languages-experience-close:focus-visible{
+    outline:3px solid rgba(232,194,91,.55);
+    outline-offset:3px;
+}
+body.oceania-languages-overlay-open{
+    overflow:hidden;
+}
+@media(max-width:700px){
+    .oceania-languages-experience-overlay{padding:12px;}
+    .oceania-languages-experience-card{
+        width:96vw;
+        max-height:91vh;
+        padding:23px;
+        border-radius:21px;
+    }
+    .oceania-experience-grid{
+        grid-template-columns:1fr;
+    }
+}
