@@ -42,6 +42,11 @@ class LifeEngine {
 
         );
 
+        if(document.hidden){
+            setTimeout(()=>this.animate(), 250);
+            return;
+        }
+
         requestAnimationFrame(()=>this.animate());
 
     }
