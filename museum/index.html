@@ -38,6 +38,81 @@
     <link rel="stylesheet" href="css/hall-humanity.css">
     <link rel="stylesheet" href="css/museum-chat.css">
 
+    <!-- ==========================================
+         VOH INTERACTION PRIORITY LAYER
+         Registered before the museum engines so
+         exhibit clicks cannot be swallowed by legacy
+         camera/scene handlers.
+    =========================================== -->
+    <script>
+    (function(){
+        function reflectionClose(target){
+            var button = target && target.closest ? target.closest(".reflection-garden-close") : null;
+            if(!button) return false;
+            var overlay = button.closest(".reflection-garden-overlay");
+            if(!overlay) return false;
+            overlay.classList.remove("open");
+            overlay.hidden = true;
+            overlay.style.display = "none";
+            overlay.style.visibility = "hidden";
+            overlay.style.opacity = "0";
+            overlay.style.pointerEvents = "none";
+            overlay.style.zIndex = "-1";
+            document.body.classList.remove("reflection-garden-open");
+            return true;
+        }
+
+        function africanOpen(target){
+            var building = target && target.closest ? target.closest("#africaMuseum") : null;
+            if(!building) return false;
+            var overlay = document.querySelector(".african-languages-experience-overlay");
+            if(!overlay) return false;
+            if(typeof overlay._open === "function"){
+                overlay._open();
+            }else{
+                overlay.hidden = false;
+                overlay.classList.add("open");
+                document.body.classList.add("african-languages-overlay-open");
+            }
+            return true;
+        }
+
+        function capture(event){
+            if(reflectionClose(event.target)){
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                return;
+            }
+
+            if(event.type === "click" && africanOpen(event.target)){
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                return;
+            }
+        }
+
+        window.addEventListener("pointerdown", capture, true);
+        window.addEventListener("click", capture, true);
+        window.addEventListener("touchend", capture, true);
+
+        document.addEventListener("keydown", function(event){
+            if(event.key === "Escape"){
+                var reflection=document.querySelector(".reflection-garden-overlay.open");
+                if(reflection){
+                    reflection.classList.remove("open");
+                    reflection.hidden=true;
+                    reflection.style.display="none";
+                    reflection.style.visibility="hidden";
+                    reflection.style.opacity="0";
+                    reflection.style.pointerEvents="none";
+                    reflection.style.zIndex="-1";
+                    document.body.classList.remove("reflection-garden-open");
+                }
+            }
+        }, true);
+    })();
+    </script>
+
 </head>
 
 <body>
