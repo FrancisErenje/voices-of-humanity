@@ -937,7 +937,7 @@
 
 <script src="engine/roadEngine.js"></script>
 
-<script src="engine/gardenEngine.js?v=20261005-flower-full"></script>
+<script src="engine/gardenEngine.js?v=20261005-share-link"></script>
 
 <script src="engine/lightingEngine.js"></script>
 
@@ -1838,6 +1838,55 @@ window.__vohOpenMuseumChat = function(event){
   },true);
   window.addEventListener("touchend",delegatedPointer,true);
 
+})();
+</script>
+<!-- ==========================================
+     REFLECTION GARDEN SHARE LINK
+     URL: ?reflection=today
+     Opens today's live reflection directly.
+========================================== -->
+<script>
+(function(){
+  "use strict";
+  function openSharedReflection(){
+    var params=new URLSearchParams(window.location.search);
+    if(params.get("reflection") !== "today") return;
+
+    var attempts=0;
+    function tryOpen(){
+      attempts += 1;
+
+      if(typeof window.returnToMuseumHomepage === "function"){
+        window.returnToMuseumHomepage();
+      }
+
+      var panel=document.getElementById("museumPanel");
+      if(panel){
+        panel.hidden=true;
+        panel.style.display="none";
+        panel.style.visibility="hidden";
+        panel.style.pointerEvents="none";
+      }
+
+      if(typeof window.__vohOpenReflectionGarden === "function"){
+        window.__vohOpenReflectionGarden();
+        return;
+      }
+
+      if(attempts < 40){
+        setTimeout(tryOpen,100);
+      }
+    }
+
+    if(document.readyState === "complete"){
+      setTimeout(tryOpen,120);
+    }else{
+      window.addEventListener("load",function(){
+        setTimeout(tryOpen,120);
+      },{once:true});
+    }
+  }
+  openSharedReflection();
 })();
 </script>
 </body>
