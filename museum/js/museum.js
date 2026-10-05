@@ -521,10 +521,37 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
         /* Capture the close action at the overlay itself so camera/world
            handlers cannot swallow it. */
         if(close){
-            /* Complete the click before closing. Pointerdown/pointerup can
-               expose the building underneath during the same mouse gesture,
-               making the panel appear to refuse the close action. */
+            /*
+             * LOCALMEDIA247 CLOSE SHIELD
+             * The museum has several window-level pointer handlers. A
+             * pointerdown on the close button must therefore be consumed
+             * without closing yet; otherwise the building underneath can
+             * receive the same gesture and immediately reopen the studio.
+             * The completed click then performs the actual close.
+             */
+            function shieldClosePointer(event){
+                event.preventDefault();
+                event.stopPropagation();
+                if(typeof event.stopImmediatePropagation === "function"){
+                    event.stopImmediatePropagation();
+                }
+            }
+
+            close.addEventListener("pointerdown", shieldClosePointer, true);
+            close.addEventListener("mousedown", shieldClosePointer, true);
+            close.addEventListener("touchstart", shieldClosePointer, true);
             close.addEventListener("click", closeExperience, true);
+            close.addEventListener("touchend", function(event){
+                /* Touch devices do not always synthesize a reliable click
+                   after several delegated museum handlers have consumed the
+                   gesture, so close explicitly on touchend. */
+                event.preventDefault();
+                event.stopPropagation();
+                if(typeof event.stopImmediatePropagation === "function"){
+                    event.stopImmediatePropagation();
+                }
+                closeExperience(event);
+            }, true);
         }
 
         overlay.addEventListener("click", function(event){
