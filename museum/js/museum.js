@@ -374,8 +374,7 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
         overlay.className = "lm247-experience-overlay";
         overlay.innerHTML = `
             <div class="lm247-experience-card" role="dialog" aria-modal="true" aria-labelledby="lm247ExperienceTitle">
-                <div class="lm247-close-hit-zone" aria-hidden="true"></div>
-                <button class="lm247-experience-close" type="button" aria-label="Close LocalMedia247 information">×</button>
+                <button class="lm247-close-hit-zone" type="button" aria-label="Close LocalMedia247 information">×</button>
 
                 <div class="lm247-experience-eyebrow">LOCALMEDIA247 MEDIA CENTER</div>
                 <h2 id="lm247ExperienceTitle">Documenting Today. Preserving Tomorrow.</h2>
