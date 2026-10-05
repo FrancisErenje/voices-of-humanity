@@ -1046,3 +1046,31 @@ body.reflection-garden-open{
     .reflection-flower::before{font-size:22px;}
     .reflection-flower::after{height:10px;}
 }
+
+
+/* Fuller flowering around the Reflection Garden.
+   The right-side approach remains open for the walkway. */
+.flower-m{left:18%;top:5%;}
+.flower-n{left:37%;top:5%;}
+.flower-o{left:57%;top:5%;}
+.flower-p{left:76%;top:7%;}
+.flower-q{left:8%;top:21%;}
+.flower-r{left:16%;top:35%;}
+.flower-s{left:8%;top:63%;}
+.flower-t{left:18%;top:78%;}
+.flower-u{left:38%;top:96%;}
+.flower-v{left:58%;top:96%;}
+.flower-w{left:78%;top:95%;}
+.flower-x{left:90%;top:76%;}
+.flower-y{left:90%;top:25%;}
+.flower-z{left:70%;top:86%;}
+.flower-aa{left:27%;top:87%;}
+.flower-ab{left:48%;top:86%;}
+
+@media(max-width:700px){
+    .flower-m,.flower-n,.flower-o,.flower-p,.flower-q,.flower-r,
+    .flower-s,.flower-t,.flower-u,.flower-v,.flower-w,.flower-x,
+    .flower-y,.flower-z,.flower-aa,.flower-ab{
+        transform:translate(-50%,-50%) scale(.9);
+    }
+}
