@@ -944,3 +944,24 @@ body.reflection-garden-open{
         letter-spacing:1.4px;
     }
 }
+
+
+/* FINAL HOMEPAGE SCALE — REFLECTION GARDEN SIGNAGE */
+.museum-garden[data-garden-id="reflection-garden"]::after{
+    font-size:72px !important;
+    font-weight:900 !important;
+    letter-spacing:3px !important;
+    padding:12px 28px !important;
+    line-height:1 !important;
+    white-space:nowrap !important;
+    border-width:3px !important;
+    border-radius:20px !important;
+}
+@media(max-width:700px){
+    .museum-garden[data-garden-id="reflection-garden"]::after{
+        font-size:46px !important;
+        padding:9px 18px !important;
+        letter-spacing:2px !important;
+        border-width:2px !important;
+    }
+}
