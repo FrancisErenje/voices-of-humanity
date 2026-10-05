@@ -589,10 +589,45 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
         }
 
         overlay._open = function(){
+            overlay.hidden = false;
+            overlay.setAttribute("aria-hidden","false");
+            overlay.style.display = "flex";
+            overlay.style.visibility = "visible";
+            overlay.style.opacity = "1";
+            overlay.style.pointerEvents = "auto";
+            overlay.style.zIndex = "2147483646";
             overlay.classList.add("open");
             document.body.classList.add("lm247-overlay-open");
             setTimeout(() => close.focus(), 100);
         };
+
+        /* FINAL CLOSE GUARD
+           Window capture runs before the museum's document-level handlers.
+           This makes the close control authoritative even when another
+           museum interaction layer tries to consume the same click/tap. */
+        function hardCloseFromUserGesture(event){
+            const target = event && event.target;
+            const button = target && target.closest ? target.closest(".lm247-experience-close") : null;
+            if(!button || !overlay.classList.contains("open")) return;
+
+            event.preventDefault();
+            event.stopPropagation();
+            if(typeof event.stopImmediatePropagation === "function") event.stopImmediatePropagation();
+
+            overlay.classList.remove("open");
+            overlay.hidden = true;
+            overlay.setAttribute("aria-hidden","true");
+            overlay.style.display = "none";
+            overlay.style.visibility = "hidden";
+            overlay.style.opacity = "0";
+            overlay.style.pointerEvents = "none";
+            overlay.style.zIndex = "-1";
+            document.body.classList.remove("lm247-overlay-open");
+        }
+
+        window.addEventListener("click", hardCloseFromUserGesture, true);
+        window.addEventListener("pointerup", hardCloseFromUserGesture, true);
+        window.addEventListener("touchend", hardCloseFromUserGesture, true);
     }
 
     function enforceLocalMedia247Singleton(building){
