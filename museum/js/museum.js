@@ -160,7 +160,7 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 
         overlay.innerHTML = `
             <div class="african-languages-experience-card" role="dialog" aria-modal="true" aria-labelledby="africanLanguagesExperienceTitle">
-                <button class="african-languages-experience-close" type="button" aria-label="Close African Languages Museum">×</button>
+                <button class="african-languages-close-hit-zone" type="button" aria-label="Close African Languages Museum">×</button>
 
                 <div class="african-languages-experience-eyebrow">AFRICAN LANGUAGES MUSEUM</div>
                 <h2 id="africanLanguagesExperienceTitle">African Languages Museum</h2>
@@ -206,7 +206,7 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 
         document.body.appendChild(overlay);
 
-        const close = overlay.querySelector(".african-languages-experience-close");
+        const close = overlay.querySelector(".african-languages-close-hit-zone");
 
         function renderLivingNews(overlay){
         const feed = overlay.querySelector("#lm247LivingNewsFeed");
@@ -286,41 +286,55 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
    return the visitor to the already-visible museum canvas. */
         }
 
-        /* Use one real close control and guard the entire hit area against
-           the museum/world interaction layers. */
+        /* One physical button owns the entire close target. There is deliberately
+           no second invisible hit layer, so the first click cannot merely
+           dismiss a highlight or transfer the pointer to another layer. */
         function hardCloseFromUserGesture(event){
             if(!overlay.classList.contains("open")) return;
 
             const path = typeof event.composedPath === "function" ? event.composedPath() : [];
-            const target = path.find(node =>
+            const button = path.find(node =>
                 node && node.classList &&
-                node.classList.contains("african-languages-experience-close")
+                node.classList.contains("african-languages-close-hit-zone")
             ) || (event.target && event.target.closest
-                ? event.target.closest(".african-languages-experience-close")
+                ? event.target.closest(".african-languages-close-hit-zone")
                 : null);
 
-            if(target){
-                closeExperience(event);
-                return;
+            if(!button){
+                const card = overlay.querySelector(".african-languages-experience-card");
+                if(!card) return;
+                const rect = card.getBoundingClientRect();
+                const inCloseArea =
+                    event.clientX >= rect.right - 92 &&
+                    event.clientX <= rect.right - 4 &&
+                    event.clientY >= rect.top + 4 &&
+                    event.clientY <= rect.top + 92;
+                if(!inCloseArea) return;
             }
 
-            const card = overlay.querySelector(".african-languages-experience-card");
-            if(!card) return;
-            const rect = card.getBoundingClientRect();
-            if(event.clientX >= rect.right - 96 &&
-               event.clientX <= rect.right - 4 &&
-               event.clientY >= rect.top + 4 &&
-               event.clientY <= rect.top + 96){
-                closeExperience(event);
+            event.preventDefault();
+            event.stopPropagation();
+            if(typeof event.stopImmediatePropagation === "function"){
+                event.stopImmediatePropagation();
             }
+
+            overlay.classList.remove("open");
+            overlay.hidden = true;
+            overlay.setAttribute("aria-hidden","true");
+            overlay.style.display = "none";
+            overlay.style.visibility = "hidden";
+            overlay.style.opacity = "0";
+            overlay.style.pointerEvents = "none";
+            overlay.style.zIndex = "-1";
+            document.body.classList.remove("african-languages-overlay-open");
         }
 
         window.addEventListener("pointerdown", hardCloseFromUserGesture, true);
         window.addEventListener("mousedown", hardCloseFromUserGesture, true);
         window.addEventListener("touchstart", hardCloseFromUserGesture, true);
         window.addEventListener("click", hardCloseFromUserGesture, true);
-
-        close.addEventListener("click", closeExperience, true);
+        window.addEventListener("pointerup", hardCloseFromUserGesture, true);
+        window.addEventListener("touchend", hardCloseFromUserGesture, true);
 
         overlay.addEventListener("click", function(event){
             if(event.target === overlay) closeExperience(event);
