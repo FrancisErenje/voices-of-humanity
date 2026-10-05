@@ -965,3 +965,14 @@ body.reflection-garden-open{
         border-width:2px !important;
     }
 }
+
+
+/* Final Reflection Garden label vertical adjustment */
+.museum-garden[data-garden-id="reflection-garden"]::after{
+    bottom:-54px !important;
+}
+@media(max-width:700px){
+    .museum-garden[data-garden-id="reflection-garden"]::after{
+        bottom:-50px !important;
+    }
+}
