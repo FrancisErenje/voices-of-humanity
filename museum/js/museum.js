@@ -286,9 +286,40 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
    return the visitor to the already-visible museum canvas. */
         }
 
-        /* Use the completed click gesture. Closing on pointerdown/pointerup
-           can expose #africaMuseum underneath before the same gesture ends,
-           causing the museum to reopen immediately. */
+        /* Use one real close control and guard the entire hit area against
+           the museum/world interaction layers. */
+        function hardCloseFromUserGesture(event){
+            if(!overlay.classList.contains("open")) return;
+
+            const path = typeof event.composedPath === "function" ? event.composedPath() : [];
+            const target = path.find(node =>
+                node && node.classList &&
+                node.classList.contains("african-languages-experience-close")
+            ) || (event.target && event.target.closest
+                ? event.target.closest(".african-languages-experience-close")
+                : null);
+
+            if(target){
+                closeExperience(event);
+                return;
+            }
+
+            const card = overlay.querySelector(".african-languages-experience-card");
+            if(!card) return;
+            const rect = card.getBoundingClientRect();
+            if(event.clientX >= rect.right - 96 &&
+               event.clientX <= rect.right - 4 &&
+               event.clientY >= rect.top + 4 &&
+               event.clientY <= rect.top + 96){
+                closeExperience(event);
+            }
+        }
+
+        window.addEventListener("pointerdown", hardCloseFromUserGesture, true);
+        window.addEventListener("mousedown", hardCloseFromUserGesture, true);
+        window.addEventListener("touchstart", hardCloseFromUserGesture, true);
+        window.addEventListener("click", hardCloseFromUserGesture, true);
+
         close.addEventListener("click", closeExperience, true);
 
         overlay.addEventListener("click", function(event){
