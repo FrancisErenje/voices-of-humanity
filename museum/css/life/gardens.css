@@ -915,3 +915,32 @@ body.reflection-garden-open{
     }
 }
 \n/* Reflection Garden interaction priority — preserve the existing visual design. */\n.museum-garden[data-garden-id="reflection-garden"]{\n    position:absolute !important;\n    z-index:1500 !important;\n    pointer-events:auto !important;\n    cursor:pointer !important;\n}\n
+
+/* =========================================================
+   REFLECTION GARDEN — HOMEPAGE VISIBILITY LABEL
+   Make the destination unmistakable from the main museum view.
+========================================================= */
+.museum-garden[data-garden-id="reflection-garden"]::after{
+    bottom:-44px;
+    padding:8px 20px;
+    border:2px solid rgba(232,194,91,.98);
+    border-radius:16px;
+    background:linear-gradient(180deg,#17130b,#050505);
+    color:#ffd96a;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:17px;
+    font-weight:900;
+    line-height:1;
+    letter-spacing:2px;
+    text-shadow:0 1px 0 #2b2109,0 0 10px rgba(255,214,90,.35);
+    box-shadow:0 6px 16px rgba(0,0,0,.42),0 0 16px rgba(232,194,91,.18),inset 0 1px 0 rgba(255,255,255,.10);
+    pointer-events:none;
+}
+@media(max-width:700px){
+    .museum-garden[data-garden-id="reflection-garden"]::after{
+        bottom:-40px;
+        padding:7px 13px;
+        font-size:13px;
+        letter-spacing:1.4px;
+    }
+}
