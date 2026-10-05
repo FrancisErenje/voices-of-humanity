@@ -619,7 +619,23 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
                 ? event.target.closest(".lm247-experience-close, .lm247-close-hit-zone")
                 : null);
 
-            if(!button) return;
+            /* Coordinate fallback: close anywhere in the intended top-right
+               hit area even if another museum layer becomes the event target.
+               This fixes the case where the cursor only becomes a hand near
+               the upper edge of the visible close control. */
+            if(!button){
+                const card = overlay.querySelector(".lm247-experience-card");
+                if(!card) return;
+                const rect = card.getBoundingClientRect();
+                const x = event.clientX;
+                const y = event.clientY;
+                const inCloseArea =
+                    x >= rect.right - 92 &&
+                    x <= rect.right - 4 &&
+                    y >= rect.top + 4 &&
+                    y <= rect.top + 92;
+                if(!inCloseArea) return;
+            }
 
             event.preventDefault();
             event.stopPropagation();
