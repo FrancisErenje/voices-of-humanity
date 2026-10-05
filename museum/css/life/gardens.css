@@ -1121,3 +1121,9 @@ body.reflection-garden-open{
     cursor:pointer !important;
     overflow:hidden;
 }
+
+
+/* Reflection Garden label — 30% lighter weight */
+.museum-garden[data-garden-id="reflection-garden"]::after{
+    font-weight:560 !important;
+}
