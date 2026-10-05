@@ -49,7 +49,10 @@ function createGarden(garden) {
 
         const flowerPositions = [
             "flower-a","flower-b","flower-c","flower-d","flower-e","flower-f",
-            "flower-g","flower-h","flower-i","flower-j","flower-k","flower-l"
+            "flower-g","flower-h","flower-i","flower-j","flower-k","flower-l",
+            "flower-m","flower-n","flower-o","flower-p","flower-q","flower-r",
+            "flower-s","flower-t","flower-u","flower-v","flower-w","flower-x",
+            "flower-y","flower-z","flower-aa","flower-ab"
         ];
 
         flowerPositions.forEach(function(name, index){
