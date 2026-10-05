@@ -4745,7 +4745,7 @@ transform:rotate(-1deg);
     box-shadow:0 28px 80px rgba(0,0,0,.48);
 }
 
-.african-languages-experience-close{
+.african-languages-close-hit-zone{
     position:absolute;
     top:8px;
     right:10px;
@@ -7505,7 +7505,7 @@ body.lm247-news-reader-open{
     z-index:2147483646 !important;
 }
 .reflection-garden-close,
-.african-languages-experience-close{
+.african-languages-close-hit-zone{
     pointer-events:auto !important;
     cursor:pointer !important;
 }
