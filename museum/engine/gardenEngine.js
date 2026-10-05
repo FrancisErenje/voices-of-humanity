@@ -381,6 +381,9 @@ function createReflectionGardenExperience(gardenElement) {
     /* Start explicitly on today's reflection. */
     showGardenView("today", overlay.querySelector('.reflection-garden-menu button[data-view="today"]'));
 
+    /* Public deep link support: expose only the official Garden opener. */
+    window.__vohOpenReflectionGarden = open;
+
     document.addEventListener("keydown", function(event) {
         if (event.key === "Escape" && overlay.classList.contains("open")) close();
     });
