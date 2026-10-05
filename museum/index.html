@@ -978,9 +978,9 @@
     });
   }
   function start(){
-    loadScript("js/museum-chat.js").then(function(){
-      setTimeout(function(){ loadScript("js/museum-language.js"); },250);
-    });
+    /* museum-chat.js is loaded synchronously above so multilingual chat
+       support is available before visitors begin typing. */
+    loadScript("js/museum-language.js");
   }
   if(document.readyState==="complete") setTimeout(start,350);
   else window.addEventListener("load",function(){ setTimeout(start,350); },{once:true});
@@ -1362,6 +1362,7 @@ window.__vohOpenMuseumChat = function(event){
 };
 </script>
 <script src="data/interface-languages.js"></script>
+<script src="js/museum-chat.js"></script>
 <script>
 /* Independent chat interaction fallback.
    Keeps the Museum Guide usable even if a non-chat museum script fails. */
@@ -1401,6 +1402,13 @@ window.__vohOpenMuseumChat = function(event){
     if(museumAdminContactPending && /^(yes|yeah|yep|sure|okay|ok|please|contact|contact admin|talk to admin|speak to admin)$/i.test(s)){
       museumAdminContactPending=false;
       return '<strong>You can contact a museum administrator here:</strong><br><br><a href="https://wa.me/2348064137756" target="_blank" rel="noopener noreferrer">Open WhatsApp → +234 806 413 7756</a>';
+    }
+
+    /* Use the museum's multilingual guide for visitor questions whenever
+       it is available. This keeps typed questions and answers in the
+       language selected by the visitor. */
+    if(window.VOHMuseumAnswerFor){
+      return window.VOHMuseumAnswerFor(q);
     }
 
     if(s.indexOf("reflection")>=0 || s.indexOf("garden")>=0)
@@ -1481,6 +1489,15 @@ window.__vohOpenMuseumChat = function(event){
       services:"What services does LocalMedia247 offer?",
       human:"I want to speak to a human."
     }[intent]||btn.textContent;
+
+    /* Display the question in the visitor's selected language and route
+       the answer through the same multilingual intent system. */
+    if(window.VOHMuseumAnswerFor){
+      var shown=btn.textContent;
+      show(shown.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"),"user");
+      setTimeout(function(){show(window.VOHMuseumAnswerFor("intent:"+intent),"bot");},150);
+      return;
+    }
     send(q);
   },true);
 
