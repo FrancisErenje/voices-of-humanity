@@ -1098,3 +1098,9 @@ body.reflection-garden-open{
     letter-spacing:1px !important;
     text-align:center !important;
 }
+
+
+/* Slightly lighter Reflection Garden label weight */
+.museum-garden[data-garden-id="reflection-garden"]::after{
+    font-weight:800 !important;
+}
