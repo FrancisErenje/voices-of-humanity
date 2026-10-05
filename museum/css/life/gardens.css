@@ -976,3 +976,73 @@ body.reflection-garden-open{
         bottom:-57px !important;
     }
 }
+
+
+/* =========================================================
+   REFLECTION GARDEN — VISIBLE FLOWER RING
+   ========================================================= */
+.reflection-flower-ring{
+    position:absolute;
+    inset:0;
+    z-index:12;
+    pointer-events:none;
+}
+.reflection-flower{
+    position:absolute;
+    width:30px;
+    height:30px;
+    display:block;
+    transform:translate(-50%,-50%);
+    filter:drop-shadow(0 3px 4px rgba(0,0,0,.28));
+}
+.reflection-flower::before{
+    content:"✿";
+    position:absolute;
+    left:50%;
+    top:44%;
+    transform:translate(-50%,-50%);
+    font:900 28px/1 Georgia,serif;
+    text-shadow:0 1px 2px rgba(0,0,0,.35);
+}
+.reflection-flower::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:68%;
+    width:3px;
+    height:13px;
+    transform:translateX(-50%);
+    border-radius:4px;
+    background:#376f35;
+    box-shadow:-7px 5px 0 -1px #4a8644,7px 3px 0 -1px #4a8644;
+}
+.reflection-flower:nth-child(3n+1)::before{color:#f0c95b;}
+.reflection-flower:nth-child(3n+2)::before{color:#e89ab2;}
+.reflection-flower:nth-child(3n)::before{color:#f4efe0;}
+.reflection-flower:nth-child(2n)::after{transform:translateX(-50%) rotate(-5deg);}
+.reflection-flower:nth-child(3n)::after{transform:translateX(-50%) rotate(6deg);}
+
+/* Top and bottom borders */
+.flower-a{left:10%;top:11%;}
+.flower-b{left:27%;top:7%;}
+.flower-c{left:46%;top:8%;}
+.flower-d{left:66%;top:9%;}
+.flower-e{left:85%;top:14%;}
+.flower-f{left:12%;top:88%;}
+.flower-g{left:30%;top:94%;}
+.flower-h{left:49%;top:93%;}
+.flower-i{left:68%;top:92%;}
+.flower-j{left:86%;top:86%;}
+
+/* Side beds, leaving the walkway approach visually open */
+.flower-k{left:4%;top:47%;}
+.flower-l{left:94%;top:48%;}
+
+.reflection-flower:nth-child(3n+2){transform:translate(-50%,-50%) scale(.88);}
+.reflection-flower:nth-child(3n){transform:translate(-50%,-50%) scale(.74);}
+
+@media(max-width:700px){
+    .reflection-flower{width:24px;height:24px;}
+    .reflection-flower::before{font-size:22px;}
+    .reflection-flower::after{height:10px;}
+}
