@@ -394,6 +394,110 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 
 
 /*======================================
+   CONTINENTAL BUILDING HIT SURFACES
+   Africa + Americas: the whole visible building
+   is one reliable click/tap target.
+======================================*/
+(function setupContinentalBuildingHitSurfaces(){
+    function bindBuilding(id, openFunction){
+        const building = document.getElementById(id);
+        if(!building || building.dataset.fullBuildingClickBound === "true") return;
+        building.dataset.fullBuildingClickBound = "true";
+        building.setAttribute("tabindex","0");
+        building.setAttribute("role","button");
+        building.style.pointerEvents = "auto";
+        building.style.cursor = "pointer";
+
+        const activate = function(event){
+            if(event){
+                event.preventDefault();
+                event.stopImmediatePropagation();
+            }
+            openFunction();
+        };
+
+        building.addEventListener("click", activate, true);
+        building.addEventListener("pointerup", function(event){
+            if(event.pointerType !== "mouse") activate(event);
+        }, true);
+        building.addEventListener("touchend", activate, true);
+        building.addEventListener("keydown", function(event){
+            if(event.key === "Enter" || event.key === " ") activate(event);
+        }, true);
+    }
+
+    function bind(){
+        const africa = document.getElementById("africaMuseum");
+        if(africa){
+            const overlay = document.querySelector(".african-languages-experience-overlay");
+            bindBuilding("africaMuseum", function(){
+                if(overlay && typeof overlay._open === "function") overlay._open();
+            });
+        }
+
+        const americas = document.getElementById("americasMuseum");
+        if(americas){
+            let overlay = document.querySelector('.voh-continental-direct[data-building="americasMuseum"]');
+            if(!overlay){
+                overlay = document.createElement("div");
+                overlay.className = "voh-continental-direct";
+                overlay.dataset.building = "americasMuseum";
+                overlay.hidden = true;
+                overlay.setAttribute("aria-hidden","true");
+                overlay.innerHTML = '<div class="voh-continental-direct-card" role="dialog" aria-modal="true" aria-labelledby="americasMuseumTitle">' +
+                    '<button type="button" class="voh-continental-direct-close" aria-label="Close Americas Languages Museum">×</button>' +
+                    '<div class="voh-continental-direct-kicker">VOICES OF HUMANITY · LIVING LANGUAGE ARCHIVE</div>' +
+                    '<h2 id="americasMuseumTitle">Americas Languages Museum</h2>' +
+                    '<p>Explore the extraordinary linguistic diversity of North, Central and South America and the Indigenous communities whose languages carry living histories, knowledge and identity.</p>' +
+                    '<div class="voh-continental-direct-grid">' +
+                    '<article><span>LANGUAGES</span><strong>Living Voices</strong><p>Discover languages and the communities that keep them alive.</p></article>' +
+                    '<article><span>CULTURE</span><strong>Language &amp; Identity</strong><p>Explore language as a carrier of memory, identity and knowledge.</p></article>' +
+                    '<article><span>HERITAGE</span><strong>Stories That Endure</strong><p>Encounter linguistic histories preserved through living voices.</p></article>' +
+                    '</div></div>';
+                document.body.appendChild(overlay);
+                const close = overlay.querySelector(".voh-continental-direct-close");
+                const closeOverlay = function(event){
+                    if(event){ event.preventDefault(); event.stopImmediatePropagation(); }
+                    overlay.classList.remove("open");
+                    overlay.hidden = true;
+                    overlay.setAttribute("aria-hidden","true");
+                    overlay.style.display = "none";
+                    overlay.style.visibility = "hidden";
+                    overlay.style.opacity = "0";
+                    overlay.style.pointerEvents = "none";
+                    overlay.style.zIndex = "-1";
+                    if(typeof window.returnToMuseumHomepage === "function") window.returnToMuseumHomepage();
+                };
+                close.addEventListener("click", closeOverlay, true);
+                close.addEventListener("pointerup", closeOverlay, true);
+                close.addEventListener("touchend", closeOverlay, true);
+                overlay.addEventListener("click", function(event){
+                    if(event.target === overlay) closeOverlay(event);
+                }, true);
+                overlay._open = function(){
+                    overlay.hidden = false;
+                    overlay.setAttribute("aria-hidden","false");
+                    overlay.style.display = "flex";
+                    overlay.style.visibility = "visible";
+                    overlay.style.opacity = "1";
+                    overlay.style.pointerEvents = "auto";
+                    overlay.style.zIndex = "2147483647";
+                    overlay.classList.add("open");
+                    setTimeout(function(){ if(close) close.focus(); },80);
+                };
+            }
+            bindBuilding("americasMuseum", function(){ overlay._open(); });
+        }
+    }
+
+    if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", bind);
+    else bind();
+    setTimeout(bind,500);
+    setTimeout(bind,1500);
+})();
+
+
+/*======================================
    LOCALMEDIA247 — VISITOR EXPERIENCE
    One clean visitor page: today first,
    yesterday next, dated archive links,
