@@ -40,6 +40,28 @@ function createGarden(garden) {
         });
     }
 
+    /* Add a visible floral ring around the Reflection Garden. The flowers
+     * are decorative only and never interfere with the Garden click target. */
+    if (garden.id === "reflection-garden") {
+        const flowerRing = document.createElement("div");
+        flowerRing.className = "reflection-flower-ring";
+        flowerRing.setAttribute("aria-hidden", "true");
+
+        const flowerPositions = [
+            "flower-a","flower-b","flower-c","flower-d","flower-e","flower-f",
+            "flower-g","flower-h","flower-i","flower-j","flower-k","flower-l"
+        ];
+
+        flowerPositions.forEach(function(name, index){
+            const flower = document.createElement("span");
+            flower.className = "reflection-flower " + name;
+            flower.dataset.flowerIndex = String(index);
+            flowerRing.appendChild(flower);
+        });
+
+        element.appendChild(flowerRing);
+    }
+
     campus.appendChild(element);
 
     /*======================================*
