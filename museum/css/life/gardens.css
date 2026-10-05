@@ -928,7 +928,7 @@ body.reflection-garden-open{
     background:linear-gradient(180deg,#17130b,#050505);
     color:#ffd96a;
     font-family:Arial,Helvetica,sans-serif;
-    font-size:17px;
+    font-size:22px;
     font-weight:900;
     line-height:1;
     letter-spacing:2px;
@@ -940,7 +940,7 @@ body.reflection-garden-open{
     .museum-garden[data-garden-id="reflection-garden"]::after{
         bottom:-40px;
         padding:7px 13px;
-        font-size:13px;
+        font-size:17px;
         letter-spacing:1.4px;
     }
 }
