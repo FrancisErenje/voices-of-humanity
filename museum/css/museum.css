@@ -8045,3 +8045,28 @@ body.continental-language-overlay-open{
   opacity:1 !important;
   pointer-events:auto !important;
 }
+
+/* ==========================================
+   FULL BUILDING CLICK SURFACES — AFRICA + AMERICAS
+   Decorative children must never steal the building click.
+========================================== */
+#africaComplex #africaMuseum{
+    width:320px !important;
+    height:230px !important;
+    pointer-events:auto !important;
+    cursor:pointer !important;
+    box-sizing:border-box !important;
+}
+#africaComplex #africaMuseum > *{
+    pointer-events:none !important;
+}
+#americasComplex #americasMuseum{
+    width:330px !important;
+    height:230px !important;
+    pointer-events:auto !important;
+    cursor:pointer !important;
+    box-sizing:border-box !important;
+}
+#americasComplex #americasMuseum > *{
+    pointer-events:none !important;
+}
