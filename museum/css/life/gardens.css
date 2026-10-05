@@ -1074,3 +1074,17 @@ body.reflection-garden-open{
         transform:translate(-50%,-50%) scale(.9);
     }
 }
+
+
+/* Final typography refinement — Reflection Garden label */
+.museum-garden[data-garden-id="reflection-garden"]::after{
+    font-family:Arial,Helvetica,sans-serif !important;
+    font-weight:900 !important;
+    color:#ffe38a !important;
+    text-shadow:0 1px 0 #111, 0 0 2px rgba(255,227,138,.55) !important;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    text-rendering:geometricPrecision;
+    border-color:#e8c25b !important;
+    background:linear-gradient(180deg,#14110b,#050505) !important;
+}
