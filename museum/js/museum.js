@@ -281,9 +281,9 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
             overlay.style.zIndex = "-1";
             document.body.classList.remove("african-languages-overlay-open");
 
-            if(typeof window.returnToMuseumHomepage === "function"){
-                window.returnToMuseumHomepage();
-            }
+            /* Do not return through the global museum navigation here.
+   The LocalMedia247 studio is a modal layer; closing it must simply
+   return the visitor to the already-visible museum canvas. */
         }
 
         /* Use the completed click gesture. Closing on pointerdown/pointerup
@@ -583,9 +583,9 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
             overlay.style.zIndex = "-1";
             document.body.classList.remove("lm247-overlay-open");
 
-            if(typeof window.returnToMuseumHomepage === "function"){
-                window.returnToMuseumHomepage();
-            }
+            /* Do not return through the global museum navigation here.
+   The LocalMedia247 studio is a modal layer; closing it must simply
+   return the visitor to the already-visible museum canvas. */
         }
 
         overlay._open = function(){
@@ -606,14 +606,24 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
            This makes the close control authoritative even when another
            museum interaction layer tries to consume the same click/tap. */
         function hardCloseFromUserGesture(event){
-            const target = event && event.target;
-            const button = target && target.closest ? target.closest(".lm247-experience-close") : null;
-            if(!button || !overlay.classList.contains("open")) return;
+            if(!overlay.classList.contains("open")) return;
+
+            const path = typeof event.composedPath === "function" ? event.composedPath() : [];
+            const button = path.find(node =>
+                node && node.classList && node.classList.contains("lm247-experience-close")
+            ) || (event.target && event.target.closest
+                ? event.target.closest(".lm247-experience-close")
+                : null);
+
+            if(!button) return;
 
             event.preventDefault();
             event.stopPropagation();
-            if(typeof event.stopImmediatePropagation === "function") event.stopImmediatePropagation();
+            if(typeof event.stopImmediatePropagation === "function"){
+                event.stopImmediatePropagation();
+            }
 
+            /* Close synchronously and leave the camera/world untouched. */
             overlay.classList.remove("open");
             overlay.hidden = true;
             overlay.setAttribute("aria-hidden","true");
@@ -625,6 +635,11 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
             document.body.classList.remove("lm247-overlay-open");
         }
 
+        /* Capture the gesture before any museum/world interaction layer.
+           All three paths are covered for mouse, pointer and touch input. */
+        window.addEventListener("pointerdown", hardCloseFromUserGesture, true);
+        window.addEventListener("mousedown", hardCloseFromUserGesture, true);
+        window.addEventListener("touchstart", hardCloseFromUserGesture, true);
         window.addEventListener("click", hardCloseFromUserGesture, true);
         window.addEventListener("pointerup", hardCloseFromUserGesture, true);
         window.addEventListener("touchend", hardCloseFromUserGesture, true);
