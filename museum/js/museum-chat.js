@@ -14,6 +14,46 @@
 
   if(!launcher||!panel||!closeBtn||!form||!input||!messages) return;
 
+  function translateChatInterface(){
+    const l=window.VOHCurrentLanguage?window.VOHCurrentLanguage():"en";
+    const tr=(window.VOH_TRANSLATIONS&&window.VOH_TRANSLATIONS[l])||window.VOH_TRANSLATIONS&&window.VOH_TRANSLATIONS.en||{};
+    const dir=(window.VOH_LANGUAGES&&window.VOH_LANGUAGES[l]&&window.VOH_LANGUAGES[l].dir)||"ltr";
+    panel.setAttribute("dir",dir);
+    launcher.setAttribute("aria-label",tr.ask||"Ask the Museum");
+    const launcherLabel=launcher.querySelector(".museum-chat-launcher-label");
+    if(launcherLabel) launcherLabel.textContent=tr.ask||"Ask the Museum";
+    const title=panel.querySelector(".museum-chat-header h2");
+    const guide=panel.querySelector(".museum-chat-header p");
+    const close=panel.querySelector("#museumChatClose");
+    const note=panel.querySelector(".museum-chat-note");
+    const formEl=panel.querySelector("#museumChatForm");
+    if(title) title.textContent=tr.ask||"Ask the Museum";
+    if(guide) guide.textContent=tr.guide||"Your digital museum guide";
+    if(close) close.setAttribute("aria-label",tr.close||"Close chat");
+    if(note) note.textContent=tr.museumGuide||"Museum Guide · Built into Voices of Humanity";
+    if(formEl) formEl.setAttribute("aria-label",tr.ask||"Ask the Museum question");
+    input.placeholder=tr.input||"Ask about the museum…";
+    input.setAttribute("aria-label",tr.input||"Your question");
+    const sendBtn=panel.querySelector("#museumChatSend");
+    if(sendBtn) sendBtn.setAttribute("aria-label",tr.send||"Send message");
+    const suggestionMap=[
+      ["voices","what"],["whatSee","whatSee"],["reflection","reflection"],
+      ["hall","hall"],["services","services"],["human","human"]
+    ];
+    suggestionMap.forEach(([intent,key])=>{
+      const btn=messages.querySelector('[data-chat-intent="'+intent+'"]');
+      if(btn && tr[key]) btn.textContent=tr[key];
+    });
+    const first=messages.querySelector(".museum-chat-bot");
+    if(first && !messages.querySelector(".museum-chat-user")){
+      const suggestions=first.querySelector(".museum-chat-suggestions");
+      if(suggestions){
+        first.innerHTML="<strong>"+(tr.welcome||"Welcome.")+"</strong><br>"+((localized[l]&&localized[l].fallback)||localized.en.fallback||"I am the museum's built-in guide.") ;
+        first.appendChild(suggestions);
+      }
+    }
+  }
+
   const knowledge=[
     {
       keys:["what is voices of humanity","what is this museum","voices of humanity"],
@@ -300,10 +340,15 @@
     if(btn) submitQuestion("intent:"+btn.getAttribute("data-chat-intent"));
   });
 
+  window.VOHMuseumAnswerFor=answerFor;
+  window.VOHMuseumLocalized=localized;
+  translateChatInterface();
+
   document.addEventListener("voh:languageChanged",()=>{
     const l=window.VOHCurrentLanguage?window.VOHCurrentLanguage():"en";
     const r=localized[l]||localized.en;
     const tr=(window.VOH_TRANSLATIONS||{})[l]||{};
+    translateChatInterface();
     const first=messages.querySelector(".museum-chat-bot");
     const suggestions=messages.querySelector(".museum-chat-suggestions");
     if(first && suggestions && !messages.querySelector(".museum-chat-user")){
