@@ -969,11 +969,11 @@ body.reflection-garden-open{
 
 /* Final Reflection Garden label vertical adjustment */
 .museum-garden[data-garden-id="reflection-garden"]::after{
-    bottom:-61px !important;
+    bottom:-65px !important;
 }
 @media(max-width:700px){
     .museum-garden[data-garden-id="reflection-garden"]::after{
-        bottom:-57px !important;
+        bottom:-61px !important;
     }
 }
 
