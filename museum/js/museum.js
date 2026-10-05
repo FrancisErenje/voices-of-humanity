@@ -611,9 +611,12 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 
             const path = typeof event.composedPath === "function" ? event.composedPath() : [];
             const button = path.find(node =>
-                node && node.classList && node.classList.contains("lm247-experience-close")
+                node && node.classList && (
+                    node.classList.contains("lm247-experience-close") ||
+                    node.classList.contains("lm247-close-hit-zone")
+                )
             ) || (event.target && event.target.closest
-                ? event.target.closest(".lm247-experience-close")
+                ? event.target.closest(".lm247-experience-close, .lm247-close-hit-zone")
                 : null);
 
             if(!button) return;
