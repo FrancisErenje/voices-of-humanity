@@ -1104,3 +1104,20 @@ body.reflection-garden-open{
 .museum-garden[data-garden-id="reflection-garden"]::after{
     font-weight:800 !important;
 }
+
+
+/* Reflection Garden close button — centered, full-surface hit target */
+.reflection-garden-close{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    box-sizing:border-box !important;
+    padding:0 !important;
+    margin:0 !important;
+    text-align:center !important;
+    line-height:1 !important;
+    pointer-events:auto !important;
+    touch-action:manipulation !important;
+    cursor:pointer !important;
+    overflow:hidden;
+}
