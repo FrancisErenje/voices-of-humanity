@@ -352,7 +352,7 @@
     const first=messages.querySelector(".museum-chat-bot");
     const suggestions=messages.querySelector(".museum-chat-suggestions");
     if(first && suggestions && !messages.querySelector(".museum-chat-user")){
-      first.innerHTML="<strong>"+(tr.welcome||"Welcome.")+"</strong><br>"+(r.welcome||r.fallback)+suggestions.outerHTML;
+      first.innerHTML="<strong>"+(tr.welcome||"Welcome.")+"</strong><br>"+(r.fallback||localized.en.fallback)+suggestions.outerHTML;
     }
   });
 
