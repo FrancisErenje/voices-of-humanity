@@ -1,11 +1,19 @@
 /*
   LocalMedia247 — Living News Wall
-  Morning Brief · Monday, October 5, 2026
+  Continuous News · Updated Whenever News Changes
   One source of truth for the physical News Wall and visitor newsroom.
+
+  Editorial cadence:
+  LocalMedia247 no longer operates on a fixed daily-brief model.
+  News may be published/updated in the morning, afternoon, evening,
+  or at any other time when a verified story becomes important enough
+  to share. The newsroom should therefore be treated as a live news desk.
 */
 window.LocalMedia247News = {
   date: "MONDAY, OCTOBER 5, 2026",
-  updatedLabel: "MORNING BRIEF · 5 OCTOBER 2026",
+  updatedLabel: "LIVE NEWS · UPDATED 5 OCTOBER 2026",
+  updateMode: "ANYTIME",
+  cadenceLabel: "MORNING · AFTERNOON · EVENING · ANYTIME",
   stories: [
     {id:"ng-nysc-abduction",category:"NIGERIA",location:"Imo State",headline:"Security agencies intensify efforts to rescue abducted prospective NYSC members",summary:"Police and other security agencies are working to rescue prospective NYSC members abducted in Imo State, while an identified hideout has been approached cautiously because of an alleged IED threat.",source:"PUNCH / Guardian Nigeria",url:"https://www.punchng.com/nysc-kidnap-ied-threat-stalls-rescue-operation/",visual:"🇳🇬",featured:true},
     {id:"ng-ndlea-n5bn",category:"NIGERIA",location:"Lagos / Rivers",headline:"NDLEA intercepts drug consignments worth over N5bn",summary:"The NDLEA says it intercepted illicit drug consignments worth more than N5 billion at Lagos and Onne ports, alongside other nationwide seizures and arrests.",source:"Guardian Nigeria / Channels Television",url:"https://guardian.ng/news/nigeria/metro/ndlea-seizes-cocaine-over-n5b-drugs-in-nationwide-operations/",visual:"🚔",featured:true},
