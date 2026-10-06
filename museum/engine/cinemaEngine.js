@@ -42,19 +42,19 @@ window.CinemaEngine = {
         this.collection =
             window.DocumentaryCollection || [];
 
-        /* First in the cinema: The Hidden Empress, followed by
-           the complete Voices of Humanity language documentary archive.
-           Other cinema items come after the language collection. */
+        /* The Voices of Humanity language documentaries are ALWAYS
+           the first collection visitors encounter in the cinema.
+           Newest episode first; special/other documentaries follow. */
         this.collection = this.collection.slice().sort((a, b) => {
-            const hiddenA = a && a.id === "special-hidden-empress";
-            const hiddenB = b && b.id === "special-hidden-empress";
-            if (hiddenA && !hiddenB) return -1;
-            if (!hiddenA && hiddenB) return 1;
-
             const languageA = a && a.episode !== null && a.episode !== undefined;
             const languageB = b && b.episode !== null && b.episode !== undefined;
+
             if (languageA && !languageB) return -1;
             if (!languageA && languageB) return 1;
+
+            if (languageA && languageB) {
+                return Number(b.episode) - Number(a.episode);
+            }
 
             return 0;
         });
@@ -119,6 +119,24 @@ window.CinemaEngine = {
         const content = overlay.querySelector(".cinema-experience-content");
         const close = overlay.querySelector(".cinema-experience-close");
 
+        /* Reliable physical hit target, including touch devices. */
+        Object.assign(close.style, {
+            position: "absolute",
+            top: "8px",
+            right: "10px",
+            width: "72px",
+            height: "72px",
+            minWidth: "72px",
+            minHeight: "72px",
+            padding: "0",
+            margin: "0",
+            boxSizing: "border-box",
+            zIndex: "2147483647",
+            pointerEvents: "auto",
+            cursor: "pointer",
+            touchAction: "manipulation"
+        });
+
         const openExperience = (event) => {
             if (event) {
                 event.preventDefault();
@@ -139,7 +157,26 @@ window.CinemaEngine = {
             if (typeof returnToMuseumHomepage === "function") returnToMuseumHomepage();
         };
 
-        close.addEventListener("click", closeExperience);
+        function closeFromButton(event) {
+            if (event) {
+                event.preventDefault();
+                event.stopImmediatePropagation();
+            }
+            closeExperience();
+        }
+
+        /* Use the actual button as the single close target. Capture the
+           completed click so legacy museum/camera handlers cannot swallow it. */
+        close.addEventListener("click", closeFromButton, true);
+
+        window.addEventListener("click", (event) => {
+            const button = event.target && event.target.closest
+                ? event.target.closest(".cinema-experience-close")
+                : null;
+            if (button && overlay.contains(button) && overlay.classList.contains("open")) {
+                closeFromButton(event);
+            }
+        }, true);
 
         overlay.addEventListener("click", (event) => {
             if (event.target === overlay) closeExperience();
