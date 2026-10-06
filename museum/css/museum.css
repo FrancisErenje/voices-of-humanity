@@ -4716,7 +4716,7 @@ transform:rotate(-1deg);
 .african-languages-experience-overlay{
     position:fixed;
     inset:0;
-    z-index:22000;
+    z-index:2147483647;
     display:none;
     align-items:center;
     justify-content:center;
@@ -8121,7 +8121,16 @@ body.continental-language-overlay-open{
     cursor:pointer !important;
     touch-action:manipulation !important;
     -webkit-tap-highlight-color:transparent !important;
-    z-index:2147483647 !important;
+    z-index:2147483646 !important;
+}
+
+/* When a museum experience is open, the transparent world/building hit layer
+   must never sit above the visitor's active controls. */
+body:has(.african-languages-experience-overlay.open) .voh-building-hit-surface,
+body:has(.african-languages-experience-overlay.open) .voh-garden-hit-surface,
+body:has(.african-languages-experience-overlay.open) .full-building-hit-surface,
+body:has(.african-languages-experience-overlay.open) .hall-click-surface{
+    pointer-events:none !important;
 }
 
 .voh-building-hit-surface:focus-visible,
