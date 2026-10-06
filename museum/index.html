@@ -107,7 +107,7 @@
             var overlay = control.closest(".african-languages-experience-overlay");
             if(!overlay || !overlay.classList.contains("open")) return false;
 
-            window.location.href = "/museum/academy/igede.html";
+            window.location.assign("/museum/academy/igede.html");
             return true;
         }
 
@@ -115,7 +115,7 @@
             /* Igede Language Centre navigation gets absolute priority.
                It is handled here before any museum/world interaction layer
                can consume the gesture. */
-            if(event.type === "click" && africanIgedeCentre(event.target)){
+            if((event.type === "pointerdown" || event.type === "mousedown" || event.type === "touchend" || event.type === "click") && africanIgedeCentre(event.target)){
                 event.preventDefault();
                 event.stopImmediatePropagation();
                 return;
