@@ -60,6 +60,7 @@ window.CinemaEngine = {
         });
 
         this.render();
+        this.bindBuildingExperience();
 
 
         console.log(
@@ -76,13 +77,84 @@ window.CinemaEngine = {
 
     /*==================================================
         CINEMA BUILDING EXPERIENCE
-        Removed: the cinema's former second-layer overlay
-        created a duplicate black presentation layer and
-        an unnecessary close button. The cinema now remains
-        directly in the museum building.
+        The cinema collection opens in one clean documentary
+        layer. This is the main cinema experience visitors
+        enter from the building.
     ==================================================*/
 
-        /*==================================================
+    bindBuildingExperience() {
+
+        if (!this.cinema) return;
+        if (this.cinema.dataset.cinemaExperienceBound === "true") return;
+
+        this.cinema.dataset.cinemaExperienceBound = "true";
+
+        const interior = this.cinema.querySelector(".cinema-interior");
+        if (!interior) return;
+
+        interior.dataset.originalParent = "cinema";
+
+        const overlay = document.createElement("div");
+        overlay.className = "cinema-experience-overlay";
+        overlay.innerHTML = `
+            <div class="cinema-experience-card" role="dialog" aria-modal="true" aria-labelledby="cinemaExperienceTitle">
+                <button class="cinema-experience-close" type="button" aria-label="Close Documentary Cinema">×</button>
+                <div class="cinema-experience-eyebrow">VOICES OF HUMANITY · DOCUMENTARY CINEMA</div>
+                <h2 id="cinemaExperienceTitle">Documentary Cinema</h2>
+                <p class="cinema-experience-intro">
+                    Enter the cinema to explore the Voices of Humanity documentary collection.
+                    Our language documentaries are the first exhibition, before the cinema's other experiences.
+                </p>
+                <div class="cinema-experience-content"></div>
+            </div>
+        `;
+
+        document.body.appendChild(overlay);
+
+        const content = overlay.querySelector(".cinema-experience-content");
+        const close = overlay.querySelector(".cinema-experience-close");
+
+        const openExperience = (event) => {
+            if (event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            content.appendChild(interior);
+            overlay.classList.add("open");
+            document.body.classList.add("cinema-overlay-open");
+        };
+
+        const closeExperience = () => {
+            this.cinema.appendChild(interior);
+            overlay.classList.remove("open");
+            document.body.classList.remove("cinema-overlay-open");
+            if (typeof returnToMuseumHomepage === "function") returnToMuseumHomepage();
+        };
+
+        close.addEventListener("click", (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            closeExperience();
+        }, true);
+
+        overlay.addEventListener("click", (event) => {
+            if (event.target === overlay) closeExperience();
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && overlay.classList.contains("open")) {
+                closeExperience();
+            }
+        });
+
+        this.cinema.addEventListener("click", (event) => {
+            if (event.target.closest(".cinema-experience-overlay")) return;
+            if (event.target.closest(".watch-documentary")) return;
+            openExperience(event);
+        }, true);
+    },
+
+    /*==================================================
         RENDER CINEMA
     ==================================================*/
 
@@ -467,9 +539,7 @@ window.CinemaEngine = {
         );
 
 
-        this.showViewer(
-            documentary
-        );
+        this.playInlineDocumentary(documentary);
 
     },
 
@@ -478,254 +548,42 @@ window.CinemaEngine = {
         DOCUMENTARY VIEWER
     ==================================================*/
 
-    showViewer(documentary) {
+    playInlineDocumentary(documentary) {
 
+        const card = this.cinema.querySelector(
+            `.documentary-card[data-documentary-id="${documentary.id}"]`
+        );
 
-        /*==============================================
-            REMOVE EXISTING VIEWER
-        ==============================================*/
+        if (!card) return;
 
-        const existingViewer =
-            document.getElementById(
-                "documentary-viewer"
-            );
-
-
-        if (existingViewer) {
-
-            existingViewer.remove();
-
+        const existing = card.querySelector(".inline-documentary-player");
+        if (existing) {
+            existing.remove();
+            return;
         }
 
-
-        /*==============================================
-            CREATE VIEWER
-        ==============================================*/
-
-        const viewer =
-            document.createElement("div");
-
-
-        viewer.id =
-            "documentary-viewer";
-
-
-        viewer.innerHTML = `
-
-            <div class="viewer-backdrop">
-
-
-                <div class="viewer-panel">
-
-
-                    <!-- ==============================
-                         CLOSE BUTTON
-                    =============================== -->
-
-                    <button
-                        class="viewer-close"
-                        id="close-documentary"
-                        type="button"
-                        aria-label="Close documentary"
-                    >
-
-                        ×
-
-                    </button>
-
-
-                    <!-- ==============================
-                         VIDEO
-                    =============================== -->
-
-                    <div class="viewer-video">
-
-                        <iframe
-
-                            src="${this.youtubeEmbed(
-                                documentary.videoUrl
-                            )}"
-
-                            title="${documentary.title}"
-
-                            allow="
-                                accelerometer;
-                                autoplay;
-                                clipboard-write;
-                                encrypted-media;
-                                gyroscope;
-                                picture-in-picture;
-                                web-share
-                            "
-
-                            allowfullscreen>
-
-                        </iframe>
-
-                    </div>
-
-
-                    <!-- ==============================
-                         DOCUMENTARY INFORMATION
-                    =============================== -->
-
-                    <div class="viewer-information">
-
-
-                        <span class="viewer-episode">
-
-                            Episode
-                            ${documentary.episode}
-
-                        </span>
-
-
-                        <h2>
-
-                            ${documentary.title}
-
-                        </h2>
-
-
-                        <p class="viewer-language">
-
-                            ${documentary.language}
-
-                        </p>
-
-
-                        <p>
-
-                            ${documentary.description}
-
-                        </p>
-
-
-                        <div class="viewer-meta">
-
-                            <span>
-
-                                ${documentary.country}
-
-                            </span>
-
-
-                            <span>
-
-                                ${documentary.category}
-
-                            </span>
-
-                        </div>
-
-
-                    </div>
-
-
-                </div>
-
-
+        const player = document.createElement("div");
+        player.className = "inline-documentary-player";
+        player.innerHTML = `
+            <div class="inline-documentary-video">
+                <iframe
+                    src="${this.youtubeEmbed(documentary.videoUrl)}"
+                    title="${documentary.title}"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
             </div>
-
+            <button class="inline-documentary-close" type="button" aria-label="Close documentary">Close Documentary</button>
         `;
 
+        card.appendChild(player);
 
-        document.body.appendChild(
-            viewer
-        );
-
-
-        /*==============================================
-            CLOSE BUTTON
-        ==============================================*/
-
-        const closeButton =
-            document.getElementById(
-                "close-documentary"
-            );
-
-
-        if (closeButton) {
-
-            closeButton.addEventListener(
-                "click",
-                () => {
-
-                    this.closeViewer(
-                        viewer
-                    );
-
-                }
-            );
-
-        }
-
-
-        /*==============================================
-            BACKDROP CLICK
-        ==============================================*/
-
-        const backdrop =
-            viewer.querySelector(
-                ".viewer-backdrop"
-            );
-
-
-        if (backdrop) {
-
-            backdrop.addEventListener(
-                "click",
-                event => {
-
-                    if (
-                        event.target ===
-                        backdrop
-                    ) {
-
-                        this.closeViewer(
-                            viewer
-                        );
-
-                    }
-
-                }
-            );
-
-        }
-
-
-        /*==============================================
-            ESCAPE KEY
-        ==============================================*/
-
-        const escapeHandler =
-            event => {
-
-                if (
-                    event.key ===
-                    "Escape"
-                ) {
-
-                    this.closeViewer(
-                        viewer
-                    );
-
-
-                    document.removeEventListener(
-                        "keydown",
-                        escapeHandler
-                    );
-
-                }
-
-            };
-
-
-        document.addEventListener(
-            "keydown",
-            escapeHandler
-        );
-
+        const close = player.querySelector(".inline-documentary-close");
+        close.addEventListener("click", (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            player.remove();
+        });
     },
 
 
