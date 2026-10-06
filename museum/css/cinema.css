@@ -604,340 +604,164 @@
 
 
 /*==================================================
-    DOCUMENTARY VIEWER
+    CINEMA DOCUMENTARY EXPERIENCE
 ==================================================*/
 
-#documentary-viewer {
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 10000;
-
+.cinema-experience-overlay{
+    position:fixed;
+    inset:0;
+    z-index:2147483647;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    background:rgba(5,7,12,.82);
+    backdrop-filter:blur(9px);
 }
 
+.cinema-experience-overlay.open{
+    display:flex;
+}
 
-/*==================================================
-    VIEWER BACKDROP
-==================================================*/
-
-.viewer-backdrop {
-
-    position: absolute;
-
-    inset: 0;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    padding: 30px;
-
+.cinema-experience-card{
+    position:relative;
+    width:min(1050px,94vw);
+    max-height:92vh;
+    overflow:auto;
+    padding:34px;
+    border:2px solid #8f7734;
+    border-radius:24px;
     background:
-        rgba(5,7,10,.88);
-
-    backdrop-filter: blur(10px);
-
+        radial-gradient(circle at 80% 0%,rgba(216,184,79,.12),transparent 28%),
+        linear-gradient(145deg,#171b2a,#0b0e17);
+    color:#fff;
+    box-shadow:0 30px 90px rgba(0,0,0,.62);
 }
 
-
-/*==================================================
-    VIEWER PANEL
-==================================================*/
-
-.viewer-panel {
-
-    position: relative;
-
-    width: min(1100px, 95vw);
-
-    max-height: 94vh;
-
-    overflow-y: auto;
-
-    background:
-        linear-gradient(
-            145deg,
-            #252a31,
-            #14171c
-        );
-
-    border: 2px solid #8e733c;
-
-    border-radius: 18px;
-
-    box-shadow:
-        0 30px 80px rgba(0,0,0,.65);
-
+.cinema-experience-close{
+    position:absolute;
+    top:8px;
+    right:10px;
+    width:72px;
+    height:72px;
+    min-width:72px;
+    min-height:72px;
+    box-sizing:border-box;
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    color:#fff;
+    font-size:28px;
+    line-height:1;
+    cursor:pointer;
+    z-index:10;
+    pointer-events:auto;
+    touch-action:manipulation;
 }
 
-
-/*==================================================
-    VIEWER CLOSE
-==================================================*/
-
-.viewer-close {
-
-    position: absolute;
-
-    top: 14px;
-
-    right: 14px;
-
-    z-index: 10;
-
-    width: 40px;
-
-    height: 40px;
-
-    border: 1px solid rgba(255,255,255,.25);
-
-    border-radius: 50%;
-
-    background: rgba(0,0,0,.65);
-
-    color: white;
-
-    font-size: 27px;
-
-    line-height: 1;
-
-    cursor: pointer;
-
-    transition:
-        background .2s ease,
-        transform .2s ease;
-
+.cinema-experience-eyebrow{
+    color:#d8b84f;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:2px;
 }
 
-
-.viewer-close:hover {
-
-    background: rgba(180,140,55,.9);
-
-    transform: rotate(90deg);
-
+.cinema-experience-card h2{
+    margin:8px 52px 10px 0;
+    font-family:Georgia,serif;
+    font-size:clamp(30px,4vw,46px);
+    font-weight:normal;
+    color:#f4e4a4;
 }
 
-
-/*==================================================
-    VIEWER VIDEO
-==================================================*/
-
-.viewer-video {
-
-    position: relative;
-
-    width: 100%;
-
-    aspect-ratio: 16 / 9;
-
-    background: #000;
-
+.cinema-experience-intro{
+    max-width:820px;
+    margin:0 0 22px;
+    color:#c8cad2;
+    font-size:15px;
+    line-height:1.65;
 }
 
-
-.viewer-video iframe {
-
-    width: 100%;
-
-    height: 100%;
-
-    display: block;
-
-    border: 0;
-
+.cinema-experience-content .cinema-interior{
+    display:block;
+    width:100%;
+    height:auto;
+    padding:0;
 }
 
-
-/*==================================================
-    VIEWER INFORMATION
-==================================================*/
-
-.viewer-information {
-
-    padding: 28px 32px 32px;
-
+.cinema-experience-content .cinema-library{
+    position:relative;
+    left:auto;
+    top:auto;
+    transform:none;
+    width:100%;
+    max-height:none;
+    margin:0;
+    padding:20px;
+    box-sizing:border-box;
 }
 
-
-.viewer-episode {
-
-    display: block;
-
-    margin-bottom: 8px;
-
-    color: #d7b65a;
-
-    font-size: 10px;
-
-    font-weight: bold;
-
-    letter-spacing: 2px;
-
-    text-transform: uppercase;
-
+.cinema-experience-content .documentary-grid{
+    max-height:520px;
 }
 
-
-.viewer-information h2 {
-
-    margin: 0 0 8px;
-
-    color: #f5efe4;
-
-    font-family: Georgia, serif;
-
-    font-size: 30px;
-
-    font-weight: normal;
-
+.cinema-experience-content .cinema-screen-area,
+.cinema-experience-content .cinema-header{
+    display:block;
 }
 
-
-.viewer-language {
-
-    margin: 0 0 18px;
-
-    color: #d7b65a;
-
-    font-size: 13px;
-
-    font-weight: bold;
-
+/* No second full-screen video layer: documentaries play inside their cards. */
+.inline-documentary-player{
+    margin-top:14px;
+    padding:12px;
+    border-top:1px solid rgba(216,184,79,.22);
+    background:rgba(0,0,0,.16);
+    border-radius:12px;
 }
 
-
-.viewer-information > p:not(.viewer-language) {
-
-    margin: 0;
-
-    max-width: 850px;
-
-    color: #b7b3ac;
-
-    font-size: 14px;
-
-    line-height: 1.7;
-
+.inline-documentary-video{
+    width:100%;
+    aspect-ratio:16 / 9;
+    background:#000;
+    border-radius:10px;
+    overflow:hidden;
 }
 
-
-/*==================================================
-    VIEWER META
-==================================================*/
-
-.viewer-meta {
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 10px;
-
-    margin-top: 20px;
-
+.inline-documentary-video iframe{
+    width:100%;
+    height:100%;
+    border:0;
+    display:block;
 }
 
-
-.viewer-meta span {
-
-    padding: 7px 12px;
-
-    background: rgba(255,255,255,.06);
-
-    border: 1px solid rgba(255,255,255,.08);
-
-    border-radius: 20px;
-
-    color: #aaa69d;
-
-    font-size: 10px;
-
+.inline-documentary-close{
+    margin-top:10px;
+    padding:8px 14px;
+    border:1px solid rgba(216,184,79,.45);
+    border-radius:999px;
+    background:rgba(216,184,79,.08);
+    color:#f4e4a4;
+    cursor:pointer;
+    touch-action:manipulation;
 }
 
+body.cinema-overlay-open{
+    overflow:hidden;
+}
 
-/*==================================================
-    RESPONSIVE
-==================================================*/
-
-@media (max-width: 700px) {
-
-    #cinema {
-
-        width: 440px;
-
-        min-height: 580px;
-
+@media(max-width:700px){
+    .cinema-experience-overlay{
+        padding:10px;
     }
 
-
-    .cinema-interior {
-
-        padding: 22px;
-
+    .cinema-experience-card{
+        padding:26px 18px 20px;
+        border-radius:18px;
     }
 
-
-    .cinema-screen {
-
-        height: 175px;
-
+    .cinema-experience-content .documentary-grid{
+        max-height:55vh;
     }
-
-
-    .viewer-backdrop {
-
-        padding: 10px;
-
-    }
-
-
-    .viewer-information {
-
-        padding: 22px;
-
-    }
-
-
-    .viewer-information h2 {
-
-        font-size: 24px;
-
-    }
-
-}
-
-
-@media (max-width: 500px) {
-
-    #cinema {
-
-        width: 92vw;
-
-        left: 4vw;
-
-        top: 100px;
-
-    }
-
-
-    .cinema-screen {
-
-        height: 150px;
-
-    }
-
-
-    .cinema-header h2 {
-
-        font-size: 25px;
-
-    }
-
 }
 
 /*=========================================================
