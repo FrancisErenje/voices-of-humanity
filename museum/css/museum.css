@@ -4810,9 +4810,20 @@ transform:rotate(-1deg);
 
 .african-language-feature.featured{
     background:linear-gradient(135deg, rgba(226,184,91,.16), rgba(255,255,255,.055));
-    border-color:rgba(226,184,91,.42);
-    text-decoration:none;
+    border:1px solid rgba(226,184,91,.42);
     color:#fff;
+    text-decoration:none;
+    font:inherit;
+    text-align:left;
+    width:100%;
+    appearance:none;
+    -webkit-appearance:none;
+    cursor:pointer;
+    pointer-events:auto !important;
+    position:relative;
+    z-index:10;
+    touch-action:manipulation;
+    -webkit-tap-highlight-color:transparent;
     transition:transform .2s ease, border-color .2s ease, background .2s ease;
 }
 
