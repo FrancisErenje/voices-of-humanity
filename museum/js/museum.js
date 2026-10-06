@@ -240,24 +240,13 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
     }
 
     function bind(){
-
-        const building = document.getElementById("africaMuseum");
-        if(!building) return;
-
+        /*
+           The African Languages Museum has one authoritative click owner:
+           the full-building hit surface created by the continental building
+           interaction engine below. Keeping a second building-level capture
+           handler here caused competing click interception.
+        */
         createExperience();
-
-        if(building.dataset.africanLanguagesExperienceBound === "true") return;
-        building.dataset.africanLanguagesExperienceBound = "true";
-
-        building.addEventListener("click", function(event){
-            event.preventDefault();
-            event.stopImmediatePropagation();
-
-            const overlay = document.querySelector(".african-languages-experience-overlay");
-            if(overlay && typeof overlay._open === "function"){
-                overlay._open();
-            }
-        }, true);
     }
 
     if(document.readyState === "loading"){
