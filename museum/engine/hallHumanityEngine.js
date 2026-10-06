@@ -185,12 +185,26 @@
     /* The close control is deliberately owned by the Hall itself.
        Handle the initial pointer/touch activation as well as click so
        no camera/building gesture can consume the interaction first. */
-    const closeHallFromControl=(e)=>{\n      shut(e);\n      return false;\n    };
-    close.style.zIndex="2147483647";\n    close.style.pointerEvents="auto";\n    close.addEventListener("pointerdown",closeHallFromControl,true);
+    const closeHallFromControl=(e)=>{
+      shut(e);
+      return false;
+    };
+    close.style.zIndex="2147483647";
+    close.style.pointerEvents="auto";
+    close.addEventListener("pointerdown",closeHallFromControl,true);
     close.addEventListener("pointerup",closeHallFromControl,true);
     close.addEventListener("touchend",closeHallFromControl,true);
     close.addEventListener("click",closeHallFromControl,true);
-    overlay.addEventListener("click",e=>{if(e.target===overlay) shut(e);},true);\n    document.addEventListener("pointerdown",e=>{\n      const btn=e.target.closest?.(".hall-exhibition-close");\n      const active=document.querySelector(".hall-exhibition-overlay.open");\n      if(btn && active){\n        e.preventDefault();\n        e.stopImmediatePropagation();\n        const ev=new Event("hall-close-request",{bubbles:false});\n        btn.dispatchEvent(ev);\n      }\n    },true);
+    overlay.addEventListener("click",e=>{if(e.target===overlay) shut(e);},true);
+    document.addEventListener("pointerdown",e=>{
+      const btn=e.target.closest?.(".hall-exhibition-close");
+      const active=document.querySelector(".hall-exhibition-overlay.open");
+      if(btn && active){
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        shut(e);
+      }
+    },true);
     archiveButton.addEventListener("click",()=>archive.classList.add("open"));
     archive.querySelector(".hall-living-close").addEventListener("click",()=>archive.classList.remove("open"));
     archive.addEventListener("click",e=>{if(e.target===archive) archive.classList.remove("open");});
