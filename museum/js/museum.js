@@ -420,6 +420,26 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
         bindWholeBuilding("americasMuseum", function(){
             if(typeof overlay._open === "function") overlay._open();
         });
+
+        /* Final direct owner for the Americas Museum itself.
+           This deliberately avoids relying on the transparent child hit
+           surface, which can be covered by other campus layers. */
+        if(building.dataset.americasDirectBound !== "true"){
+            building.dataset.americasDirectBound = "true";
+            const openAmericas = function(event){
+                if(event){
+                    event.preventDefault();
+                    event.stopPropagation();
+                    if(event.stopImmediatePropagation) event.stopImmediatePropagation();
+                }
+                if(typeof overlay._open === "function") overlay._open();
+            };
+            building.addEventListener("click", openAmericas, true);
+            building.addEventListener("pointerup", function(event){
+                if(event.pointerType !== "mouse") openAmericas(event);
+            }, true);
+            building.addEventListener("touchend", openAmericas, true);
+        }
     }
 
     function setupAfrica(){
