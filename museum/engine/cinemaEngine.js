@@ -72,131 +72,17 @@ window.CinemaEngine = {
             this.collection.length
         );
 
-        this.bindBuildingExperience();
-
     },
 
     /*==================================================
         CINEMA BUILDING EXPERIENCE
-        The cinema remains clean on the campus.
-        Its documentary collection opens in the
-        building experience, like the African
-        Languages Museum experience.
+        Removed: the cinema's former second-layer overlay
+        created a duplicate black presentation layer and
+        an unnecessary close button. The cinema now remains
+        directly in the museum building.
     ==================================================*/
 
-    bindBuildingExperience() {
-
-        if (!this.cinema) return;
-        if (this.cinema.dataset.cinemaExperienceBound === "true") return;
-
-        this.cinema.dataset.cinemaExperienceBound = "true";
-
-        const interior = this.cinema.querySelector(".cinema-interior");
-        if (!interior) return;
-
-        /* Keep the architectural building visible while
-           moving the full cinema interior into the visitor
-           experience only when the building is opened. */
-        interior.dataset.originalParent = "cinema";
-
-        const overlay = document.createElement("div");
-        overlay.className = "cinema-experience-overlay";
-        overlay.innerHTML = `
-            <div class="cinema-experience-card" role="dialog" aria-modal="true" aria-labelledby="cinemaExperienceTitle">
-                <button class="cinema-experience-close" type="button" aria-label="Close Documentary Cinema">×</button>
-                <div class="cinema-experience-eyebrow">VOICES OF HUMANITY · DOCUMENTARY CINEMA</div>
-                <h2 id="cinemaExperienceTitle">Documentary Cinema</h2>
-                <p class="cinema-experience-intro">
-                    Enter the cinema to explore the Voices of Humanity documentary collection.
-                    Our language documentaries are the first exhibition, before the cinema's other experiences.
-                </p>
-                <div class="cinema-experience-content"></div>
-            </div>
-        `;
-
-        document.body.appendChild(overlay);
-
-        const content = overlay.querySelector(".cinema-experience-content");
-        const close = overlay.querySelector(".cinema-experience-close");
-
-        /* Reliable physical hit target, including touch devices. */
-        Object.assign(close.style, {
-            position: "absolute",
-            top: "8px",
-            right: "10px",
-            width: "72px",
-            height: "72px",
-            minWidth: "72px",
-            minHeight: "72px",
-            padding: "0",
-            margin: "0",
-            boxSizing: "border-box",
-            zIndex: "2147483647",
-            pointerEvents: "auto",
-            cursor: "pointer",
-            touchAction: "manipulation"
-        });
-
-        const openExperience = (event) => {
-            if (event) {
-                event.preventDefault();
-                event.stopPropagation();
-            }
-
-            content.appendChild(interior);
-            overlay.classList.add("open");
-            document.body.classList.add("cinema-overlay-open");
-
-            setTimeout(() => close.focus(), 100);
-        };
-
-        const closeExperience = () => {
-            this.cinema.appendChild(interior);
-            overlay.classList.remove("open");
-            document.body.classList.remove("cinema-overlay-open");
-            if (typeof returnToMuseumHomepage === "function") returnToMuseumHomepage();
-        };
-
-        function closeFromButton(event) {
-            if (event) {
-                event.preventDefault();
-                event.stopImmediatePropagation();
-            }
-            closeExperience();
-        }
-
-        /* Use the actual button as the single close target. Capture the
-           completed click so legacy museum/camera handlers cannot swallow it. */
-        close.addEventListener("click", closeFromButton, true);
-
-        window.addEventListener("click", (event) => {
-            const button = event.target && event.target.closest
-                ? event.target.closest(".cinema-experience-close")
-                : null;
-            if (button && overlay.contains(button) && overlay.classList.contains("open")) {
-                closeFromButton(event);
-            }
-        }, true);
-
-        overlay.addEventListener("click", (event) => {
-            if (event.target === overlay) closeExperience();
-        });
-
-        document.addEventListener("keydown", (event) => {
-            if (event.key === "Escape" && overlay.classList.contains("open")) {
-                closeExperience();
-            }
-        });
-
-        this.cinema.addEventListener("click", (event) => {
-            if (event.target.closest(".cinema-experience-overlay")) return;
-            openExperience(event);
-        }, true);
-
-    },
-
-
-    /*==================================================
+        /*==================================================
         RENDER CINEMA
     ==================================================*/
 
