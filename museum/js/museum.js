@@ -520,6 +520,95 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 })();
 
 
+
+/*======================================
+   MUSEUM-WIDE FULL CLICK/TAP SURFACES
+   Every building and garden is treated as
+   one dependable interaction target.
+   Decorative children never determine where
+   visitors must click.
+======================================*/
+(function setupMuseumWideInteractionSurfaces(){
+    const buildingIds = [
+        "hall-humanity",
+        "lm247Building",
+        "africaMuseum",
+        "asiaMuseum",
+        "europeMuseum",
+        "americasMuseum",
+        "oceaniaMuseum",
+        "cinema"
+    ];
+
+    function ensureSurface(element, className, label){
+        if(!element) return;
+
+        element.style.pointerEvents = "auto";
+        element.style.cursor = "pointer";
+
+        let surface =
+            element.querySelector(":scope > .voh-building-hit-surface") ||
+            element.querySelector(":scope > .full-building-hit-surface") ||
+            element.querySelector(":scope > .hall-click-surface");
+
+        if(!surface){
+            surface = document.createElement("button");
+            surface.type = "button";
+            surface.className = className || "voh-building-hit-surface";
+            surface.setAttribute("aria-label", label || element.getAttribute("aria-label") || "Open museum");
+            surface.tabIndex = 0;
+            element.appendChild(surface);
+        }else{
+            surface.classList.add("voh-building-hit-surface");
+        }
+
+        surface.setAttribute("aria-hidden","false");
+        surface.dataset.vohFullHitSurface = "true";
+    }
+
+    function bind(){
+        buildingIds.forEach(function(id){
+            const element = document.getElementById(id);
+            if(!element) return;
+            ensureSurface(element, "voh-building-hit-surface",
+                element.getAttribute("aria-label") || "Open museum");
+        });
+
+        document.querySelectorAll('.museum-garden').forEach(function(garden){
+            ensureSurface(
+                garden,
+                "voh-garden-hit-surface",
+                garden.getAttribute("aria-label") || garden.title || "Open museum garden"
+            );
+        });
+    }
+
+    if(document.readyState === "loading"){
+        document.addEventListener("DOMContentLoaded", bind, {once:true});
+    }else{
+        bind();
+    }
+
+    setTimeout(bind, 100);
+    setTimeout(bind, 700);
+    setTimeout(bind, 1500);
+
+    /* Gardens are created dynamically by GardenEngine, so keep their
+       interaction surface synchronized without touching their visual DOM. */
+    const observer = new MutationObserver(function(){
+        document.querySelectorAll('.museum-garden').forEach(function(garden){
+            if(garden.dataset.vohGardenHitBound === "true") return;
+            ensureSurface(
+                garden,
+                "voh-garden-hit-surface",
+                garden.getAttribute("aria-label") || garden.title || "Open museum garden"
+            );
+            garden.dataset.vohGardenHitBound = "true";
+        });
+    });
+
+    observer.observe(document.body, {childList:true, subtree:true});
+})();
 /*======================================
    LOCALMEDIA247 — VISITOR EXPERIENCE
    One clean visitor page: today first,
