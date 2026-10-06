@@ -172,7 +172,7 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 
                 <div class="african-languages-experience-list">
 
-                    <button class="african-language-feature featured" type="button" aria-label="Open Igede Language Series" data-igede-centre-link="true">
+                    <a class="african-language-feature featured" href="/museum/academy/igede.html" aria-label="Open Igede Language Series" data-igede-centre-link="true">
                         <span class="feature-number">01</span>
                         <span class="feature-content">
                                                         <strong>Igede Language Series</strong>
@@ -180,7 +180,7 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
                             <small>Igede Language Learning Centre · 22 lessons · Launched 26 May 2026</small>
                         </span>
                         <span class="feature-action">ENTER CENTRE →</span>
-                    </button>
+                    </a>
 
                     <div class="african-language-feature">
                         <span class="feature-number">02</span>
@@ -207,176 +207,6 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
         document.body.appendChild(overlay);
 
         const close = overlay.querySelector(".african-languages-close-hit-zone");
-
-        const igedeCentreLink = overlay.querySelector("[data-igede-centre-link]");
-        function openIgedeCentre(event){
-            if(!igedeCentreLink) return;
-            event.preventDefault();
-            event.stopPropagation();
-            if(typeof event.stopImmediatePropagation === "function"){
-                event.stopImmediatePropagation();
-            }
-            window.location.href = "/museum/academy/igede.html";
-        }
-        if(igedeCentreLink){
-            igedeCentreLink.addEventListener("pointerdown", openIgedeCentre, true);
-            igedeCentreLink.addEventListener("mousedown", openIgedeCentre, true);
-            igedeCentreLink.addEventListener("touchstart", openIgedeCentre, true);
-            igedeCentreLink.addEventListener("click", openIgedeCentre, true);
-        }
-
-        function renderLivingNews(overlay){
-        const feed = overlay.querySelector("#lm247LivingNewsFeed");
-        const eyebrow = overlay.querySelector("#lm247TodayEyebrow");
-        const data = window.LocalMedia247News;
-        if(!feed || !data || !Array.isArray(data.stories)) return;
-
-        if(eyebrow) eyebrow.textContent = data.updatedLabel || data.date || "TODAY";
-
-        feed.innerHTML = data.stories.map((story, index) => `
-            <article class="lm247-live-story ${story.featured ? "is-featured" : ""}" data-news-index="${index}">
-                <div class="lm247-live-story-visual" aria-hidden="true"><span>${story.visual || "📰"}</span></div>
-                <div class="lm247-live-story-body">
-                    <span class="lm247-desk-kicker">${story.category} · ${story.location}</span>
-                    <h4>${story.headline}</h4>
-                    <p>${story.summary}</p>
-                    <a href="${story.url}" target="_blank" rel="noopener noreferrer">SOURCE · ${story.source}</a>
-                </div>
-            </article>
-        `).join("");
-    }
-
-    function setupNewsWall(){
-        const wall = document.getElementById("lm247NewsWall");
-        const data = window.LocalMedia247News;
-        if(!wall || !data || !Array.isArray(data.stories) || !data.stories.length) return;
-        if(wall.dataset.newsWallBound === "true") return;
-        wall.dataset.newsWallBound = "true";
-
-        const visual = wall.querySelector(".lm247-news-visual span");
-        const category = wall.querySelector(".lm247-news-category");
-        const headline = wall.querySelector(".lm247-news-headline");
-        const source = wall.querySelector(".lm247-news-source");
-        const date = wall.querySelector(".lm247-news-date");
-        let index = 0;
-
-        function showStory(story){
-            wall.classList.remove("is-switching");
-            void wall.offsetWidth;
-            wall.classList.add("is-switching");
-            if(visual) visual.textContent = story.visual || "📰";
-            if(category) category.textContent = story.category || "NEWS";
-            if(headline) headline.textContent = story.headline || "";
-            if(source) source.textContent = story.source ? "SOURCE · " + story.source.toUpperCase() : "LOCALMEDIA247";
-            if(date) date.textContent = "TODAY";
-        }
-
-        showStory(data.stories[index]);
-
-        window.setInterval(function(){
-            index = (index + 1) % data.stories.length;
-            showStory(data.stories[index]);
-        }, 5800);
-    }
-
-    function closeExperience(event){
-            if(event){
-                event.preventDefault();
-                event.stopImmediatePropagation();
-            }
-
-            /* Hard-close the African Languages Museum visitor panel.
-               The close control is deliberately handled independently
-               of the general museum interaction layer. */
-            overlay.classList.remove("open");
-            overlay.hidden = true;
-            overlay.setAttribute("aria-hidden","true");
-            overlay.style.display = "none";
-            overlay.style.visibility = "hidden";
-            overlay.style.opacity = "0";
-            overlay.style.pointerEvents = "none";
-            overlay.style.zIndex = "-1";
-            document.body.classList.remove("african-languages-overlay-open");
-
-            /* Do not return through the global museum navigation here.
-   The LocalMedia247 studio is a modal layer; closing it must simply
-   return the visitor to the already-visible museum canvas. */
-        }
-
-        /* One physical button owns the entire close target. There is deliberately
-           no second invisible hit layer, so the first click cannot merely
-           dismiss a highlight or transfer the pointer to another layer. */
-        function hardCloseFromUserGesture(event){
-            if(!overlay.classList.contains("open")) return;
-
-            const path = typeof event.composedPath === "function" ? event.composedPath() : [];
-            const button = path.find(node =>
-                node && node.classList &&
-                node.classList.contains("african-languages-close-hit-zone")
-            ) || (event.target && event.target.closest
-                ? event.target.closest(".african-languages-close-hit-zone")
-                : null);
-
-            if(!button){
-                const card = overlay.querySelector(".african-languages-experience-card");
-                if(!card) return;
-                const rect = card.getBoundingClientRect();
-                const inCloseArea =
-                    event.clientX >= rect.right - 92 &&
-                    event.clientX <= rect.right - 4 &&
-                    event.clientY >= rect.top + 4 &&
-                    event.clientY <= rect.top + 92;
-                if(!inCloseArea) return;
-            }
-
-            event.preventDefault();
-            event.stopPropagation();
-            if(typeof event.stopImmediatePropagation === "function"){
-                event.stopImmediatePropagation();
-            }
-
-            overlay.classList.remove("open");
-            overlay.hidden = true;
-            overlay.setAttribute("aria-hidden","true");
-            overlay.style.display = "none";
-            overlay.style.visibility = "hidden";
-            overlay.style.opacity = "0";
-            overlay.style.pointerEvents = "none";
-            overlay.style.zIndex = "-1";
-            document.body.classList.remove("african-languages-overlay-open");
-        }
-
-        /* The Igede Language Series is a real navigation control inside
-           this overlay. Handle it at the window capture level because the
-           museum has other global pointer handlers that can otherwise consume
-           the gesture before the anchor gets its normal click. */
-        function openIgedeCentreFromGesture(event){
-            if(!overlay.classList.contains("open")) return;
-
-            const path = typeof event.composedPath === "function" ? event.composedPath() : [];
-            const control = path.find(node =>
-                node && node.dataset && node.dataset.igedeCentreLink === "true"
-            ) || (event.target && event.target.closest
-                ? event.target.closest("[data-igede-centre-link]")
-                : null);
-
-            if(!control) return;
-
-            event.preventDefault();
-            event.stopPropagation();
-            if(typeof event.stopImmediatePropagation === "function"){
-                event.stopImmediatePropagation();
-            }
-
-            window.location.href = "/museum/academy/igede.html";
-        }
-
-        window.addEventListener("pointerdown", openIgedeCentreFromGesture, true);
-        window.addEventListener("mousedown", openIgedeCentreFromGesture, true);
-        window.addEventListener("touchstart", openIgedeCentreFromGesture, true);
-        window.addEventListener("click", openIgedeCentreFromGesture, true);
-        window.addEventListener("pointerup", openIgedeCentreFromGesture, true);
-        window.addEventListener("touchend", openIgedeCentreFromGesture, true);
 
         window.addEventListener("pointerdown", hardCloseFromUserGesture, true);
         window.addEventListener("mousedown", hardCloseFromUserGesture, true);
