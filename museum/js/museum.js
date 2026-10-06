@@ -401,8 +401,8 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 (function setupContinentalBuildingHitSurfaces(){
     function bindBuilding(id, openFunction){
         const building = document.getElementById(id);
-        if(!building || building.dataset.fullBuildingClickBound === "true") return;
-        building.dataset.fullBuildingClickBound = "true";
+        if(!building) return;
+
         building.setAttribute("tabindex","0");
         building.setAttribute("role","button");
         building.style.pointerEvents = "auto";
@@ -416,14 +416,37 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
             openFunction();
         };
 
-        building.addEventListener("click", activate, true);
-        building.addEventListener("pointerup", function(event){
-            if(event.pointerType !== "mouse") activate(event);
-        }, true);
-        building.addEventListener("touchend", activate, true);
-        building.addEventListener("keydown", function(event){
-            if(event.key === "Enter" || event.key === " ") activate(event);
-        }, true);
+        /* Make the entire visible museum footprint one dependable hit target.
+           This sits above the decorative roof/body/windows/door/steps and
+           also covers the title area, so visitors can click anywhere on the
+           building rather than searching for a small active spot. */
+        let hit = building.querySelector(":scope > .full-building-hit-surface");
+        if(!hit){
+            hit = document.createElement("button");
+            hit.type = "button";
+            hit.className = "full-building-hit-surface";
+            hit.setAttribute("aria-label", building.getAttribute("aria-label") || "Open museum");
+            hit.tabIndex = 0;
+            building.appendChild(hit);
+        }
+
+        if(hit.dataset.bound !== "true"){
+            hit.dataset.bound = "true";
+            hit.addEventListener("click", activate, true);
+            hit.addEventListener("pointerup", function(event){
+                if(event.pointerType !== "mouse") activate(event);
+            }, true);
+            hit.addEventListener("touchend", activate, true);
+            hit.addEventListener("keydown", function(event){
+                if(event.key === "Enter" || event.key === " ") activate(event);
+            }, true);
+        }
+
+        /* Parent capture listener remains as a fallback. */
+        if(building.dataset.fullBuildingClickBound !== "true"){
+            building.dataset.fullBuildingClickBound = "true";
+            building.addEventListener("click", activate, true);
+        }
     }
 
     function bind(){
