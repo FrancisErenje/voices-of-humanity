@@ -614,32 +614,12 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
                 <section class="lm247-daily-desk" aria-labelledby="lm247TodayTitle">
                     <div class="lm247-daily-desk-heading">
                         <div>
-                            <span class="lm247-daily-desk-eyebrow" id="lm247TodayEyebrow">TODAY</span>
-                            <h3 id="lm247TodayTitle">Today's LocalMedia247 Desk</h3>
-                        </div>
-                        <span class="lm247-daily-desk-status">LIVE TODAY</span>
-                    </div>
-                    <div id="lm247LivingNewsFeed" class="lm247-living-news-feed" aria-live="polite"></div>
-                </section>
-
-                <section class="lm247-afternoon" aria-labelledby="lm247AfternoonTitle">
-                    <div class="lm247-daily-desk-heading">
-                        <div>
-                            <span class="lm247-daily-desk-eyebrow" id="lm247LiveEyebrow">LIVE NEWS · 6 OCTOBER 2026</span>
-                            <h3 id="lm247AfternoonTitle">Live LocalMedia247 News Desk</h3>
+                            <span class="lm247-daily-desk-eyebrow" id="lm247TodayEyebrow">LIVE NEWS · 6 OCTOBER 2026</span>
+                            <h3 id="lm247TodayTitle">Live LocalMedia247 News Desk</h3>
                         </div>
                         <span class="lm247-daily-desk-status">LIVE · ANYTIME</span>
                     </div>
-
-                    <article class="lm247-desk-story">
-                        <span class="lm247-desk-kicker">LIVE NEWS · MORNING · AFTERNOON · EVENING · ANYTIME</span>
-                        <div class="lm247-desk-headlines" id="lm247LiveHeadlines">
-                            <div>
-                                <strong>LIVE NEWS</strong>
-                                <p>Verified LocalMedia247 news is updated whenever an important story becomes available.</p>
-                            </div>
-                        </div>
-                    </article>
+                    <div id="lm247LivingNewsFeed" class="lm247-living-news-feed" aria-live="polite"></div>
                 </section>
 
                 <section class="lm247-yesterday" aria-labelledby="lm247YesterdayTitle">
@@ -731,7 +711,12 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 
         document.body.appendChild(overlay);
 
-        const close = overlay.querySelector(".lm247-experience-close");
+        /* The physical LocalMedia247 building panel is driven by the same
+           live newsroom record used by the News Wall. Keep one source of
+           truth so the building cannot fall behind the screen. */
+        renderLivingNews(overlay);
+
+        const close = overlay.querySelector(".lm247-close-hit-zone");
 
         /* Capture the close action at the overlay itself so camera/world
            handlers cannot swallow it. */
