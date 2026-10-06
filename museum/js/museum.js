@@ -395,220 +395,186 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 
 /*======================================
    CONTINENTAL BUILDING HIT SURFACES
-   Africa + Americas: the whole visible building
-   is one reliable click/tap target.
+   Africa + Americas — one authoritative
+   full-building interaction surface.
 ======================================*/
 (function setupContinentalBuildingHitSurfaces(){
-    function bindBuilding(id, openFunction){
+
+    function bindWholeBuilding(id, openFunction){
         const building = document.getElementById(id);
         if(!building) return;
 
-        building.setAttribute("tabindex","0");
-        building.setAttribute("role","button");
         building.style.pointerEvents = "auto";
         building.style.cursor = "pointer";
+        building.setAttribute("tabindex","0");
+        building.setAttribute("role","button");
 
-        const activate = function(event){
-            if(event){
-                event.preventDefault();
-                event.stopImmediatePropagation();
+        /* Disable pointer events on decorative children so the
+           single surface below receives clicks anywhere on the
+           visible building. */
+        Array.from(building.children).forEach(function(child){
+            if(!child.classList.contains("full-building-hit-surface")){
+                child.style.pointerEvents = "none";
             }
-            openFunction();
-        };
+        });
 
-        /* Make the entire visible museum footprint one dependable hit target.
-           This sits above the decorative roof/body/windows/door/steps and
-           also covers the title area, so visitors can click anywhere on the
-           building rather than searching for a small active spot. */
         let hit = building.querySelector(":scope > .full-building-hit-surface");
         if(!hit){
             hit = document.createElement("button");
             hit.type = "button";
             hit.className = "full-building-hit-surface";
-            hit.setAttribute("aria-label", building.getAttribute("aria-label") || "Open museum");
-            hit.tabIndex = 0;
+            hit.setAttribute("aria-label",
+                building.getAttribute("aria-label") || "Open museum");
             building.appendChild(hit);
         }
 
-        if(hit.dataset.bound !== "true"){
-            hit.dataset.bound = "true";
+        hit.style.pointerEvents = "auto";
+        hit.style.cursor = "pointer";
+        hit.style.touchAction = "manipulation";
+        hit.style.zIndex = "2147483647";
+
+        if(hit.dataset.continentalBound !== "true"){
+            hit.dataset.continentalBound = "true";
+
+            function activate(event){
+                if(event){
+                    event.preventDefault();
+                    event.stopPropagation();
+                    if(event.stopImmediatePropagation) event.stopImmediatePropagation();
+                }
+                openFunction();
+            }
+
             hit.addEventListener("click", activate, true);
             hit.addEventListener("pointerup", function(event){
                 if(event.pointerType !== "mouse") activate(event);
             }, true);
             hit.addEventListener("touchend", activate, true);
             hit.addEventListener("keydown", function(event){
-                if(event.key === "Enter" || event.key === " ") activate(event);
+                if(event.key === "Enter" || event.key === " "){
+                    activate(event);
+                }
             }, true);
-        }
-
-        /* Parent capture listener remains as a fallback. */
-        if(building.dataset.fullBuildingClickBound !== "true"){
-            building.dataset.fullBuildingClickBound = "true";
-            building.addEventListener("click", activate, true);
         }
     }
 
-    function bind(){
-        const africa = document.getElementById("africaMuseum");
-        if(africa){
-            const overlay = document.querySelector(".african-languages-experience-overlay");
-            bindBuilding("africaMuseum", function(){
-                if(overlay && typeof overlay._open === "function") overlay._open();
-            });
-        }
+    function setupAmericas(){
+        const building = document.getElementById("americasMuseum");
+        if(!building) return;
 
-        const americas = document.getElementById("americasMuseum");
-        if(americas){
-            let overlay = document.querySelector('.voh-continental-direct[data-building="americasMuseum"]');
-            if(!overlay){
-                overlay = document.createElement("div");
-                overlay.className = "voh-continental-direct";
-                overlay.dataset.building = "americasMuseum";
-                overlay.hidden = true;
-                overlay.setAttribute("aria-hidden","true");
-                overlay.innerHTML = '<div class="voh-continental-direct-card" role="dialog" aria-modal="true" aria-labelledby="americasMuseumTitle">' +
+        let overlay = document.querySelector(
+            '.voh-continental-direct[data-building="americasMuseum"]'
+        );
+
+        if(!overlay){
+            overlay = document.createElement("div");
+            overlay.className = "voh-continental-direct";
+            overlay.dataset.building = "americasMuseum";
+            overlay.hidden = true;
+            overlay.setAttribute("aria-hidden","true");
+
+            overlay.innerHTML =
+                '<div class="voh-continental-direct-card" role="dialog" aria-modal="true" aria-labelledby="americasMuseumTitle">' +
                     '<button type="button" class="voh-continental-direct-close" aria-label="Close Americas Languages Museum">×</button>' +
                     '<div class="voh-continental-direct-kicker">VOICES OF HUMANITY · LIVING LANGUAGE ARCHIVE</div>' +
                     '<h2 id="americasMuseumTitle">Americas Languages Museum</h2>' +
                     '<p>Explore the extraordinary linguistic diversity of North, Central and South America and the Indigenous communities whose languages carry living histories, knowledge and identity.</p>' +
                     '<div class="voh-continental-direct-grid">' +
-                    '<article><span>LANGUAGES</span><strong>Living Voices</strong><p>Discover languages and the communities that keep them alive.</p></article>' +
-                    '<article><span>CULTURE</span><strong>Language &amp; Identity</strong><p>Explore language as a carrier of memory, identity and knowledge.</p></article>' +
-                    '<article><span>HERITAGE</span><strong>Stories That Endure</strong><p>Encounter linguistic histories preserved through living voices.</p></article>' +
-                    '</div></div>';
-                document.body.appendChild(overlay);
-                const close = overlay.querySelector(".voh-continental-direct-close");
-                const closeOverlay = function(event){
-                    if(event){ event.preventDefault(); event.stopImmediatePropagation(); }
-                    overlay.classList.remove("open");
-                    overlay.hidden = true;
-                    overlay.setAttribute("aria-hidden","true");
-                    overlay.style.display = "none";
-                    overlay.style.visibility = "hidden";
-                    overlay.style.opacity = "0";
-                    overlay.style.pointerEvents = "none";
-                    overlay.style.zIndex = "-1";
-                    if(typeof window.returnToMuseumHomepage === "function") window.returnToMuseumHomepage();
-                };
-                close.addEventListener("click", closeOverlay, true);
-                close.addEventListener("pointerup", closeOverlay, true);
-                close.addEventListener("touchend", closeOverlay, true);
-                overlay.addEventListener("click", function(event){
-                    if(event.target === overlay) closeOverlay(event);
-                }, true);
-                overlay._open = function(){
-                    overlay.hidden = false;
-                    overlay.setAttribute("aria-hidden","false");
-                    overlay.style.display = "flex";
-                    overlay.style.visibility = "visible";
-                    overlay.style.opacity = "1";
-                    overlay.style.pointerEvents = "auto";
-                    overlay.style.zIndex = "2147483647";
-                    overlay.classList.add("open");
-                    setTimeout(function(){ if(close) close.focus(); },80);
-                };
+                        '<article><span>LANGUAGES</span><strong>Living Voices</strong><p>Discover languages and the communities that keep them alive.</p></article>' +
+                        '<article><span>CULTURE</span><strong>Language &amp; Identity</strong><p>Explore language as a carrier of memory, identity and knowledge.</p></article>' +
+                        '<article><span>HERITAGE</span><strong>Stories That Endure</strong><p>Encounter linguistic histories preserved through living voices.</p></article>' +
+                    '</div>' +
+                '</div>';
+
+            document.body.appendChild(overlay);
+
+            const close = overlay.querySelector(".voh-continental-direct-close");
+
+            function closeOverlay(event){
+                if(event){
+                    event.preventDefault();
+                    event.stopImmediatePropagation();
+                }
+                overlay.classList.remove("open");
+                overlay.hidden = true;
+                overlay.setAttribute("aria-hidden","true");
+                overlay.style.display = "none";
+                overlay.style.visibility = "hidden";
+                overlay.style.opacity = "0";
+                overlay.style.pointerEvents = "none";
+                overlay.style.zIndex = "-1";
+                if(typeof window.returnToMuseumHomepage === "function"){
+                    window.returnToMuseumHomepage();
+                }
             }
-            bindBuilding("americasMuseum", function(){ overlay._open(); });
-        }
-    }
 
-    if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", bind);
-    else bind();
-    setTimeout(bind,500);
-    setTimeout(bind,1500);
-})();
+            close.addEventListener("click", closeOverlay, true);
+            close.addEventListener("pointerup", closeOverlay, true);
+            close.addEventListener("touchend", closeOverlay, true);
 
+            overlay.addEventListener("click", function(event){
+                if(event.target === overlay) closeOverlay(event);
+            }, true);
 
+            document.addEventListener("keydown", function(event){
+                if(event.key === "Escape" && overlay.classList.contains("open")){
+                    closeOverlay(event);
+                }
+            }, true);
 
-/*======================================
-   MUSEUM-WIDE FULL CLICK/TAP SURFACES
-   Every building and garden is treated as
-   one dependable interaction target.
-   Decorative children never determine where
-   visitors must click.
-======================================*/
-(function setupMuseumWideInteractionSurfaces(){
-    const buildingIds = [
-        "hall-humanity",
-        "lm247Building",
-        "africaMuseum",
-        "asiaMuseum",
-        "europeMuseum",
-        "americasMuseum",
-        "oceaniaMuseum",
-        "cinema"
-    ];
-
-    function ensureSurface(element, className, label){
-        if(!element) return;
-
-        element.style.pointerEvents = "auto";
-        element.style.cursor = "pointer";
-
-        let surface =
-            element.querySelector(":scope > .voh-building-hit-surface") ||
-            element.querySelector(":scope > .full-building-hit-surface") ||
-            element.querySelector(":scope > .hall-click-surface");
-
-        if(!surface){
-            surface = document.createElement("button");
-            surface.type = "button";
-            surface.className = className || "voh-building-hit-surface";
-            surface.setAttribute("aria-label", label || element.getAttribute("aria-label") || "Open museum");
-            surface.tabIndex = 0;
-            element.appendChild(surface);
-        }else{
-            surface.classList.add("voh-building-hit-surface");
+            overlay._open = function(){
+                overlay.hidden = false;
+                overlay.setAttribute("aria-hidden","false");
+                overlay.style.display = "flex";
+                overlay.style.visibility = "visible";
+                overlay.style.opacity = "1";
+                overlay.style.pointerEvents = "auto";
+                overlay.style.zIndex = "2147483647";
+                overlay.classList.add("open");
+                setTimeout(function(){
+                    if(close) close.focus();
+                },80);
+            };
         }
 
-        surface.setAttribute("aria-hidden","false");
-        surface.dataset.vohFullHitSurface = "true";
+        bindWholeBuilding("americasMuseum", function(){
+            if(typeof overlay._open === "function") overlay._open();
+        });
     }
 
-    function bind(){
-        buildingIds.forEach(function(id){
-            const element = document.getElementById(id);
-            if(!element) return;
-            ensureSurface(element, "voh-building-hit-surface",
-                element.getAttribute("aria-label") || "Open museum");
-        });
+    function setupAfrica(){
+        const building = document.getElementById("africaMuseum");
+        if(!building) return;
 
-        document.querySelectorAll('.museum-garden').forEach(function(garden){
-            ensureSurface(
-                garden,
-                "voh-garden-hit-surface",
-                garden.getAttribute("aria-label") || garden.title || "Open museum garden"
-            );
+        const overlay = document.querySelector(
+            ".african-languages-experience-overlay"
+        );
+
+        bindWholeBuilding("africaMuseum", function(){
+            if(overlay && typeof overlay._open === "function"){
+                overlay._open();
+            }
         });
+    }
+
+    function init(){
+        setupAfrica();
+        setupAmericas();
     }
 
     if(document.readyState === "loading"){
-        document.addEventListener("DOMContentLoaded", bind, {once:true});
+        document.addEventListener("DOMContentLoaded", init, {once:true});
     }else{
-        bind();
+        init();
     }
 
-    setTimeout(bind, 100);
-    setTimeout(bind, 700);
-    setTimeout(bind, 1500);
+    setTimeout(init,500);
+    setTimeout(init,1500);
 
-    /* Gardens are created dynamically by GardenEngine, so keep their
-       interaction surface synchronized without touching their visual DOM. */
-    const observer = new MutationObserver(function(){
-        document.querySelectorAll('.museum-garden').forEach(function(garden){
-            if(garden.dataset.vohGardenHitBound === "true") return;
-            ensureSurface(
-                garden,
-                "voh-garden-hit-surface",
-                garden.getAttribute("aria-label") || garden.title || "Open museum garden"
-            );
-            garden.dataset.vohGardenHitBound = "true";
-        });
-    });
-
-    observer.observe(document.body, {childList:true, subtree:true});
 })();
+
+
+
 /*======================================
    LOCALMEDIA247 — VISITOR EXPERIENCE
    One clean visitor page: today first,
