@@ -161,15 +161,33 @@
       if(panel) panel.style.display="none";
       setTimeout(()=>close.focus(),50);
     };
-    const shut=()=>{
+    const shut=(event)=>{
+      if(event){
+        event.preventDefault();
+        event.stopPropagation();
+        if(typeof event.stopImmediatePropagation==="function") event.stopImmediatePropagation();
+      }
       overlay.classList.remove("open");
+      overlay.setAttribute("aria-hidden","true");
+      overlay.style.display="none";
+      overlay.style.visibility="hidden";
+      overlay.style.opacity="0";
+      overlay.style.pointerEvents="none";
+      overlay.style.zIndex="-1";
       document.body.classList.remove("hall-overlay-open");
       if(typeof returnToMuseumHomepage === "function") returnToMuseumHomepage();
     };
 
     window.openHallHumanityExperience=open;
 
-    close.addEventListener("click",e=>{e.preventDefault();e.stopPropagation();shut();});
+    /* The close control is deliberately owned by the Hall itself.
+       Handle the initial pointer/touch activation as well as click so
+       no camera/building gesture can consume the interaction first. */
+    const closeHallFromControl=(e)=>shut(e);
+    close.addEventListener("pointerdown",closeHallFromControl,true);
+    close.addEventListener("pointerup",closeHallFromControl,true);
+    close.addEventListener("touchend",closeHallFromControl,true);
+    close.addEventListener("click",closeHallFromControl,true);
     overlay.addEventListener("click",e=>{if(e.target===overlay) shut();});
     archiveButton.addEventListener("click",()=>archive.classList.add("open"));
     archive.querySelector(".hall-living-close").addEventListener("click",()=>archive.classList.remove("open"));
