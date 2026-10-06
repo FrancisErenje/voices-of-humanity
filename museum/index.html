@@ -1024,6 +1024,9 @@
     },true);
 
     window.addEventListener("pointerup",function(e){
+      /* Never let the Hall's background hit-test reopen the exhibition
+         while a visitor is interacting with the open exhibition itself. */
+      if(document.querySelector(".hall-exhibition-overlay.open")) return;
       if(e.button!==undefined && e.button!==0) return;
       if(isInsideHall(e)){
         e.preventDefault();
@@ -1033,6 +1036,10 @@
     },true);
 
     window.addEventListener("click",function(e){
+      /* The close button lives inside the Hall overlay. The fallback
+         building detector must stand down while that overlay is open,
+         otherwise closing it immediately reopens the Hall. */
+      if(document.querySelector(".hall-exhibition-overlay.open")) return;
       if(isInsideHall(e)){
         e.preventDefault();
         e.stopPropagation();
