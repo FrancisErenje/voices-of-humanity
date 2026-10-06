@@ -180,30 +180,46 @@
     };
 
     window.openHallHumanityExperience=open;
+    window.closeHallHumanityExperience=shut;
     window.__hallHumanityBuilt=true;
 
-    /* The close control is deliberately owned by the Hall itself.
-       Handle the initial pointer/touch activation as well as click so
-       no camera/building gesture can consume the interaction first. */
+    /* The close control has one clear owner: the Hall overlay itself.
+       Give it a deliberately large hit area and handle pointer, touch,
+       click and keyboard activation without involving the building gesture. */
     const closeHallFromControl=(e)=>{
-      shut(e);
+      if(e){
+        e.preventDefault();
+        e.stopPropagation();
+        if(typeof e.stopImmediatePropagation==="function") e.stopImmediatePropagation();
+      }
+      shut();
       return false;
     };
     close.style.zIndex="2147483647";
     close.style.pointerEvents="auto";
+    close.style.touchAction="manipulation";
+    close.setAttribute("data-hall-close-owner","true");
     close.addEventListener("pointerdown",closeHallFromControl,true);
     close.addEventListener("pointerup",closeHallFromControl,true);
     close.addEventListener("touchend",closeHallFromControl,true);
     close.addEventListener("click",closeHallFromControl,true);
-    overlay.addEventListener("click",e=>{if(e.target===overlay) shut(e);},true);
-    document.addEventListener("pointerdown",e=>{
-      const btn=e.target.closest?.(".hall-exhibition-close");
-      const active=document.querySelector(".hall-exhibition-overlay.open");
-      if(btn && active){
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        shut(e);
+    close.addEventListener("keydown",e=>{
+      if(e.key==="Enter" || e.key===" " || e.key==="Escape") closeHallFromControl(e);
+    },true);
+
+    /* Safety net: if a browser/device reports the tap on a child pixel rather
+       than the button itself, the overlay checks the enlarged close zone. */
+    overlay.addEventListener("pointerup",e=>{
+      if(!overlay.classList.contains("open")) return;
+      const r=close.getBoundingClientRect();
+      const pad=14;
+      if(e.clientX>=r.left-pad && e.clientX<=r.right+pad &&
+         e.clientY>=r.top-pad && e.clientY<=r.bottom+pad){
+        closeHallFromControl(e);
       }
+    },true);
+    overlay.addEventListener("click",e=>{
+      if(e.target===overlay) shut(e);
     },true);
     archiveButton.addEventListener("click",()=>archive.classList.add("open"));
     archive.querySelector(".hall-living-close").addEventListener("click",()=>archive.classList.remove("open"));
