@@ -547,30 +547,18 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
                 <section class="lm247-afternoon" aria-labelledby="lm247AfternoonTitle">
                     <div class="lm247-daily-desk-heading">
                         <div>
-                            <span class="lm247-daily-desk-eyebrow">TODAY'S UPDATE · 5 OCTOBER 2026</span>
-                            <h3 id="lm247AfternoonTitle">Today's LocalMedia247 Update</h3>
+                            <span class="lm247-daily-desk-eyebrow" id="lm247LiveEyebrow">LIVE NEWS · 6 OCTOBER 2026</span>
+                            <h3 id="lm247AfternoonTitle">Live LocalMedia247 News Desk</h3>
                         </div>
-                        <span class="lm247-daily-desk-status">UPDATED TODAY</span>
+                        <span class="lm247-daily-desk-status">LIVE · ANYTIME</span>
                     </div>
 
                     <article class="lm247-desk-story">
-                        <span class="lm247-desk-kicker">5 OCTOBER 2026</span>
-                        <div class="lm247-desk-headlines">
+                        <span class="lm247-desk-kicker">LIVE NEWS · MORNING · AFTERNOON · EVENING · ANYTIME</span>
+                        <div class="lm247-desk-headlines" id="lm247LiveHeadlines">
                             <div>
-                                <strong>🇳🇬 Imo State</strong>
-                                <p>Security agencies intensify efforts to rescue abducted prospective NYSC members amid an alleged IED threat.</p>
-                            </div>
-                            <div>
-                                <strong>🚔 Nigeria — NDLEA</strong>
-                                <p>NDLEA reports drug consignments worth more than ₦5 billion intercepted at Lagos and Onne ports, alongside nationwide operations.</p>
-                            </div>
-                            <div>
-                                <strong>⛽ Nigeria — Gas Infrastructure</strong>
-                                <p>NNPC's 2025 annual financial report records ₦473.8 billion committed to major gas infrastructure projects.</p>
-                            </div>
-                            <div>
-                                <strong>📚 World Teachers' Day</strong>
-                                <p>World Teachers' Day is observed today, with UNESCO marking 60 years since the 1966 Recommendation concerning the Status of Teachers.</p>
+                                <strong>LIVE NEWS</strong>
+                                <p>Verified LocalMedia247 news is updated whenever an important story becomes available.</p>
                             </div>
                         </div>
                     </article>
