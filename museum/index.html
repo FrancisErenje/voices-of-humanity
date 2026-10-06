@@ -100,7 +100,27 @@
             return true;
         }
 
+        function africanIgedeCentre(target){
+            var control = target && target.closest ? target.closest("[data-igede-centre-link]") : null;
+            if(!control) return false;
+
+            var overlay = control.closest(".african-languages-experience-overlay");
+            if(!overlay || !overlay.classList.contains("open")) return false;
+
+            window.location.href = "/museum/academy/igede.html";
+            return true;
+        }
+
         function capture(event){
+            /* Igede Language Centre navigation gets absolute priority.
+               It is handled here before any museum/world interaction layer
+               can consume the gesture. */
+            if(event.type === "click" && africanIgedeCentre(event.target)){
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                return;
+            }
+
             /* African Museum close gets first priority at the window
                capture layer, before any building/camera handlers. */
             /* Close on the final click only. Closing on pointerdown/pointerup
