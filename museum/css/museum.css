@@ -8417,3 +8417,22 @@ body:has(.african-languages-experience-overlay.open) .african-languages-experien
 .african-languages-experience-overlay.open{
     z-index:2147483647 !important;
 }
+
+
+/* FINAL AMERICAS MUSEUM INTERACTION FIX */
+#americasComplex{
+    z-index:2147483640 !important;
+    pointer-events:none !important;
+}
+#americasComplex #americasMuseum{
+    position:absolute !important;
+    z-index:2147483641 !important;
+    pointer-events:auto !important;
+    cursor:pointer !important;
+}
+#americasComplex #americasMuseum > *{
+    pointer-events:none !important;
+}
+#americasComplex #americasMuseum > .full-building-hit-surface{
+    pointer-events:none !important;
+}
