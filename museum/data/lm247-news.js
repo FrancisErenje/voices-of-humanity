@@ -1,25 +1,26 @@
 /*
   LocalMedia247 — Living News Wall
-  Continuous News · Updated Whenever News Changes
+  Live News · Tuesday, October 6, 2026
   One source of truth for the physical News Wall and visitor newsroom.
 
   Editorial cadence:
   LocalMedia247 no longer operates on a fixed daily-brief model.
-  News may be published/updated in the morning, afternoon, evening,
-  or at any other time when a verified story becomes important enough
-  to share. The newsroom should therefore be treated as a live news desk.
+  News may be published or updated in the morning, afternoon, evening,
+  or at any other time when a verified story becomes important enough to share.
 */
 window.LocalMedia247News = {
-  date: "MONDAY, OCTOBER 5, 2026",
-  updatedLabel: "LIVE NEWS · UPDATED 5 OCTOBER 2026",
+  date: "TUESDAY, OCTOBER 6, 2026",
+  updatedLabel: "LIVE NEWS · 6 OCTOBER 2026",
   updateMode: "ANYTIME",
   cadenceLabel: "MORNING · AFTERNOON · EVENING · ANYTIME",
   stories: [
-    {id:"ng-nysc-abduction",category:"NIGERIA",location:"Imo State",headline:"Security agencies intensify efforts to rescue abducted prospective NYSC members",summary:"Police and other security agencies are working to rescue prospective NYSC members abducted in Imo State, while an identified hideout has been approached cautiously because of an alleged IED threat.",source:"PUNCH / Guardian Nigeria",url:"https://www.punchng.com/nysc-kidnap-ied-threat-stalls-rescue-operation/",visual:"🇳🇬",featured:true},
-    {id:"ng-ndlea-n5bn",category:"NIGERIA",location:"Lagos / Rivers",headline:"NDLEA intercepts drug consignments worth over N5bn",summary:"The NDLEA says it intercepted illicit drug consignments worth more than N5 billion at Lagos and Onne ports, alongside other nationwide seizures and arrests.",source:"Guardian Nigeria / Channels Television",url:"https://guardian.ng/news/nigeria/metro/ndlea-seizes-cocaine-over-n5b-drugs-in-nationwide-operations/",visual:"🚔",featured:true},
-    {id:"ng-nnpc-gas",category:"BUSINESS",location:"Nigeria",headline:"NNPC commits N473.8bn to major gas infrastructure",summary:"NNPC's 2025 annual financial report shows N473.8 billion was committed to major gas infrastructure, including the Nigeria–Morocco Gas Pipeline and Ajaokuta–Kaduna–Kano projects.",source:"PUNCH",url:"https://punchng.com/nnpc-commits-n473-8bn-to-major-gas-infrastructure/",visual:"⛽",featured:true},
-    {id:"ng-coastal-highway",category:"NIGERIA",location:"Lagos–Calabar",headline:"Umahi says Tinubu did not direct coastal highway contract",summary:"Works Minister David Umahi says President Bola Tinubu did not direct the award of the Lagos–Calabar Coastal Highway contract and that he takes responsibility for the procurement decision.",source:"PUNCH",url:"https://punchng.com/tinubu-didnt-influence-coastal-highway-contract-umahi/",visual:"🛣️",featured:true},
-    {id:"world-teachers-day",category:"EDUCATION",location:"Worldwide",headline:"World Teachers’ Day observed today",summary:"October 5 is World Teachers’ Day. In 2026, UNESCO is marking the 60th anniversary of the 1966 ILO/UNESCO Recommendation concerning the Status of Teachers.",source:"UNESCO",url:"https://www.unesco.org/en/days/teachers",visual:"📚",featured:true},
-    {id:"world-brazil-runoff",category:"WORLD",location:"Brazil",headline:"Brazil presidential election heads to a runoff",summary:"Flávio Bolsonaro and Luiz Inácio Lula da Silva will face each other in the second round of Brazil’s presidential election on October 25 after finishing first and second in the October 4 vote.",source:"Agência Brasil / Reuters",url:"https://agenciabrasil.ebc.com.br/en/politica/noticia/2026-10/flavio-bolsonaro-lula-head-runoff-brazils-presidential-race",visual:"🌎",featured:false}
+    {id:"ng-military-plane-crash",category:"NIGERIA",location:"Ondo / Lagos",headline:"Nigerian military aircraft crashes, killing 32 people",summary:"A Nigerian military aircraft flying from Benin City toward Lagos crashed in Ondo State on Monday. Reuters reports that all 32 people on board were killed, with President Bola Tinubu ordering an investigation.",source:"Reuters",url:"https://www.reuters.com/world/africa/nigerian-military-helicopter-carrying-32-passengers-crew-members-crashes-2026-10-05/",visual:"✈️",featured:true},
+    {id:"ng-inec-voters",category:"POLITICS",location:"Nigeria",headline:"INEC says voters’ register rises above 103 million",summary:"The Independent National Electoral Commission says Nigeria’s national voters’ register has risen to more than 103 million ahead of the 2027 general elections.",source:"PUNCH",url:"https://punchng.com/topics/news/News/",visual:"🗳️",featured:true},
+    {id:"ng-kidnap-economy",category:"SECURITY",location:"Nigeria",headline:"Report highlights scale of Nigeria’s kidnap-for-ransom economy",summary:"A new report examines the growing kidnap-for-ransom economy in Nigeria, including thousands of victims and billions of naira in ransom payments over recent years.",source:"BusinessDay",url:"https://businessday.ng/news/article/7825-victims-n7-78bn-ransom-inside-nigerias-growing-kidnap-for-ransom-economy/",visual:"🚨",featured:true},
+    {id:"ng-aviation-funding",category:"BUSINESS",location:"Lagos / Nigeria",headline:"Fuel subsidy removal linked to $500m aviation infrastructure funding",summary:"Aviation Minister Festus Keyamo says the removal of fuel subsidy helped the Federal Government raise $500 million for Lagos airport reconstruction and other aviation projects.",source:"PUNCH",url:"https://punchng.com/topics/business/business-economy/",visual:"✈️",featured:true},
+    {id:"ng-fuel-prices",category:"ECONOMY",location:"Nigeria",headline:"Petrol and diesel prices rise sharply in 2026",summary:"A report cited by PUNCH says average petrol and diesel prices rose by 86 percent in 2026, reaching their highest average levels of the year by September 22.",source:"PUNCH",url:"https://punchng.com/topics/business/business-economy/",visual:"⛽",featured:true},
+    {id:"ng-dangote-petrol",category:"ENERGY",location:"Nigeria",headline:"Dangote refinery stops petrol sales to fuel importers",summary:"Dangote Petroleum Refinery has stopped selling petrol to major marketers who import fuel, alleging that imported grades are being blended with its product.",source:"PUNCH",url:"https://punchng.com/topics/business/business-economy/",visual:"🏭",featured:true},
+    {id:"ng-financial-inclusion",category:"FINANCE",location:"Nigeria",headline:"Financial inclusion reaches 73%, but millions remain vulnerable",summary:"Nigeria has surpassed its financial inclusion target at 73 percent, while a new survey estimates that about 60.4 million adults remain financially vulnerable.",source:"PUNCH",url:"https://punchng.com/nigerias-73-financial-inclusion-leaves-60-4m-vulnerable/",visual:"💳",featured:false},
+    {id:"world-markets",category:"WORLD",location:"Global",headline:"Asian markets rise as technology shares lift Wall Street",summary:"Asian markets gained on Tuesday after a technology-led rally pushed the Nasdaq to a record close, while investors continued to watch oil prices, bond yields and global economic risks.",source:"Reuters",url:"https://www.reuters.com/world/china/global-markets-global-markets-2026-10-06/",visual:"🌎",featured:false}
   ]
 };
