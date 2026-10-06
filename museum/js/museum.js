@@ -207,17 +207,6 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
         document.body.appendChild(overlay);
 
         const close = overlay.querySelector(".african-languages-close-hit-zone");
-        const igedeCentreLink = overlay.querySelector('[data-igede-centre-link="true"]');
-
-        function openIgedeCentre(event){
-            if(event){
-                event.preventDefault();
-                event.stopPropagation();
-                if(event.stopImmediatePropagation) event.stopImmediatePropagation();
-            }
-            window.location.href = "/museum/academy/igede.html";
-        }
-
         function closeExperience(event){
             if(event){
                 event.preventDefault();
@@ -237,19 +226,6 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
         close.addEventListener("click", closeExperience, true);
         close.addEventListener("pointerup", closeExperience, true);
         close.addEventListener("touchend", closeExperience, true);
-
-        if(igedeCentreLink){
-            igedeCentreLink.addEventListener("click", openIgedeCentre, true);
-            igedeCentreLink.addEventListener("pointerup", function(event){
-                if(event.pointerType !== "mouse") openIgedeCentre(event);
-            }, true);
-            igedeCentreLink.addEventListener("touchend", openIgedeCentre, true);
-            igedeCentreLink.addEventListener("keydown", function(event){
-                if(event.key === "Enter" || event.key === " "){
-                    openIgedeCentre(event);
-                }
-            }, true);
-        }
 
         overlay.addEventListener("click", function(event){
             if(event.target === overlay) closeExperience(event);
