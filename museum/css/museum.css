@@ -8196,3 +8196,186 @@ body.continental-language-overlay-open{
     appearance:none !important;
     -webkit-appearance:none !important;
 }
+
+
+/* =========================================================
+   VOH BUILDING-ONLY 3D / 2.5D ARCHITECTURAL FINISH
+   The campus camera and map geometry remain untouched.
+   Depth is simulated with layered lighting, bevels and shadows.
+   Decorative layers never intercept interaction.
+========================================================= */
+
+/* Shared elevated base: keeps every structure visually grounded. */
+#hall-humanity,
+#lm247Building,
+#cinema,
+#africaMuseum,
+#asiaMuseum,
+#europeMuseum,
+#americasMuseum,
+#oceaniaMuseum,
+#visitorCentre,
+#visitor-center{
+    filter:drop-shadow(0 18px 14px rgba(0,0,0,.20));
+}
+
+/* Major VOH buildings receive a crisp architectural bevel without
+   changing their coordinates or applying perspective to the map. */
+#hall-humanity,
+#lm247Building,
+#cinema{
+    border-radius:18px;
+    box-shadow:
+        0 4px 0 rgba(255,255,255,.28),
+        0 10px 0 rgba(0,0,0,.10),
+        0 22px 30px rgba(0,0,0,.24),
+        inset 3px 3px 0 rgba(255,255,255,.18),
+        inset -5px -7px 0 rgba(0,0,0,.12);
+}
+
+/* Continental museums: a clean raised plinth + deep lower edge. */
+#africaMuseum,
+#asiaMuseum,
+#europeMuseum,
+#americasMuseum,
+#oceaniaMuseum{
+    border-radius:16px;
+    box-shadow:
+        0 3px 0 rgba(255,255,255,.30),
+        0 8px 0 rgba(0,0,0,.11),
+        0 18px 24px rgba(0,0,0,.24),
+        inset 3px 3px 0 rgba(255,255,255,.16),
+        inset -5px -6px 0 rgba(0,0,0,.12);
+}
+
+/* Architectural parts become layered surfaces. */
+#africaMuseum .continental-roof,
+#asiaMuseum .continental-roof,
+#europeMuseum .continental-roof,
+#americasMuseum .continental-roof,
+#oceaniaMuseum .continental-roof{
+    box-shadow:
+        inset 0 3px 0 rgba(255,255,255,.35),
+        inset 0 -8px 0 rgba(0,0,0,.16),
+        0 8px 10px rgba(0,0,0,.18);
+}
+
+#africaMuseum .continental-body,
+#asiaMuseum .continental-body,
+#europeMuseum .continental-body,
+#americasMuseum .continental-body,
+#oceaniaMuseum .continental-body{
+    box-shadow:
+        inset 4px 0 0 rgba(255,255,255,.18),
+        inset -7px 0 0 rgba(0,0,0,.13),
+        inset 0 -10px 0 rgba(0,0,0,.14),
+        0 10px 16px rgba(0,0,0,.20);
+}
+
+#africaMuseum .continental-steps,
+#asiaMuseum .continental-steps,
+#europeMuseum .continental-steps,
+#americasMuseum .continental-steps,
+#oceaniaMuseum .continental-steps{
+    box-shadow:
+        0 5px 0 rgba(0,0,0,.12),
+        0 12px 12px rgba(0,0,0,.16),
+        inset 0 2px 0 rgba(255,255,255,.38);
+}
+
+/* Window glass: highlight on the upper edge and darker lower depth. */
+#africaMuseum .continental-window,
+#asiaMuseum .continental-window,
+#europeMuseum .continental-window,
+#americasMuseum .continental-window,
+#oceaniaMuseum .continental-window{
+    box-shadow:
+        inset 2px 2px 0 rgba(255,255,255,.38),
+        inset -3px -5px 0 rgba(0,0,0,.16),
+        0 4px 7px rgba(0,0,0,.16);
+}
+
+/* Hall: stronger architectural mass and a crisp foundation. */
+#hall-humanity .hall-roof{
+    box-shadow:
+        inset 0 5px 0 rgba(255,255,255,.18),
+        inset 0 -12px 0 rgba(0,0,0,.24),
+        0 12px 18px rgba(0,0,0,.30);
+}
+#hall-humanity .hall-body{
+    box-shadow:
+        inset 7px 0 0 rgba(255,255,255,.28),
+        inset -10px 0 0 rgba(0,0,0,.09),
+        inset 0 -14px 0 rgba(0,0,0,.12),
+        0 18px 28px rgba(0,0,0,.25);
+}
+#hall-humanity .hallEntrance,
+#hall-humanity .hallMarble,
+#hall-humanity .grand-staircase{
+    filter:drop-shadow(0 7px 6px rgba(0,0,0,.20));
+}
+
+/* Gardens and plazas gain a raised edge rather than changing position. */
+.garden,
+.hallGarden,
+.cornerGarden,
+.museum-garden{
+    box-shadow:
+        inset 3px 4px 0 rgba(255,255,255,.20),
+        inset -5px -8px 0 rgba(0,0,0,.18),
+        0 9px 15px rgba(0,0,0,.18);
+}
+
+#hallPlaza,
+.heritage-plaza,
+.plaza{
+    box-shadow:
+        inset 0 5px 0 rgba(255,255,255,.22),
+        inset 0 -8px 0 rgba(0,0,0,.10),
+        0 16px 28px rgba(0,0,0,.18);
+}
+
+/* Roads and paths read as slightly recessed/raised surfaces. */
+.road,
+.path,
+.museum-road,
+.ceremonial-path{
+    box-shadow:
+        inset 0 3px 0 rgba(255,255,255,.14),
+        inset 0 -5px 0 rgba(0,0,0,.12),
+        0 5px 9px rgba(0,0,0,.12);
+}
+
+/* Keep every decorative finish non-interactive. */
+#hall-humanity::before,
+#hall-humanity::after,
+#lm247Building::before,
+#lm247Building::after,
+#cinema::before,
+#cinema::after,
+#africaMuseum::before,
+#africaMuseum::after,
+#asiaMuseum::before,
+#asiaMuseum::after,
+#europeMuseum::before,
+#europeMuseum::after,
+#americasMuseum::before,
+#americasMuseum::after,
+#oceaniaMuseum::before,
+#oceaniaMuseum::after{
+    pointer-events:none !important;
+}
+
+/* Preserve the existing mobile geometry; only soften the depth effect. */
+@media (max-width:700px){
+    #hall-humanity,
+    #lm247Building,
+    #cinema,
+    #africaMuseum,
+    #asiaMuseum,
+    #europeMuseum,
+    #americasMuseum,
+    #oceaniaMuseum{
+        filter:drop-shadow(0 12px 10px rgba(0,0,0,.18));
+    }
+}
