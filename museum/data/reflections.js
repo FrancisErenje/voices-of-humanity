@@ -5,14 +5,22 @@
 
 window.ReflectionGardenCollection = {
   current: {
-    number: "067",
-    date: "MONDAY, OCTOBER 5, 2026",
-    heading: "THE VOICES THAT SHAPE TOMORROW",
-    quote: "Every teacher carries a voice that helps another generation find its own.",
-    note: "Happy World Teachers' Day. Teachers do more than transfer knowledge. They help shape confidence, curiosity, character and the way a young person sees the world. Through their voices, countless generations inherit language, history, skills and wisdom. Today, we honour those who stand in classrooms and learning spaces, often carrying responsibilities far greater than what can be measured by a lesson plan. We also remember that teachers need to be heard, respected, supported and given the conditions to do their work well. When we stand with teachers, we stand with the generations they are preparing for tomorrow.",
+    number: "068",
+    date: "TUESDAY, OCTOBER 6, 2026",
+    heading: "THE STORIES WRITTEN IN THE EARTH",
+    quote: "The Earth tells stories not only through its people, but through the land beneath their feet.",
+    note: "Happy International Geodiversity Day. Every mountain, river, rock and landscape carries a story. The places where people build their homes, grow their food and pass their traditions from one generation to another are shaped by the Earth beneath them. Just as every language preserves a unique way of seeing the world, the Earth's landscapes preserve chapters of its history. Today, let us remember that preserving humanity also means preserving the world that has carried us.",
     image: ""
   },
   archive: [
+  {
+  number: "067",
+  date: "MONDAY, OCTOBER 5, 2026",
+  heading: "THE VOICES THAT SHAPE TOMORROW",
+  quote: "Every teacher carries a voice that helps another generation find its own.",
+  note: "Happy World Teachers' Day. Teachers do more than transfer knowledge. They help shape confidence, curiosity, character and the way a young person sees the world. Through their voices, countless generations inherit language, history, skills and wisdom. Today, we honour those who stand in classrooms and learning spaces, often carrying responsibilities far greater than what can be measured by a lesson plan. We also remember that teachers need to be heard, respected, supported and given the conditions to do their work well. When we stand with teachers, we stand with the generations they are preparing for tomorrow.",
+  image: ""
+},,
   {
     "number": "066",
     "date": "SUNDAY, OCTOBER 4, 2026",
