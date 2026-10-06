@@ -222,6 +222,14 @@
       let hallPointerStartY=null;
 
       document.addEventListener("pointerdown",e=>{
+        /* Never start the Hall-building gesture while its exhibition is open.
+           This also prevents a press on the close control from being recorded
+           as a building activation and reopening the exhibition on pointerup. */
+        if(overlay.classList.contains("open")){
+          hallPointerStartX=null;
+          hallPointerStartY=null;
+          return;
+        }
         const r=hall.getBoundingClientRect();
         const inside=e.clientX>=r.left && e.clientX<=r.right &&
                      e.clientY>=r.top && e.clientY<=r.bottom;
@@ -235,6 +243,11 @@
       },true);
 
       document.addEventListener("pointerup",e=>{
+        if(overlay.classList.contains("open")){
+          hallPointerStartX=null;
+          hallPointerStartY=null;
+          return;
+        }
         if(hallPointerStartX===null || hallPointerStartY===null) return;
         const moved=Math.hypot(
           e.clientX-hallPointerStartX,
@@ -255,6 +268,7 @@
       },true);
 
       document.addEventListener("click",e=>{
+        if(overlay.classList.contains("open")) return;
         if(e.target.closest?.("#hall-humanity")){
           e.preventDefault();
           e.stopImmediatePropagation();
