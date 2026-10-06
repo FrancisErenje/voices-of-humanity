@@ -2523,7 +2523,7 @@
 .cinema-experience-overlay{
     position:fixed;
     inset:0;
-    z-index:21000;
+    z-index:2147483647;
     display:none;
     align-items:center;
     justify-content:center;
@@ -2553,10 +2553,13 @@
 
 .cinema-experience-close{
     position:absolute;
-    top:14px;
-    right:16px;
-    width:42px;
-    height:42px;
+    top:8px;
+    right:10px;
+    width:72px;
+    height:72px;
+    min-width:72px;
+    min-height:72px;
+    box-sizing:border-box;
     border:1px solid rgba(255,255,255,.25);
     border-radius:50%;
     background:rgba(255,255,255,.08);
