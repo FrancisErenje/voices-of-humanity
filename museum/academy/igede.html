@@ -8,6 +8,8 @@
 *{box-sizing:border-box}body{margin:0;background:#10150f;color:#f4f0e8;font-family:Arial,Helvetica,sans-serif}
 .page{max-width:1180px;margin:auto;padding:34px 22px 70px}
 a{color:inherit}.back{display:inline-block;color:#d9b76a;text-decoration:none;margin-bottom:30px;font-size:13px}
+.home-close{position:fixed;top:18px;right:20px;width:52px;height:52px;border:1px solid rgba(217,183,106,.55);border-radius:50%;background:rgba(8,10,8,.88);color:#f4f0e8;font-size:30px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:9999;box-shadow:0 8px 24px rgba(0,0,0,.35);touch-action:manipulation}
+.home-close:hover,.home-close:focus-visible{background:#252b22;border-color:#d9b76a;outline:2px solid rgba(217,183,106,.45);outline-offset:3px}
 .kicker{font-size:10px;letter-spacing:2.5px;color:#d9b76a;font-weight:700}
 h1{font-size:clamp(34px,5vw,58px);line-height:1;margin:10px 0 12px}.intro{max-width:720px;color:rgba(255,255,255,.72);line-height:1.6;font-size:16px}
 .launch{font-size:12px;color:rgba(255,255,255,.45);margin-top:10px}
@@ -22,6 +24,7 @@ h1{font-size:clamp(34px,5vw,58px);line-height:1;margin:10px 0 12px}.intro{max-wi
 </head>
 <body>
 <main class="page">
+<button class="home-close" type="button" aria-label="Close Igede Language Learning Centre and return to the museum homepage">×</button>
 <a class="back" href="../index.html">← Return to the African Languages Museum</a>
 <div class="kicker">VOICES OF HUMANITY · AFRICA · IGEDE</div>
 <h1>Igede Language Learning Centre</h1>
@@ -40,7 +43,34 @@ let current=0;
 const player=document.getElementById('player'), title=document.getElementById('nowTitle'), grid=document.getElementById('lessons');
 function selectLesson(i){current=(i+videos.length)%videos.length; const v=videos[current]; player.src='https://www.youtube-nocookie.com/embed/'+v.id+'?rel=0'; title.textContent=v.title; [...grid.children].forEach((el,n)=>el.classList.toggle('active',n===current)); window.scrollTo({top:0,behavior:'smooth'});}
 videos.forEach((v,i)=>{const b=document.createElement('button');b.className='card';b.innerHTML='<div class="num">'+(i===0?'INTRODUCTION':'LESSON '+i)+'</div><div class="ctitle">'+v.title+'</div>';b.onclick=()=>selectLesson(i);grid.appendChild(b);});
-document.getElementById('prev').onclick=()=>selectLesson(current-1);document.getElementById('next').onclick=()=>selectLesson(current+1);selectLesson(0);
+document.getElementById('prev').onclick=()=>selectLesson(current-1);document.getElementById('next').onclick=()=>selectLesson(current+1);
+
+const homeClose=document.querySelector('.home-close');
+const backLink=document.querySelector('.back');
+
+function returnToMuseumHome(event){
+    if(event){
+        event.preventDefault();
+        event.stopPropagation();
+        if(event.stopImmediatePropagation) event.stopImmediatePropagation();
+    }
+    window.location.href = "../index.html";
+}
+
+if(homeClose){
+    homeClose.addEventListener('click', returnToMuseumHome, true);
+    homeClose.addEventListener('pointerup', function(event){
+        if(event.pointerType !== 'mouse') returnToMuseumHome(event);
+    }, true);
+    homeClose.addEventListener('touchend', returnToMuseumHome, true);
+}
+
+if(backLink){
+    backLink.addEventListener('click', returnToMuseumHome, true);
+    backLink.addEventListener('touchend', returnToMuseumHome, true);
+}
+
+selectLesson(0);
 </script>
 </body>
 </html>
