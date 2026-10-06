@@ -8159,3 +8159,40 @@ body.continental-language-overlay-open{
 #americasComplex #americasMuseum > *{
     pointer-events:none !important;
 }
+
+/* Americas Languages Museum — authoritative full-building hit surface */
+#americasComplex #americasMuseum{
+    position:relative !important;
+    z-index:80 !important;
+    width:330px !important;
+    height:230px !important;
+    pointer-events:auto !important;
+    cursor:pointer !important;
+    box-sizing:border-box !important;
+}
+
+#americasComplex #americasMuseum > *{
+    pointer-events:none !important;
+}
+
+#americasComplex #americasMuseum > .full-building-hit-surface{
+    position:absolute !important;
+    left:-10px !important;
+    top:-70px !important;
+    width:350px !important;
+    height:310px !important;
+    margin:0 !important;
+    padding:0 !important;
+    border:0 !important;
+    border-radius:18px !important;
+    background:transparent !important;
+    box-shadow:none !important;
+    opacity:0 !important;
+    pointer-events:auto !important;
+    cursor:pointer !important;
+    touch-action:manipulation !important;
+    -webkit-tap-highlight-color:transparent !important;
+    z-index:2147483647 !important;
+    appearance:none !important;
+    -webkit-appearance:none !important;
+}
