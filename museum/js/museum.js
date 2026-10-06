@@ -338,6 +338,38 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
             document.body.classList.remove("african-languages-overlay-open");
         }
 
+        /* The Igede Language Series is a real navigation control inside
+           this overlay. Handle it at the window capture level because the
+           museum has other global pointer handlers that can otherwise consume
+           the gesture before the anchor gets its normal click. */
+        function openIgedeCentreFromGesture(event){
+            if(!overlay.classList.contains("open")) return;
+
+            const path = typeof event.composedPath === "function" ? event.composedPath() : [];
+            const link = path.find(node =>
+                node && node.dataset && node.dataset.igedeCentreLink === "true"
+            ) || (event.target && event.target.closest
+                ? event.target.closest("[data-igede-centre-link]")
+                : null);
+
+            if(!link) return;
+
+            event.preventDefault();
+            event.stopPropagation();
+            if(typeof event.stopImmediatePropagation === "function"){
+                event.stopImmediatePropagation();
+            }
+
+            window.location.href = "/museum/academy/igede.html";
+        }
+
+        window.addEventListener("pointerdown", openIgedeCentreFromGesture, true);
+        window.addEventListener("mousedown", openIgedeCentreFromGesture, true);
+        window.addEventListener("touchstart", openIgedeCentreFromGesture, true);
+        window.addEventListener("click", openIgedeCentreFromGesture, true);
+        window.addEventListener("pointerup", openIgedeCentreFromGesture, true);
+        window.addEventListener("touchend", openIgedeCentreFromGesture, true);
+
         window.addEventListener("pointerdown", hardCloseFromUserGesture, true);
         window.addEventListener("mousedown", hardCloseFromUserGesture, true);
         window.addEventListener("touchstart", hardCloseFromUserGesture, true);
