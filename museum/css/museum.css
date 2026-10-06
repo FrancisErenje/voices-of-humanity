@@ -8060,6 +8060,27 @@ body.continental-language-overlay-open{
 #africaComplex #africaMuseum > *{
     pointer-events:none !important;
 }
+#africaComplex #africaMuseum > .full-building-hit-surface{
+    position:absolute !important;
+    left:-6px !important;
+    top:-68px !important;
+    width:332px !important;
+    height:304px !important;
+    margin:0 !important;
+    padding:0 !important;
+    border:0 !important;
+    border-radius:14px !important;
+    background:transparent !important;
+    box-shadow:none !important;
+    pointer-events:auto !important;
+    cursor:pointer !important;
+    z-index:2147483647 !important;
+    appearance:none !important;
+    -webkit-appearance:none !important;
+    touch-action:manipulation !important;
+    -webkit-tap-highlight-color:transparent !important;
+}
+
 #americasComplex #americasMuseum{
     width:330px !important;
     height:230px !important;
