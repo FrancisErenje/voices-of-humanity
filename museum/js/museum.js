@@ -172,7 +172,7 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 
                 <div class="african-languages-experience-list">
 
-                    <a class="african-language-feature featured" href="/museum/academy/igede.html" aria-label="Open Igede Language Series" data-igede-centre-link="true">
+                    <button class="african-language-feature featured" type="button" aria-label="Open Igede Language Series" data-igede-centre-link="true">
                         <span class="feature-number">01</span>
                         <span class="feature-content">
                                                         <strong>Igede Language Series</strong>
@@ -180,7 +180,7 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
                             <small>Igede Language Learning Centre · 22 lessons · Launched 26 May 2026</small>
                         </span>
                         <span class="feature-action">ENTER CENTRE →</span>
-                    </a>
+                    </button>
 
                     <div class="african-language-feature">
                         <span class="feature-number">02</span>
@@ -209,12 +209,20 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
         const close = overlay.querySelector(".african-languages-close-hit-zone");
 
         const igedeCentreLink = overlay.querySelector("[data-igede-centre-link]");
+        function openIgedeCentre(event){
+            if(!igedeCentreLink) return;
+            event.preventDefault();
+            event.stopPropagation();
+            if(typeof event.stopImmediatePropagation === "function"){
+                event.stopImmediatePropagation();
+            }
+            window.location.href = "/museum/academy/igede.html";
+        }
         if(igedeCentreLink){
-            igedeCentreLink.addEventListener("click", function(event){
-                event.preventDefault();
-                event.stopPropagation();
-                window.location.assign("/museum/academy/igede.html");
-            }, true);
+            igedeCentreLink.addEventListener("pointerdown", openIgedeCentre, true);
+            igedeCentreLink.addEventListener("mousedown", openIgedeCentre, true);
+            igedeCentreLink.addEventListener("touchstart", openIgedeCentre, true);
+            igedeCentreLink.addEventListener("click", openIgedeCentre, true);
         }
 
         function renderLivingNews(overlay){
@@ -346,13 +354,13 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
             if(!overlay.classList.contains("open")) return;
 
             const path = typeof event.composedPath === "function" ? event.composedPath() : [];
-            const link = path.find(node =>
+            const control = path.find(node =>
                 node && node.dataset && node.dataset.igedeCentreLink === "true"
             ) || (event.target && event.target.closest
                 ? event.target.closest("[data-igede-centre-link]")
                 : null);
 
-            if(!link) return;
+            if(!control) return;
 
             event.preventDefault();
             event.stopPropagation();
@@ -388,6 +396,13 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
         });
 
         overlay._open = function(){
+            overlay.hidden = false;
+            overlay.removeAttribute("aria-hidden");
+            overlay.style.display = "";
+            overlay.style.visibility = "";
+            overlay.style.opacity = "";
+            overlay.style.pointerEvents = "";
+            overlay.style.zIndex = "";
             overlay.classList.add("open");
             document.body.classList.add("african-languages-overlay-open");
             setTimeout(() => close.focus(), 100);
