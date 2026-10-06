@@ -208,12 +208,25 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 
         const close = overlay.querySelector(".african-languages-close-hit-zone");
 
-        window.addEventListener("pointerdown", hardCloseFromUserGesture, true);
-        window.addEventListener("mousedown", hardCloseFromUserGesture, true);
-        window.addEventListener("touchstart", hardCloseFromUserGesture, true);
-        window.addEventListener("click", hardCloseFromUserGesture, true);
-        window.addEventListener("pointerup", hardCloseFromUserGesture, true);
-        window.addEventListener("touchend", hardCloseFromUserGesture, true);
+        function closeExperience(event){
+            if(event){
+                event.preventDefault();
+                event.stopImmediatePropagation();
+            }
+            overlay.classList.remove("open");
+            overlay.hidden = true;
+            overlay.setAttribute("aria-hidden","true");
+            overlay.style.display = "none";
+            overlay.style.visibility = "hidden";
+            overlay.style.opacity = "0";
+            overlay.style.pointerEvents = "none";
+            overlay.style.zIndex = "-1";
+            document.body.classList.remove("african-languages-overlay-open");
+        }
+
+        close.addEventListener("click", closeExperience, true);
+        close.addEventListener("pointerup", closeExperience, true);
+        close.addEventListener("touchend", closeExperience, true);
 
         overlay.addEventListener("click", function(event){
             if(event.target === overlay) closeExperience(event);
@@ -257,13 +270,6 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 
     setTimeout(bind, 500);
     setTimeout(bind, 1500);
-
-    /* Defend against late DOM injections by other museum subsystems. */
-    const singletonObserver = new MutationObserver(() => {
-        const building = document.getElementById("lm247Building");
-        if(building) enforceLocalMedia247Singleton(building);
-    });
-    singletonObserver.observe(document.body, {childList:true, subtree:true});
 
 })();
 
