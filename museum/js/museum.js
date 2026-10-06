@@ -172,7 +172,7 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 
                 <div class="african-languages-experience-list">
 
-                    <a class="african-language-feature featured" href="academy/igede.html" aria-label="Open Igede Language Series">
+                    <a class="african-language-feature featured" href="/museum/academy/igede.html" aria-label="Open Igede Language Series" data-igede-centre-link="true">
                         <span class="feature-number">01</span>
                         <span class="feature-content">
                                                         <strong>Igede Language Series</strong>
@@ -207,6 +207,15 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
         document.body.appendChild(overlay);
 
         const close = overlay.querySelector(".african-languages-close-hit-zone");
+
+        const igedeCentreLink = overlay.querySelector("[data-igede-centre-link]");
+        if(igedeCentreLink){
+            igedeCentreLink.addEventListener("click", function(event){
+                event.preventDefault();
+                event.stopPropagation();
+                window.location.assign("/museum/academy/igede.html");
+            }, true);
+        }
 
         function renderLivingNews(overlay){
         const feed = overlay.querySelector("#lm247LivingNewsFeed");
