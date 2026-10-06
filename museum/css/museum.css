@@ -8081,6 +8081,74 @@ body.continental-language-overlay-open{
     -webkit-tap-highlight-color:transparent !important;
 }
 
+/* =========================================================
+   MUSEUM-WIDE INTERACTION STANDARD
+   Every building and garden gets a transparent, generous
+   hit surface. Visual decoration never steals the click.
+   The larger target is intentional for mouse, touch and
+   tablet use; WCAG 2.2 sets 24×24 CSS px as the AA minimum.
+========================================================= */
+.voh-building-hit-surface,
+.voh-garden-hit-surface,
+.full-building-hit-surface,
+.hall-click-surface{
+    position:absolute !important;
+    left:-6px !important;
+    top:-64px !important;
+    width:calc(100% + 12px) !important;
+    height:calc(100% + 70px) !important;
+    margin:0 !important;
+    padding:0 !important;
+    border:0 !important;
+    border-radius:18px !important;
+    background:transparent !important;
+    box-shadow:none !important;
+    opacity:0 !important;
+    appearance:none !important;
+    -webkit-appearance:none !important;
+    pointer-events:auto !important;
+    cursor:pointer !important;
+    touch-action:manipulation !important;
+    -webkit-tap-highlight-color:transparent !important;
+    z-index:2147483647 !important;
+}
+
+.voh-building-hit-surface:focus-visible,
+.voh-garden-hit-surface:focus-visible{
+    opacity:0 !important;
+    outline:3px solid rgba(255,215,106,.95) !important;
+    outline-offset:-3px !important;
+}
+
+/* Gardens use their full natural footprint rather than extending
+   upward into neighbouring architecture. */
+.voh-garden-hit-surface{
+    left:0 !important;
+    top:0 !important;
+    width:100% !important;
+    height:100% !important;
+    border-radius:inherit !important;
+}
+
+/* The African surface already includes its title area; preserve
+   that exact larger footprint. */
+#africaComplex #africaMuseum > .full-building-hit-surface{
+    left:-6px !important;
+    top:-68px !important;
+    width:332px !important;
+    height:304px !important;
+}
+
+/* Hall's existing surface already spans the complete Hall footprint. */
+#hall-humanity .hall-click-surface{
+    left:0 !important;
+    top:0 !important;
+    width:100% !important;
+    height:100% !important;
+    border-radius:inherit !important;
+}
+
+
 #americasComplex #americasMuseum{
     width:330px !important;
     height:230px !important;
