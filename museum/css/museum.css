@@ -8399,3 +8399,21 @@ body:has(.african-languages-experience-overlay.open) .hall-click-surface{
         filter:drop-shadow(0 12px 10px rgba(0,0,0,.18));
     }
 }
+
+
+/* FINAL AFRICAN MUSEUM OVERLAY CONTROL FIX
+   The building hit surface must never sit above the open visitor overlay. */
+body:has(.african-languages-experience-overlay.open) #africaComplex #africaMuseum > .full-building-hit-surface{
+    pointer-events:none !important;
+    z-index:1 !important;
+}
+body:has(.african-languages-experience-overlay.open) #africaComplex #africaMuseum{
+    pointer-events:none !important;
+}
+body:has(.african-languages-experience-overlay.open) .african-languages-experience-overlay,
+body:has(.african-languages-experience-overlay.open) .african-languages-experience-overlay *{
+    pointer-events:auto !important;
+}
+.african-languages-experience-overlay.open{
+    z-index:2147483647 !important;
+}
