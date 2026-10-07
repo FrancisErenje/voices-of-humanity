@@ -1,7 +1,7 @@
 /* LocalMedia247 — independent building interaction.
    The headquarters and the live news screen are deliberately separate
-   interaction surfaces. The building is detected from its real transformed
-   viewport rectangle, while the news wall is explicitly excluded. */
+   interaction surfaces. The building is identified from the actual event
+   path first, with its transformed viewport rectangle as a fallback. */
 
 (function(){
     "use strict";
@@ -23,45 +23,73 @@
                y >= rect.top && y <= rect.bottom;
     }
 
+    function pathContains(event, selector){
+        if(!event || typeof event.composedPath !== "function") return false;
+        return event.composedPath().some(function(node){
+            return node && node.nodeType === 1 &&
+                   typeof node.matches === "function" &&
+                   node.matches(selector);
+        });
+    }
+
     function isInsideBuildingButNotScreen(event){
-        if(!event || typeof event.clientX !== "number" || typeof event.clientY !== "number") {
+        if(!event) return false;
+
+        /* This is the authoritative test. It remains correct even when
+           the museum world is scaled/translated by its camera transform. */
+        if(pathContains(event, "#lm247NewsWall")) return false;
+        if(pathContains(event, "#lm247Building")) return true;
+
+        /* Fallback for gestures whose target path is unavailable. */
+        if(typeof event.clientX !== "number" || typeof event.clientY !== "number") {
             return false;
         }
 
         var building = getBuilding();
         if(!building) return false;
 
-        var buildingRect = building.getBoundingClientRect();
-
-        /* The news wall owns its entire visible interaction area. */
         var screen = getScreen();
         var screenRect = screen ? screen.getBoundingClientRect() : null;
-        if(screenRect && inside(screenRect,event.clientX,event.clientY)) {
-            return false;
-        }
+        if(screenRect && inside(screenRect,event.clientX,event.clientY)) return false;
 
-        return inside(buildingRect,event.clientX,event.clientY);
+        return inside(building.getBoundingClientRect(),event.clientX,event.clientY);
     }
 
     function openBuilding(event){
-        if(!event) return false;
-
         var panel = document.querySelector(".lm247-experience-overlay");
-        if(!panel || typeof panel._open !== "function") return false;
+
+        /* The experience is normally created by museum.js. If a click arrives
+           during late initialisation, give the museum engine one more chance. */
+        if(!panel || typeof panel._open !== "function"){
+            return false;
+        }
+
         if(panel.classList.contains("open")) return true;
 
-        event.preventDefault();
-        event.stopImmediatePropagation();
+        if(event){
+            event.preventDefault();
+            if(typeof event.stopImmediatePropagation === "function"){
+                event.stopImmediatePropagation();
+            }else if(typeof event.stopPropagation === "function"){
+                event.stopPropagation();
+            }
+        }
+
+        var genericPanel = document.getElementById("museum-video-panel");
+        if(genericPanel) genericPanel.remove();
+
         panel._open();
         return true;
     }
 
     function handlePointer(event){
-        /* Mouse clicks and touch taps both use the same independent
-           building hit test. Do not interfere with the news screen. */
-        if(event.type === "pointerup" && event.pointerType === "mouse") return;
         if(!isInsideBuildingButNotScreen(event)) return;
-        openBuilding(event);
+
+        /* Open on the initial pointerdown. This avoids relying on a later
+           click event after the museum camera layer has processed the gesture. */
+        if(event.type === "pointerdown" || event.type === "touchend"){
+            openBuilding(event);
+        }
     }
 
     function handleClick(event){
@@ -71,22 +99,20 @@
 
     function install(){
         if(window.__lm247IndependentBuildingInstalled) return;
-        if(!getBuilding()) return;
+        var building=getBuilding();
+        if(!building) return;
+
         window.__lm247IndependentBuildingInstalled=true;
 
-        /* Capture before the museum's generic world/building handlers.
-           This is deliberately scoped to the LocalMedia247 building. */
-        /* Claim the building before museum camera handlers can consume the gesture. */
         window.addEventListener("pointerdown",handlePointer,true);
-        window.addEventListener("pointerup",handlePointer,true);
         window.addEventListener("touchend",handlePointer,true);
         window.addEventListener("click",handleClick,true);
 
-        var building=getBuilding();
         building.setAttribute("tabindex","0");
         building.setAttribute("role","button");
         building.setAttribute("aria-label","Open LocalMedia247");
         building.style.cursor="pointer";
+        building.style.pointerEvents="auto";
 
         building.addEventListener("keydown",function(event){
             if(event.key === "Enter" || event.key === " "){
@@ -96,10 +122,8 @@
             }
         },true);
 
-        /* Direct building listener: the building owns its own interaction.
-           The news wall is a separate sibling and remains untouched. */
         building.addEventListener("click",function(event){
-            if(event.target && event.target.closest && event.target.closest("#lm247NewsWall")) return;
+            if(pathContains(event,"#lm247NewsWall")) return;
             openBuilding(event);
         },true);
     }
@@ -110,9 +134,7 @@
         install();
     }
 
-    window.addEventListener("load",function(){
-        /* The building is normally already present; this retry only protects
-           against the museum being initialized after DOMContentLoaded. */
-        install();
-    },{once:true});
+    window.addEventListener("load",install,{once:true});
+    setTimeout(install,500);
+    setTimeout(install,1500);
 })();
