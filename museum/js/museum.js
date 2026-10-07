@@ -919,3 +919,13 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
     brandObserver.observe(document.body, {childList:true, subtree:true});
 
 })();
+
+/* Load the authoritative LocalMedia247 interaction layer after the museum UI is ready. */
+(function(){
+    if(window.__lm247InteractionLoader) return;
+    window.__lm247InteractionLoader=true;
+    const s=document.createElement("script");
+    s.src="js/lm247-building-interaction.js?v=20261007";
+    s.async=false;
+    document.head.appendChild(s);
+})();
