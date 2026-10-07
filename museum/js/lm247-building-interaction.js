@@ -93,6 +93,13 @@
                 openBuilding(event);
             }
         },true);
+
+        /* Direct building listener: the building owns its own interaction.
+           The news wall is a separate sibling and remains untouched. */
+        building.addEventListener("click",function(event){
+            if(event.target && event.target.closest && event.target.closest("#lm247NewsWall")) return;
+            openBuilding(event);
+        },true);
     }
 
     if(document.readyState === "loading"){
