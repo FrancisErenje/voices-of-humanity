@@ -6908,9 +6908,9 @@ body.lm247-overlay-open{
 ========================================================= */
 
 #lm247Complex .ledScreen{
-    /* Always above the headquarters, including where their rectangles overlap. */
+    /* Restored: the live news screen stays visually and interactively in front. */
     position:relative;
-    z-index:10005 !important;
+    z-index:2147483646 !important;
     width:190px;
     height:142px;
     right:-8px;
