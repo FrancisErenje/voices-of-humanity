@@ -2104,8 +2104,14 @@ bottom:126px;
    It lives inside the museum world, so it follows the same camera/layout
    as the building. The live news screen remains a separate sibling target. */
 #lm247BuildingInteraction{
-    display:none !important;
-    pointer-events:none !important;
+    position:absolute;
+    left:0;
+    top:0;
+    width:520px;
+    height:230px;
+    display:block !important;
+    pointer-events:none;
+    z-index:10002;
 }
 #lm247BuildingInteraction .lm247-building-zone{
     position:absolute;
@@ -2117,25 +2123,27 @@ bottom:126px;
     pointer-events:auto;
     cursor:pointer;
     touch-action:manipulation;
-    z-index:2147483647;
+    z-index:10002;
 }
+/* Building only: x=90..390. The screen begins at x=390, so it remains
+   completely independent and visually above the building target. */
 #lm247BuildingInteraction .lm247-building-zone-main{
-    left:0;
+    left:90px;
     top:0;
-    width:232px;
+    width:300px;
     height:230px;
 }
 #lm247BuildingInteraction .lm247-building-zone-top{
-    left:232px;
+    left:390px;
     top:0;
-    width:108px;
-    height:48px;
+    width:40px;
+    height:70px;
 }
 #lm247BuildingInteraction .lm247-building-zone-bottom{
-    left:232px;
-    top:190px;
-    width:108px;
-    height:40px;
+    left:390px;
+    top:155px;
+    width:40px;
+    height:75px;
 }
 
 /* Building */
