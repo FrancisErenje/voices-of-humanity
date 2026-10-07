@@ -6935,12 +6935,14 @@ body.lm247-overlay-open{
 ========================================================= */
 
 #lm247Complex .ledScreen{
-    /* Restored: the live news screen stays visually and interactively in front. */
-    position:relative;
+    /* Keep the live news screen on the RIGHT side of the LocalMedia247 building.
+       It remains a separate interaction surface from the building itself. */
+    position:absolute;
     z-index:2147483646 !important;
     width:190px;
     height:142px;
-    right:-8px;
+    left:430px;
+    right:auto;
     top:48px;
     overflow:hidden;
     text-align:left;
