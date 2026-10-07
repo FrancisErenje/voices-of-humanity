@@ -1288,6 +1288,48 @@
   setTimeout(bindAll,500);
   setTimeout(bindAll,1500);
 
+  /* FINAL CONTINENTAL HIT-TEST FALLBACK
+     Some museum/camera layers can become the actual event target even
+     when the pointer is visibly over the Americas/Europe building.
+     Use the building's real screen rectangle as a last-resort hit test. */
+  function insideBuilding(id,e){
+    var el=document.getElementById(id);
+    if(!el || !e || typeof e.clientX!=="number" || typeof e.clientY!=="number") return false;
+    var r=el.getBoundingClientRect();
+    return e.clientX>=r.left && e.clientX<=r.right && e.clientY>=r.top && e.clientY<=r.bottom;
+  }
+
+  function fallbackOpen(id,e){
+    var building=document.getElementById(id);
+    if(!building) return false;
+    var overlay=document.querySelector('.continental-language-experience-overlay[data-building="'+id+'"]');
+    if(!overlay || typeof overlay._open!=="function") return false;
+    if(overlay.classList.contains("open")) return true;
+    if(e){
+      e.preventDefault();
+      e.stopImmediatePropagation();
+    }
+    overlay._open();
+    return true;
+  }
+
+  function continentalFallback(e){
+    if(e.target && e.target.closest && e.target.closest(".continental-language-experience-overlay")) return;
+    if(insideBuilding("americasMuseum",e)){
+      fallbackOpen("americasMuseum",e);
+      return;
+    }
+    if(insideBuilding("europeMuseum",e)){
+      fallbackOpen("europeMuseum",e);
+    }
+  }
+
+  window.addEventListener("click",continentalFallback,true);
+  window.addEventListener("pointerup",function(e){
+    if(e.pointerType!=="mouse") continentalFallback(e);
+  },true);
+  window.addEventListener("touchend",continentalFallback,true);
+
 })();
 </script>
 
