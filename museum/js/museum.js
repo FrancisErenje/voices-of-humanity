@@ -848,6 +848,14 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
             building.appendChild(hit);
         });
     }
+    if(document.readyState === "loading"){
+        document.addEventListener("DOMContentLoaded", installReliableBuildingHitSurface);
+    }else{
+        installReliableBuildingHitSurface();
+    }
+    setTimeout(installReliableBuildingHitSurface, 500);
+    setTimeout(installReliableBuildingHitSurface, 1500);
+
 
     if(document.readyState === "loading"){
         document.addEventListener("DOMContentLoaded", bind);
