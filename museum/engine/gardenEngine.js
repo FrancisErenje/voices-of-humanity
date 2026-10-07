@@ -409,3 +409,32 @@ function createReflectionGardenExperience(gardenElement) {
         start();
     }
 })();
+
+/*======================================*
+ * START GARDEN ENGINE
+ *======================================*
+ * Reflection Garden is a generated campus object. Initialise it only
+ * after the campus DOM node and the garden data are definitely present.
+ * This avoids relying on the browser's legacy global for id="campus".
+ */
+(function initialiseReflectionGarden(){
+    function start(){
+        if (window.__vohGardensLoaded) return true;
+        const campusElement = document.getElementById("campus");
+        if (!campusElement || !Array.isArray(window.Gardens)) return false;
+        loadGardens();
+        window.__vohGardensLoaded = true;
+        return true;
+    }
+
+    function retry(){
+        if (start()) return;
+        window.setTimeout(retry, 100);
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", retry, { once:true });
+    } else {
+        retry();
+    }
+})();
