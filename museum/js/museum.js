@@ -813,7 +813,7 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
         building.dataset.reliableHitSurface = "true";
         building.style.pointerEvents = "auto";
         building.style.cursor = "pointer";
-        building.style.zIndex = "200";
+        building.style.zIndex = "60";
 
         function openStudio(event){
             if(event){
