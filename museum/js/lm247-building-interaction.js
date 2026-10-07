@@ -56,14 +56,13 @@
     }
 
     function openBuilding(event){
-        var panel = document.querySelector(".lm247-experience-overlay");
-
-        /* The experience is normally created by museum.js. If a click arrives
-           during late initialisation, give the museum engine one more chance. */
-        if(!panel || typeof panel._open !== "function"){
-            return false;
+        /* Use the museum's single authoritative LocalMedia247 opener. */
+        if(typeof window.__vohOpenLocalMedia247 === "function"){
+            return window.__vohOpenLocalMedia247();
         }
 
+        var panel = document.querySelector(".lm247-experience-overlay");
+        if(!panel || typeof panel._open !== "function") return false;
         if(panel.classList.contains("open")) return true;
 
         if(event){
