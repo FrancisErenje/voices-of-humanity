@@ -2100,52 +2100,7 @@ bottom:126px;
 
 }
 
-/* Dedicated LocalMedia247 headquarters click target.
-   It lives inside the museum world, so it follows the same camera/layout
-   as the building. The live news screen remains a separate sibling target. */
-#lm247BuildingInteraction{
-    position:absolute;
-    left:0;
-    top:0;
-    width:520px;
-    height:230px;
-    display:block !important;
-    pointer-events:auto !important;
-    z-index:10002 !important;
-}
-#lm247BuildingInteraction .lm247-building-zone{
-    position:absolute;
-    display:block;
-    padding:0;
-    margin:0;
-    border:0;
-    background:transparent;
-    pointer-events:auto;
-    cursor:pointer;
-    touch-action:manipulation;
-    z-index:10002;
-}
-/* Building only: x=90..390. The screen begins at x=390, so it remains
-   completely independent and visually above the building target. */
-#lm247BuildingInteraction .lm247-building-zone-main{
-    left:90px;
-    top:0;
-    width:300px;
-    height:230px;
-}
-#lm247BuildingInteraction .lm247-building-zone-top{
-    left:390px;
-    top:0;
-    width:40px;
-    height:70px;
-}
-#lm247BuildingInteraction .lm247-building-zone-bottom{
-    left:390px;
-    top:155px;
-    width:40px;
-    height:75px;
-}
-
+/* LocalMedia247 headquarters: the visible building itself is the interaction surface. */
 /* Building */
 
 #lm247Building{
@@ -2153,7 +2108,7 @@ bottom:126px;
     position:absolute;
     /* The headquarters itself owns the building click. The live news wall
        is kept above it so the two interaction surfaces remain independent. */
-    z-index:10004 !important;
+    z-index:2147483645 !important;
     pointer-events:auto !important;
     cursor:pointer;
 
