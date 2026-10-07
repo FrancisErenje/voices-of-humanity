@@ -807,6 +807,48 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
         }, true);
     }
 
+    function installReliableBuildingHitSurface(){
+        const building = document.getElementById("lm247Building");
+        if(!building || building.dataset.reliableHitSurface === "true") return;
+        building.dataset.reliableHitSurface = "true";
+        building.style.pointerEvents = "auto";
+        building.style.cursor = "pointer";
+
+        function openStudio(event){
+            if(event){
+                event.preventDefault();
+                event.stopPropagation();
+                if(event.stopImmediatePropagation) event.stopImmediatePropagation();
+            }
+            const panel = document.querySelector(".lm247-experience-overlay");
+            if(panel && typeof panel._open === "function") panel._open();
+        }
+
+        /* The live news screen overlaps the building's right side. These
+           three hit zones cover the building without covering the screen. */
+        const zones = [
+            ["0","0","232px","230px"],
+            ["232px","0","108px","48px"],
+            ["232px","190px","108px","40px"]
+        ];
+        zones.forEach((box,index)=>{
+            const hit=document.createElement("button");
+            hit.type="button";
+            hit.className="lm247-building-hit-zone";
+            hit.setAttribute("aria-label","Open LocalMedia247");
+            Object.assign(hit.style,{
+                position:"absolute", left:box[0], top:box[1], width:box[2], height:box[3],
+                padding:"0", margin:"0", border:"0", background:"transparent",
+                pointerEvents:"auto", cursor:"pointer", touchAction:"manipulation", zIndex:"90"
+            });
+            hit.dataset.zone=String(index);
+            hit.addEventListener("click",openStudio,true);
+            hit.addEventListener("pointerup",function(e){ if(e.pointerType!=="mouse") openStudio(e); },true);
+            hit.addEventListener("touchend",openStudio,true);
+            building.appendChild(hit);
+        });
+    }
+
     if(document.readyState === "loading"){
         document.addEventListener("DOMContentLoaded", bind);
     }else{
