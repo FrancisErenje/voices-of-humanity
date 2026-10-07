@@ -785,39 +785,6 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
         panels.forEach((node, index) => { if(index > 0) node.remove(); });
     }
 
-    function bindLocalMedia247BuildingSurface(){
-        const surface = document.getElementById("lm247BuildingInteraction");
-        if(!surface || surface.dataset.bound === "true") return;
-
-        const openStudio = function(event){
-            if(event && event.button !== undefined && event.button !== 0) return;
-            const panel = document.querySelector(".lm247-experience-overlay");
-            if(!panel || typeof panel._open !== "function") return;
-            if(panel.classList.contains("open")) return;
-
-            if(event){
-                event.preventDefault();
-                if(typeof event.stopImmediatePropagation === "function") event.stopImmediatePropagation();
-                else if(typeof event.stopPropagation === "function") event.stopPropagation();
-            }
-
-            const genericPanel = document.getElementById("museum-video-panel");
-            if(genericPanel) genericPanel.remove();
-            panel._open();
-        };
-
-        /* The surface itself is the building hit area. Because the live
-           screen is a higher z-index sibling, clicks on the screen never
-           reach this handler. */
-        surface.addEventListener("pointerdown", openStudio, true);
-        surface.addEventListener("click", openStudio, true);
-
-        surface.querySelectorAll(".lm247-building-zone").forEach(function(zone){
-            zone.addEventListener("click", openStudio, true);
-        });
-        surface.dataset.bound = "true";
-    }
-
     function bind(){
         const building = document.getElementById("lm247Building");
         if(!building) return;
@@ -868,14 +835,6 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
     }
     setTimeout(bind, 500);
     setTimeout(bind, 1500);
-
-    if(document.readyState === "loading"){
-        document.addEventListener("DOMContentLoaded", bindLocalMedia247BuildingSurface);
-    }else{
-        bindLocalMedia247BuildingSurface();
-    }
-    setTimeout(bindLocalMedia247BuildingSurface, 500);
-    setTimeout(bindLocalMedia247BuildingSurface, 1500);
 
     /* Keep the LocalMedia247 architectural brand lockup strictly singular.
        Late museum initialization can rebuild building children, so enforce
