@@ -701,6 +701,18 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
             setTimeout(() => close.focus(), 100);
         };
 
+        /* Expose one authoritative opening action for the physical
+           LocalMedia247 headquarters. This bypasses competing museum
+           building/camera handlers while leaving the news screen separate. */
+        window.__vohOpenLocalMedia247 = function(){
+            const panel = document.querySelector(".lm247-experience-overlay");
+            if(panel && typeof panel._open === "function"){
+                panel._open();
+                return true;
+            }
+            return false;
+        };
+
         /* FINAL CLOSE GUARD
            Window capture runs before the museum's document-level handlers.
            This makes the close control authoritative even when another
