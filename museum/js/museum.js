@@ -846,7 +846,7 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
     if(window.__lm247InteractionLoader) return;
     window.__lm247InteractionLoader=true;
     const s=document.createElement("script");
-    s.src="js/lm247-building-interaction.js?v=20261007";
+    s.src="js/lm247-building-interaction.js?v=20261007-singlepath";
     s.async=false;
     document.head.appendChild(s);
 })();
