@@ -2110,8 +2110,8 @@ bottom:126px;
     width:520px;
     height:230px;
     display:block !important;
-    pointer-events:none;
-    z-index:10002;
+    pointer-events:auto !important;
+    z-index:10002 !important;
 }
 #lm247BuildingInteraction .lm247-building-zone{
     position:absolute;
