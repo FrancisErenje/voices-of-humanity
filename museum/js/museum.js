@@ -270,14 +270,6 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
     setTimeout(bind, 500);
     setTimeout(bind, 1500);
 
-    if(document.readyState === "loading"){
-        document.addEventListener("DOMContentLoaded", bindLocalMedia247BuildingSurface);
-    }else{
-        bindLocalMedia247BuildingSurface();
-    }
-    setTimeout(bindLocalMedia247BuildingSurface, 500);
-    setTimeout(bindLocalMedia247BuildingSurface, 1500);
-
 })();
 
 
@@ -842,8 +834,8 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
         }, true);
     }
 
-    /* The LocalMedia247 building uses its native DOM action plus a
-       screen-space fallback so decorative/camera layers cannot swallow it. */
+    /* The LocalMedia247 building keeps its own native action. The dedicated
+       world-space building surface below is a separate target from the news screen. */
     if(document.readyState === "loading"){
         document.addEventListener("DOMContentLoaded", bind);
     }else{
@@ -851,6 +843,14 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
     }
     setTimeout(bind, 500);
     setTimeout(bind, 1500);
+
+    if(document.readyState === "loading"){
+        document.addEventListener("DOMContentLoaded", bindLocalMedia247BuildingSurface);
+    }else{
+        bindLocalMedia247BuildingSurface();
+    }
+    setTimeout(bindLocalMedia247BuildingSurface, 500);
+    setTimeout(bindLocalMedia247BuildingSurface, 1500);
 
     /* Keep the LocalMedia247 architectural brand lockup strictly singular.
        Late museum initialization can rebuild building children, so enforce
