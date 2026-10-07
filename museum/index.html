@@ -159,9 +159,10 @@
             return true;
         }
 
-        window.addEventListener("pointerdown", localMedia247Hit, true);
-        window.addEventListener("mousedown", localMedia247Hit, true);
-        window.addEventListener("touchstart", localMedia247Hit, true);
+        /* Open on the completed click/tap only. Opening on pointerdown
+           races with the studio's own outside-click close guard: the browser
+           then emits click and the freshly opened studio closes immediately.
+           Keeping one authoritative activation event removes that race. */
         window.addEventListener("click", localMedia247Hit, true);
 
         document.addEventListener("keydown", function(event){
