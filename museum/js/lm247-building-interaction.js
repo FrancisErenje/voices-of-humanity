@@ -1,110 +1,96 @@
 /* LocalMedia247 authoritative interaction layer.
-   Uses the rendered building rectangle instead of an oversized transparent
-   hit button, so the live news screen keeps its own visual and click layer. */
+   The building uses the same document-level pointer strategy as the
+   working Hall of Humanity interaction, while excluding the live news wall. */
 (function(){
+    "use strict";
+
     function init(){
-        const viewport = document.getElementById("viewport");
         const building = document.getElementById("lm247Building");
         const screen = document.getElementById("lm247NewsWall");
-        if(!viewport || !building) return;
-        if(viewport.dataset.lm247AuthoritativePress === "true") return;
-        viewport.dataset.lm247AuthoritativePress = "true";
+        if(!building) return;
 
-        let sx=0, sy=0, active=false;
+        if(document.documentElement.dataset.lm247AuthoritativePress === "true") return;
+        document.documentElement.dataset.lm247AuthoritativePress = "true";
 
-        function inRect(rect,x,y){
-            return x>=rect.left && x<=rect.right && y>=rect.top && y<=rect.bottom;
+        let startX = null;
+        let startY = null;
+
+        function inside(rect,x,y){
+            return x >= rect.left && x <= rect.right &&
+                   y >= rect.top && y <= rect.bottom;
+        }
+
+        function isOnScreen(e){
+            if(!screen) return false;
+            const r = screen.getBoundingClientRect();
+            return inside(r,e.clientX,e.clientY);
         }
 
         function openStudio(e){
-            const panel=document.querySelector(".lm247-experience-overlay");
-            if(!panel || typeof panel._open!=="function") return;
+            if(isOnScreen(e)) return false;
+
+            const panel = document.querySelector(".lm247-experience-overlay");
+            if(!panel || typeof panel._open !== "function") return false;
+
             e.preventDefault();
-            e.stopPropagation();
-            if(e.stopImmediatePropagation) e.stopImmediatePropagation();
+            e.stopImmediatePropagation();
             panel._open();
-        }
-
-        viewport.addEventListener("pointerdown",function(e){
-            if(e.button!==undefined && e.button!==0) return;
-            sx=e.clientX; sy=e.clientY; active=true;
-        },true);
-
-        function tryBuildingOpen(e){
-            const br=building.getBoundingClientRect();
-            if(!inRect(br,e.clientX,e.clientY)) return false;
-            if(screen){
-                const sr=screen.getBoundingClientRect();
-                if(inRect(sr,e.clientX,e.clientY)) return false;
-            }
-            openStudio(e);
             return true;
         }
 
-        viewport.addEventListener("pointerup",function(e){
-            if(!active) return;
-            active=false;
-            if(Math.hypot(e.clientX-sx,e.clientY-sy)>10) return;
-            tryBuildingOpen(e);
-        },true);
+        document.addEventListener("pointerdown", function(e){
+            if(e.button !== undefined && e.button !== 0) return;
 
-        document.addEventListener("click",function(e){
-            if(e.defaultPrevented) return;
-            tryBuildingOpen(e);
-        },true);dia247 authoritative interaction layer.
-   Uses the rendered building rectangle instead of an oversized transparent
-   hit button, so the live news screen keeps its own visual and click layer. */
-(function(){
-    function init(){
-        const viewport = document.getElementById("viewport");
-        const building = document.getElementById("lm247Building");
-        const screen = document.getElementById("lm247NewsWall");
-        if(!viewport || !building) return;
-        if(viewport.dataset.lm247AuthoritativePress === "true") return;
-        viewport.dataset.lm247AuthoritativePress = "true";
-
-        let sx=0, sy=0, active=false;
-
-        function inRect(rect,x,y){
-            return x>=rect.left && x<=rect.right && y>=rect.top && y<=rect.bottom;
-        }
-
-        function openStudio(e){
-            const panel=document.querySelector(".lm247-experience-overlay");
-            if(!panel || typeof panel._open!=="function") return;
-            e.preventDefault();
-            e.stopPropagation();
-            if(e.stopImmediatePropagation) e.stopImmediatePropagation();
-            panel._open();
-        }
-
-        viewport.addEventListener("pointerdown",function(e){
-            if(e.button!==undefined && e.button!==0) return;
-            sx=e.clientX; sy=e.clientY; active=true;
-        },true);
-
-        viewport.addEventListener("pointerup",function(e){
-            if(!active) return;
-            active=false;
-            if(Math.hypot(e.clientX-sx,e.clientY-sy)>10) return;
-
-            const br=building.getBoundingClientRect();
-            if(!inRect(br,e.clientX,e.clientY)) return;
-
-            if(screen){
-                const sr=screen.getBoundingClientRect();
-                if(inRect(sr,e.clientX,e.clientY)) return;
+            const r = building.getBoundingClientRect();
+            if(inside(r,e.clientX,e.clientY) && !isOnScreen(e)){
+                startX = e.clientX;
+                startY = e.clientY;
+            }else{
+                startX = null;
+                startY = null;
             }
+        }, true);
+
+        document.addEventListener("pointerup", function(e){
+            if(startX === null || startY === null) return;
+
+            const moved = Math.hypot(
+                e.clientX - startX,
+                e.clientY - startY
+            );
+
+            startX = null;
+            startY = null;
+
+            if(moved > 12) return;
+
+            const r = building.getBoundingClientRect();
+            if(inside(r,e.clientX,e.clientY) && !isOnScreen(e)){
+                openStudio(e);
+            }
+        }, true);
+
+        document.addEventListener("click", function(e){
+            if(e.defaultPrevented) return;
+            if(isOnScreen(e)) return;
+
+            const r = building.getBoundingClientRect();
+            if(!inside(r,e.clientX,e.clientY)) return;
 
             openStudio(e);
-        },true);
+        }, true);
+
+        building.style.pointerEvents = "auto";
+        building.style.cursor = "pointer";
     }
 
-    if(document.readyState==="loading"){
+    if(document.readyState === "loading"){
         document.addEventListener("DOMContentLoaded",init,{once:true});
     }else{
         init();
     }
+
+    window.addEventListener("load",init,{once:true});
     setTimeout(init,500);
     setTimeout(init,1500);
 })();
