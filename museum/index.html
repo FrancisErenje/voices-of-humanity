@@ -100,12 +100,9 @@
             return true;
         }
 
-        /* African Museum close gets first priority at the window
+        function capture(event){
+            /* African Museum close gets first priority at the window
                capture layer, before any building/camera handlers. */
-            /* Close on the final click only. Closing on pointerdown/pointerup
-               hides the overlay before the browser finishes the same gesture;
-               the subsequent event can then land on #africaMuseum underneath
-               and immediately reopen the museum. */
             if(event.type === "click" && africanClose(event.target)){
                 event.preventDefault();
                 event.stopImmediatePropagation();
@@ -124,7 +121,6 @@
                 return;
             }
         }
-
         window.addEventListener("pointerdown", capture, true);
         window.addEventListener("click", capture, true);
         window.addEventListener("touchend", capture, true);
