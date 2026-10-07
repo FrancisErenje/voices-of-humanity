@@ -388,3 +388,24 @@ function createReflectionGardenExperience(gardenElement) {
         if (event.key === "Escape" && overlay.classList.contains("open")) close();
     });
 }
+
+/*======================================*
+ * START GARDEN ENGINE
+ *======================================*
+ * The engine is loaded as a classic script, so it must explicitly
+ * initialise the garden after the campus and garden data are ready.
+ * Keep this guarded so the Garden is never created twice. */
+(function initialiseReflectionGarden(){
+    function start(){
+        if (window.__vohGardensLoaded) return;
+        if (typeof Gardens === "undefined" || typeof campus === "undefined") return;
+        window.__vohGardensLoaded = true;
+        loadGardens();
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", start, { once:true });
+    } else {
+        start();
+    }
+})();
