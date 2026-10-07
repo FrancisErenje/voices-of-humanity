@@ -595,7 +595,10 @@ window.CinemaEngine = {
 
     playInlineDocumentary(documentary) {
 
-        const card = this.cinema.querySelector(
+        /* The cinema interior is moved into .cinema-experience-overlay
+           when the building opens. Do not search only inside #cinema,
+           because the documentary cards now live in the overlay. */
+        const card = document.querySelector(
             `.documentary-card[data-documentary-id="${documentary.id}"]`
         );
 
