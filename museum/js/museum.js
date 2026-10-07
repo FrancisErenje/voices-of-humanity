@@ -792,7 +792,25 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 
         const overlay = createExperience();
 
-        if(building.dataset.lm247ExperienceBound === "true") return;
+        /* One real building owns the opening action. No transparent hitbox,
+           no duplicate label, and no competing LocalMedia247 click layer. */
+        if(building.dataset.lm247ExperienceBound !== "true"){
+            const openStudio = function(event){
+                if(event && event.button !== undefined && event.button !== 0) return;
+                if(!overlay || typeof overlay._open !== "function") return;
+                if(overlay.classList.contains("open")) return;
+                event && event.preventDefault();
+                if(event && typeof event.stopImmediatePropagation === "function") event.stopImmediatePropagation();
+                if(event && typeof event.stopPropagation === "function") event.stopPropagation();
+                const generic = document.getElementById("museum-video-panel");
+                if(generic) generic.remove();
+                overlay._open();
+            };
+            building.addEventListener("pointerdown", openStudio, true);
+            building.addEventListener("click", openStudio, true);
+            building.addEventListener("touchend", openStudio, true);
+            building.dataset.lm247ExperienceBound = "true";
+        }
         building.dataset.lm247ExperienceBound = "true";
 
     if(document.readyState === "loading"){
@@ -804,42 +822,7 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
     setTimeout(bind, 500);
     setTimeout(bind, 1500);
 
-    /* Keep the LocalMedia247 architectural brand lockup strictly singular.
-       Some late museum initialization can rebuild building children after
-       the first bind, so enforce the final DOM shape here as well. */
-    const brandObserver = new MutationObserver(() => {
-        const building = document.getElementById("lm247Building");
-        if(!building) return;
 
-        const titles = building.querySelectorAll(".lm247Title");
-        titles.forEach((node, index) => {
-            if(index > 0) node.remove();
-        });
-
-        const title = building.querySelector(".lm247Title");
-        if(!title) return;
-
-        title.style.textTransform = "none";
-
-        const textNodes = Array.from(title.childNodes).filter(n => n.nodeType === Node.TEXT_NODE);
-        if(textNodes.length > 0 && textNodes[0].textContent !== "LocalMedia247"){
-            textNodes[0].textContent = "LocalMedia247";
-        }
-        textNodes.slice(1).forEach(node => node.remove());
-
-        let subtitle = title.querySelector("span");
-        if(!subtitle){
-            subtitle = document.createElement("span");
-            subtitle = document.createElement("span");
-            subtitle.textContent = "Documenting Today. Preserving Tomorrow.";
-            title.appendChild(subtitle);
-        }else if(subtitle.textContent !== "Documenting Today. Preserving Tomorrow."){
-            subtitle.textContent = "Documenting Today. Preserving Tomorrow.";
-        }
-    });
-    brandObserver.observe(document.body, {childList:true, subtree:true});
-
-})();
 
 /* Load the authoritative LocalMedia247 interaction layer after the museum UI is ready. */
 (function(){
