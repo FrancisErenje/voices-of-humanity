@@ -1914,6 +1914,102 @@ window.__vohOpenMuseumChat = function(event){
   },true);
 })();
 </script>
+
+<!-- MUSEUM GUIDE FINAL INTERACTION PATCH -->
+<script>
+(function(){
+  "use strict";
+
+  /*
+    Final interaction guard for Ask the Museum.
+    The museum contains several global capture handlers. This guard gives
+    controls INSIDE #museumChat their own protected interaction path.
+  */
+  function isChatTarget(target){
+    return target && target.closest ? target.closest("#museumChat") : null;
+  }
+
+  function sendQuestion(event){
+    if(event){
+      event.preventDefault();
+      event.stopImmediatePropagation();
+    }
+
+    var input=document.getElementById("museumChatInput");
+    if(!input) return false;
+
+    var question=String(input.value || "").trim();
+    if(!question) return false;
+
+    if(typeof window.__vohSendMuseumQuestion === "function"){
+      window.__vohSendMuseumQuestion(event);
+      return false;
+    }
+
+    /* Emergency fallback if museum-chat.js has not loaded yet. */
+    var messages=document.getElementById("museumChatMessages");
+    if(messages){
+      var user=document.createElement("div");
+      user.className="museum-chat-message museum-chat-user";
+      user.textContent=question;
+      messages.appendChild(user);
+
+      var bot=document.createElement("div");
+      bot.className="museum-chat-message museum-chat-bot";
+      var answer=typeof window.VOHMuseumAnswerFor === "function"
+        ? window.VOHMuseumAnswerFor(question)
+        : "I am the museum's digital guide. Please ask about Voices of Humanity, the Hall of Humanity, Reflection Garden, Documentary Cinema, or LocalMedia247.";
+      bot.innerHTML=answer;
+      messages.appendChild(bot);
+      messages.scrollTop=messages.scrollHeight;
+    }
+    input.value="";
+    return false;
+  }
+
+  function handleChatClick(event){
+    var target=event.target;
+    var chat=isChatTarget(target);
+    if(!chat) return;
+
+    var suggestion=target.closest("[data-chat-intent]");
+    if(suggestion){
+      event.preventDefault();
+      event.stopImmediatePropagation();
+
+      var intent="intent:"+suggestion.getAttribute("data-chat-intent");
+      if(typeof window.VOHMuseumAnswerFor === "function"){
+        var messages=document.getElementById("museumChatMessages");
+        if(messages){
+          var bot=document.createElement("div");
+          bot.className="museum-chat-message museum-chat-bot";
+          bot.innerHTML=window.VOHMuseumAnswerFor(intent);
+          messages.appendChild(bot);
+          messages.scrollTop=messages.scrollHeight;
+        }
+      }
+      return;
+    }
+
+    if(target.closest("#museumChatSend")){
+      sendQuestion(event);
+    }
+  }
+
+  function handleChatKeydown(event){
+    var target=event.target;
+    if(!isChatTarget(target)) return;
+    if(target.id==="museumChatInput" && event.key==="Enter"){
+      sendQuestion(event);
+    }
+  }
+
+  window.addEventListener("click",handleChatClick,true);
+  window.addEventListener("keydown",handleChatKeydown,true);
+  window.__vohMuseumChatFinalPatch=true;
+})();
+</script>
+
 </body>
 
 </html>
