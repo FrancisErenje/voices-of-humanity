@@ -813,6 +813,7 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
         building.dataset.reliableHitSurface = "true";
         building.style.pointerEvents = "auto";
         building.style.cursor = "pointer";
+        building.style.zIndex = "200";
 
         function openStudio(event){
             if(event){
@@ -831,6 +832,16 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
             ["232px","0","108px","48px"],
             ["232px","190px","108px","40px"]
         ];
+        /* Also bind the building itself in capture phase. This is the
+           fallback for browsers where a transparent child button is visually
+           detected but the click is intercepted by the museum world layer. */
+        if(building.dataset.directPressBound !== "true"){
+            building.dataset.directPressBound = "true";
+            building.addEventListener("pointerdown", openStudio, true);
+            building.addEventListener("click", openStudio, true);
+            building.addEventListener("touchend", openStudio, true);
+        }
+
         zones.forEach((box,index)=>{
             const hit=document.createElement("button");
             hit.type="button";
