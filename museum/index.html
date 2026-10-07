@@ -125,6 +125,31 @@
         window.addEventListener("click", capture, true);
         window.addEventListener("touchend", capture, true);
 
+        /* AFRICAN MUSEUM — FIRST-PRIORITY SCREEN HIT TEST
+           This runs from the earliest interaction layer, before the later
+           camera/campus handlers can swallow a click whose target is a
+           decorative layer sitting over the visible building. */
+        function africanScreenHit(event){
+            if(!event || (event.type !== "pointerdown" && event.type !== "click")) return;
+            if(event.button !== undefined && event.button !== 0) return;
+
+            var building = document.getElementById("africaMuseum");
+            var overlay = document.querySelector(".african-languages-experience-overlay");
+            if(!building || !overlay || typeof overlay._open !== "function") return;
+            if(overlay.classList.contains("open")) return;
+
+            var rect = building.getBoundingClientRect();
+            if(event.clientX < rect.left || event.clientX > rect.right ||
+               event.clientY < rect.top || event.clientY > rect.bottom) return;
+
+            event.preventDefault();
+            if(typeof event.stopImmediatePropagation === "function") event.stopImmediatePropagation();
+            overlay._open();
+        }
+
+        window.addEventListener("pointerdown", africanScreenHit, true);
+        window.addEventListener("click", africanScreenHit, true);
+
         document.addEventListener("keydown", function(event){
             if(event.key === "Escape"){
                 var reflection=document.querySelector(".reflection-garden-overlay.open");
