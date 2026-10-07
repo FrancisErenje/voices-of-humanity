@@ -2104,13 +2104,8 @@ bottom:126px;
    It lives inside the museum world, so it follows the same camera/layout
    as the building. The live news screen remains a separate sibling target. */
 #lm247BuildingInteraction{
-    position:absolute;
-    left:550px;
-    top:680px;
-    width:340px;
-    height:230px;
-    pointer-events:none;
-    z-index:2147483647;
+    display:none !important;
+    pointer-events:none !important;
 }
 #lm247BuildingInteraction .lm247-building-zone{
     position:absolute;
@@ -2148,6 +2143,9 @@ bottom:126px;
 #lm247Building{
 
     position:absolute;
+    z-index:10000;
+    pointer-events:auto;
+    cursor:pointer;
 
     left:90px;
 
@@ -2305,6 +2303,8 @@ bottom:126px;
 .ledScreen{
 
     position:absolute;
+    z-index:10001;
+    pointer-events:auto;
 
     right:0;
 
