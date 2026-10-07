@@ -10,23 +10,26 @@
 
 const fs = require("fs");
 const path = require("path");
+const vm = require("vm");
 
 const ROOT = process.cwd();
 const reflectionsPath = path.join(ROOT, "museum", "data", "reflections.js");
 const bankPath = path.join(ROOT, "museum", "data", "reflection-bank.json");
 
 function lagosDateParts() {
+  const now = new Date();
   const parts = new Intl.DateTimeFormat("en-CA", {
     timeZone: "Africa/Lagos",
     year: "numeric",
     month: "2-digit",
     day: "2-digit"
-  }).formatToParts(new Date());
+  }).formatToParts(now);
 
   const out = {};
   for (const part of parts) {
     if (part.type !== "literal") out[part.type] = part.value;
   }
+
   return {
     iso: `${out.year}-${out.month}-${out.day}`,
     label: new Intl.DateTimeFormat("en-US", {
@@ -35,15 +38,27 @@ function lagosDateParts() {
       month: "long",
       day: "numeric",
       year: "numeric"
-    }).format(new Date()).toUpperCase()
+    }).format(now).toUpperCase()
   };
+}
+
+function loadReflectionCollection() {
+  const source = fs.readFileSync(reflectionsPath, "utf8");
+  const sandbox = { window: {} };
+  vm.runInNewContext(source, sandbox, { filename: reflectionsPath });
+
+  if (!sandbox.window.ReflectionGardenCollection) {
+    throw new Error("ReflectionGardenCollection was not found in reflections.js.");
+  }
+
+  return sandbox.window.ReflectionGardenCollection;
 }
 
 function jsString(value) {
   return JSON.stringify(value);
 }
 
-function reflectionObject(entry, indent = "    ") {
+function reflectionObject(entry, indent = "  ") {
   return [
     `${indent}{`,
     `${indent}  number: ${jsString(entry.number)},`,
@@ -58,18 +73,20 @@ function reflectionObject(entry, indent = "    ") {
 }
 
 const today = lagosDateParts();
-const reflections = JSON.parse(fs.readFileSync(reflectionsPath, "utf8"));
+const reflections = loadReflectionCollection();
 const bank = JSON.parse(fs.readFileSync(bankPath, "utf8"));
 
 const selected = bank.find(entry => {
   const parsed = new Date(entry.date);
   if (Number.isNaN(parsed.getTime())) return false;
+
   const iso = new Intl.DateTimeFormat("en-CA", {
     timeZone: "Africa/Lagos",
     year: "numeric",
     month: "2-digit",
     day: "2-digit"
   }).format(parsed);
+
   return iso === today.iso;
 });
 
@@ -78,24 +95,12 @@ if (!selected) {
   process.exit(0);
 }
 
-const currentMatch = reflections.match(/current:\s*\{[\s\S]*?\n  \},\n  archive:/);
-if (!currentMatch) {
-  throw new Error("Could not safely locate the current reflection block.");
+const current = reflections.current;
+if (!current || !current.number || !current.date) {
+  throw new Error("Could not safely locate the current reflection.");
 }
 
-const currentBlock = currentMatch[0];
-const currentJson = currentBlock
-  .replace(/^current:\s*/, "")
-  .replace(/,\n  archive:\s*$/, "");
-
-let previousCurrent;
-try {
-  previousCurrent = Function(`return (${currentJson});`)();
-} catch (error) {
-  throw new Error("Could not safely parse the current reflection: " + error.message);
-}
-
-if (previousCurrent.number === selected.number && previousCurrent.date === selected.date) {
+if (current.number === selected.number && current.date === selected.date) {
   console.log(`Reflection ${selected.number} is already current. Nothing to publish.`);
   process.exit(0);
 }
@@ -110,13 +115,19 @@ const selectedObject = {
   format: selected.format || "text"
 };
 
-const archiveEntry = reflectionObject(previousCurrent, "  ");
+const archiveEntry = reflectionObject(current, "  ");
 const newCurrent = reflectionObject(selectedObject, "  ");
 
 let updated = fs.readFileSync(reflectionsPath, "utf8");
+
+const currentMatch = updated.match(/current:\s*\{[\s\S]*?\n  \},\n  archive:/);
+if (!currentMatch) {
+  throw new Error("Could not safely locate the current reflection block in reflections.js.");
+}
+
 updated = updated.replace(
   currentMatch[0],
-  `current: {\n${newCurrent.split("\n").slice(1, -1).map(line => "  " + line.trimStart()).join("\n")}\n  },\n  archive:`
+  `current: {\n${newCurrent.split("\n").slice(1, -1).join("\n")}\n  },\n  archive:`
 );
 
 const archiveOpen = "  archive: [";
