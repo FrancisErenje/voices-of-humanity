@@ -125,61 +125,6 @@
         window.addEventListener("click", capture, true);
         window.addEventListener("touchend", capture, true);
 
-        /* LOCALMEDIA247 — ONE AUTHORITATIVE VIEWPORT HIT TEST
-           Do not depend on the DOM element that happens to be on top of the
-           transformed museum artwork. The browser gives us viewport
-           coordinates, so test the actual headquarters rectangle directly.
-           This listener is registered before the museum engines and wins in
-           capture phase. */
-        function localMedia247AuthoritativeClick(event){
-            if(!event) return;
-            if(event.type !== "pointerdown" && event.type !== "click") return;
-            if(event.button !== undefined && event.button !== 0) return;
-
-            var target = event.target;
-            var hit = target && target.closest ? target.closest("#lm247ViewportHit") : null;
-
-            var complex = document.getElementById("lm247Complex");
-            if(!complex) return;
-
-            var panel = document.querySelector(".lm247-experience-overlay");
-            if(!panel || typeof panel._open !== "function" || panel.classList.contains("open")) return;
-
-            var screen = document.getElementById("lm247NewsWall");
-            if(screen){
-                var sr = screen.getBoundingClientRect();
-                if(event.clientX >= sr.left && event.clientX <= sr.right &&
-                   event.clientY >= sr.top && event.clientY <= sr.bottom){
-                    return;
-                }
-            }
-
-            var r = complex.getBoundingClientRect();
-            if(r.width <= 0 || r.height <= 0) return;
-
-            if(event.clientX < r.left || event.clientX > r.right ||
-               event.clientY < r.top || event.clientY > r.bottom){
-                return;
-            }
-
-            /* This is the authoritative opening gesture. It runs at the
-               window capture phase, before the viewport/camera handlers.
-               The dedicated hit button is accepted explicitly, while the
-               coordinate check also protects the visible building itself. */
-            if(event.type === "pointerdown" || hit){
-                event.preventDefault();
-                event.stopImmediatePropagation();
-
-                var genericPanel = document.getElementById("museum-video-panel");
-                if(genericPanel) genericPanel.remove();
-
-                panel._open();
-            }
-        }
-
-        window.addEventListener("pointerdown", localMedia247AuthoritativeClick, true);
-        window.addEventListener("click", localMedia247AuthoritativeClick, true);
-
         document.addEventListener("keydown", function(event){
             if(event.key === "Escape"){
                 var reflection=document.querySelector(".reflection-garden-overlay.open");
