@@ -794,6 +794,12 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
             panel._open();
         };
 
+        /* The surface itself is the building hit area. Because the live
+           screen is a higher z-index sibling, clicks on the screen never
+           reach this handler. */
+        surface.addEventListener("pointerdown", openStudio, true);
+        surface.addEventListener("click", openStudio, true);
+
         surface.querySelectorAll(".lm247-building-zone").forEach(function(zone){
             zone.addEventListener("click", openStudio, true);
         });
