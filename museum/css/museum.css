@@ -2151,8 +2151,10 @@ bottom:126px;
 #lm247Building{
 
     position:absolute;
-    z-index:10000;
-    pointer-events:auto;
+    /* The headquarters itself owns the building click. The live news wall
+       is kept above it so the two interaction surfaces remain independent. */
+    z-index:10004 !important;
+    pointer-events:auto !important;
     cursor:pointer;
 
     left:90px;
@@ -6951,6 +6953,9 @@ body.lm247-overlay-open{
 ========================================================= */
 
 #lm247Complex .ledScreen{
+    /* Always above the headquarters, including where their rectangles overlap. */
+    position:relative;
+    z-index:10005 !important;
     width:190px;
     height:142px;
     right:-8px;
