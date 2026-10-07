@@ -837,9 +837,10 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
            detected but the click is intercepted by the museum world layer. */
         if(building.dataset.directPressBound !== "true"){
             building.dataset.directPressBound = "true";
-            building.addEventListener("pointerdown", openStudio, true);
+            /* Activate only on the completed click/tap. A pointerdown
+               here opens the panel before the browser emits click, and the
+               studio's outside-click guard would then close it immediately. */
             building.addEventListener("click", openStudio, true);
-            building.addEventListener("touchend", openStudio, true);
         }
 
         zones.forEach((box,index)=>{
@@ -858,10 +859,8 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
                later click event even though the cursor correctly shows the
                LocalMedia247 hit area. The hit surface therefore owns the
                initial press for mouse, pen and touch. */
-            hit.addEventListener("pointerdown",openStudio,true);
+            /* The completed click is the single activation event. */
             hit.addEventListener("click",openStudio,true);
-            hit.addEventListener("pointerup",function(e){ if(e.pointerType!=="mouse") openStudio(e); },true);
-            hit.addEventListener("touchend",openStudio,true);
             building.appendChild(hit);
         });
     }
