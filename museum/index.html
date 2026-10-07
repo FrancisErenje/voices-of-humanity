@@ -131,10 +131,43 @@
            be swallowed by camera or scene navigation. The news wall remains
            a separate sibling target. */
         function localMedia247BuildingOpen(event){
+            if(typeof window.__vohOpenLocalMedia247 !== "function") return false;
+
             var target = event && event.target;
             var building = target && target.closest ? target.closest("#lm247Building") : null;
-            if(!building) return false;
-            if(typeof window.__vohOpenLocalMedia247 !== "function") return false;
+
+            /* Normal path: the event actually lands on the building. */
+            if(!building){
+                /* Robust fallback: if another world/camera layer becomes the
+                   event target, use the building's actual screen-space bounds.
+                   This keeps the building clickable without moving or covering
+                   the separate news screen. */
+                var el = document.getElementById("lm247Building");
+                var screen = document.getElementById("lm247NewsWall");
+                if(!el || !event || typeof event.clientX !== "number" || typeof event.clientY !== "number"){
+                    return false;
+                }
+
+                var rect = el.getBoundingClientRect();
+                var insideBuilding =
+                    event.clientX >= rect.left &&
+                    event.clientX <= rect.right &&
+                    event.clientY >= rect.top &&
+                    event.clientY <= rect.bottom;
+
+                if(!insideBuilding) return false;
+
+                /* The screen has its own interaction and must remain separate. */
+                if(screen){
+                    var sr = screen.getBoundingClientRect();
+                    var insideScreen =
+                        event.clientX >= sr.left &&
+                        event.clientX <= sr.right &&
+                        event.clientY >= sr.top &&
+                        event.clientY <= sr.bottom;
+                    if(insideScreen) return false;
+                }
+            }
 
             event.preventDefault();
             if(typeof event.stopImmediatePropagation === "function"){
