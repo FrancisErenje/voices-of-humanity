@@ -829,27 +829,34 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
         if(building.dataset.lm247ExperienceBound === "true") return;
         building.dataset.lm247ExperienceBound = "true";
 
-        building.addEventListener("click", function(event){
-            event.preventDefault();
-            event.stopImmediatePropagation();
+        /* The visible headquarters is the click surface. There is no
+           invisible sibling hit layer: the news wall remains a separate
+           sibling above it. */
+        const openBuilding = function(event){
+            if(event && event.button !== undefined && event.button !== 0) return;
+            if(event){
+                event.preventDefault();
+                if(typeof event.stopImmediatePropagation === "function"){
+                    event.stopImmediatePropagation();
+                }else if(typeof event.stopPropagation === "function"){
+                    event.stopPropagation();
+                }
+            }
 
-            /* LocalMedia247 owns this building. Close any generic museum
-               collection panel before opening the dedicated studio. */
             const genericPanel = document.getElementById("museum-video-panel");
             if(genericPanel) genericPanel.remove();
 
             enforceLocalMedia247Singleton(building);
 
-            /* Remove any duplicate studio panels before opening. */
-            const overlays = document.querySelectorAll(".lm247-experience-overlay");
-            overlays.forEach((node, index) => {
-                if(index > 0) node.remove();
-            });
             const overlay = document.querySelector(".lm247-experience-overlay");
             if(overlay && typeof overlay._open === "function"){
                 overlay._open();
             }
-        }, true);
+        };
+
+        building.addEventListener("pointerdown", openBuilding, true);
+        building.addEventListener("click", openBuilding, true);
+        building.addEventListener("touchend", openBuilding, true);
     }
 
     /* The LocalMedia247 building keeps its own native action. The dedicated
