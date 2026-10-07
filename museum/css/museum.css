@@ -64,6 +64,27 @@ body{
 
 }
 
+/* LOCALMEDIA247 — single native building hit target.
+   Decorative children must never steal the pointer from the headquarters.
+   The live news wall is a sibling of the building and remains interactive. */
+#lm247Complex,
+#lm247Building{
+  pointer-events:auto !important;
+  cursor:pointer !important;
+}
+#lm247Building > *{
+  pointer-events:none !important;
+}
+#lm247NewsWall{
+  pointer-events:auto !important;
+  cursor:pointer !important;
+}
+#lm247Building .lm247-final-viewport-zone,
+#lm247Building .lm247-building-hit-zone{
+  display:none !important;
+  pointer-events:none !important;
+}
+
 /* HALL OF HUMANITY — reliable interactive surface */
 #hall-humanity{
   pointer-events:auto !important;
