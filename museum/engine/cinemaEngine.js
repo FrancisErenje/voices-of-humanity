@@ -485,20 +485,65 @@ window.CinemaEngine = {
 
         buttons.forEach(button => {
 
-            button.addEventListener(
-                "click",
-                () => {
+            if (button.dataset.watchBound === "true") return;
+            button.dataset.watchBound = "true";
 
-                    const id =
-                        button.dataset.id;
-
-
-                    this.openDocumentary(id);
-
+            const openFromButton = (event) => {
+                if (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    if (event.stopImmediatePropagation) event.stopImmediatePropagation();
                 }
-            );
+
+                const id = button.dataset.id;
+                this.openDocumentary(id);
+            };
+
+            button.addEventListener("click", openFromButton, true);
+            button.addEventListener("pointerup", (event) => {
+                if (event.pointerType && event.pointerType !== "mouse") {
+                    openFromButton(event);
+                }
+            }, true);
+            button.addEventListener("touchend", openFromButton, true);
 
         });
+
+        /*
+           The cinema interior is moved into a fixed overlay when visitors
+           enter the Documentary Cinema. Once moved, the buttons are no
+           longer descendants of #cinema, so a cinema-level click handler
+           cannot reliably own their interaction. Keep a document-level
+           capture fallback so WATCH DOCUMENTARY remains clickable in the
+           overlay on mouse, touch and mobile browsers.
+        */
+        if (document.body.dataset.cinemaWatchDelegationBound !== "true") {
+            document.body.dataset.cinemaWatchDelegationBound = "true";
+
+            const delegatedOpen = (event) => {
+                const button = event.target && event.target.closest
+                    ? event.target.closest(".watch-documentary")
+                    : null;
+
+                if (!button) return;
+
+                event.preventDefault();
+                event.stopPropagation();
+                if (event.stopImmediatePropagation) event.stopImmediatePropagation();
+
+                this.openDocumentary(button.dataset.id);
+            };
+
+            document.addEventListener("click", delegatedOpen, true);
+            document.addEventListener("pointerup", (event) => {
+                if (event.pointerType === "mouse") return;
+                const button = event.target && event.target.closest
+                    ? event.target.closest(".watch-documentary")
+                    : null;
+                if (button) delegatedOpen(event);
+            }, true);
+            document.addEventListener("touchend", delegatedOpen, true);
+        }
 
     },
 
