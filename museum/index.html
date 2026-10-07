@@ -101,6 +101,26 @@
         }
 
         function capture(event){
+            /* ASK THE MUSEUM SUGGESTIONS GET FIRST PRIORITY.
+               This runs before all later museum capture layers. */
+            if(event.type === "click" && event.target && event.target.closest){
+                var chatButton = event.target.closest("#museumChat [data-chat-intent]");
+                if(chatButton){
+                    event.preventDefault();
+                    event.stopImmediatePropagation();
+                    var intent = "intent:" + chatButton.getAttribute("data-chat-intent");
+                    var messages = document.getElementById("museumChatMessages");
+                    if(messages && typeof window.VOHMuseumAnswerFor === "function"){
+                        var bot = document.createElement("div");
+                        bot.className = "museum-chat-message museum-chat-bot";
+                        bot.innerHTML = window.VOHMuseumAnswerFor(intent);
+                        messages.appendChild(bot);
+                        messages.scrollTop = messages.scrollHeight;
+                    }
+                    return;
+                }
+            }
+
             /* African Museum close gets first priority at the window
                capture layer, before any building/camera handlers. */
             if(event.type === "click" && africanClose(event.target)){
