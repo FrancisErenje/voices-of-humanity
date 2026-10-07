@@ -811,7 +811,6 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
             building.addEventListener("touchend", openStudio, true);
             building.dataset.lm247ExperienceBound = "true";
         }
-        building.dataset.lm247ExperienceBound = "true";
 
     if(document.readyState === "loading"){
         document.addEventListener("DOMContentLoaded", bind);
@@ -824,12 +823,4 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 
 
 
-/* Load the authoritative LocalMedia247 interaction layer after the museum UI is ready. */
-(function(){
-    if(window.__lm247InteractionLoader) return;
-    window.__lm247InteractionLoader=true;
-    const s=document.createElement("script");
-    s.src="js/lm247-building-interaction.js?v=20261007-singlepath";
-    s.async=false;
-    document.head.appendChild(s);
 })();
