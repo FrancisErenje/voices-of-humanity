@@ -5,14 +5,23 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "069",
+    date: "WEDNESDAY, OCTOBER 7, 2026",
+    heading: "THE THINGS WE CHOOSE TO PRESERVE",
+    quote: "What we preserve today becomes part of what tomorrow remembers.",
+    note: "Every generation receives something from the people who came before it—languages, stories, songs, knowledge, traditions, places and memories. Some survive because people deliberately choose to preserve them. Others disappear quietly when no one takes the time to record, teach or pass them on. Preservation is therefore more than keeping the past alive. It is an act of responsibility toward the future. When we document a language, record an elder's story, preserve a traditional skill or teach a younger person what might otherwise be forgotten, we are leaving something valuable for someone we may never meet. What we preserve today may become tomorrow's heritage.",
+    image: ""
+  },
+  archive: [
+  {
     number: "068",
     date: "TUESDAY, OCTOBER 6, 2026",
     heading: "THE STORIES WRITTEN IN THE EARTH",
     quote: "The Earth tells stories not only through its people, but through the land beneath their feet.",
     note: "Happy International Geodiversity Day. Every mountain, river, rock and landscape carries a story. The places where people build their homes, grow their food and pass their traditions from one generation to another are shaped by the Earth beneath them. Just as every language preserves a unique way of seeing the world, the Earth's landscapes preserve chapters of its history. Today, let us remember that preserving humanity also means preserving the world that has carried us.",
-    image: ""
+    image: "",
+    format: "text"
   },
-  archive: [
   {
   number: "067",
   date: "MONDAY, OCTOBER 5, 2026",
