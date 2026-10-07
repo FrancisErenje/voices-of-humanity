@@ -2311,7 +2311,7 @@ bottom:126px;
 .ledScreen{
 
     position:absolute;
-    z-index:10001;
+    z-index:10003 !important;
     pointer-events:auto;
 
     right:0;
