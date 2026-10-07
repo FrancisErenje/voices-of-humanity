@@ -807,124 +807,38 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
         }, true);
     }
 
-    function installReliableBuildingHitSurface(){
-        const building = document.getElementById("lm247Building");
-        if(!building || building.dataset.reliableHitSurface === "true") return;
-        building.dataset.reliableHitSurface = "true";
-        building.style.pointerEvents = "auto";
-        building.style.cursor = "pointer";
-        building.style.zIndex = "60";
-
-        function openStudio(event){
-            if(event){
-                event.preventDefault();
-                event.stopPropagation();
-                if(event.stopImmediatePropagation) event.stopImmediatePropagation();
-            }
-            const panel = document.querySelector(".lm247-experience-overlay");
-            if(panel && typeof panel._open === "function") panel._open();
-        }
-
-        /* The live news screen overlaps the building's right side. These
-           three hit zones cover the building without covering the screen. */
-        const zones = [
-            ["0","0","232px","230px"],
-            ["232px","0","108px","48px"],
-            ["232px","190px","108px","40px"]
-        ];
-        /* Also bind the building itself in capture phase. This is the
-           fallback for browsers where a transparent child button is visually
-           detected but the click is intercepted by the museum world layer. */
-        if(building.dataset.directPressBound !== "true"){
-            building.dataset.directPressBound = "true";
-            /* Activate only on the completed click/tap. A pointerdown
-               here opens the panel before the browser emits click, and the
-               studio's outside-click guard would then close it immediately. */
-            building.addEventListener("click", openStudio, true);
-        }
-
-        zones.forEach((box,index)=>{
-            const hit=document.createElement("button");
-            hit.type="button";
-            hit.className="lm247-building-hit-zone";
-            hit.setAttribute("aria-label","Open LocalMedia247");
-            Object.assign(hit.style,{
-                position:"absolute", left:box[0], top:box[1], width:box[2], height:box[3],
-                padding:"0", margin:"0", border:"0", background:"transparent",
-                pointerEvents:"auto", cursor:"pointer", touchAction:"manipulation", zIndex:"90"
-            });
-            hit.dataset.zone=String(index);
-            /* Activate on pointerdown as well as click. The museum world
-               uses document-level camera handlers, and those can consume the
-               later click event even though the cursor correctly shows the
-               LocalMedia247 hit area. The hit surface therefore owns the
-               initial press for mouse, pen and touch. */
-            /* The completed click is the single activation event. */
-            hit.addEventListener("click",openStudio,true);
-            building.appendChild(hit);
-        });
-    }
-    if(document.readyState === "loading"){
-        document.addEventListener("DOMContentLoaded", installReliableBuildingHitSurface);
-    }else{
-        installReliableBuildingHitSurface();
-    }
-    setTimeout(installReliableBuildingHitSurface, 500);
-    setTimeout(installReliableBuildingHitSurface, 1500);
-
-
+    /* The LocalMedia247 building uses its native DOM action plus a
+       screen-space fallback so decorative/camera layers cannot swallow it. */
     if(document.readyState === "loading"){
         document.addEventListener("DOMContentLoaded", bind);
     }else{
         bind();
     }
-
     setTimeout(bind, 500);
     setTimeout(bind, 1500);
 
-    /* Keep the LocalMedia247 architectural brand lockup strictly singular.
-       Some late museum initialization can rebuild building children after
-       the first bind, so enforce the final DOM shape here as well. */
-    const brandObserver = new MutationObserver(() => {
-        const building = document.getElementById("lm247Building");
-        if(!building) return;
-
-        const titles = building.querySelectorAll(".lm247Title");
-        titles.forEach((node, index) => {
-            if(index > 0) node.remove();
-        });
-
-        const title = building.querySelector(".lm247Title");
-        if(!title) return;
-
-        title.style.textTransform = "none";
-
-        const textNodes = Array.from(title.childNodes).filter(n => n.nodeType === Node.TEXT_NODE);
-        if(textNodes.length > 0 && textNodes[0].textContent !== "LocalMedia247"){
-            textNodes[0].textContent = "LocalMedia247";
-        }
-        textNodes.slice(1).forEach(node => node.remove());
-
-        let subtitle = title.querySelector("span");
-        if(!subtitle){
-            subtitle = document.createElement("span");
-            subtitle = document.createElement("span");
-            subtitle.textContent = "Documenting Today. Preserving Tomorrow.";
-            title.appendChild(subtitle);
-        }else if(subtitle.textContent !== "Documenting Today. Preserving Tomorrow."){
-            subtitle.textContent = "Documenting Today. Preserving Tomorrow.";
-        }
-    });
-    brandObserver.observe(document.body, {childList:true, subtree:true});
-
-})();
-
-/* Load the authoritative LocalMedia247 interaction layer after the museum UI is ready. */
+/* FINAL LM247 HIT TEST */
 (function(){
-    if(window.__lm247InteractionLoader) return;
-    window.__lm247InteractionLoader=true;
-    const s=document.createElement("script");
-    s.src="js/lm247-building-interaction.js?v=20261007";
-    s.async=false;
-    document.head.appendChild(s);
+    window.addEventListener("pointerdown", function(event){
+        const building = document.getElementById("lm247Building");
+        const overlay = document.querySelector(".lm247-experience-overlay");
+        if(!building || !overlay || typeof overlay._open !== "function") return;
+        if(overlay.classList.contains("open")) return;
+        if(event.button !== undefined && event.button !== 0) return;
+
+        const newsWall = document.getElementById("lm247NewsWall");
+        if(newsWall && newsWall.contains(event.target)) return;
+
+        const rect = building.getBoundingClientRect();
+        if(event.clientX < rect.left || event.clientX > rect.right ||
+           event.clientY < rect.top || event.clientY > rect.bottom) return;
+
+        event.preventDefault();
+        if(typeof event.stopImmediatePropagation === "function") event.stopImmediatePropagation();
+        else event.stopPropagation();
+
+        const generic = document.getElementById("museum-video-panel");
+        if(generic) generic.remove();
+        overlay._open();
+    }, true);
 })();
