@@ -26,7 +26,6 @@ window.MuseumVideoEngine = {
       "americasMuseum",
       "oceaniaMuseum",
       "hall-humanity",
-      "cinema",
       "visitor-centre"
     ];
 
@@ -62,6 +61,8 @@ window.MuseumVideoEngine = {
   },
 
   openBuilding(buildingId) {
+    if (buildingId === "cinema") return;
+
     const items = this.getForBuilding(buildingId);
     const publicItems = this.publicContent[buildingId] || [];
     if (!items.length && !publicItems.length) return;
