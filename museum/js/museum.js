@@ -709,6 +709,17 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
             if(!overlay.classList.contains("open")) return;
 
             const path = typeof event.composedPath === "function" ? event.composedPath() : [];
+
+            /* The LocalMedia247 opening control is a viewport-level button.
+               Do not treat its activation as an outside click after the
+               button opens the studio; otherwise pointerup/click would
+               immediately close the panel again. */
+            const lm247OpenTarget = path.find(node =>
+                node && node.id === "lm247ViewportHit"
+            ) || (event.target && event.target.closest
+                ? event.target.closest("#lm247ViewportHit")
+                : null);
+            if(lm247OpenTarget) return;
             const button = path.find(node =>
                 node && node.classList && (
                     node.classList.contains("lm247-experience-close") ||
