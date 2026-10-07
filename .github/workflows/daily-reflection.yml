@@ -1,0 +1,58 @@
+name: Daily Reflection — Voices of Humanity
+
+on:
+  schedule:
+    - cron: "0 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: voices-of-humanity-daily-reflection
+  cancel-in-progress: false
+
+jobs:
+  publish-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Check out the museum
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - name: Publish today's reflection
+        run: node scripts/publish-daily-reflection.js
+
+      - name: Commit reflection update
+        run: |
+          git config user.name "Voices of Humanity Automation"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add museum/data/reflections.js
+          if git diff --cached --quiet; then
+            echo "No reflection change was needed."
+          else
+            git commit -m "Publish daily reflection"
+            git push
+          fi
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload museum site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: "."
+
+      - name: Deploy museum
+        id: deployment
+        uses: actions/deploy-pages@v4
