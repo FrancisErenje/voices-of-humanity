@@ -476,6 +476,38 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 
 
 /*======================================
+   AFRICAN LANGUAGES MUSEUM — FINAL SCREEN-SPACE HIT TEST
+   The campus contains decorative and interaction layers that can sit
+   above the building's DOM hit surface. Use the building's rendered
+   viewport rectangle as the final authoritative click/tap target.
+======================================*/
+(function setupAfricanMuseumScreenHitTest(){
+    function openAfrica(event){
+        if(!event || (event.type !== "pointerdown" && event.type !== "click")) return;
+        if(event.button !== undefined && event.button !== 0) return;
+
+        const building = document.getElementById("africaMuseum");
+        const overlay = document.querySelector(".african-languages-experience-overlay");
+        if(!building || !overlay || typeof overlay._open !== "function") return;
+        if(overlay.classList.contains("open")) return;
+
+        const rect = building.getBoundingClientRect();
+        const x = event.clientX;
+        const y = event.clientY;
+        if(x < rect.left || x > rect.right || y < rect.top || y > rect.bottom) return;
+
+        event.preventDefault();
+        if(typeof event.stopImmediatePropagation === "function") event.stopImmediatePropagation();
+        else event.stopPropagation();
+
+        overlay._open();
+    }
+
+    window.addEventListener("pointerdown", openAfrica, true);
+    window.addEventListener("click", openAfrica, true);
+})();
+
+/*======================================
    LOCALMEDIA247 — VISITOR EXPERIENCE
    One clean visitor page: today first,
    yesterday next, dated archive links,
