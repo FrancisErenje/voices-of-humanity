@@ -2096,7 +2096,7 @@ bottom:126px;
 
     height:520px;
 
-    z-index:20;
+    z-index:2147483644 !important;
 
 }
 
