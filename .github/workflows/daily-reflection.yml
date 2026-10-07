@@ -1,6 +1,9 @@
 name: Daily Reflection — Voices of Humanity
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     - cron: "0 5 * * *"
   workflow_dispatch:
