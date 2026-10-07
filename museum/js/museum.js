@@ -842,6 +842,12 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
                 pointerEvents:"auto", cursor:"pointer", touchAction:"manipulation", zIndex:"90"
             });
             hit.dataset.zone=String(index);
+            /* Activate on pointerdown as well as click. The museum world
+               uses document-level camera handlers, and those can consume the
+               later click event even though the cursor correctly shows the
+               LocalMedia247 hit area. The hit surface therefore owns the
+               initial press for mouse, pen and touch. */
+            hit.addEventListener("pointerdown",openStudio,true);
             hit.addEventListener("click",openStudio,true);
             hit.addEventListener("pointerup",function(e){ if(e.pointerType!=="mouse") openStudio(e); },true);
             hit.addEventListener("touchend",openStudio,true);
