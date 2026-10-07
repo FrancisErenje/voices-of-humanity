@@ -5,14 +5,24 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "070",
+    date: "THURSDAY, OCTOBER 8, 2026",
+    heading: "THE VALUE OF A QUESTION",
+    quote: "A sincere question can open a door that certainty keeps closed.",
+    note: "Questions are not always signs of doubt. Sometimes they are invitations to learn, understand and see beyond what we already know. Every generation moves forward because someone was willing to ask why, how, what if, and what comes next. When we welcome thoughtful questions, we create space for discovery and better understanding.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "069",
     date: "WEDNESDAY, OCTOBER 7, 2026",
     heading: "THE THINGS WE CHOOSE TO PRESERVE",
     quote: "What we preserve today becomes part of what tomorrow remembers.",
     note: "Every generation receives something from the people who came before it—languages, stories, songs, knowledge, traditions, places and memories. Some survive because people deliberately choose to preserve them. Others disappear quietly when no one takes the time to record, teach or pass them on. Preservation is therefore more than keeping the past alive. It is an act of responsibility toward the future. When we document a language, record an elder's story, preserve a traditional skill or teach a younger person what might otherwise be forgotten, we are leaving something valuable for someone we may never meet. What we preserve today may become tomorrow's heritage.",
-    image: ""
+    image: "",
+    format: "text"
   },
-  archive: [
   {
     number: "068",
     date: "TUESDAY, OCTOBER 6, 2026",
