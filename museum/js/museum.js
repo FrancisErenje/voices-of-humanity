@@ -270,6 +270,14 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
     setTimeout(bind, 500);
     setTimeout(bind, 1500);
 
+    if(document.readyState === "loading"){
+        document.addEventListener("DOMContentLoaded", bindLocalMedia247BuildingSurface);
+    }else{
+        bindLocalMedia247BuildingSurface();
+    }
+    setTimeout(bindLocalMedia247BuildingSurface, 500);
+    setTimeout(bindLocalMedia247BuildingSurface, 1500);
+
 })();
 
 
@@ -773,6 +781,33 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
         panels.forEach((node, index) => { if(index > 0) node.remove(); });
     }
 
+    function bindLocalMedia247BuildingSurface(){
+        const surface = document.getElementById("lm247BuildingInteraction");
+        if(!surface || surface.dataset.bound === "true") return;
+
+        const openStudio = function(event){
+            if(event && event.button !== undefined && event.button !== 0) return;
+            const panel = document.querySelector(".lm247-experience-overlay");
+            if(!panel || typeof panel._open !== "function") return;
+            if(panel.classList.contains("open")) return;
+
+            if(event){
+                event.preventDefault();
+                if(typeof event.stopImmediatePropagation === "function") event.stopImmediatePropagation();
+                else if(typeof event.stopPropagation === "function") event.stopPropagation();
+            }
+
+            const genericPanel = document.getElementById("museum-video-panel");
+            if(genericPanel) genericPanel.remove();
+            panel._open();
+        };
+
+        surface.querySelectorAll(".lm247-building-zone").forEach(function(zone){
+            zone.addEventListener("click", openStudio, true);
+        });
+        surface.dataset.bound = "true";
+    }
+
     function bind(){
         const building = document.getElementById("lm247Building");
         if(!building) return;
@@ -851,28 +886,3 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 
 })();
 
-/* FINAL LM247 HIT TEST */
-(function(){
-    window.addEventListener("pointerdown", function(event){
-        const building = document.getElementById("lm247Building");
-        const overlay = document.querySelector(".lm247-experience-overlay");
-        if(!building || !overlay || typeof overlay._open !== "function") return;
-        if(overlay.classList.contains("open")) return;
-        if(event.button !== undefined && event.button !== 0) return;
-
-        const newsWall = document.getElementById("lm247NewsWall");
-        if(newsWall && newsWall.contains(event.target)) return;
-
-        const rect = building.getBoundingClientRect();
-        if(event.clientX < rect.left || event.clientX > rect.right ||
-           event.clientY < rect.top || event.clientY > rect.bottom) return;
-
-        event.preventDefault();
-        if(typeof event.stopImmediatePropagation === "function") event.stopImmediatePropagation();
-        else event.stopPropagation();
-
-        const generic = document.getElementById("museum-video-panel");
-        if(generic) generic.remove();
-        overlay._open();
-    }, true);
-})();
