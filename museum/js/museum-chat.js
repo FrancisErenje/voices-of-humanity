@@ -332,13 +332,73 @@
     setTimeout(()=>addMessage(answerFor(q),"bot"),220);
   }
 
+  /*
+   * The museum chat form is intentionally a <div> in index.html rather
+   * than a native <form>.  The previous version only listened for the
+   * "submit" event, so the Send button and Enter key could appear to do
+   * nothing.  Keep a single explicit send function and bind it to both
+   * controls.
+   */
+  function sendCurrentQuestion(event){
+    if(event){
+      event.preventDefault();
+      event.stopPropagation();
+      if(typeof event.stopImmediatePropagation==="function"){
+        event.stopImmediatePropagation();
+      }
+    }
+    submitQuestion(input.value);
+    return false;
+  }
+
+  window.__vohSendMuseumQuestion=sendCurrentQuestion;
+
   launcher.addEventListener("click",()=>panel.classList.contains("is-open")?closeChat():openChat());
   closeBtn.addEventListener("click",closeChat);
-  form.addEventListener("submit",(e)=>{e.preventDefault();submitQuestion(input.value);});
-  messages.addEventListener("click",(e)=>{
-    const btn=e.target.closest("[data-chat-intent]");
-    if(btn) submitQuestion("intent:"+btn.getAttribute("data-chat-intent"));
+
+  const sendBtn=panel.querySelector("#museumChatSend");
+  if(sendBtn){
+    sendBtn.addEventListener("click",sendCurrentQuestion,true);
+  }
+
+  input.addEventListener("keydown",(e)=>{
+    if(e.key==="Enter"){
+      sendCurrentQuestion(e);
+    }
   });
+
+  /* Keep the native submit listener as a compatibility path in case the
+     markup is later changed back to a real <form>. */
+  form.addEventListener("submit",(e)=>{
+    e.preventDefault();
+    submitQuestion(input.value);
+  });
+
+  /*
+   * Chat controls must win over the museum's many global interaction
+   * layers.  Handle suggestion buttons at the window capture phase so
+   * camera/building handlers cannot swallow their click.
+   */
+  window.addEventListener("click",(e)=>{
+    const target=e.target;
+    if(!target || !target.closest) return;
+
+    const chat=target.closest("#museumChat");
+    if(!chat) return;
+
+    const btn=target.closest("[data-chat-intent]");
+    if(btn){
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      submitQuestion("intent:"+btn.getAttribute("data-chat-intent"));
+      return;
+    }
+
+    const send=target.closest("#museumChatSend");
+    if(send){
+      sendCurrentQuestion(e);
+    }
+  },true);
 
   window.VOHMuseumAnswerFor=answerFor;
   window.VOHMuseumLocalized=localized;
