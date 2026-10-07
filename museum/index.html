@@ -125,6 +125,45 @@
         window.addEventListener("click", capture, true);
         window.addEventListener("touchend", capture, true);
 
+        /* LOCALMEDIA247 — highest-priority building ownership.
+           The museum world/camera can place another element above the
+           visible building. Window capture still sees the pointer event,
+           so use the building's live viewport rectangle as the authoritative
+           hit test. The news screen remains excluded. */
+        function localMedia247Hit(event){
+            if(!event || (event.button !== undefined && event.button !== 0)) return false;
+
+            var building = document.getElementById("lm247Building");
+            if(!building) return false;
+
+            var panel = document.querySelector(".lm247-experience-overlay");
+            if(!panel || typeof panel._open !== "function") return false;
+            if(panel.classList.contains("open")) return false;
+
+            var screen = document.getElementById("lm247NewsWall");
+            var x = event.clientX;
+            var y = event.clientY;
+            if(typeof x !== "number" || typeof y !== "number") return false;
+
+            function inside(rect){
+                return x >= rect.left && x <= rect.right &&
+                       y >= rect.top && y <= rect.bottom;
+            }
+
+            if(!inside(building.getBoundingClientRect())) return false;
+            if(screen && inside(screen.getBoundingClientRect())) return false;
+
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            panel._open();
+            return true;
+        }
+
+        window.addEventListener("pointerdown", localMedia247Hit, true);
+        window.addEventListener("mousedown", localMedia247Hit, true);
+        window.addEventListener("touchstart", localMedia247Hit, true);
+        window.addEventListener("click", localMedia247Hit, true);
+
         document.addEventListener("keydown", function(event){
             if(event.key === "Escape"){
                 var reflection=document.querySelector(".reflection-garden-overlay.open");
