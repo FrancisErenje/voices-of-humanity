@@ -783,6 +783,35 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 
         if(building.dataset.lm247ExperienceBound === "true") return;
         building.dataset.lm247ExperienceBound = "true";
+        /* FINAL LOCALMEDIA247 COMPLEX CAPTURE
+           The building's visible artwork contains several transparent child
+           hit surfaces. Capture at the complex ancestor so those children
+           cannot swallow the activation before it reaches the studio. */
+        const lm247Complex = document.getElementById("lm247Complex");
+        if(lm247Complex && lm247Complex.dataset.lm247ComplexCapture !== "true"){
+            lm247Complex.dataset.lm247ComplexCapture = "true";
+            lm247Complex.addEventListener("click", function(event){
+                if(event.button !== undefined && event.button !== 0) return;
+                const panel = document.querySelector(".lm247-experience-overlay");
+                if(!panel || typeof panel._open !== "function" || panel.classList.contains("open")) return;
+
+                const screen = document.getElementById("lm247NewsWall");
+                if(screen){
+                    const sr = screen.getBoundingClientRect();
+                    if(event.clientX >= sr.left && event.clientX <= sr.right &&
+                       event.clientY >= sr.top && event.clientY <= sr.bottom) return;
+                }
+
+                const rect = lm247Complex.getBoundingClientRect();
+                if(event.clientX < rect.left || event.clientX > rect.right ||
+                   event.clientY < rect.top || event.clientY > rect.bottom) return;
+
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                panel._open();
+            }, true);
+        }
+
 
         building.addEventListener("click", function(event){
             event.preventDefault();
