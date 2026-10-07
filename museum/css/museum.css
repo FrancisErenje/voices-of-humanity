@@ -2103,6 +2103,33 @@ bottom:126px;
 /* LocalMedia247 headquarters: the visible building itself is the interaction surface. */
 /* Building */
 
+/* Dedicated LocalMedia247 building hit surface.
+   It sits above all decorative children but below the separate news wall. */
+#lm247Building .lm247-building-hit-surface{
+    position:absolute !important;
+    inset:0 !important;
+    width:100% !important;
+    height:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+    border:0 !important;
+    border-radius:inherit !important;
+    background:transparent !important;
+    box-shadow:none !important;
+    opacity:0 !important;
+    appearance:none !important;
+    -webkit-appearance:none !important;
+    pointer-events:auto !important;
+    cursor:pointer !important;
+    touch-action:manipulation !important;
+    z-index:2147483647 !important;
+}
+#lm247Building > .roof-strip,
+#lm247Building > .lm247Title,
+#lm247Building > .glass-wall{
+    pointer-events:none !important;
+}
+
 #lm247Building{
 
     position:absolute;
