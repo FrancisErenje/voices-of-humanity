@@ -821,6 +821,32 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
     setTimeout(bind, 500);
     setTimeout(bind, 1500);
 
+    /* FINAL LM247 HIT TEST
+       The campus contains camera/navigation layers that can sit above a
+       visible building. Use the building's actual screen rectangle as the
+       hit-test, without creating another visual or transparent DOM layer. */
+    window.addEventListener("pointerdown", function(event){
+        const building = document.getElementById("lm247Building");
+        const overlay = document.querySelector(".lm247-experience-overlay");
+        if(!building || !overlay || typeof overlay._open !== "function") return;
+        if(overlay.classList.contains("open")) return;
+        if(event.button !== undefined && event.button !== 0) return;
 
+        const newsWall = document.getElementById("lm247NewsWall");
+        if(newsWall && newsWall.contains(event.target)) return;
+
+        const rect = building.getBoundingClientRect();
+        const x = event.clientX;
+        const y = event.clientY;
+        if(x < rect.left || x > rect.right || y < rect.top || y > rect.bottom) return;
+
+        event.preventDefault();
+        if(typeof event.stopImmediatePropagation === "function") event.stopImmediatePropagation();
+        else event.stopPropagation();
+
+        const generic = document.getElementById("museum-video-panel");
+        if(generic) generic.remove();
+        overlay._open();
+    }, true);
 
 })();
