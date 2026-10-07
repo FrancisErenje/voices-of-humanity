@@ -70,7 +70,9 @@
     }
 
     function install(){
+        if(window.__lm247IndependentBuildingInstalled) return;
         if(!getBuilding()) return;
+        window.__lm247IndependentBuildingInstalled=true;
 
         /* Capture before the museum's generic world/building handlers.
            This is deliberately scoped to the LocalMedia247 building. */
@@ -102,9 +104,6 @@
     window.addEventListener("load",function(){
         /* The building is normally already present; this retry only protects
            against the museum being initialized after DOMContentLoaded. */
-        if(!window.__lm247IndependentBuildingInstalled){
-            window.__lm247IndependentBuildingInstalled=true;
-            install();
-        }
+        install();
     },{once:true});
 })();
