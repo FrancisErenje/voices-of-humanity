@@ -421,7 +421,7 @@ function createReflectionGardenExperience(gardenElement) {
     function start(){
         if (window.__vohGardensLoaded) return true;
         const campusElement = document.getElementById("campus");
-        if (!campusElement || !Array.isArray(window.Gardens)) return false;
+        if (!campusElement || typeof Gardens === "undefined") return false;
         loadGardens();
         window.__vohGardensLoaded = true;
         return true;
