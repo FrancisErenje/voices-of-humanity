@@ -76,6 +76,8 @@
 
         /* Capture before the museum's generic world/building handlers.
            This is deliberately scoped to the LocalMedia247 building. */
+        /* Claim the building before museum camera handlers can consume the gesture. */
+        window.addEventListener("pointerdown",handlePointer,true);
         window.addEventListener("pointerup",handlePointer,true);
         window.addEventListener("touchend",handlePointer,true);
         window.addEventListener("click",handleClick,true);
