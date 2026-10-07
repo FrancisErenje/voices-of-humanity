@@ -5927,8 +5927,7 @@ transform:rotate(-1deg);
 }
 
 #lm247Building .building-name-label{
-    top:-48px;
-    background:linear-gradient(135deg,#075b91,#008cff);
+    display:none !important;
 }
 
 #africaMuseum .building-name-label{
