@@ -132,8 +132,12 @@
            This listener is registered before the museum engines and wins in
            capture phase. */
         function localMedia247AuthoritativeClick(event){
-            if(!event || event.type !== "click") return;
+            if(!event) return;
+            if(event.type !== "pointerdown" && event.type !== "click") return;
             if(event.button !== undefined && event.button !== 0) return;
+
+            var target = event.target;
+            var hit = target && target.closest ? target.closest("#lm247ViewportHit") : null;
 
             var complex = document.getElementById("lm247Complex");
             if(!complex) return;
@@ -158,15 +162,22 @@
                 return;
             }
 
-            event.preventDefault();
-            event.stopImmediatePropagation();
+            /* This is the authoritative opening gesture. It runs at the
+               window capture phase, before the viewport/camera handlers.
+               The dedicated hit button is accepted explicitly, while the
+               coordinate check also protects the visible building itself. */
+            if(event.type === "pointerdown" || hit){
+                event.preventDefault();
+                event.stopImmediatePropagation();
 
-            var genericPanel = document.getElementById("museum-video-panel");
-            if(genericPanel) genericPanel.remove();
+                var genericPanel = document.getElementById("museum-video-panel");
+                if(genericPanel) genericPanel.remove();
 
-            panel._open();
+                panel._open();
+            }
         }
 
+        window.addEventListener("pointerdown", localMedia247AuthoritativeClick, true);
         window.addEventListener("click", localMedia247AuthoritativeClick, true);
 
         document.addEventListener("keydown", function(event){
