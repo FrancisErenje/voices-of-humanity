@@ -2100,6 +2100,49 @@ bottom:126px;
 
 }
 
+/* Dedicated LocalMedia247 headquarters click target.
+   It lives inside the museum world, so it follows the same camera/layout
+   as the building. The live news screen remains a separate sibling target. */
+#lm247BuildingInteraction{
+    position:absolute;
+    left:550px;
+    top:680px;
+    width:340px;
+    height:230px;
+    pointer-events:none;
+    z-index:2147483647;
+}
+#lm247BuildingInteraction .lm247-building-zone{
+    position:absolute;
+    display:block;
+    padding:0;
+    margin:0;
+    border:0;
+    background:transparent;
+    pointer-events:auto;
+    cursor:pointer;
+    touch-action:manipulation;
+    z-index:2147483647;
+}
+#lm247BuildingInteraction .lm247-building-zone-main{
+    left:0;
+    top:0;
+    width:232px;
+    height:230px;
+}
+#lm247BuildingInteraction .lm247-building-zone-top{
+    left:232px;
+    top:0;
+    width:108px;
+    height:48px;
+}
+#lm247BuildingInteraction .lm247-building-zone-bottom{
+    left:232px;
+    top:190px;
+    width:108px;
+    height:40px;
+}
+
 /* Building */
 
 #lm247Building{
