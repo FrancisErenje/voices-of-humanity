@@ -1,29 +1,39 @@
-/* LocalMedia247 — viewport-root interaction target.
-   The museum world is transformed and contains many overlapping visual layers.
-   This single button lives directly under #viewport, outside #world, so its
-   stacking context is independent of the transformed campus artwork. */
+/* LocalMedia247 — dedicated viewport interaction target.
+   One target only. It sits directly under #viewport, outside the transformed
+   museum world, so the camera and decorative building layers cannot swallow
+   the opening gesture. */
 (function(){
   "use strict";
   if(window.__lm247ViewportInteraction) return;
   window.__lm247ViewportInteraction = true;
 
-  var viewport, button, raf = 0;
+  var viewport, button, raf = 0, openQueued = false;
 
-  function panel(){
+  function getPanel(){
     return document.querySelector(".lm247-experience-overlay");
   }
 
-  function open(event){
-    var p = panel();
+  function openStudio(){
+    if(openQueued) return;
+    var p = getPanel();
     if(!p || typeof p._open !== "function" || p.classList.contains("open")) return;
+    openQueued = true;
+    window.setTimeout(function(){
+      openQueued = false;
+      var panel = getPanel();
+      if(!panel || typeof panel._open !== "function" || panel.classList.contains("open")) return;
+      var generic = document.getElementById("museum-video-panel");
+      if(generic) generic.remove();
+      panel._open();
+    }, 0);
+  }
+
+  function consume(event){
     if(event){
-      event.preventDefault();
+      event.stopImmediatePropagation();
       event.stopPropagation();
-      if(event.stopImmediatePropagation) event.stopImmediatePropagation();
     }
-    var generic = document.getElementById("museum-video-panel");
-    if(generic) generic.remove();
-    p._open();
+    openStudio();
   }
 
   function ensure(){
@@ -51,40 +61,56 @@
         touchAction:"manipulation",
         WebkitTapHighlightColor:"transparent"
       });
-      button.addEventListener("click",open,true);
+
+      /* Take ownership at the initial press. We deliberately do not call
+         preventDefault(), so the browser may still synthesize a normal click.
+         The later click is also consumed by this same target. */
+      button.addEventListener("pointerdown", consume, true);
+      button.addEventListener("mousedown", consume, true);
+      button.addEventListener("touchstart", consume, true);
+      button.addEventListener("click", consume, true);
+      button.addEventListener("keydown", function(event){
+        if(event.key === "Enter" || event.key === " "){
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          openStudio();
+        }
+      }, true);
+
       viewport.appendChild(button);
     }
     return true;
   }
 
   function sync(){
-    raf=0;
+    raf = 0;
     if(!ensure()) return;
 
-    var building=document.getElementById("lm247Building");
+    var building = document.getElementById("lm247Building");
     if(!building){
-      button.style.display="none";
+      button.style.display = "none";
       return;
     }
 
-    var r=building.getBoundingClientRect();
-    if(r.width<=0 || r.height<=0 || r.bottom<=0 || r.right<=0 ||
-       r.left>=window.innerWidth || r.top>=window.innerHeight){
-      button.style.display="none";
+    var r = building.getBoundingClientRect();
+    if(r.width <= 0 || r.height <= 0 ||
+       r.bottom <= 0 || r.right <= 0 ||
+       r.left >= window.innerWidth || r.top >= window.innerHeight){
+      button.style.display = "none";
       return;
     }
 
-    /* Keep the transparent target strictly over the headquarters artwork.
-       The live news wall is a sibling and therefore remains clickable. */
-    button.style.display="block";
-    button.style.left=Math.max(0,r.left)+"px";
-    button.style.top=Math.max(0,r.top)+"px";
-    button.style.width=Math.min(r.width,window.innerWidth-Math.max(0,r.left))+"px";
-    button.style.height=Math.min(r.height,window.innerHeight-Math.max(0,r.top))+"px";
+    button.style.display = "block";
+    button.style.left = Math.max(0,r.left) + "px";
+    button.style.top = Math.max(0,r.top) + "px";
+    button.style.width =
+      Math.min(r.width,window.innerWidth-Math.max(0,r.left)) + "px";
+    button.style.height =
+      Math.min(r.height,window.innerHeight-Math.max(0,r.top)) + "px";
   }
 
   function schedule(){
-    if(!raf) raf=requestAnimationFrame(sync);
+    if(!raf) raf = requestAnimationFrame(sync);
   }
 
   function init(){
@@ -92,18 +118,20 @@
     sync();
     window.addEventListener("resize",schedule,{passive:true});
     window.addEventListener("scroll",schedule,{passive:true});
+
     if(window.ResizeObserver){
-      var ro=new ResizeObserver(schedule);
-      var b=document.getElementById("lm247Building");
+      var ro = new ResizeObserver(schedule);
+      var b = document.getElementById("lm247Building");
       if(b) ro.observe(b);
     }
+
     (function tick(){
       sync();
       requestAnimationFrame(tick);
     })();
   }
 
-  if(document.readyState==="loading"){
+  if(document.readyState === "loading"){
     document.addEventListener("DOMContentLoaded",init,{once:true});
   }else{
     init();
