@@ -101,47 +101,8 @@
         }
 
         function capture(event){
-            /* ASK THE MUSEUM SUGGESTIONS.
-               The buttons visibly receive the pointer, so activate them
-               at the earliest reliable gesture without cancelling the
-               browser's normal click sequence. This is deliberately
-               isolated from the museum/world interaction layers. */
-            if((event.type === "pointerdown" || event.type === "touchstart" ||
-                event.type === "click") &&
-               event.target && event.target.closest){
-                var chatButton = event.target.closest("#museumChat [data-chat-intent]");
-                if(chatButton){
-                    if(event.type === "click" && chatButton.dataset.vohSuggestionHandled === "1"){
-                        delete chatButton.dataset.vohSuggestionHandled;
-                        event.preventDefault();
-                        event.stopImmediatePropagation();
-                        return;
-                    }
-
-                    if(event.type === "pointerdown" || event.type === "touchstart"){
-                        chatButton.dataset.vohSuggestionHandled = "1";
-                        setTimeout(function(){
-                            delete chatButton.dataset.vohSuggestionHandled;
-                        }, 900);
-                    }
-
-                    var intent = "intent:" + chatButton.getAttribute("data-chat-intent");
-                    var messages = document.getElementById("museumChatMessages");
-                    if(messages && typeof window.VOHMuseumAnswerFor === "function"){
-                        var bot = document.createElement("div");
-                        bot.className = "museum-chat-message museum-chat-bot";
-                        bot.innerHTML = window.VOHMuseumAnswerFor(intent);
-                        messages.appendChild(bot);
-                        messages.scrollTop = messages.scrollHeight;
-                    }
-                    if(event.type === "click"){
-                        event.preventDefault();
-                        event.stopImmediatePropagation();
-                    }
-                    return;
-                }
-            }
-
+            /* Ask the Museum suggestions use their own direct handlers.
+               Do not intercept them in the global museum capture layer. */
             /* African Museum close gets first priority at the window
                capture layer, before any building/camera handlers. */
             if(event.type === "click" && africanClose(event.target)){
@@ -1464,12 +1425,12 @@
             <strong>Welcome.</strong><br>
             I can guide you around Voices of Humanity and explain the museum's main spaces, exhibits and purpose.
             <div class="museum-chat-suggestions">
-                <button type="button" data-chat-intent="voices">What is Voices of Humanity?</button>
-                <button type="button" data-chat-intent="whatSee">What can I see?</button>
-                <button type="button" data-chat-intent="reflection">Reflection Garden</button>
-                <button type="button" data-chat-intent="hall">Hall of Humanity</button>
-                <button type="button" data-chat-intent="services">LocalMedia247 services</button>
-                <button type="button" data-chat-intent="human">Speak to a human</button>
+                <button type="button" data-chat-intent="voices" onpointerdown="window.__vohMuseumSuggestion && window.__vohMuseumSuggestion('voices',event)" onclick="window.__vohMuseumSuggestion && window.__vohMuseumSuggestion('voices',event)">What is Voices of Humanity?</button>
+                <button type="button" data-chat-intent="whatSee" onpointerdown="window.__vohMuseumSuggestion && window.__vohMuseumSuggestion('whatSee',event)" onclick="window.__vohMuseumSuggestion && window.__vohMuseumSuggestion('whatSee',event)">What can I see?</button>
+                <button type="button" data-chat-intent="reflection" onpointerdown="window.__vohMuseumSuggestion && window.__vohMuseumSuggestion('reflection',event)" onclick="window.__vohMuseumSuggestion && window.__vohMuseumSuggestion('reflection',event)">Reflection Garden</button>
+                <button type="button" data-chat-intent="hall" onpointerdown="window.__vohMuseumSuggestion && window.__vohMuseumSuggestion('hall',event)" onclick="window.__vohMuseumSuggestion && window.__vohMuseumSuggestion('hall',event)">Hall of Humanity</button>
+                <button type="button" data-chat-intent="services" onpointerdown="window.__vohMuseumSuggestion && window.__vohMuseumSuggestion('services',event)" onclick="window.__vohMuseumSuggestion && window.__vohMuseumSuggestion('services',event)">LocalMedia247 services</button>
+                <button type="button" data-chat-intent="human" onpointerdown="window.__vohMuseumSuggestion && window.__vohMuseumSuggestion('human',event)" onclick="window.__vohMuseumSuggestion && window.__vohMuseumSuggestion('human',event)">Speak to a human</button>
             </div>
         </div>
     </div>
@@ -1491,6 +1452,23 @@
 /* Independent emergency opener for the Museum Guide.
    This keeps the visitor button functional even if another museum
    subsystem changes the normal event stack. */
+window.__vohMuseumSuggestion = function(intent,event){
+    if(event){
+        event.preventDefault();
+        if(event.stopImmediatePropagation) event.stopImmediatePropagation();
+    }
+    var messages=document.getElementById("museumChatMessages");
+    if(!messages) return false;
+    var answerFn=window.VOHMuseumAnswerFor;
+    if(typeof answerFn!=="function") return false;
+    var bot=document.createElement("div");
+    bot.className="museum-chat-message museum-chat-bot";
+    bot.innerHTML=answerFn("intent:"+intent);
+    messages.appendChild(bot);
+    messages.scrollTop=messages.scrollHeight;
+    return false;
+};
+
 window.__vohOpenMuseumChat = function(event){
     if(event){
         event.preventDefault();
