@@ -102,12 +102,12 @@
 
         function capture(event){
             /* ASK THE MUSEUM SUGGESTIONS.
-               The buttons visibly receive the pointer, but some museum
-               interaction layers can prevent the final click. Handle the
-               completed pointerup/touchend as a second reliable activation
-               path, while suppressing the later click so the answer appears
-               only once. */
-            if((event.type === "pointerup" || event.type === "touchend" || event.type === "click") &&
+               The buttons visibly receive the pointer, so activate them
+               at the earliest reliable gesture without cancelling the
+               browser's normal click sequence. This is deliberately
+               isolated from the museum/world interaction layers. */
+            if((event.type === "pointerdown" || event.type === "touchstart" ||
+                event.type === "click") &&
                event.target && event.target.closest){
                 var chatButton = event.target.closest("#museumChat [data-chat-intent]");
                 if(chatButton){
@@ -118,13 +118,12 @@
                         return;
                     }
 
-                    event.preventDefault();
-                    event.stopImmediatePropagation();
-
-                    chatButton.dataset.vohSuggestionHandled = "1";
-                    setTimeout(function(){
-                        delete chatButton.dataset.vohSuggestionHandled;
-                    }, 900);
+                    if(event.type === "pointerdown" || event.type === "touchstart"){
+                        chatButton.dataset.vohSuggestionHandled = "1";
+                        setTimeout(function(){
+                            delete chatButton.dataset.vohSuggestionHandled;
+                        }, 900);
+                    }
 
                     var intent = "intent:" + chatButton.getAttribute("data-chat-intent");
                     var messages = document.getElementById("museumChatMessages");
@@ -134,6 +133,10 @@
                         bot.innerHTML = window.VOHMuseumAnswerFor(intent);
                         messages.appendChild(bot);
                         messages.scrollTop = messages.scrollHeight;
+                    }
+                    if(event.type === "click"){
+                        event.preventDefault();
+                        event.stopImmediatePropagation();
                     }
                     return;
                 }
@@ -1513,7 +1516,6 @@ window.__vohOpenMuseumChat = function(event){
 </script>
 <script src="data/interface-languages.js"></script>
 <script src="js/museum-chat.js"></script>
-<script>
 
 
 <!-- ======================================
