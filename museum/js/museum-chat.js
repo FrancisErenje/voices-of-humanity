@@ -93,19 +93,19 @@
     },
     {
       keys:["localmedia247","local media 247","localmedia","daily brief"],
-      answer:"LocalMedia247 is the media and documentary production home associated with Voices of Humanity. Its motto is <em>Documenting Today. Preserving Tomorrow.</em><br><br>We can help with <strong>verified news reporting and publishing, fact-checking, documentary research and production, video editing, content creation, research-based media content, website creation and digital media projects</strong>. If you have a story, project, organisation or business that needs professional media support, ask about a service or connect with the team on WhatsApp: <a href="https://wa.me/2348064137756" target="_blank" rel="noopener noreferrer">+234 806 413 7756</a>."
+      answer:"LocalMedia247 is the media and documentary production home associated with Voices of Humanity. Its motto is <em>Documenting Today. Preserving Tomorrow.</em><br><br>We can help with <strong>verified news reporting and publishing, fact-checking, documentary research and production, video editing, content creation, research-based media content, website creation and digital media projects</strong>. Have a story, project, organisation or business that needs professional media support? Ask about a service or speak directly with our human team through the live helpdesk."
     },
     {
       keys:["services","what services","localmedia services","what can localmedia247 do","what can localmedia do","hire localmedia247","hire localmedia","media services","services you offer","jobs you can do","work you can do","can you help my business"],
-      answer:"<strong>LocalMedia247 services</strong><br><br>• <strong>News &amp; media publishing:</strong> verified news reporting, editorial publishing and fact-checking support.<br>• <strong>Documentary work:</strong> documentary research, scripting, production and story development.<br>• <strong>Video services:</strong> video editing and preparation of content for digital platforms.<br>• <strong>Content creation:</strong> research-based articles, social media content and other media materials.<br>• <strong>Website services:</strong> website creation and digital presentation projects.<br>• <strong>Research &amp; information:</strong> careful research, fact-checking and turning information into clear public-facing content.<br><br>These services can support individuals, creators, businesses, organisations, schools, media projects and other clients who need reliable media or digital-content support.<br><br><strong>Ready to discuss a project?</strong> <a href="https://wa.me/2348064137756" target="_blank" rel="noopener noreferrer">Chat with LocalMedia247 on WhatsApp →</a>"
+      answer:"<strong>LocalMedia247 services</strong><br><br>• <strong>News &amp; media publishing:</strong> verified news reporting, editorial publishing and fact-checking support.<br>• <strong>Documentary work:</strong> documentary research, scripting, production and story development.<br>• <strong>Video services:</strong> video editing and preparation of content for digital platforms.<br>• <strong>Content creation:</strong> research-based articles, social media content and other media materials.<br>• <strong>Website services:</strong> website creation and digital presentation projects.<br>• <strong>Research &amp; information:</strong> careful research, fact-checking and turning information into clear public-facing content.<br><br>These services can support individuals, creators, businesses, organisations, schools, media projects and other clients who need reliable media or digital-content support.<br><br><strong>Ready to discuss a project?</strong> <button type="button" class="museum-live-helpdesk-button" onclick="window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()">Open live helpdesk →</button>"
     },
     {
       keys:["hire","quotation","quote","price","pricing","how much","book a service","need a service","i need help with a project","work with localmedia247"],
-      answer:"Absolutely. Tell us what you need—news/media work, fact-checking, documentary research or production, video editing, content creation, website creation or another digital-media project—and the LocalMedia247 team can discuss the project with you. <a href="https://wa.me/2348064137756" target="_blank" rel="noopener noreferrer">Contact LocalMedia247 on WhatsApp →</a>"
+      answer:"Absolutely. Tell us what you need—news/media work, fact-checking, documentary research or production, video editing, content creation, website creation or another digital-media project—and the LocalMedia247 team can discuss the project with you. <button type="button" class="museum-live-helpdesk-button" onclick="window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()">Open live helpdesk →</button>"
     },
     {
       keys:["human","human being","real person","talk to someone","speak to someone","speak with someone","contact a person","customer service","staff","team","operator","representative"],
-      answer:"Of course. I can hand you over to the human team. <a href="https://wa.me/2348064137756" target="_blank" rel="noopener noreferrer">Continue with a human on LocalMedia247 WhatsApp →</a><br><br><strong>WhatsApp:</strong> +234 806 413 7756"
+      answer:"Of course. I can hand you over to the human team. <button type="button" class="museum-live-helpdesk-button" onclick="window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()">Start live chat →</button>"
     },
     {
       keys:["every voice matters","motto"],
@@ -136,8 +136,8 @@
       hall:"The Hall of Humanity is the symbolic heart of the museum. It represents a shared home for humanity's many voices and carries the message <em>Every Voice Matters.</em>",
       reflection:"The Reflection Garden is the museum's quiet space for daily reflections. It preserves the numbered Voices of Humanity reflection cards as a living archive.",
       cinema:"Documentary Cinema is where Voices of Humanity's language documentaries are presented. It is the museum's moving-image archive.",
-      services:"<strong>LocalMedia247 services</strong><br><br>Verified news reporting, fact-checking, documentary research and production, video editing, content creation, website creation and digital media projects.<br><br><a href="https://wa.me/2348064137756" target="_blank" rel="noopener noreferrer">Chat on WhatsApp →</a>",
-      human:"<a href="https://wa.me/2348064137756" target="_blank" rel="noopener noreferrer">Continue with a human on LocalMedia247 WhatsApp →</a>",
+      services:"<strong>LocalMedia247 services</strong><br><br>Verified news reporting, fact-checking, documentary research and production, video editing, content creation, website creation and digital media projects.<br><br><button type="button" class="museum-live-helpdesk-button" onclick="window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()">Open live helpdesk →</button>",
+      human:"<button type="button" class="museum-live-helpdesk-button" onclick="window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()">Start live chat →</button>",
       fallback:"I am the museum's built-in guide. Try asking about the Hall of Humanity, Reflection Garden, Documentary Cinema, our language museums, or LocalMedia247 services."
     },
     fr:{
@@ -146,8 +146,8 @@
       hall:"Le Hall de l’Humanité est le cœur symbolique du musée. Il représente une maison commune pour les nombreuses voix de l’humanité et porte le message <em>Chaque voix compte.</em>",
       reflection:"Le Jardin de la réflexion est l’espace calme consacré aux réflexions quotidiennes. Il conserve les cartes numérotées comme une archive vivante.",
       cinema:"Le Cinéma documentaire présente les documentaires linguistiques de Voices of Humanity et constitue l’archive audiovisuelle du musée.",
-      services:"<strong>Services LocalMedia247</strong><br><br>Actualités vérifiées, fact-checking, recherche et production documentaires, montage vidéo, création de contenu et de sites web.<br><br><a href="https://wa.me/2348064137756" target="_blank">Contacter sur WhatsApp →</a>",
-      human:"<a href="https://wa.me/2348064137756" target="_blank">Parler à l’équipe humaine sur WhatsApp →</a>",
+      services:"<strong>Services LocalMedia247</strong><br><br>Actualités vérifiées, fact-checking, recherche et production documentaires, montage vidéo, création de contenu et de sites web.<br><br><button type="button" class="museum-live-helpdesk-button" onclick="window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()">Open live helpdesk →</button>",
+      human:"<button type="button" class="museum-live-helpdesk-button" onclick="window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()">Open live helpdesk →</button>",
       fallback:"Je suis le guide intégré du musée. Posez une question sur le Hall de l’Humanité, le Jardin de la réflexion, le Cinéma documentaire ou les musées des langues."
     },
     es:{
@@ -156,8 +156,8 @@
       hall:"El Salón de la Humanidad es el corazón simbólico del museo y representa un hogar compartido para las voces de la humanidad.",
       reflection:"El Jardín de Reflexión conserva las tarjetas de reflexión diarias como un archivo vivo.",
       cinema:"El Cine documental presenta los documentales lingüísticos de Voices of Humanity.",
-      services:"<strong>Servicios de LocalMedia247</strong><br><br>Noticias verificadas, fact-checking, investigación y producción documental, edición de vídeo, creación de contenido y sitios web.<br><br><a href="https://wa.me/2348064137756">Contactar por WhatsApp →</a>",
-      human:"<a href="https://wa.me/2348064137756">Hablar con el equipo humano por WhatsApp →</a>",
+      services:"<strong>Servicios de LocalMedia247</strong><br><br>Noticias verificadas, fact-checking, investigación y producción documental, edición de vídeo, creación de contenido y sitios web.<br><br><button type="button" class="museum-live-helpdesk-button" onclick="window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()">Open live helpdesk →</button>",
+      human:"<button type="button" class="museum-live-helpdesk-button" onclick="window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()">Open live helpdesk →</button>",
       fallback:"Soy el guía integrado del museo. Pregunta por el Salón de la Humanidad, el Jardín de Reflexión, el Cine documental o los museos de lenguas."
     },
     pt:{
@@ -166,8 +166,8 @@
       hall:"O Salão da Humanidade é o coração simbólico do museu e representa um lar comum para as vozes da humanidade.",
       reflection:"O Jardim da Reflexão preserva os cartões de reflexão diários como um arquivo vivo.",
       cinema:"O Cinema Documental apresenta os documentários linguísticos do Voices of Humanity.",
-      services:"<strong>Serviços da LocalMedia247</strong><br><br>Notícias verificadas, fact-checking, pesquisa e produção documental, edição de vídeo, criação de conteúdo e websites.<br><br><a href="https://wa.me/2348064137756">Falar pelo WhatsApp →</a>",
-      human:"<a href="https://wa.me/2348064137756">Falar com a equipe humana pelo WhatsApp →</a>",
+      services:"<strong>Serviços da LocalMedia247</strong><br><br>Notícias verificadas, fact-checking, pesquisa e produção documental, edição de vídeo, criação de conteúdo e websites.<br><br><button type="button" class="museum-live-helpdesk-button" onclick="window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()">Open live helpdesk →</button>",
+      human:"<button type="button" class="museum-live-helpdesk-button" onclick="window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()">Open live helpdesk →</button>",
       fallback:"Sou o guia integrado do museu. Pergunte sobre o Salão da Humanidade, o Jardim da Reflexão, o Cinema Documental ou os museus de línguas."
     },
     de:{
@@ -176,8 +176,8 @@
       hall:"Die Halle der Menschheit ist das symbolische Herz des Museums und ein gemeinsames Zuhause für die Stimmen der Menschheit.",
       reflection:"Der Garten der Reflexion bewahrt die täglichen Reflexionskarten als lebendiges Archiv.",
       cinema:"Das Dokumentarkino präsentiert die Sprachdokumentationen von Voices of Humanity.",
-      services:"<strong>LocalMedia247-Dienste</strong><br><br>Verifizierte Nachrichten, Faktenprüfung, Dokumentarrecherche und -produktion, Videobearbeitung, Content- und Website-Erstellung.<br><br><a href="https://wa.me/2348064137756">Über WhatsApp kontaktieren →</a>",
-      human:"<a href="https://wa.me/2348064137756">Mit dem Team über WhatsApp sprechen →</a>",
+      services:"<strong>LocalMedia247-Dienste</strong><br><br>Verifizierte Nachrichten, Faktenprüfung, Dokumentarrecherche und -produktion, Videobearbeitung, Content- und Website-Erstellung.<br><br><button type="button" class="museum-live-helpdesk-button" onclick="window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()">Open live helpdesk →</button>",
+      human:"<button type="button" class="museum-live-helpdesk-button" onclick="window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()">Open live helpdesk →</button>",
       fallback:"Ich bin der integrierte Museumsführer. Fragen Sie nach der Halle der Menschheit, dem Garten der Reflexion, dem Dokumentarkino oder den Sprachmuseen."
     },
     ar:{
@@ -186,8 +186,8 @@
       hall:"قاعة الإنسانية هي القلب الرمزي للمتحف وتمثل بيتاً مشتركاً لأصوات الإنسانية.",
       reflection:"حديقة التأمل تحفظ بطاقات التأمل اليومية كأرشيف حي.",
       cinema:"السينما الوثائقية تعرض أفلام Voices of Humanity عن اللغات.",
-      services:"<strong>خدمات LocalMedia247</strong><br><br>أخبار موثقة، تدقيق الحقائق، البحث والإنتاج الوثائقي، تحرير الفيديو، إنشاء المحتوى والمواقع.<br><br><a href="https://wa.me/2348064137756">تواصل عبر واتساب →</a>",
-      human:"<a href="https://wa.me/2348064137756">تحدث مع الفريق عبر واتساب →</a>",
+      services:"<strong>خدمات LocalMedia247</strong><br><br>أخبار موثقة، تدقيق الحقائق، البحث والإنتاج الوثائقي، تحرير الفيديو، إنشاء المحتوى والمواقع.<br><br><button type="button" class="museum-live-helpdesk-button" onclick="window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()">Open live helpdesk →</button>",
+      human:"<button type="button" class="museum-live-helpdesk-button" onclick="window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()">Open live helpdesk →</button>",
       fallback:"أنا الدليل المدمج في المتحف. اسأل عن قاعة الإنسانية أو حديقة التأمل أو السينما الوثائقية أو متاحف اللغات."
     },
     zh:{
@@ -196,8 +196,8 @@
       hall:"人类大厅是博物馆的象征性核心，代表人类众多声音共同的家园。",
       reflection:"思考花园保存每日思考卡片，形成一个不断成长的活档案。",
       cinema:"纪录片影院展示 Voices of Humanity 的语言纪录片。",
-      services:"<strong>LocalMedia247 服务</strong><br><br>新闻发布、事实核查、纪录片研究与制作、视频编辑、内容创作和网站建设。<br><br><a href="https://wa.me/2348064137756">通过 WhatsApp 联系 →</a>",
-      human:"<a href="https://wa.me/2348064137756">通过 WhatsApp 联系人工团队 →</a>",
+      services:"<strong>LocalMedia247 服务</strong><br><br>新闻发布、事实核查、纪录片研究与制作、视频编辑、内容创作和网站建设。<br><br><button type="button" class="museum-live-helpdesk-button" onclick="window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()">Open live helpdesk →</button>",
+      human:"<button type="button" class="museum-live-helpdesk-button" onclick="window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()">Open live helpdesk →</button>",
       fallback:"我是博物馆内置导览。您可以询问人类大厅、思考花园、纪录片影院或语言博物馆。"
     },
     hi:{
@@ -206,8 +206,8 @@
       hall:"मानवता सभागार संग्रहालय का प्रतीकात्मक केंद्र है और मानवता की अनेक आवाज़ों के साझा घर का प्रतिनिधित्व करता है।",
       reflection:"चिंतन उद्यान दैनिक चिंतन कार्डों को एक जीवित संग्रह के रूप में सुरक्षित रखता है।",
       cinema:"डॉक्यूमेंट्री सिनेमा Voices of Humanity की भाषा वृत्तचित्र प्रस्तुत करता है।",
-      services:"<strong>LocalMedia247 सेवाएँ</strong><br><br>सत्यापित समाचार, तथ्य-जांच, वृत्तचित्र शोध और निर्माण, वीडियो संपादन, सामग्री और वेबसाइट निर्माण।<br><br><a href="https://wa.me/2348064137756">WhatsApp पर संपर्क करें →</a>",
-      human:"<a href="https://wa.me/2348064137756">WhatsApp पर मानव टीम से बात करें →</a>",
+      services:"<strong>LocalMedia247 सेवाएँ</strong><br><br>सत्यापित समाचार, तथ्य-जांच, वृत्तचित्र शोध और निर्माण, वीडियो संपादन, सामग्री और वेबसाइट निर्माण।<br><br><button type="button" class="museum-live-helpdesk-button" onclick="window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()">Open live helpdesk →</button>",
+      human:"<button type="button" class="museum-live-helpdesk-button" onclick="window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()">Open live helpdesk →</button>",
       fallback:"मैं संग्रहालय का अंतर्निहित गाइड हूँ। मानवता सभागार, चिंतन उद्यान, डॉक्यूमेंट्री सिनेमा या भाषा संग्रहालयों के बारे में पूछें।"
     },
     ja:{
@@ -216,8 +216,8 @@
       hall:"人類ホールは博物館の象徴的な中心であり、人類の多様な声の共有の家を表しています。",
       reflection:"リフレクション・ガーデンでは毎日のカードを生きたアーカイブとして保存しています。",
       cinema:"ドキュメンタリー・シネマではVoices of Humanityの言語ドキュメンタリーを紹介します。",
-      services:"<strong>LocalMedia247のサービス</strong><br><br>検証済みニュース、ファクトチェック、ドキュメンタリー研究・制作、動画編集、コンテンツ制作、ウェブサイト制作。<br><br><a href="https://wa.me/2348064137756">WhatsAppで連絡 →</a>",
-      human:"<a href="https://wa.me/2348064137756">WhatsAppでスタッフに連絡 →</a>",
+      services:"<strong>LocalMedia247のサービス</strong><br><br>検証済みニュース、ファクトチェック、ドキュメンタリー研究・制作、動画編集、コンテンツ制作、ウェブサイト制作。<br><br><button type="button" class="museum-live-helpdesk-button" onclick="window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()">Open live helpdesk →</button>",
+      human:"<button type="button" class="museum-live-helpdesk-button" onclick="window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()">Open live helpdesk →</button>",
       fallback:"博物館のガイドです。人類ホール、リフレクション・ガーデン、ドキュメンタリー・シネマ、言語博物館について質問できます。"
     },
     ru:{
@@ -226,8 +226,8 @@
       hall:"Зал человечества — символическое сердце музея и общий дом для множества голосов человечества.",
       reflection:"Сад размышлений сохраняет ежедневные карточки размышлений как живой архив.",
       cinema:"Документальное кино представляет языковые документальные фильмы Voices of Humanity.",
-      services:"<strong>Услуги LocalMedia247</strong><br><br>Проверенные новости, фактчекинг, исследование и производство документальных фильмов, монтаж видео, создание контента и сайтов.<br><br><a href="https://wa.me/2348064137756">Связаться через WhatsApp →</a>",
-      human:"<a href="https://wa.me/2348064137756">Поговорить с командой через WhatsApp →</a>",
+      services:"<strong>Услуги LocalMedia247</strong><br><br>Проверенные новости, фактчекинг, исследование и производство документальных фильмов, монтаж видео, создание контента и сайтов.<br><br><button type="button" class="museum-live-helpdesk-button" onclick="window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()">Open live helpdesk →</button>",
+      human:"<button type="button" class="museum-live-helpdesk-button" onclick="window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()">Open live helpdesk →</button>",
       fallback:"Я встроенный гид музея. Спросите о Зале человечества, Саде размышлений, Документальном кино или музеях языков."
     },
     pl:{
@@ -236,8 +236,8 @@
       hall:"Sala Ludzkości jest symbolicznym sercem muzeum i wspólnym domem dla wielu głosów ludzkości.",
       reflection:"Ogród refleksji zachowuje codzienne karty refleksji jako żywe archiwum.",
       cinema:"Kino Dokumentalne prezentuje dokumenty językowe Voices of Humanity.",
-      services:"<strong>Usługi LocalMedia247</strong><br><br>Zweryfikowane wiadomości, fact-checking, badania i produkcja dokumentalna, montaż wideo, tworzenie treści i stron internetowych.<br><br><a href="https://wa.me/2348064137756">Skontaktuj się przez WhatsApp →</a>",
-      human:"<a href="https://wa.me/2348064137756">Porozmawiaj z zespołem przez WhatsApp →</a>",
+      services:"<strong>Usługi LocalMedia247</strong><br><br>Zweryfikowane wiadomości, fact-checking, badania i produkcja dokumentalna, montaż wideo, tworzenie treści i stron internetowych.<br><br><button type="button" class="museum-live-helpdesk-button" onclick="window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()">Open live helpdesk →</button>",
+      human:"<button type="button" class="museum-live-helpdesk-button" onclick="window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()">Open live helpdesk →</button>",
       fallback:"Jestem wbudowanym przewodnikiem muzeum. Zapytaj o Salę Ludzkości, Ogród refleksji, Kino Dokumentalne lub muzea języków."
     },
     ko:{
@@ -246,8 +246,8 @@
       hall:"인류의 전당은 박물관의 상징적인 중심이며 인류의 다양한 목소리를 위한 공동의 집을 의미합니다.",
       reflection:"성찰의 정원은 매일의 성찰 카드를 살아 있는 기록으로 보존합니다.",
       cinema:"다큐멘터리 시네마에서는 Voices of Humanity의 언어 다큐멘터리를 소개합니다.",
-      services:"<strong>LocalMedia247 서비스</strong><br><br>검증된 뉴스, 팩트체킹, 다큐멘터리 연구·제작, 영상 편집, 콘텐츠 및 웹사이트 제작.<br><br><a href="https://wa.me/2348064137756">WhatsApp으로 문의 →</a>",
-      human:"<a href="https://wa.me/2348064137756">WhatsApp으로 담당자에게 문의 →</a>",
+      services:"<strong>LocalMedia247 서비스</strong><br><br>검증된 뉴스, 팩트체킹, 다큐멘터리 연구·제작, 영상 편집, 콘텐츠 및 웹사이트 제작.<br><br><button type="button" class="museum-live-helpdesk-button" onclick="window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()">Open live helpdesk →</button>",
+      human:"<button type="button" class="museum-live-helpdesk-button" onclick="window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()">Open live helpdesk →</button>",
       fallback:"박물관 안내자입니다. 인류의 전당, 성찰의 정원, 다큐멘터리 시네마 또는 언어 박물관에 대해 질문하세요."
     },
     nl:{
@@ -256,8 +256,8 @@
       hall:"De Hal van de Mensheid is het symbolische hart van het museum en een gedeeld thuis voor de vele stemmen van de mensheid.",
       reflection:"De Reflectietuin bewaart de dagelijkse reflectiekaarten als een levend archief.",
       cinema:"De Documentairebioscoop presenteert de taaldocumentaires van Voices of Humanity.",
-      services:"<strong>LocalMedia247-diensten</strong><br><br>Geverifieerd nieuws, factchecking, documentair onderzoek en productie, videobewerking, content- en websitecreatie.<br><br><a href="https://wa.me/2348064137756">Neem contact op via WhatsApp →</a>",
-      human:"<a href="https://wa.me/2348064137756">Praat met het team via WhatsApp →</a>",
+      services:"<strong>LocalMedia247-diensten</strong><br><br>Geverifieerd nieuws, factchecking, documentair onderzoek en productie, videobewerking, content- en websitecreatie.<br><br><button type="button" class="museum-live-helpdesk-button" onclick="window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()">Open live helpdesk →</button>",
+      human:"<button type="button" class="museum-live-helpdesk-button" onclick="window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()">Open live helpdesk →</button>",
       fallback:"Ik ben de ingebouwde museumgids. Vraag naar de Hal van de Mensheid, Reflectietuin, Documentairebioscoop of de taal­musea."
     }
   };
@@ -280,7 +280,7 @@
 
 
   function liveHelpdeskMarkup(){
-    return "<strong>Speak to a human</strong><br><br>Francis is available to respond personally. Start a live conversation with the Voices of Humanity team below.<br><br><button type=\"button\" class=\"museum-live-helpdesk-button\" onclick=\"window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()\">Start live chat →</button>";
+    return "<strong>Speak to a human</strong><br><br>Francis is available to respond personally. If you are online, you can start a live conversation with the Voices of Humanity team now.<br><br><button type=\"button\" class=\"museum-live-helpdesk-button\" onclick=\"window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()\">Start live chat →</button>";
   }
 
   function answerFor(question){
