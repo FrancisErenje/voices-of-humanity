@@ -374,31 +374,10 @@
     submitQuestion(input.value);
   });
 
-  /*
-   * Chat controls must win over the museum's many global interaction
-   * layers.  Handle suggestion buttons at the window capture phase so
-   * camera/building handlers cannot swallow their click.
-   */
-  window.addEventListener("click",(e)=>{
-    const target=e.target;
-    if(!target || !target.closest) return;
-
-    const chat=target.closest("#museumChat");
-    if(!chat) return;
-
-    const btn=target.closest("[data-chat-intent]");
-    if(btn){
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      submitQuestion("intent:"+btn.getAttribute("data-chat-intent"));
-      return;
-    }
-
-    const send=target.closest("#museumChatSend");
-    if(send){
-      sendCurrentQuestion(e);
-    }
-  },true);
+  /* Suggestion buttons are handled directly by the isolated
+     Museum Guide controls in index.html.  No global capture handler
+     is used here, so the museum/world interaction system cannot
+     compete with those controls. */
 
   window.VOHMuseumAnswerFor=answerFor;
   window.VOHMuseumLocalized=localized;
