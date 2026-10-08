@@ -109,10 +109,80 @@
                 ? event.target.closest("#museumChat")
                 : null;
             if(chatTarget){
-                /* Ask the Museum is a normal fixed UI panel.
-                   Do not intercept or cancel its events here. Dedicated
-                   chat handlers registered later in this document own them.
-                   This early museum/world priority layer must simply step aside. */
+                /* Ask the Museum owns its own interaction path. This handler
+                   is deliberately the earliest window-capture layer so no
+                   later museum hit-test can swallow a suggestion click. */
+                var path = typeof event.composedPath === "function" ? event.composedPath() : [];
+                var suggestion = null;
+
+                for(var i=0;i<path.length;i++){
+                    var node=path[i];
+                    if(node && node.getAttribute && node.getAttribute("data-chat-intent")){
+                        suggestion=node;
+                        break;
+                    }
+                }
+
+                if(!suggestion && event.target && event.target.closest){
+                    suggestion=event.target.closest("[data-chat-intent]");
+                }
+
+                if(suggestion){
+                    var intent=suggestion.getAttribute("data-chat-intent");
+                    var handled=suggestion.getAttribute("data-voh-handled");
+
+                    /* Handle the first physical gesture only. */
+                    if(!handled && (
+                        event.type === "pointerdown" ||
+                        event.type === "mousedown" ||
+                        event.type === "touchstart" ||
+                        event.type === "click"
+                    )){
+                        suggestion.setAttribute("data-voh-handled","1");
+
+                        var messages=document.getElementById("museumChatMessages");
+                        var answerFn=window.VOHMuseumAnswerFor;
+
+                        if(messages){
+                            var bot=document.createElement("div");
+                            bot.className="museum-chat-message museum-chat-bot";
+
+                            if(typeof answerFn === "function"){
+                                bot.innerHTML=answerFn("intent:"+intent);
+                            }else{
+                                var emergency={
+                                    voices:"Voices of Humanity is a digital museum dedicated to documenting, preserving and celebrating the world's languages and cultures through documentary filmmaking, research, education and digital archiving. Its guiding principle is: <em>Every Voice Matters.</em>",
+                                    whatSee:"You can explore the Hall of Humanity, Reflection Garden, Documentary Cinema, continental language museums and the LocalMedia247 media space.",
+                                    reflection:"The Reflection Garden is the museum's quiet space for daily reflections. It preserves the numbered Voices of Humanity reflection cards as a living archive.",
+                                    hall:"The Hall of Humanity is the symbolic heart of the museum. It represents a shared home for humanity's many voices and carries the message <em>Every Voice Matters.</em>",
+                                    services:"<strong>LocalMedia247 services</strong><br><br>Verified news reporting, fact-checking, documentary research and production, video editing, content creation, website creation and digital media projects.",
+                                    human:"<strong>Speak to a human</strong><br><br>Continue with the LocalMedia247 team on WhatsApp."
+                                };
+                                bot.innerHTML=emergency[intent]||emergency.voices;
+                            }
+
+                            messages.appendChild(bot);
+                            messages.scrollTop=messages.scrollHeight;
+                        }
+
+                        /* Stop every competing museum capture handler. */
+                        event.preventDefault();
+                        if(typeof event.stopImmediatePropagation === "function"){
+                            event.stopImmediatePropagation();
+                        }else{
+                            event.stopPropagation();
+                        }
+
+                        /* Prevent the later synthetic click from duplicating it. */
+                        setTimeout(function(){
+                            try{ suggestion.removeAttribute("data-voh-handled"); }catch(ignore){}
+                        },700);
+                    }
+                    return;
+                }
+
+                /* Non-suggestion controls in Ask the Museum are also outside
+                   the world hit-test system. */
                 return;
             }
 
