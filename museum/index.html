@@ -1100,6 +1100,9 @@
     /* Reliable activation: the museum's navigation engine also listens
        for pointer events, so catch a clean tap/click at window level. */
     function isInsideHall(e){
+      /* Ask the Museum is a fixed UI layer. Never let the Hall's
+         screen-space fallback treat a chat-button click as a Hall click. */
+      if(e && e.target && e.target.closest && e.target.closest("#museumChat")) return false;
       var rect=hall.getBoundingClientRect();
       return e.clientX>=rect.left && e.clientX<=rect.right &&
              e.clientY>=rect.top && e.clientY<=rect.bottom;
@@ -1402,6 +1405,9 @@
   }
 
   function continentalFallback(e){
+    /* The Ask the Museum panel sits above the campus. Do not use
+       screen-space building hit-testing for any event originating there. */
+    if(e.target && e.target.closest && e.target.closest("#museumChat")) return;
     if(e.target && e.target.closest && e.target.closest(".continental-language-experience-overlay")) return;
     if(insideBuilding("americasMuseum",e)){
       fallbackOpen("americasMuseum",e);
