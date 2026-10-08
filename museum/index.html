@@ -2147,6 +2147,48 @@ window.__vohOpenMuseumChat = function(event){
 })();
 </script>
 
+<!-- VOICES OF HUMANITY LIVE HELPDESK — TAWK.TO -->
+<script type="text/javascript">
+(function(){
+    window.Tawk_API = window.Tawk_API || {};
+    window.Tawk_LoadStart = new Date();
+
+    window.Tawk_API.onBeforeLoad = function(){
+        if(typeof window.Tawk_API.hideWidget === "function"){
+            window.Tawk_API.hideWidget();
+        }
+    };
+
+    window.__vohOpenLiveHelpdesk = function(){
+        var attempts = 0;
+        function openHelpdesk(){
+            attempts++;
+            if(window.Tawk_API &&
+               typeof window.Tawk_API.showWidget === "function" &&
+               typeof window.Tawk_API.maximize === "function"){
+                window.Tawk_API.showWidget();
+                window.Tawk_API.maximize();
+                return;
+            }
+            if(attempts < 50){
+                window.setTimeout(openHelpdesk, 100);
+            }
+        }
+        openHelpdesk();
+    };
+
+    (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src="https://embed.tawk.to/6ac6ff9c8dca8234c9fe2af8/1k4clcv81";
+        s1.charset="UTF-8";
+        s1.setAttribute("crossorigin","*");
+        s0.parentNode.insertBefore(s1,s0);
+    })();
+})();
+</script>
+<!-- END VOICES OF HUMANITY LIVE HELPDESK -->
+
 </body>
 
 </html>
