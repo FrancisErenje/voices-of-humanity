@@ -390,9 +390,7 @@
     translateChatInterface();
     const first=messages.querySelector(".museum-chat-bot");
     const suggestions=messages.querySelector(".museum-chat-suggestions");
-    if(first && suggestions && !messages.querySelector(".museum-chat-user")){
-      first.innerHTML="<strong>"+(tr.welcome||"Welcome.")+"</strong><br>"+(r.fallback||localized.en.fallback)+suggestions.outerHTML;
-    }
+    if(first && suggestions && !messages.querySelector(".museum-chat-user")){\n      /* Preserve the existing suggestion buttons. Rebuilding with outerHTML creates new nodes and can discard their direct handlers. */\n      first.innerHTML="<strong>"+(tr.welcome||"Welcome.")+"</strong><br>"+(r.fallback||localized.en.fallback);\n      first.appendChild(suggestions);\n    }
   });
 
   document.addEventListener("keydown",(e)=>{
