@@ -285,3 +285,27 @@
 #museumChat *{
   pointer-events:auto;
 }
+
+/* Live Helpdesk */
+.museum-live-helpdesk-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:40px;
+  padding:9px 15px;
+  border:1px solid rgba(226,188,82,.55);
+  border-radius:999px;
+  background:linear-gradient(180deg,rgba(226,188,82,.22),rgba(226,188,82,.10));
+  color:#f5df9b;
+  font:600 12px Arial,sans-serif;
+  cursor:pointer;
+  transition:transform .16s ease,background .16s ease;
+}
+.museum-live-helpdesk-button:hover{
+  transform:translateY(-1px);
+  background:rgba(226,188,82,.24);
+}
+.museum-live-helpdesk-button:focus-visible{
+  outline:2px solid #f5df9b;
+  outline-offset:2px;
+}
