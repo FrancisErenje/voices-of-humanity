@@ -278,6 +278,11 @@
     nl:["voices","museum","hal","reflectie","documentaire","diensten","medewerker","talen","verkennen"]
   };
 
+
+  function liveHelpdeskMarkup(){
+    return "<strong>Speak to a human</strong><br><br>Francis is available to respond personally. Start a live conversation with the Voices of Humanity team below.<br><br><button type=\"button\" class=\"museum-live-helpdesk-button\" onclick=\"window.__vohOpenLiveHelpdesk && window.__vohOpenLiveHelpdesk()\">Start live chat →</button>";
+  }
+
   function answerFor(question){
     const q=String(question||"").toLowerCase();
     const l=window.VOHCurrentLanguage?window.VOHCurrentLanguage():"en";
@@ -285,12 +290,13 @@
     if(/^intent:/.test(q)){
       const intent=q.replace(/^intent:/,"");
       if(intent==="whatSee") return r.whatSee;
+      if(intent==="human") return liveHelpdeskMarkup();
       return r[intent]||r.fallback;
     }
     if(q.includes("igede")) return l==="fr"?"L’igede fait partie du parcours documentaire de Voices of Humanity.":r.fallback;
     if((keywords[l]||[]).some(k=>q.includes(k))){
       if(q.includes("service")||q.includes("dienste")||q.includes("خدمات")||q.includes("服务")||q.includes("सेवाएँ")||q.includes("서비스")||q.includes("usługi")) return r.services;
-      if(q.includes("human")||q.includes("humain")||q.includes("humano")||q.includes("mensch")||q.includes("إنسان")||q.includes("人工")||q.includes("इंसान")||q.includes("人")||q.includes("человек")||q.includes("człowiek")||q.includes("사람")||q.includes("medewerker")) return r.human;
+      if(q.includes("human")||q.includes("humain")||q.includes("humano")||q.includes("mensch")||q.includes("إنسان")||q.includes("人工")||q.includes("इंसान")||q.includes("人")||q.includes("человек")||q.includes("człowiek")||q.includes("사람")||q.includes("medewerker")) return liveHelpdeskMarkup();
       if(q.includes("hall")||q.includes("salón")||q.includes("salão")||q.includes("halle")||q.includes("قاعة")||q.includes("大厅")||q.includes("सभागार")||q.includes("ホール")||q.includes("зал")||q.includes("sala")||q.includes("전당")||q.includes("hal")) return r.hall;
       if(q.includes("reflection")||q.includes("réflexion")||q.includes("reflexión")||q.includes("reflexão")||q.includes("reflexion")||q.includes("تأمل")||q.includes("思考")||q.includes("चिंतन")||q.includes("リフレクション")||q.includes("размыш")||q.includes("refleks")||q.includes("성찰")) return r.reflection;
       if(q.includes("cinema")||q.includes("document")||q.includes("وثائق")||q.includes("纪录片")||q.includes("वृत्तचित्र")||q.includes("ドキュメンタリー")||q.includes("документ")||q.includes("다큐멘터리")) return r.cinema;
