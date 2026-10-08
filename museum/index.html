@@ -102,12 +102,30 @@
 
         function capture(event){
             /* ASK THE MUSEUM SUGGESTIONS GET FIRST PRIORITY.
-               This runs before all later museum capture layers. */
-            if(event.type === "click" && event.target && event.target.closest){
+               Some museum layers intercept pointerdown before a click is
+               ever allowed to reach the suggestion buttons. Handle the
+               completed pointer gesture here, before those layers. */
+            if((event.type === "pointerdown" || event.type === "click") &&
+               event.target && event.target.closest){
                 var chatButton = event.target.closest("#museumChat [data-chat-intent]");
                 if(chatButton){
+                    if(event.type === "click" && chatButton.dataset.vohPointerHandled === "1"){
+                        delete chatButton.dataset.vohPointerHandled;
+                        event.preventDefault();
+                        event.stopImmediatePropagation();
+                        return;
+                    }
+
                     event.preventDefault();
                     event.stopImmediatePropagation();
+
+                    if(event.type === "pointerdown"){
+                        chatButton.dataset.vohPointerHandled = "1";
+                        setTimeout(function(){
+                            delete chatButton.dataset.vohPointerHandled;
+                        }, 700);
+                    }
+
                     var intent = "intent:" + chatButton.getAttribute("data-chat-intent");
                     var messages = document.getElementById("museumChatMessages");
                     if(messages && typeof window.VOHMuseumAnswerFor === "function"){
