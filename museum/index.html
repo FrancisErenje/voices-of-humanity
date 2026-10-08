@@ -1816,6 +1816,9 @@ window.__vohOpenMuseumChat = function(event){
     remains clickable regardless of which child/layer receives the event.
   */
   function delegatedPointer(e){
+    /* Ask the Museum is a separate fixed UI layer. Never let this
+       building hit-test interpret a chat interaction as a building click. */
+    if(e.target && e.target.closest && e.target.closest("#museumChat")) return;
     if(e.type==="click" && e.target && e.target.closest && e.target.closest(".voh-continental-direct")) return;
 
     var oceania=getBuilding("oceaniaMuseum");
