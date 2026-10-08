@@ -101,8 +101,39 @@
         }
 
         function capture(event){
-            /* Ask the Museum suggestions use their own direct handlers.
-               Do not intercept them in the global museum capture layer. */
+            /* ASK THE MUSEUM — absolute first priority.
+               Several older museum hit-test layers are registered later
+               and can swallow clicks based on screen coordinates. Handle
+               suggestion clicks here, before those layers get the event. */
+            var chatTarget = event && event.target && event.target.closest
+                ? event.target.closest("#museumChat")
+                : null;
+            if(chatTarget){
+                var suggestion = event.target.closest("[data-chat-intent]");
+                if(event.type === "click" && suggestion){
+                    event.preventDefault();
+                    event.stopImmediatePropagation();
+
+                    var messages = document.getElementById("museumChatMessages");
+                    var answerFn = window.VOHMuseumAnswerFor;
+                    if(messages && typeof answerFn === "function"){
+                        var bot = document.createElement("div");
+                        bot.className = "museum-chat-message museum-chat-bot";
+                        bot.innerHTML = answerFn("intent:" + suggestion.getAttribute("data-chat-intent"));
+                        messages.appendChild(bot);
+                        messages.scrollTop = messages.scrollHeight;
+                    }
+                    return;
+                }
+
+                /* Do not allow any world/building coordinate fallback to
+                   process an interaction that belongs to the chat. */
+                if(event.type === "pointerdown" || event.type === "touchend"){
+                    event.stopImmediatePropagation();
+                }
+                return;
+            }
+
             /* African Museum close gets first priority at the window
                capture layer, before any building/camera handlers. */
             if(event.type === "click" && africanClose(event.target)){
