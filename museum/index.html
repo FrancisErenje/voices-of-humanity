@@ -135,8 +135,17 @@
         function localMedia247BuildingOpen(event){
             if(typeof window.__vohOpenLocalMedia247 !== "function") return false;
 
-            var target = event && event.target;
-            var building = target && target.closest ? target.closest("#lm247Building") : null;
+            /* The Ask the Museum panel is a completely separate UI layer.
+               Never let the LocalMedia247 screen-space fallback interpret
+               clicks inside the chat as clicks on the building underneath. */
+            var chat = event && event.target && event.target.closest
+                ? event.target.closest("#museumChat")
+                : null;
+            if(chat) return false;
+
+            var building = event && event.target && event.target.closest
+                ? event.target.closest("#lm247Building")
+                : null;
 
             /* Normal path: the event actually lands on the building. */
             if(!building){
