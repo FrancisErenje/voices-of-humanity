@@ -110,9 +110,23 @@
                 : null;
             if(chatTarget){
                 var suggestion = event.target.closest("[data-chat-intent]");
-                if(event.type === "click" && suggestion){
+
+                /* Handle the suggestion on pointerdown itself.
+                   Some legacy museum layers interfere with the later click
+                   gesture. Doing the action here makes the control independent
+                   of the browser's synthetic click event. */
+                if(suggestion && (event.type === "pointerdown" || event.type === "touchend" || event.type === "click")){
                     event.preventDefault();
                     event.stopImmediatePropagation();
+
+                    /* Prevent a later click/touch event from answering twice. */
+                    if(suggestion.dataset.vohSuggestionHandled === "1"){
+                        return;
+                    }
+                    suggestion.dataset.vohSuggestionHandled = "1";
+                    setTimeout(function(){
+                        try{ delete suggestion.dataset.vohSuggestionHandled; }catch(ignore){}
+                    },500);
 
                     var messages = document.getElementById("museumChatMessages");
                     var answerFn = window.VOHMuseumAnswerFor;
