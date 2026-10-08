@@ -108,7 +108,10 @@
                 ? event.target.closest("#museumChatLauncher")
                 : null;
             if(launcherTarget){
-                if(event.type === "click" || event.type === "pointerdown" || event.type === "touchend"){
+                /* Handle the launcher only on the completed click gesture.
+                   Opening on pointerdown/touchend and then toggling again on
+                   click caused the guide to open and immediately close. */
+                if(event.type === "click"){
                     event.preventDefault();
                     if(typeof event.stopImmediatePropagation === "function") event.stopImmediatePropagation();
                     if(typeof window.__vohOpenMuseumChat === "function"){
