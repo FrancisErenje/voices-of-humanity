@@ -151,14 +151,16 @@
                     var intent=suggestion.getAttribute("data-chat-intent");
                     var handled=suggestion.getAttribute("data-voh-handled");
 
-                    /* Handle the first physical gesture only. */
-                    if(!handled && (
-                        event.type === "pointerdown" ||
-                        event.type === "mousedown" ||
-                        event.type === "touchstart" ||
-                        event.type === "click"
-                    )){
-                        suggestion.setAttribute("data-voh-handled","1");
+                    /* Suggestions are activated only by the completed click.
+                       Handling pointerdown/touchstart here can cancel the
+                       browser's later click, making the buttons appear dead. */
+                    if(event.type === "click"){
+                        event.preventDefault();
+                        if(typeof event.stopImmediatePropagation === "function"){
+                            event.stopImmediatePropagation();
+                        }else{
+                            event.stopPropagation();
+                        }
 
                         var messages=document.getElementById("museumChatMessages");
                         var answerFn=window.VOHMuseumAnswerFor;
@@ -184,19 +186,6 @@
                             messages.appendChild(bot);
                             messages.scrollTop=messages.scrollHeight;
                         }
-
-                        /* Stop every competing museum capture handler. */
-                        event.preventDefault();
-                        if(typeof event.stopImmediatePropagation === "function"){
-                            event.stopImmediatePropagation();
-                        }else{
-                            event.stopPropagation();
-                        }
-
-                        /* Prevent the later synthetic click from duplicating it. */
-                        setTimeout(function(){
-                            try{ suggestion.removeAttribute("data-voh-handled"); }catch(ignore){}
-                        },700);
                     }
                     return;
                 }
