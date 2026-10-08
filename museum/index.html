@@ -101,6 +101,23 @@
         }
 
         function capture(event){
+            /* ASK THE MUSEUM launcher — absolute first priority.
+               The launcher sits outside #museumChat, so the world hit-test
+               layers must never be allowed to swallow its click. */
+            var launcherTarget = event && event.target && event.target.closest
+                ? event.target.closest("#museumChatLauncher")
+                : null;
+            if(launcherTarget){
+                if(event.type === "click" || event.type === "pointerdown" || event.type === "touchend"){
+                    event.preventDefault();
+                    if(typeof event.stopImmediatePropagation === "function") event.stopImmediatePropagation();
+                    if(typeof window.__vohOpenMuseumChat === "function"){
+                        window.__vohOpenMuseumChat(event);
+                    }
+                }
+                return;
+            }
+
             /* ASK THE MUSEUM — absolute first priority.
                Several older museum hit-test layers are registered later
                and can swallow clicks based on screen coordinates. Handle
@@ -1579,9 +1596,18 @@ window.__vohOpenMuseumChat = function(event){
     if(open){
         panel.classList.remove("is-open");
         panel.setAttribute("aria-hidden","true");
+        panel.style.opacity="0";
+        panel.style.transform="translateY(18px) scale(.97)";
+        panel.style.pointerEvents="none";
         launcher.setAttribute("aria-expanded","false");
     }else{
+        /* Re-enable the panel after the close-reliability patch has applied
+           inline hidden styles. The CSS class alone cannot override those. */
         panel.classList.add("is-open");
+        panel.style.opacity="";
+        panel.style.transform="";
+        panel.style.pointerEvents="";
+
         panel.setAttribute("aria-hidden","false");
         launcher.setAttribute("aria-expanded","true");
         var input=document.getElementById("museumChatInput");
