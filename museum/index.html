@@ -2159,6 +2159,41 @@ window.__vohOpenMuseumChat = function(event){
         }
     };
 
+    window.Tawk_API.onChatMaximized = function(){
+        if(window.__vohPauseMuseumGuideForLiveChat) window.__vohPauseMuseumGuideForLiveChat();
+    };
+
+    window.Tawk_API.onChatMinimized = function(){
+        if(window.__vohResumeMuseumGuideAfterLiveChat) window.__vohResumeMuseumGuideAfterLiveChat();
+    };
+
+    window.Tawk_API.onChatHidden = function(){
+        if(window.__vohResumeMuseumGuideAfterLiveChat) window.__vohResumeMuseumGuideAfterLiveChat();
+    };
+
+    /* Keep the external live-helpdesk above the Museum Guide. */
+    (function(){
+        var style=document.createElement("style");
+        style.id="voh-live-helpdesk-layer";
+        style.textContent="#tawkchat-container,#tawkchat-minified-box{z-index:2147483647 !important;} #museumChat.live-helpdesk-paused,#museumChatLauncher.live-helpdesk-paused{pointer-events:none !important;visibility:hidden !important;}";
+        document.head.appendChild(style);
+
+        function pauseMuseumGuide(){
+            var guide=document.getElementById("museumChat");
+            var launcher=document.getElementById("museumChatLauncher");
+            if(guide) guide.classList.add("live-helpdesk-paused");
+            if(launcher) launcher.classList.add("live-helpdesk-paused");
+        }
+        function resumeMuseumGuide(){
+            var guide=document.getElementById("museumChat");
+            var launcher=document.getElementById("museumChatLauncher");
+            if(guide) guide.classList.remove("live-helpdesk-paused");
+            if(launcher) launcher.classList.remove("live-helpdesk-paused");
+        }
+        window.__vohPauseMuseumGuideForLiveChat=pauseMuseumGuide;
+        window.__vohResumeMuseumGuideAfterLiveChat=resumeMuseumGuide;
+    })();
+
     window.__vohOpenLiveHelpdesk = function(){
         var attempts = 0;
         function openHelpdesk(){
