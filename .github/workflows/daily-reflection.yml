@@ -4,8 +4,9 @@ on:
   push:
     branches:
       - main
+  # Run at 06:17 Nigeria time, away from the top-of-hour queue.
   schedule:
-    - cron: "0 5 * * *"
+    - cron: "17 5 * * *"
   workflow_dispatch:
 
 permissions:
