@@ -38,6 +38,46 @@
     <link rel="stylesheet" href="css/hall-humanity.css">
     <link rel="stylesheet" href="css/museum-chat.css?v=20261009-chat-separation">
 
+    <!-- TAWK CLICK-THROUGH GUARD
+         Museum hit-test fallbacks must never reinterpret a click
+         inside the live-helpdesk area as a campus/building click. -->
+    <script>
+    (function(){
+      "use strict";
+      function isInsideTawk(event){
+        if(!event) return false;
+        var x=event.clientX, y=event.clientY;
+        if((typeof x!=="number" || typeof y!=="number") && event.changedTouches && event.changedTouches.length){
+          x=event.changedTouches[0].clientX;
+          y=event.changedTouches[0].clientY;
+        }
+        var target=event.target;
+        if(target && target.closest){
+          var frame=target.closest('iframe[src*="tawk.to"],iframe[title*="tawk"],#tawkchat-container,#tawkchat-minified-box');
+          if(frame) return true;
+        }
+        if(typeof x!=="number" || typeof y!=="number") return false;
+        var surfaces=document.querySelectorAll('#tawkchat-container,#tawkchat-minified-box,iframe[src*="tawk.to"],iframe[title*="tawk"]');
+        for(var i=0;i<surfaces.length;i++){
+          var r=surfaces[i].getBoundingClientRect();
+          if(r.width>0 && r.height>0 && x>=r.left && x<=r.right && y>=r.top && y<=r.bottom) return true;
+        }
+        return false;
+      }
+      function protectTawkArea(event){
+        if(!isInsideTawk(event)) return;
+        /* Do not prevent the browser's default action or stop propagation
+           across the iframe boundary; only stop museum-level click handlers. */
+        if(typeof event.stopImmediatePropagation==="function") event.stopImmediatePropagation();
+      }
+      window.addEventListener("pointerdown",protectTawkArea,true);
+      window.addEventListener("pointerup",protectTawkArea,true);
+      window.addEventListener("click",protectTawkArea,true);
+      window.addEventListener("touchstart",protectTawkArea,true);
+      window.addEventListener("touchend",protectTawkArea,true);
+    })();
+    </script>
+
     <!-- ==========================================
          VOH INTERACTION PRIORITY LAYER
          Registered before the museum engines so
