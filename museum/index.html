@@ -1486,7 +1486,10 @@
     /* A clean touch release should activate the building even when
        another campus handler interferes with the synthetic click. */
     building.addEventListener("pointerup",function(e){
-      if(e.pointerType==="mouse" && e.button!==0) return;
+      /* Mouse clicks are handled by the click listener below. Activating on
+         mouse pointerup as well can open the same overlay twice. Keep this
+         fallback for touch/pen only. */
+      if(e.pointerType==="mouse") return;
       open(e);
     },true);
   }
