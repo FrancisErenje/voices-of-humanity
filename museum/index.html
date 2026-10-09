@@ -2169,7 +2169,7 @@ window.Tawk_API.onChatMaximized = function(){
     (function(){
         var style=document.createElement("style");
         style.id="voh-live-helpdesk-layer";
-        style.textContent="#tawkchat-container,#tawkchat-minified-box{position:fixed !important;z-index:2147483647 !important;isolation:isolate !important;left:auto !important;right:18px !important;bottom:18px !important;top:auto !important;pointer-events:auto !important;visibility:visible !important;} #tawkchat-container *,#tawkchat-minified-box *,#tawkchat-container iframe,#tawkchat-minified-box iframe{pointer-events:auto !important;} #museumChat.live-helpdesk-paused,#museumChatLauncher.live-helpdesk-paused{pointer-events:none !important;visibility:hidden !important;} @media(max-width:767px){#tawkchat-container,#tawkchat-minified-box{left:auto !important;right:10px !important;bottom:10px !important;top:auto !important;}}";
+        style.textContent="#tawkchat-container,#tawkchat-minified-box{z-index:2147483647 !important;left:auto !important;right:18px !important;bottom:18px !important;top:auto !important;} #museumChat.live-helpdesk-paused,#museumChatLauncher.live-helpdesk-paused{pointer-events:none !important;visibility:hidden !important;} @media(max-width:767px){#tawkchat-container,#tawkchat-minified-box{left:auto !important;right:10px !important;bottom:10px !important;top:auto !important;}}";
         document.head.appendChild(style);
 
         function pauseMuseumGuide(){
