@@ -2152,14 +2152,8 @@ window.__vohOpenMuseumChat = function(event){
 (function(){
     window.Tawk_API = window.Tawk_API || {};
     window.Tawk_LoadStart = new Date();
-
-    window.Tawk_API.onBeforeLoad = function(){
-        if(typeof window.Tawk_API.hideWidget === "function"){
-            window.Tawk_API.hideWidget();
-        }
-    };
-
-    window.Tawk_API.onChatMaximized = function(){
+    /* Keep Tawk's own launcher visible as a fallback if the Museum Guide is closed. */
+window.Tawk_API.onChatMaximized = function(){
         if(window.__vohPauseMuseumGuideForLiveChat) window.__vohPauseMuseumGuideForLiveChat();
     };
 
@@ -2201,6 +2195,8 @@ window.__vohOpenMuseumChat = function(event){
             if(window.Tawk_API &&
                typeof window.Tawk_API.showWidget === "function" &&
                typeof window.Tawk_API.maximize === "function"){
+                /* Hide the Museum Guide before opening Tawk to avoid overlay conflicts. */
+                if(window.__vohPauseMuseumGuideForLiveChat) window.__vohPauseMuseumGuideForLiveChat();
                 window.Tawk_API.showWidget();
                 window.Tawk_API.maximize();
                 return;
