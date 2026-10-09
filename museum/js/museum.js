@@ -484,6 +484,61 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
 
 (function setupLocalMedia247Experience(){
 
+    /* Render the shared newsroom data inside the LocalMedia247 building.
+       This function must exist before createExperience() calls it; a missing
+       renderer previously aborted the building's setup at page load. */
+    function renderLivingNews(overlay){
+        const feed = overlay && overlay.querySelector("#lm247LivingNewsFeed");
+        if(!feed) return;
+
+        const news = window.LocalMedia247News;
+        if(!news || !Array.isArray(news.stories)){
+            feed.textContent = "The live news desk is temporarily unavailable. Please check back shortly.";
+            return;
+        }
+
+        const dateLabel = overlay.querySelector("#lm247TodayEyebrow");
+        if(dateLabel && news.updatedLabel) dateLabel.textContent = news.updatedLabel;
+
+        feed.replaceChildren();
+        news.stories.forEach(function(story){
+            if(!story || !story.headline) return;
+
+            const article = document.createElement("article");
+            article.className = "lm247-desk-story";
+
+            const kicker = document.createElement("span");
+            kicker.className = "lm247-desk-kicker";
+            kicker.textContent = [story.category, story.location].filter(Boolean).join(" · ").toUpperCase();
+            article.appendChild(kicker);
+
+            const heading = document.createElement("h4");
+            heading.textContent = story.headline;
+            article.appendChild(heading);
+
+            if(story.summary){
+                const summary = document.createElement("p");
+                summary.textContent = story.summary;
+                article.appendChild(summary);
+            }
+
+            if(story.source && story.url){
+                const source = document.createElement("a");
+                source.href = story.url;
+                source.target = "_blank";
+                source.rel = "noopener noreferrer";
+                source.textContent = "SOURCE · " + story.source.toUpperCase();
+                article.appendChild(source);
+            }
+
+            feed.appendChild(article);
+        });
+
+        if(!feed.children.length){
+            feed.textContent = "No current stories are available at the moment.";
+        }
+    }
+
     function createExperience(){
 
         /* Hard singleton: the LocalMedia247 studio must have exactly one
