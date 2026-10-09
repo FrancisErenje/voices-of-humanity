@@ -126,6 +126,76 @@
             return africanOpen(building);
         }
 
+        /* SHARED BUILDING CLICK RECOVERY
+           One screen-space fallback for the three affected buildings.
+           It calls each building's existing opener and deliberately excludes
+           chat panels, open exhibits, and the separate LocalMedia247 news screen. */
+        function recoverBuildingClick(event){
+            if(!event || event.type !== "click") return false;
+            var target = event.target;
+            if(target && target.closest){
+                if(target.closest("#museumChat,#museumChatLauncher,.african-languages-experience-overlay,.reflection-garden-overlay,.voh-continental-direct,.continental-language-experience-overlay,.lm247-experience-overlay,.lm247-news-reader")) return false;
+                if(window.__vohIsTawkInteraction && window.__vohIsTawkInteraction(event)) return false;
+            }
+
+            var x = event.clientX, y = event.clientY;
+            if(typeof x !== "number" || typeof y !== "number") return false;
+
+            function containsPoint(el){
+                if(!el) return false;
+                var r = el.getBoundingClientRect();
+                return r.width > 0 && r.height > 0 && x >= r.left && x <= r.right && y >= r.top && y <= r.bottom;
+            }
+
+            var africa = document.getElementById("africaMuseum");
+            if(containsPoint(africa)){
+                var africaOverlay = document.querySelector(".african-languages-experience-overlay");
+                if(africaOverlay && !africaOverlay.classList.contains("open")){
+                    if(typeof africaOverlay._open === "function") africaOverlay._open();
+                    else { africaOverlay.hidden = false; africaOverlay.classList.add("open"); document.body.classList.add("african-languages-overlay-open"); }
+                    event.preventDefault();
+                    event.stopImmediatePropagation();
+                    return true;
+                }
+                return false;
+            }
+
+            var americas = document.getElementById("americasMuseum");
+            if(containsPoint(americas)){
+                var americaOverlay = document.querySelector('.voh-continental-direct[data-building="americasMuseum"]') ||
+                                     document.querySelector('.continental-language-experience-overlay[data-building="americasMuseum"]');
+                if(americaOverlay && !americaOverlay.classList.contains("open")){
+                    if(typeof americaOverlay._open === "function") americaOverlay._open();
+                    else {
+                        americaOverlay.hidden = false;
+                        americaOverlay.style.display = "flex";
+                        americaOverlay.style.visibility = "visible";
+                        americaOverlay.style.opacity = "1";
+                        americaOverlay.style.pointerEvents = "auto";
+                        americaOverlay.style.zIndex = "2147483647";
+                        americaOverlay.classList.add("open");
+                    }
+                    event.preventDefault();
+                    event.stopImmediatePropagation();
+                    return true;
+                }
+                return false;
+            }
+
+            var lmBuilding = document.getElementById("lm247Building");
+            if(containsPoint(lmBuilding)){
+                /* The live news screen is a distinct clickable surface. */
+                if(containsPoint(document.getElementById("lm247NewsWall"))) return false;
+                if(typeof window.__vohOpenLocalMedia247 === "function"){
+                    window.__vohOpenLocalMedia247();
+                    event.preventDefault();
+                    event.stopImmediatePropagation();
+                    return true;
+                }
+            }
+            return false;
+        }
+
         function africanClose(target){
             var button = target && target.closest ? target.closest(".african-languages-experience-close") : null;
             if(!button) return false;
@@ -257,6 +327,8 @@
                 event.stopImmediatePropagation();
                 return;
             }
+
+            if(recoverBuildingClick(event)) return;
 
             if(event.type === "click" && africanOpenFromEvent(event)){
                 event.preventDefault();
