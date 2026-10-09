@@ -8473,5 +8473,5 @@ body:has(.african-languages-experience-overlay.open) .african-languages-experien
     pointer-events:none !important;
 }
 #americasComplex #americasMuseum > .full-building-hit-surface{
-    pointer-events:none !important;
+    pointer-events:auto !important;
 }
