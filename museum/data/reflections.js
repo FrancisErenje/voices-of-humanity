@@ -4,7 +4,17 @@
 ==================================================*/
 
 window.ReflectionGardenCollection = {
-  current: {
+  current:   {
+    number: "071",
+    date: "FRIDAY, OCTOBER 9, 2026",
+    heading: "WHAT WE LEAVE BEHIND",
+    quote: "Our greatest legacy may be the knowledge and kindness we leave in other people's lives.",
+    note: "A life is remembered not only through monuments or possessions, but through the people it touches. A lesson taught, a story preserved, a skill shared or a person encouraged can continue long after the moment has passed. What we leave behind becomes part of the lives of others.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "070",
     date: "THURSDAY, OCTOBER 8, 2026",
     heading: "THE VALUE OF A QUESTION",
@@ -13,7 +23,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "069",
     date: "WEDNESDAY, OCTOBER 7, 2026",
