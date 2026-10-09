@@ -101,6 +101,31 @@
             return true;
         }
 
+        function africanOpenFromEvent(event){
+            if(!event || event.type !== "click") return false;
+
+            var target = event.target;
+            if(target && target.closest){
+                if(target.closest("#museumChat,#museumChatLauncher,.african-languages-experience-overlay,.reflection-garden-overlay")) return false;
+                if(window.__vohIsTawkInteraction && window.__vohIsTawkInteraction(event)) return false;
+                if(target.closest("#africaMuseum")) return africanOpen(target);
+            }
+
+            /* Some scene layers can become the event target over the visible
+               African museum. Use its actual screen rectangle as a fallback,
+               without changing any building position or z-index. */
+            var building = document.getElementById("africaMuseum");
+            if(!building) return false;
+            var rect = building.getBoundingClientRect();
+            if(rect.width <= 0 || rect.height <= 0) return false;
+            if(event.clientX < rect.left || event.clientX > rect.right ||
+               event.clientY < rect.top || event.clientY > rect.bottom) return false;
+
+            var overlay = document.querySelector(".african-languages-experience-overlay");
+            if(!overlay || overlay.classList.contains("open")) return false;
+            return africanOpen(building);
+        }
+
         function africanClose(target){
             var button = target && target.closest ? target.closest(".african-languages-experience-close") : null;
             if(!button) return false;
@@ -233,7 +258,7 @@
                 return;
             }
 
-            if(event.type === "click" && africanOpen(event.target)){
+            if(event.type === "click" && africanOpenFromEvent(event)){
                 event.preventDefault();
                 event.stopImmediatePropagation();
                 return;
