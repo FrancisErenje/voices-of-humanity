@@ -25,7 +25,7 @@
     <meta name="twitter:description" content="Explore the living museum of Voices of Humanity. Every Voice Matters.">
     <meta name="twitter:image" content="https://franciserenje.github.io/voices-of-humanity/images/logo/voices-of-humanity-logo-new.png">
 
-    <link rel="stylesheet" href="css/museum.css?v=20261007-lm247-building">
+    <link rel="stylesheet" href="css/museum.css?v=20261009-building-interaction">
     <link rel="stylesheet" href="css/cinema.css">
     <link rel="stylesheet" href="css/life/trees.css">
     <link rel="stylesheet" href="css/life/flags.css">
@@ -102,7 +102,7 @@
         }
 
         function africanOpenFromEvent(event){
-            if(!event || event.type !== "click") return false;
+            if(!event || (event.type !== "click" && event.type !== "pointerdown")) return false;
 
             var target = event.target;
             if(target && target.closest){
@@ -1243,7 +1243,7 @@
 
 <script src="engine/museumEngine.js"></script>
 
-<script src="js/museum.js?v=20261009-renderer-fix"></script>
+<script src="js/museum.js?v=20261009-renderer-fix2"></script>
 <script src="js/lm247-news-reader.js"></script>
 
 
