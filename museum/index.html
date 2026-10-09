@@ -38,7 +38,29 @@
     <link rel="stylesheet" href="css/hall-humanity.css">
     <link rel="stylesheet" href="css/museum-chat.css?v=20261009-chat-separation">
 
-    <!-- Removed parent-page Tawk click guard: stopping pointer events at window capture prevented the embedded iframe from receiving focus. -->
+    <!-- TAWK INPUT FOCUS PROTECTION
+         Screen-space museum fallbacks must not treat clicks over Tawk's iframe as building clicks. -->
+    <script>
+    (function(){
+      window.__vohIsTawkInteraction = function(event){
+        if(!event) return false;
+        var target=event.target;
+        if(target && target.closest && target.closest('#tawkchat-container,#tawkchat-minified-box,iframe[src*="tawk.to"],iframe[title*="tawk"]')) return true;
+        var x=event.clientX, y=event.clientY;
+        if((typeof x!=="number" || typeof y!=="number") && event.changedTouches && event.changedTouches.length){
+          x=event.changedTouches[0].clientX;
+          y=event.changedTouches[0].clientY;
+        }
+        if(typeof x!=="number" || typeof y!=="number") return false;
+        var surfaces=document.querySelectorAll('#tawkchat-container,#tawkchat-minified-box,iframe[src*="tawk.to"],iframe[title*="tawk"]');
+        for(var i=0;i<surfaces.length;i++){
+          var r=surfaces[i].getBoundingClientRect();
+          if(r.width>0 && r.height>0 && x>=r.left && x<=r.right && y>=r.top && y<=r.bottom) return true;
+        }
+        return false;
+      };
+    })();
+    </script>
 
     <!-- ==========================================
          VOH INTERACTION PRIORITY LAYER
@@ -235,7 +257,7 @@
             var chat = event && event.target && event.target.closest
                 ? event.target.closest("#museumChat")
                 : null;
-            if(chat) return false;
+            if(chat || (window.__vohIsTawkInteraction && window.__vohIsTawkInteraction(event))) return false;
 
             var building = event && event.target && event.target.closest
                 ? event.target.closest("#lm247Building")
@@ -1465,6 +1487,7 @@
      when the pointer is visibly over the Americas/Europe building.
      Use the building's real screen rectangle as a last-resort hit test. */
   function insideBuilding(id,e){
+    if(window.__vohIsTawkInteraction && window.__vohIsTawkInteraction(e)) return false;
     var el=document.getElementById(id);
     if(!el || !e || typeof e.clientX!=="number" || typeof e.clientY!=="number") return false;
     var r=el.getBoundingClientRect();
@@ -1915,6 +1938,7 @@ window.__vohOpenMuseumChat = function(event){
     /* Ask the Museum is a separate fixed UI layer. Never let this
        building hit-test interpret a chat interaction as a building click. */
     if(e.target && e.target.closest && e.target.closest("#museumChat")) return;
+    if(window.__vohIsTawkInteraction && window.__vohIsTawkInteraction(e)) return;
     if(e.type==="click" && e.target && e.target.closest && e.target.closest(".voh-continental-direct")) return;
 
     var oceania=getBuilding("oceaniaMuseum");
