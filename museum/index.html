@@ -25,7 +25,7 @@
     <meta name="twitter:description" content="Explore the living museum of Voices of Humanity. Every Voice Matters.">
     <meta name="twitter:image" content="https://franciserenje.github.io/voices-of-humanity/images/logo/voices-of-humanity-logo-new.png">
 
-    <link rel="stylesheet" href="css/museum.css?v=20261010-click-recovery3">
+    <link rel="stylesheet" href="css/museum.css?v=20261010-click-recovery4">
     <link rel="stylesheet" href="css/cinema.css">
     <link rel="stylesheet" href="css/life/trees.css">
     <link rel="stylesheet" href="css/life/flags.css">
@@ -343,6 +343,69 @@
         window.addEventListener("pointerdown", capture, true);
         window.addEventListener("click", capture, true);
         window.addEventListener("touchend", capture, true);
+
+        /* CONTINENTAL MUSEUM RELEASE RECOVERY
+           Some campus/world layers swallow the synthetic click after a press.
+           Track a press without opening anything, then open only on a short,
+           completed pointer gesture released over the same building. */
+        (function(){
+            var press = null;
+            function buildingAt(x,y){
+                var ids = ["africaMuseum","americasMuseum"];
+                for(var i=0;i<ids.length;i++){
+                    var el = document.getElementById(ids[i]);
+                    if(!el) continue;
+                    var r = el.getBoundingClientRect();
+                    if(r.width > 0 && r.height > 0 && x >= r.left && x <= r.right && y >= r.top && y <= r.bottom){
+                        return {id:ids[i], el:el};
+                    }
+                }
+                return null;
+            }
+            function excluded(event){
+                var target = event && event.target;
+                if(target && target.closest && target.closest("#museumChat,#museumChatLauncher,.african-languages-experience-overlay.open,.voh-continental-direct.open,.reflection-garden-overlay.open")) return true;
+                return !!(window.__vohIsTawkInteraction && window.__vohIsTawkInteraction(event));
+            }
+            window.addEventListener("pointerdown", function(event){
+                press = null;
+                if(excluded(event) || event.button !== 0) return;
+                var found = buildingAt(event.clientX,event.clientY);
+                if(found) press = {id:found.id, x:event.clientX, y:event.clientY, pointerId:event.pointerId};
+            }, true);
+            window.addEventListener("pointerup", function(event){
+                if(!press) return;
+                var start = press;
+                press = null;
+                if(excluded(event) || (event.pointerId !== undefined && start.pointerId !== event.pointerId)) return;
+                var dx = event.clientX-start.x, dy = event.clientY-start.y;
+                if(dx*dx+dy*dy > 144) return;
+                var found = buildingAt(event.clientX,event.clientY);
+                if(!found || found.id !== start.id) return;
+
+                var overlay = start.id === "africaMuseum"
+                    ? document.querySelector(".african-languages-experience-overlay")
+                    : document.querySelector('.voh-continental-direct[data-building="americasMuseum"]');
+                if(!overlay || overlay.classList.contains("open")) return;
+
+                event.preventDefault();
+                event.stopPropagation();
+                if(event.stopImmediatePropagation) event.stopImmediatePropagation();
+                if(typeof overlay._open === "function"){
+                    overlay._open();
+                }else if(start.id === "americasMuseum"){
+                    overlay.hidden = false;
+                    overlay.setAttribute("aria-hidden","false");
+                    overlay.style.display = "flex";
+                    overlay.style.visibility = "visible";
+                    overlay.style.opacity = "1";
+                    overlay.style.pointerEvents = "auto";
+                    overlay.style.zIndex = "2147483647";
+                    overlay.classList.add("open");
+                }
+            }, true);
+            window.addEventListener("pointercancel", function(){ press = null; }, true);
+        })();
 
         /* LOCALMEDIA247 BUILDING PRIORITY
            The headquarters is its own interaction surface. Register this
@@ -1242,7 +1305,7 @@
 
 <script src="engine/museumEngine.js"></script>
 
-<script src="js/museum.js?v=20261010-click-recovery3"></script>
+<script src="js/museum.js?v=20261010-click-recovery4"></script>
 <script src="js/lm247-news-reader.js"></script>
 
 
