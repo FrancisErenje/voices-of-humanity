@@ -455,57 +455,7 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
         setupAmericas();
     }
 
-    /* Final input-path recovery for the two continental museums.
-       Their scene/camera layers can intercept the normal button click, so
-       also handle the initial pointer press by screen coordinates. This is
-       intentionally limited to the two building footprints and never runs
-       over chat, Tawk, or an already-open exhibit. */
-    function installContinentalPressRecovery(){
-        if(window.__vohContinentalPressRecoveryInstalled) return;
-        window.__vohContinentalPressRecoveryInstalled = true;
 
-        window.addEventListener("pointerdown", function(event){
-            if(!event || event.button !== 0) return;
-            var target = event.target;
-            if(target && target.closest && target.closest(
-                "#museumChat,#museumChatLauncher,#tawkchat-container,#tawkchat-minified-box," +
-                "iframe[src*='tawk.to'],.african-languages-experience-overlay.open," +
-                ".voh-continental-direct.open,.continental-language-experience-overlay.open"
-            )) return;
-            if(window.__vohIsTawkInteraction && window.__vohIsTawkInteraction(event)) return;
-
-            function hit(id){
-                var el = document.getElementById(id);
-                if(!el) return false;
-                var r = el.getBoundingClientRect();
-                return r.width > 0 && r.height > 0 &&
-                    event.clientX >= r.left && event.clientX <= r.right &&
-                    event.clientY >= r.top && event.clientY <= r.bottom;
-            }
-
-            if(hit("africaMuseum")){
-                var africa = document.querySelector(".african-languages-experience-overlay");
-                if(africa && !africa.classList.contains("open") && typeof africa._open === "function"){
-                    africa._open();
-                    event.preventDefault();
-                    event.stopImmediatePropagation();
-                }
-                return;
-            }
-
-            if(hit("americasMuseum")){
-                var americas = document.querySelector('.voh-continental-direct[data-building="americasMuseum"]') ||
-                    document.querySelector('.continental-language-experience-overlay[data-building="americasMuseum"]');
-                if(americas && !americas.classList.contains("open") && typeof americas._open === "function"){
-                    americas._open();
-                    event.preventDefault();
-                    event.stopImmediatePropagation();
-                }
-            }
-        }, true);
-    }
-
-    installContinentalPressRecovery();
 
     if(document.readyState === "loading"){
         document.addEventListener("DOMContentLoaded", init, {once:true});
