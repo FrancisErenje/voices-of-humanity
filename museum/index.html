@@ -1621,10 +1621,6 @@
   }
 
   window.addEventListener("click",continentalFallback,true);
-  window.addEventListener("pointerup",function(e){
-    if(e.pointerType!=="mouse") continentalFallback(e);
-  },true);
-  window.addEventListener("touchend",continentalFallback,true);
 
 })();
 </script>
