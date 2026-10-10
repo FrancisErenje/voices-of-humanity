@@ -1592,7 +1592,10 @@
   function fallbackOpen(id,e){
     var building=document.getElementById(id);
     if(!building) return false;
-    var overlay=document.querySelector('.continental-language-experience-overlay[data-building="'+id+'"]');
+    /* Americas now uses the same direct overlay as museum.js.
+       Keep the legacy selector as a fallback for older continental panels. */
+    var overlay=document.querySelector('.voh-continental-direct[data-building="'+id+'"]') ||
+                document.querySelector('.continental-language-experience-overlay[data-building="'+id+'"]');
     if(!overlay || typeof overlay._open!=="function") return false;
     if(overlay.classList.contains("open")) return true;
     if(e){
