@@ -134,7 +134,11 @@
             if(!event || event.type !== "click") return false;
             var target = event.target;
             if(target && target.closest){
-                if(target.closest("#museumChat,#museumChatLauncher,.african-languages-experience-overlay,.reflection-garden-overlay,.voh-continental-direct,.continental-language-experience-overlay,.lm247-experience-overlay,.lm247-news-reader")) return false;
+                if(target.closest("#museumChat,#museumChatLauncher,.reflection-garden-overlay,.lm247-experience-overlay,.lm247-news-reader")) return false;
+                /* Ignore clicks inside an exhibit only while it is actually open.
+                   A hidden overlay must not block recovery of a building click. */
+                var activeExhibit = target.closest(".african-languages-experience-overlay,.voh-continental-direct,.continental-language-experience-overlay");
+                if(activeExhibit && activeExhibit.classList.contains("open")) return false;
                 if(window.__vohIsTawkInteraction && window.__vohIsTawkInteraction(event)) return false;
             }
 
@@ -381,16 +385,10 @@
 
                 if(!insideBuilding) return false;
 
-                /* The screen has its own interaction and must remain separate. */
-                if(screen){
-                    var sr = screen.getBoundingClientRect();
-                    var insideScreen =
-                        event.clientX >= sr.left &&
-                        event.clientX <= sr.right &&
-                        event.clientY >= sr.top &&
-                        event.clientY <= sr.bottom;
-                    if(insideScreen) return false;
-                }
+                /* Keep the news wall independent by its actual event target.
+                   Its bounding rectangle can overlap the building's screen-space
+                   box and must not suppress clicks on the building's left side. */
+                if(event.target && event.target.closest && event.target.closest("#lm247NewsWall")) return false;
             }
 
             event.preventDefault();
