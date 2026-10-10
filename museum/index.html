@@ -131,7 +131,7 @@
            It calls each building's existing opener and deliberately excludes
            chat panels, open exhibits, and the separate LocalMedia247 news screen. */
         function recoverBuildingClick(event){
-            if(!event || (event.type !== "click" && event.type !== "pointerdown")) return false;
+            if(!event || event.type !== "click") return false;
             var target = event.target;
             if(target && target.closest){
                 if(target.closest("#museumChat,#museumChatLauncher,.african-languages-experience-overlay,.reflection-garden-overlay,.voh-continental-direct,.continental-language-experience-overlay,.lm247-experience-overlay,.lm247-news-reader")) return false;
