@@ -438,11 +438,12 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
         const building = document.getElementById("africaMuseum");
         if(!building) return;
 
-        const overlay = document.querySelector(
-            ".african-languages-experience-overlay"
-        );
-
+        /* Resolve the visitor overlay at click time. This avoids retaining
+           a stale null reference if the experience panel is initialized later. */
         bindWholeBuilding("africaMuseum", function(){
+            const overlay = document.querySelector(
+                ".african-languages-experience-overlay"
+            );
             if(overlay && typeof overlay._open === "function"){
                 overlay._open();
             }
