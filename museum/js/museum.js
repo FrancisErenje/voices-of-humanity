@@ -326,10 +326,6 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
             }
 
             hit.addEventListener("click", activate, true);
-            hit.addEventListener("pointerup", function(event){
-                if(event.pointerType !== "mouse") activate(event);
-            }, true);
-            hit.addEventListener("touchend", activate, true);
             hit.addEventListener("keydown", function(event){
                 if(event.key === "Enter" || event.key === " "){
                     activate(event);
@@ -435,10 +431,6 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
                 if(typeof overlay._open === "function") overlay._open();
             };
             building.addEventListener("click", openAmericas, true);
-            building.addEventListener("pointerup", function(event){
-                if(event.pointerType !== "mouse") openAmericas(event);
-            }, true);
-            building.addEventListener("touchend", openAmericas, true);
         }
     }
 
@@ -876,9 +868,7 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
             }
         };
 
-        building.addEventListener("pointerdown", openBuilding, true);
         building.addEventListener("click", openBuilding, true);
-        building.addEventListener("touchend", openBuilding, true);
     }
 
     /* The LocalMedia247 building keeps its own native action. The dedicated
