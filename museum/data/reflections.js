@@ -4,7 +4,17 @@
 ==================================================*/
 
 window.ReflectionGardenCollection = {
-  current:   {
+  current: {
+    number: "072",
+    date: "SATURDAY, OCTOBER 10, 2026",
+    heading: "THE WISDOM OF LISTENING",
+    quote: "Listening is one of the quietest ways of telling another person that their experience matters.",
+    note: "Listening is more than waiting for our turn to speak. It asks us to give another person our attention, to hear the experience behind their words and to remain open to what we may not yet understand. Families, communities and cultures grow stronger when people feel heard rather than dismissed. Some voices are quiet; others speak through a different language, a memory, a gesture or silence. When we listen with patience and respect, we make room for knowledge to travel between generations and for understanding to begin. Today, give someone your full attention. You may discover a truth you would otherwise have missed.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "071",
     date: "FRIDAY, OCTOBER 9, 2026",
     heading: "WHAT WE LEAVE BEHIND",
@@ -13,7 +23,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "070",
     date: "THURSDAY, OCTOBER 8, 2026",
