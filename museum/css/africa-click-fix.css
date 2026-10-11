@@ -1,0 +1,26 @@
+/* African Languages Museum: raise the building hit target above overlapping campus layers. */
+#africaComplex{
+  position:absolute !important;
+  z-index:2147483640 !important;
+  pointer-events:none !important;
+}
+#africaComplex #africaMuseum{
+  position:absolute !important;
+  z-index:2147483641 !important;
+  pointer-events:auto !important;
+  cursor:pointer !important;
+}
+#africaComplex #africaMuseum > *{
+  pointer-events:none !important;
+}
+#africaComplex #africaMuseum > .full-building-hit-surface{
+  pointer-events:auto !important;
+  z-index:2147483642 !important;
+}
+body:has(.african-languages-experience-overlay.open) #africaComplex #africaMuseum > .full-building-hit-surface{
+  pointer-events:none !important;
+  z-index:1 !important;
+}
+body:has(.african-languages-experience-overlay.open) #africaComplex #africaMuseum{
+  pointer-events:none !important;
+}
