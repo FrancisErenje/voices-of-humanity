@@ -25,7 +25,7 @@
     <meta name="twitter:description" content="Explore the living museum of Voices of Humanity. Every Voice Matters.">
     <meta name="twitter:image" content="https://franciserenje.github.io/voices-of-humanity/images/logo/voices-of-humanity-logo-new.png">
 
-    <link rel="stylesheet" href="css/museum.css?v=20261010-click-recovery4">
+    <link rel="stylesheet" href="css/museum.css?v=20261011-continental-press-priority">
     <link rel="stylesheet" href="css/cinema.css">
     <link rel="stylesheet" href="css/life/trees.css">
     <link rel="stylesheet" href="css/life/flags.css">
@@ -344,12 +344,11 @@
         window.addEventListener("click", capture, true);
         window.addEventListener("touchend", capture, true);
 
-        /* CONTINENTAL MUSEUM RELEASE RECOVERY
-           Some campus/world layers swallow the synthetic click after a press.
-           Track a press without opening anything, then open only on a short,
-           completed pointer gesture released over the same building. */
+        /* CONTINENTAL MUSEUM CLICK PRIORITY
+           Open on pointerdown only when the pointer begins inside one of the
+           two museum footprints. Stop that one gesture before campus camera
+           handlers can interpret the museum click as a pan/drag. */
         (function(){
-            var press = null;
             function buildingAt(x,y){
                 var ids = ["africaMuseum","americasMuseum"];
                 for(var i=0;i<ids.length;i++){
@@ -364,26 +363,15 @@
             }
             function excluded(event){
                 var target = event && event.target;
-                if(target && target.closest && target.closest("#museumChat,#museumChatLauncher,.african-languages-experience-overlay.open,.voh-continental-direct.open,.reflection-garden-overlay.open")) return true;
+                if(target && target.closest && target.closest("#museumChat,#museumChatLauncher,.african-languages-experience-overlay.open,.voh-continental-direct.open,.reflection-garden-overlay.open,.lm247-experience-overlay.open,.lm247-news-reader.open")) return true;
                 return !!(window.__vohIsTawkInteraction && window.__vohIsTawkInteraction(event));
             }
             window.addEventListener("pointerdown", function(event){
-                press = null;
-                if(excluded(event) || event.button !== 0) return;
+                if(excluded(event) || (event.button !== undefined && event.button !== 0)) return;
                 var found = buildingAt(event.clientX,event.clientY);
-                if(found) press = {id:found.id, x:event.clientX, y:event.clientY, pointerId:event.pointerId};
-            }, true);
-            window.addEventListener("pointerup", function(event){
-                if(!press) return;
-                var start = press;
-                press = null;
-                if(excluded(event) || (event.pointerId !== undefined && start.pointerId !== event.pointerId)) return;
-                var dx = event.clientX-start.x, dy = event.clientY-start.y;
-                if(dx*dx+dy*dy > 144) return;
-                var found = buildingAt(event.clientX,event.clientY);
-                if(!found || found.id !== start.id) return;
+                if(!found) return;
 
-                var overlay = start.id === "africaMuseum"
+                var overlay = found.id === "africaMuseum"
                     ? document.querySelector(".african-languages-experience-overlay")
                     : document.querySelector('.voh-continental-direct[data-building="americasMuseum"]');
                 if(!overlay || overlay.classList.contains("open")) return;
@@ -391,9 +379,10 @@
                 event.preventDefault();
                 event.stopPropagation();
                 if(event.stopImmediatePropagation) event.stopImmediatePropagation();
+
                 if(typeof overlay._open === "function"){
                     overlay._open();
-                }else if(start.id === "americasMuseum"){
+                }else if(found.id === "americasMuseum"){
                     overlay.hidden = false;
                     overlay.setAttribute("aria-hidden","false");
                     overlay.style.display = "flex";
@@ -402,9 +391,12 @@
                     overlay.style.pointerEvents = "auto";
                     overlay.style.zIndex = "2147483647";
                     overlay.classList.add("open");
+                }else{
+                    overlay.hidden = false;
+                    overlay.classList.add("open");
+                    document.body.classList.add("african-languages-overlay-open");
                 }
             }, true);
-            window.addEventListener("pointercancel", function(){ press = null; }, true);
         })();
 
         /* LOCALMEDIA247 BUILDING PRIORITY
@@ -1305,7 +1297,7 @@
 
 <script src="engine/museumEngine.js"></script>
 
-<script src="js/museum.js?v=20261010-click-recovery4"></script>
+<script src="js/museum.js?v=20261011-continental-press-priority"></script>
 <script src="js/lm247-news-reader.js"></script>
 
 
