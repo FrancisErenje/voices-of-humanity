@@ -448,6 +448,27 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
                 overlay._open();
             }
         });
+
+        /* Direct capture owner for Africa, matching the proven fallback
+           used by the Americas building. If a campus layer covers the
+           transparent child button, clicking the building itself still
+           opens the existing African exhibit overlay. */
+        if(building.dataset.africaDirectBound !== "true"){
+            building.dataset.africaDirectBound = "true";
+            building.addEventListener("click", function(event){
+                if(event){
+                    event.preventDefault();
+                    event.stopPropagation();
+                    if(event.stopImmediatePropagation) event.stopImmediatePropagation();
+                }
+                const overlay = document.querySelector(
+                    ".african-languages-experience-overlay"
+                );
+                if(overlay && typeof overlay._open === "function"){
+                    overlay._open();
+                }
+            }, true);
+        }
     }
 
     function init(){
