@@ -5,6 +5,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "073",
+    date: "SUNDAY, OCTOBER 11, 2026",
+    heading: "SMALL ACTS, LASTING EFFECTS",
+    quote: "The future is often shaped by small acts repeated with care.",
+    note: "History is not made only by dramatic moments. It is also shaped by ordinary people who teach, document, repair, plant, protect, encourage and continue. Small acts may seem invisible today, but repeated over time they can change families, communities and generations.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "072",
     date: "SATURDAY, OCTOBER 10, 2026",
     heading: "THE WISDOM OF LISTENING",
@@ -13,7 +23,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "071",
     date: "FRIDAY, OCTOBER 9, 2026",
