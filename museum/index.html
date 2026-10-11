@@ -87,15 +87,64 @@
             return true;
         }
 
+        function ensureAfricanOverlay(){
+            var overlay = document.querySelector(".african-languages-experience-overlay");
+            if(!overlay){
+                overlay = document.createElement("div");
+                overlay.className = "african-languages-experience-overlay";
+                overlay.innerHTML =
+                    '<div class="african-languages-experience-card" role="dialog" aria-modal="true" aria-labelledby="africanLanguagesFallbackTitle">' +
+                      '<button class="african-languages-close-hit-zone" type="button" aria-label="Close African Languages Museum">×</button>' +
+                      '<div class="african-languages-experience-eyebrow">AFRICAN LANGUAGES MUSEUM</div>' +
+                      '<h2 id="africanLanguagesFallbackTitle">African Languages Museum</h2>' +
+                      '<p class="african-languages-experience-intro">Explore Africa’s linguistic diversity through language learning, documentaries, cultural knowledge and living community voices.</p>' +
+                      '<div class="african-languages-experience-list">' +
+                        '<a class="african-language-feature featured" href="/museum/academy/igede.html">' +
+                          '<span class="feature-number">01</span><span class="feature-content"><strong>Igede Language Series</strong><span>Explore Igede words, pronunciation, everyday expressions and lessons.</span><small>Igede Language Learning Centre</small></span><span class="feature-action">ENTER CENTRE →</span>' +
+                        '</a>' +
+                        '<div class="african-language-feature"><span class="feature-number">02</span><span class="feature-content"><strong>Explore African Language Voices</strong><span>Discover languages, documentaries and cultural records from across Africa.</span></span></div>' +
+                        '<div class="african-language-feature"><span class="feature-number">03</span><span class="feature-content"><strong>Language, Culture &amp; Memory</strong><span>Stories connecting language with identity, history and heritage.</span></span></div>' +
+                      '</div></div>';
+                document.body.appendChild(overlay);
+                var close = overlay.querySelector(".african-languages-close-hit-zone");
+                if(close){
+                    close.addEventListener("click", function(e){
+                        e.preventDefault();
+                        e.stopImmediatePropagation();
+                        overlay.classList.remove("open");
+                        overlay.hidden = true;
+                        overlay.setAttribute("aria-hidden","true");
+                        overlay.style.display = "none";
+                        document.body.classList.remove("african-languages-overlay-open");
+                    }, true);
+                }
+                overlay.addEventListener("click", function(e){
+                    if(e.target === overlay){
+                        overlay.classList.remove("open");
+                        overlay.hidden = true;
+                        overlay.setAttribute("aria-hidden","true");
+                        overlay.style.display = "none";
+                        document.body.classList.remove("african-languages-overlay-open");
+                    }
+                }, true);
+            }
+            return overlay;
+        }
+
         function africanOpen(target){
             var building = target && target.closest ? target.closest("#africaMuseum") : null;
             if(!building) return false;
-            var overlay = document.querySelector(".african-languages-experience-overlay");
-            if(!overlay) return false;
+            var overlay = ensureAfricanOverlay();
             if(typeof overlay._open === "function"){
                 overlay._open();
             }else{
                 overlay.hidden = false;
+                overlay.removeAttribute("aria-hidden");
+                overlay.style.display = "flex";
+                overlay.style.visibility = "visible";
+                overlay.style.opacity = "1";
+                overlay.style.pointerEvents = "auto";
+                overlay.style.zIndex = "2147483647";
                 overlay.classList.add("open");
                 document.body.classList.add("african-languages-overlay-open");
             }
