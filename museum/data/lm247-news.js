@@ -1,25 +1,96 @@
 /*
   LocalMedia247 — Living News Wall
-  Live News · Saturday, October 10, 2026
-  Fresh-news filter: use current, source-checked developments; do not repeat older
-  stories unless a meaningful new development has occurred.
+  Live News · Sunday, October 11, 2026
+  Fresh-news filter: source-check current developments and clearly attribute
+  disputed claims. Do not repeat older stories unless a meaningful new
+  development has occurred.
 
   Editorial cadence:
   LocalMedia247 operates as a living newsroom. News may be published or updated
   in the morning, afternoon, evening, or whenever a verified story becomes important enough to share.
 */
 window.LocalMedia247News = {
-  date: "SATURDAY, OCTOBER 10, 2026",
-  updatedLabel: "LIVE NEWS · MORNING UPDATE · 10 OCTOBER 2026",
+  date: "SUNDAY, OCTOBER 11, 2026",
+  updatedLabel: "LIVE NEWS · SUNDAY UPDATE · 11 OCTOBER 2026",
   updateMode: "ANYTIME",
   cadenceLabel: "MORNING · AFTERNOON · EVENING · ANYTIME",
   stories: [
-    {id:"ng-nnpc-discount-1010",category:"ECONOMY",location:"Nigeria",headline:"NNPC petrol discount: N66 per litre reduction is tied to digital payments, report says",summary:"Saturday PUNCH reports that customers at checked NNPC outlets in Abuja paid N1,339 per litre through the company’s app, compared with N1,405 at the pump for direct payments. NNPC says its discount runs through October 31 and applies at its retail stations; it is not a uniform national pump price or a return to subsidy. Motorists should confirm current terms at their local outlet.",source:"Punch Newspapers / NNPC",url:"https://punchng.com/petrol-nnpc-restricts-discount-sales-may-forgo-n4-6bn/",visual:"⛽",featured:true},
-    {id:"ng-tinubu-campaign-1010",category:"POLITICS",location:"Nigeria",headline:"APC says Tinubu’s 2027 re-election campaign will begin in Kaduna on October 24",summary:"The APC Presidential Campaign Council’s director-general, Abdulaziz Yari, said the campaign flag-off is planned for Kaduna on October 24. The announcement concerns the party’s campaign timetable; it is not an election result or an official statement that the general election date has changed.",source:"Naija News",url:"https://www.naijanews.com/2026/10/10/top-nigerian-newspaper-headlines-for-today-saturday-10th-october/",visual:"🗳️",featured:true},
-    {id:"ng-ai-media-1010",category:"TECHNOLOGY",location:"Nigeria",headline:"New report asks whether Nigeria is ready for the rise of synthetic media",summary:"Premium Times published a feature examining Nigeria’s readiness for AI-generated and synthetic media. The issue matters for newsrooms and audiences as realistic fabricated images, audio and video can make verification harder; journalists should check original sources and corroborate claims before publication.",source:"Premium Times",url:"https://www.premiumtimesng.com/",visual:"🤖",featured:true},
-    {id:"africa-south-africa-asylum-1010",category:"AFRICA",location:"South Africa",headline:"South Africa withdraws asylum directive after anti-migrant violence",summary:"South Africa’s Home Affairs department withdrew a directive on asylum applications after violent anti-migrant protests in Johannesburg and Durban. Authorities said implementation had overwhelmed reception offices and raised safety concerns. The government also stressed that the court ruling at issue did not automatically grant legal status to undocumented migrants.",source:"Reuters",url:"https://www.reuters.com/world/africa/south-africa-withdraws-asylum-directive-after-anti-migrant-violence-2026-10-09/",visual:"🌍",featured:true},
-    {id:"africa-ethiopia-eritrea-1010",category:"AFRICA",location:"Ethiopia / Eritrea",headline:"Ethiopia and Eritrea trade accusations as tensions rise in the north",summary:"Ethiopia has accused Eritrea of sending forces across the border, while Eritrea rejects Ethiopia’s account and accuses its neighbour of provoking conflict. Reports of troop movements and renewed fighting have heightened fears of a wider regional crisis. The allegations remain contested and should be attributed to the parties and reporting sources.",source:"Reuters",url:"https://www.reuters.com/world/africa/ethiopia-says-it-must-defend-itself-against-eritreas-all-out-invasion-2026-10-09/",visual:"🕊️",featured:false},
-    {id:"world-navi-pillay-nobel-1010",category:"WORLD",location:"International",headline:"South African jurist Navi Pillay wins the 2026 Nobel Peace Prize",summary:"The 2026 Nobel Peace Prize has been awarded to Navi Pillay, a South African jurist and former UN High Commissioner for Human Rights, for her work related to human rights and international justice. The award places renewed attention on the role of legal institutions in protecting fundamental rights.",source:"Al Jazeera",url:"https://www.aljazeera.com/africa/",visual:"🏅",featured:true},
-    {id:"world-hurricane-isaias-1010",category:"WORLD",location:"United States",headline:"Hurricane Isaias makes landfall in Florida as emergency crews respond",summary:"Reports say Hurricane Isaias made landfall in Florida as a Category 2 storm, bringing damaging winds, heavy rain and storm-surge risks across parts of the US Gulf Coast. Authorities in affected states declared emergencies and urged residents to follow local evacuation and safety instructions.",source:"The Guardian",url:"https://www.theguardian.com/world/live/2026/oct/09/hurricane-isaias-path-landfall-florida-category-3-storm-latest-updates",visual:"🌀",featured:false}
+    {
+      id: "ng-nnpc-discount-1011",
+      category: "ECONOMY",
+      location: "Nigeria",
+      headline: "NNPC’s temporary petrol discount offers limited relief as pump prices remain high",
+      summary: "A Financial Times report says NNPC has introduced a 30-day reduction of N66 per litre through October 31. The measure is being presented as a temporary price reduction, not a nationwide return to fuel subsidy. Actual prices and eligibility can vary by outlet, so motorists should confirm the terms locally.",
+      source: "Financial Times",
+      url: "https://www.ft.com/content/0eaf982a-82e7-49b6-a06f-34806613ce00",
+      visual: "⛽",
+      featured: true
+    },
+    {
+      id: "ng-fitch-outlook-1011",
+      category: "ECONOMY",
+      location: "Nigeria",
+      headline: "Fitch revises Nigeria’s outlook to positive while keeping its rating at B",
+      summary: "Fitch Ratings revised Nigeria’s long-term foreign-currency outlook from Stable to Positive, citing factors including stronger foreign-exchange reserves, easing inflation and policy reforms. The rating itself remains B, so the outlook change is not an upgrade of Nigeria’s credit rating.",
+      source: "Premium Times",
+      url: "https://www.premiumtimesng.com/business/business-news/915994-nigerian-govt-speaks-on-fitchs-credit-rating.html",
+      visual: "📊",
+      featured: true
+    },
+    {
+      id: "ng-lagos-art-mental-health-1011",
+      category: "HEALTH & CULTURE",
+      location: "Lagos, Nigeria",
+      headline: "Lagos art students use creative work to open conversations about mental health",
+      summary: "Twenty-five students from Yaba College of Technology took part in a workshop organised by the Yemisi Shyllon Museum of Art and the Art for Health Initiative. The programme explored how art and storytelling can help people discuss stress, grief, resilience and emotional wellbeing; a micro-exhibition is expected in Lagos in November.",
+      source: "Premium Times",
+      url: "https://www.premiumtimesng.com/health/health-news/915933-lagos-students-use-art-to-open-new-conversations-on-mental-health.html",
+      visual: "🎨",
+      featured: true
+    },
+    {
+      id: "africa-sudan-displaced-1011",
+      category: "AFRICA",
+      location: "Sudan",
+      headline: "Rights group reports 41 people killed in drone strike on displaced people in Sudan",
+      summary: "Emergency Lawyers said a drone strike in Sudan’s Blue Nile province killed 41 displaced people, including eight children, near the Ethiopian border. The group attributed the strike to the Rapid Support Forces; AP reported that the RSF had not responded to a request for comment. The UN called for accountability.",
+      source: "Associated Press",
+      url: "https://apnews.com/article/sudan-war-rsf-military-6cb2c34499234e9bcd33c3c9b49521da",
+      visual: "🕊️",
+      featured: true
+    },
+    {
+      id: "africa-ethiopia-eritrea-1011",
+      category: "AFRICA",
+      location: "Ethiopia / Eritrea",
+      headline: "Eritrea asks UN to intervene as border tensions with Ethiopia escalate",
+      summary: "Eritrea urged the UN Security Council to take action after Ethiopia accused Eritrean forces of crossing into Tigray. Eritrea denies the alleged incursion and says Ethiopia is provoking conflict. Reuters says it could not independently verify the reported incursion, and the competing claims remain disputed.",
+      source: "Reuters",
+      url: "https://www.reuters.com/world/africa/ethiopian-forces-regain-control-border-city-after-reported-eritrean-incursion-2026-10-10/",
+      visual: "🌍",
+      featured: true
+    },
+    {
+      id: "world-riyadh-airport-1011",
+      category: "WORLD",
+      location: "Saudi Arabia",
+      headline: "Saudi authorities report 12 dead and more than 300 wounded in Riyadh airport attack",
+      summary: "Saudi authorities said a missile attack on King Khalid International Airport killed at least 12 people and wounded more than 300. Flights were diverted or cancelled and airport operations were temporarily suspended. The Houthis were blamed for the attack; Reuters reported the claims and continuing regional escalation.",
+      source: "Reuters",
+      url: "https://www.reuters.com/world/middle-east/loud-blast-heard-riyadh-airport-airlines-cancel-more-flights-2026-10-10/",
+      visual: "✈️",
+      featured: true
+    },
+    {
+      id: "world-unctad-outlook-1011",
+      category: "WORLD ECONOMY",
+      location: "Global",
+      headline: "UNCTAD forecasts slower global growth as technology gains remain concentrated",
+      summary: "UN Trade and Development projects global economic growth of 2.6% in 2026, down from 2.9% in 2025, while world trade is expected to grow about 4% in volume terms. Its report says AI-related products are supporting trade, but gains are concentrated and higher energy costs and uncertainty weigh on developing economies.",
+      source: "UN Trade and Development (UNCTAD)",
+      url: "https://unctad.org/news/global-growth-slows-26-and-gaps-widen-between-developing-regions",
+      visual: "📈",
+      featured: false
+    }
   ]
 };
