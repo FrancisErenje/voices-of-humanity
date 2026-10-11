@@ -153,7 +153,11 @@
             }
 
             var africa = document.getElementById("africaMuseum");
-            if(containsPoint(africa)){
+            var africaComplex = document.getElementById("africaComplex");
+            /* The African building has decorative roof/title elements that can
+               extend beyond its own box. Use the full African complex footprint
+               as a fallback hit area when a scene layer receives the pointer. */
+            if(containsPoint(africa) || containsPoint(africaComplex)){
                 var africaOverlay = document.querySelector(".african-languages-experience-overlay");
                 if(africaOverlay && !africaOverlay.classList.contains("open")){
                     if(typeof africaOverlay._open === "function") africaOverlay._open();
@@ -351,14 +355,26 @@
            handlers can interpret the museum click as a pan/drag. */
         (function(){
             function buildingAt(x,y){
-                var ids = ["africaMuseum","americasMuseum"];
-                for(var i=0;i<ids.length;i++){
-                    var el = document.getElementById(ids[i]);
-                    if(!el) continue;
+                var africa = document.getElementById("africaMuseum");
+                var africaComplex = document.getElementById("africaComplex");
+                var americas = document.getElementById("americasMuseum");
+
+                function inside(el){
+                    if(!el) return false;
                     var r = el.getBoundingClientRect();
-                    if(r.width > 0 && r.height > 0 && x >= r.left && x <= r.right && y >= r.top && y <= r.bottom){
-                        return {id:ids[i], el:el};
-                    }
+                    return r.width > 0 && r.height > 0 &&
+                        x >= r.left && x <= r.right &&
+                        y >= r.top && y <= r.bottom;
+                }
+
+                /* Africa's full visible complex is the fallback hit target:
+                   the camera/scene can deliver the click to a layer above the
+                   building, and the roof/title can extend outside its own box. */
+                if(inside(africa) || inside(africaComplex)){
+                    return {id:"africaMuseum", el:africa};
+                }
+                if(inside(americas)){
+                    return {id:"americasMuseum", el:americas};
                 }
                 return null;
             }
