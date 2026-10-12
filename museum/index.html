@@ -132,7 +132,9 @@
         }
 
         function africanOpen(target){
-            var building = target && target.closest ? target.closest("#africaMuseum") : null;
+            var building = target && target.closest
+                ? target.closest("#africaMuseum")
+                : (target && target.id === "africaMuseum" ? target : null);
             if(!building) return false;
             var overlay = ensureAfricanOverlay();
             if(typeof overlay._open === "function"){
@@ -208,14 +210,17 @@
                as a fallback hit area when a scene layer receives the pointer. */
             if(containsPoint(africa) || containsPoint(africaComplex)){
                 var africaOverlay = document.querySelector(".african-languages-experience-overlay");
-                if(africaOverlay && !africaOverlay.classList.contains("open")){
-                    if(typeof africaOverlay._open === "function") africaOverlay._open();
-                    else { africaOverlay.hidden = false; africaOverlay.classList.add("open"); document.body.classList.add("african-languages-overlay-open"); }
-                    event.preventDefault();
-                    event.stopImmediatePropagation();
-                    return true;
-                }
-                return false;
+                if(africaOverlay && africaOverlay.classList.contains("open")) return false;
+
+                /* Recover even if the main exhibit script failed to create its
+                   panel: africanOpen() creates the fallback panel when needed. */
+                if(africa && typeof africanOpen === "function") africanOpen(africa);
+                else if(africaOverlay && typeof africaOverlay._open === "function") africaOverlay._open();
+
+                event.preventDefault();
+                if(typeof event.stopImmediatePropagation === "function") event.stopImmediatePropagation();
+                else event.stopPropagation();
+                return true;
             }
 
             var americas = document.getElementById("americasMuseum");
@@ -440,7 +445,11 @@
                 var overlay = found.id === "africaMuseum"
                     ? document.querySelector(".african-languages-experience-overlay")
                     : document.querySelector('.voh-continental-direct[data-building="americasMuseum"]');
-                if(!overlay || overlay.classList.contains("open")) return;
+                /* If Africa's exhibit panel failed to initialize, still shield
+                   the pointer gesture from the campus camera; the click
+                   recovery layer will create and open the fallback panel. */
+                if(overlay && overlay.classList.contains("open")) return;
+                if(!overlay && found.id !== "africaMuseum") return;
 
                 event.preventDefault();
                 event.stopPropagation();
