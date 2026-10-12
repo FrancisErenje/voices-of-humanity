@@ -445,19 +445,25 @@
                 var overlay = found.id === "africaMuseum"
                     ? document.querySelector(".african-languages-experience-overlay")
                     : document.querySelector('.voh-continental-direct[data-building="americasMuseum"]');
-                /* If Africa's exhibit panel failed to initialize, still shield
-                   the pointer gesture from the campus camera; the click
-                   recovery layer will create and open the fallback panel. */
+                /* Africa uses the shared opener so the panel is created if
+                   museum.js has not initialized it yet. Do not dereference a
+                   missing overlay here: pointerdown is default-prevented below,
+                   so a thrown error would also suppress the follow-up click. */
                 if(overlay && overlay.classList.contains("open")) return;
-                if(!overlay && found.id !== "africaMuseum") return;
 
                 event.preventDefault();
                 event.stopPropagation();
                 if(event.stopImmediatePropagation) event.stopImmediatePropagation();
 
+                if(found.id === "africaMuseum"){
+                    africanOpen(found.el);
+                    return;
+                }
+
+                if(!overlay) return;
                 if(typeof overlay._open === "function"){
                     overlay._open();
-                }else if(found.id === "americasMuseum"){
+                }else{
                     overlay.hidden = false;
                     overlay.setAttribute("aria-hidden","false");
                     overlay.style.display = "flex";
@@ -466,10 +472,6 @@
                     overlay.style.pointerEvents = "auto";
                     overlay.style.zIndex = "2147483647";
                     overlay.classList.add("open");
-                }else{
-                    overlay.hidden = false;
-                    overlay.classList.add("open");
-                    document.body.classList.add("african-languages-overlay-open");
                 }
             }, true);
         })();
@@ -1372,7 +1374,7 @@
 
 <script src="engine/museumEngine.js"></script>
 
-<script src="js/museum.js?v=20261011-africa-direct-click"></script>
+<script src="js/museum.js?v=20261012-africa-pointerdown-recovery"></script>
 <script src="js/lm247-news-reader.js"></script>
 
 
