@@ -1,96 +1,106 @@
 /*
   LocalMedia247 — Living News Wall
-  Live News · Sunday, October 11, 2026
-  Fresh-news filter: source-check current developments and clearly attribute
-  disputed claims. Do not repeat older stories unless a meaningful new
-  development has occurred.
+  Live News · Monday, October 12, 2026
+  Editorial standard: verify dates and attribution, distinguish official claims
+  from independently confirmed facts, and avoid repeating older stories
+  without a meaningful development.
 
-  Editorial cadence:
-  LocalMedia247 operates as a living newsroom. News may be published or updated
-  in the morning, afternoon, evening, or whenever a verified story becomes important enough to share.
+  LocalMedia247 is a living newsroom. Updates may be published in the morning,
+  afternoon, evening, or whenever a verified development warrants attention.
 */
 window.LocalMedia247News = {
-  date: "SUNDAY, OCTOBER 11, 2026",
-  updatedLabel: "LIVE NEWS · SUNDAY UPDATE · 11 OCTOBER 2026",
-  updateMode: "ANYTIME",
-  cadenceLabel: "MORNING · AFTERNOON · EVENING · ANYTIME",
-  stories: [
+  "date": "MONDAY, OCTOBER 12, 2026",
+  "updatedLabel": "LIVE NEWS · MONDAY UPDATE · 12 OCTOBER 2026",
+  "updateMode": "ANYTIME",
+  "cadenceLabel": "MORNING · AFTERNOON · EVENING · ANYTIME",
+  "stories": [
     {
-      id: "ng-nnpc-discount-1011",
-      category: "ECONOMY",
-      location: "Nigeria",
-      headline: "NNPC’s temporary petrol discount offers limited relief as pump prices remain high",
-      summary: "A Financial Times report says NNPC has introduced a 30-day reduction of N66 per litre through October 31. The measure is being presented as a temporary price reduction, not a nationwide return to fuel subsidy. Actual prices and eligibility can vary by outlet, so motorists should confirm the terms locally.",
-      source: "Financial Times",
-      url: "https://www.ft.com/content/0eaf982a-82e7-49b6-a06f-34806613ce00",
-      visual: "⛽",
-      featured: true
+      "id": "ng-dangote-ipo-1012",
+      "category": "BUSINESS & ECONOMY",
+      "location": "Nigeria / Africa",
+      "headline": "Dangote Refinery extends IPO deadline to 27 October",
+      "summary": "Reuters reports that Dangote Petroleum Refinery has extended its $1.6 billion initial public offering by two weeks, with the offer now due to close on 27 October. The company says the extension is intended to give more investors time to participate. The offer is subject to Nigerian rules; prospective investors should use official SEC-approved information and verify platform legitimacy before committing money.",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/business/energy/nigerias-dangote-oil-refinery-ipo-be-extended-by-10-days-executive-adviser-say-2026-10-12/",
+      "visual": "📊",
+      "featured": true
     },
     {
-      id: "ng-fitch-outlook-1011",
-      category: "ECONOMY",
-      location: "Nigeria",
-      headline: "Fitch revises Nigeria’s outlook to positive while keeping its rating at B",
-      summary: "Fitch Ratings revised Nigeria’s long-term foreign-currency outlook from Stable to Positive, citing factors including stronger foreign-exchange reserves, easing inflation and policy reforms. The rating itself remains B, so the outlook change is not an upgrade of Nigeria’s credit rating.",
-      source: "Premium Times",
-      url: "https://www.premiumtimesng.com/business/business-news/915994-nigerian-govt-speaks-on-fitchs-credit-rating.html",
-      visual: "📊",
-      featured: true
+      "id": "ng-taraba-floods-1012",
+      "category": "WEATHER & COMMUNITY",
+      "location": "Taraba State, Nigeria",
+      "headline": "Floods and windstorms damage communities across seven Taraba LGAs",
+      "summary": "The Taraba State Emergency Management Agency reports damage in Donga, Gassol, Bali, Ussa, Kurmi, Karim Lamido and Sardauna. Heavy rainfall flooded farmland and damaged homes and infrastructure. The agency urged people in flood-prone, low-lying and riverside areas to move to safer ground or designated temporary camps.",
+      "source": "Premium Times",
+      "url": "https://www.premiumtimesng.com/regional/nnorth-east/916398-floods-windstorms-ravage-seven-taraba-lgas.html",
+      "visual": "🌧️",
+      "featured": true
     },
     {
-      id: "ng-lagos-art-mental-health-1011",
-      category: "HEALTH & CULTURE",
-      location: "Lagos, Nigeria",
-      headline: "Lagos art students use creative work to open conversations about mental health",
-      summary: "Twenty-five students from Yaba College of Technology took part in a workshop organised by the Yemisi Shyllon Museum of Art and the Art for Health Initiative. The programme explored how art and storytelling can help people discuss stress, grief, resilience and emotional wellbeing; a micro-exhibition is expected in Lagos in November.",
-      source: "Premium Times",
-      url: "https://www.premiumtimesng.com/health/health-news/915933-lagos-students-use-art-to-open-new-conversations-on-mental-health.html",
-      visual: "🎨",
-      featured: true
+      "id": "ng-iswap-airstrike-1012",
+      "category": "SECURITY",
+      "location": "Borno State, Nigeria",
+      "headline": "Military says air strike killed more than 40 ISWAP fighters in Borno",
+      "summary": "Operation HADIN KAI says an air strike on 10 October targeted an ISWAP enclave near Badu Village in Guzamala LGA. The military reported that more than 40 fighters were killed. This figure is the military's account; LocalMedia247 has not independently verified the casualty claim.",
+      "source": "Premium Times / Operation HADIN KAI statement",
+      "url": "https://www.premiumtimesng.com/regional/nnorth-east/916373-nigerian-troops-%E2%81%A0kill-40-iswap-fighters-in-borno-official.html",
+      "visual": "🛡️",
+      "featured": true
     },
     {
-      id: "africa-sudan-displaced-1011",
-      category: "AFRICA",
-      location: "Sudan",
-      headline: "Rights group reports 41 people killed in drone strike on displaced people in Sudan",
-      summary: "Emergency Lawyers said a drone strike in Sudan’s Blue Nile province killed 41 displaced people, including eight children, near the Ethiopian border. The group attributed the strike to the Rapid Support Forces; AP reported that the RSF had not responded to a request for comment. The UN called for accountability.",
-      source: "Associated Press",
-      url: "https://apnews.com/article/sudan-war-rsf-military-6cb2c34499234e9bcd33c3c9b49521da",
-      visual: "🕊️",
-      featured: true
+      "id": "ng-tiktok-access-1012",
+      "category": "TECHNOLOGY & DIGITAL RIGHTS",
+      "location": "Northern Nigeria",
+      "headline": "TikTok says it did not impose reported access restrictions in parts of Northern Nigeria",
+      "summary": "TikTok says the reported disruption in Kaduna, Kano, Kebbi and Sokoto was not imposed by the platform and that it is engaging relevant stakeholders. The company did not identify the cause or give a timeline for full restoration. Reports of access problems alone do not establish who or what caused them.",
+      "source": "Premium Times",
+      "url": "https://www.premiumtimesng.com/entertainment/naija-fashion/916406-tiktok-responds-to-reports-of-restricted-access-in-northern-nigeria.html",
+      "visual": "📱",
+      "featured": false
     },
     {
-      id: "africa-ethiopia-eritrea-1011",
-      category: "AFRICA",
-      location: "Ethiopia / Eritrea",
-      headline: "Eritrea asks UN to intervene as border tensions with Ethiopia escalate",
-      summary: "Eritrea urged the UN Security Council to take action after Ethiopia accused Eritrean forces of crossing into Tigray. Eritrea denies the alleged incursion and says Ethiopia is provoking conflict. Reuters says it could not independently verify the reported incursion, and the competing claims remain disputed.",
-      source: "Reuters",
-      url: "https://www.reuters.com/world/africa/ethiopian-forces-regain-control-border-city-after-reported-eritrean-incursion-2026-10-10/",
-      visual: "🌍",
-      featured: true
+      "id": "world-imf-ai-jobs-1012",
+      "category": "WORLD ECONOMY & TECHNOLOGY",
+      "location": "Global",
+      "headline": "IMF chief says AI could affect about 40% of jobs worldwide",
+      "summary": "At the 2026 IMF–World Bank Annual Meetings, IMF Managing Director Kristalina Georgieva said artificial intelligence could affect around 40% of jobs globally. 'Affect' includes jobs and tasks that may change, not simply jobs that will disappear. She urged governments to invest in skills, education and digital infrastructure.",
+      "source": "Premium Times / NAN",
+      "url": "https://www.premiumtimesng.com/business/business-news/916390-ai-to-affect-40-of-global-jobs-imf-boss.html",
+      "visual": "🤖",
+      "featured": true
     },
     {
-      id: "world-riyadh-airport-1011",
-      category: "WORLD",
-      location: "Saudi Arabia",
-      headline: "Saudi authorities report 12 dead and more than 300 wounded in Riyadh airport attack",
-      summary: "Saudi authorities said a missile attack on King Khalid International Airport killed at least 12 people and wounded more than 300. Flights were diverted or cancelled and airport operations were temporarily suspended. The Houthis were blamed for the attack; Reuters reported the claims and continuing regional escalation.",
-      source: "Reuters",
-      url: "https://www.reuters.com/world/middle-east/loud-blast-heard-riyadh-airport-airlines-cancel-more-flights-2026-10-10/",
-      visual: "✈️",
-      featured: true
+      "id": "africa-ethiopia-refinery-1012",
+      "category": "AFRICA & INDUSTRY",
+      "location": "Ethiopia",
+      "headline": "Ethiopia inaugurates its first gold refinery",
+      "summary": "Reuters reports that Ethiopia has opened a $50 million gold refinery developed through a joint venture. The project is intended to expand local processing, add value to mineral exports and reduce reliance on overseas refining. Its long-term economic impact will depend on production, supply and market conditions.",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/world/africa/ethiopia-launches-its-first-gold-refinery-prime-minister-says-2026-10-12/",
+      "visual": "🏭",
+      "featured": false
     },
     {
-      id: "world-unctad-outlook-1011",
-      category: "WORLD ECONOMY",
-      location: "Global",
-      headline: "UNCTAD forecasts slower global growth as technology gains remain concentrated",
-      summary: "UN Trade and Development projects global economic growth of 2.6% in 2026, down from 2.9% in 2025, while world trade is expected to grow about 4% in volume terms. Its report says AI-related products are supporting trade, but gains are concentrated and higher energy costs and uncertainty weigh on developing economies.",
-      source: "UN Trade and Development (UNCTAD)",
-      url: "https://unctad.org/news/global-growth-slows-26-and-gaps-widen-between-developing-regions",
-      visual: "📈",
-      featured: false
+      "id": "world-djibouti-migrant-boat-1011",
+      "category": "HUMANITARIAN",
+      "location": "Djibouti / Red Sea migration route",
+      "headline": "At least 139 migrants reported dead after boat capsizes off Djibouti",
+      "summary": "The Associated Press reports that an overcrowded boat carrying more than 300 people capsized off Djibouti while travelling towards Yemen. At least 139 deaths have been reported and dozens remain missing, with survivors receiving assistance. The International Organization for Migration says the toll may change as information is confirmed.",
+      "source": "Associated Press",
+      "url": "https://apnews.com/article/a9e324ca36a7d9dee0e745c736c8aa95",
+      "visual": "🕊️",
+      "featured": true
+    },
+    {
+      "id": "ng-ifowodo-literature-1010",
+      "category": "ARTS & CULTURE",
+      "location": "Lagos, Nigeria",
+      "headline": "Poet Ogaga Ifowodo wins the 2026 Nigeria Prize for Literature",
+      "summary": "Ogaga Ifowodo won the $100,000 prize for his poetry collection Why Does God Need a Gun? The inaugural Nigeria Prize for Creative Arts also recognised two documentary films, Beyond Tarkwa Bay and Mara Mania. The awards spotlight Nigerian writing, documentary storytelling and the preservation of lived experience.",
+      "source": "Premium Times",
+      "url": "https://www.premiumtimesng.com/entertainment/artsbooks/915849-ogaga-ifowodo-wins-100000-nigeria-prize-for-literature.html",
+      "visual": "📚",
+      "featured": true
     }
   ]
 };
