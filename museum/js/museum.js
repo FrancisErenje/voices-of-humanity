@@ -444,8 +444,24 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
             const overlay = document.querySelector(
                 ".african-languages-experience-overlay"
             );
-            if(overlay && typeof overlay._open === "function"){
+            if(!overlay) return;
+
+            /* The early index.html recovery layer can create a minimal
+               fallback overlay before this module runs. Such an overlay
+               does not have the museum.js _open method, so always provide
+               the same visible/open state instead of silently doing nothing. */
+            if(typeof overlay._open === "function"){
                 overlay._open();
+            }else{
+                overlay.hidden = false;
+                overlay.removeAttribute("aria-hidden");
+                overlay.style.display = "flex";
+                overlay.style.visibility = "visible";
+                overlay.style.opacity = "1";
+                overlay.style.pointerEvents = "auto";
+                overlay.style.zIndex = "2147483647";
+                overlay.classList.add("open");
+                document.body.classList.add("african-languages-overlay-open");
             }
         });
 
@@ -464,8 +480,21 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
                 const overlay = document.querySelector(
                     ".african-languages-experience-overlay"
                 );
-                if(overlay && typeof overlay._open === "function"){
+                if(!overlay) return;
+                if(typeof overlay._open === "function"){
                     overlay._open();
+                }else{
+                    /* Keep the direct building click functional even if
+                       the early recovery layer created the fallback panel. */
+                    overlay.hidden = false;
+                    overlay.removeAttribute("aria-hidden");
+                    overlay.style.display = "flex";
+                    overlay.style.visibility = "visible";
+                    overlay.style.opacity = "1";
+                    overlay.style.pointerEvents = "auto";
+                    overlay.style.zIndex = "2147483647";
+                    overlay.classList.add("open");
+                    document.body.classList.add("african-languages-overlay-open");
                 }
             }, true);
         }
