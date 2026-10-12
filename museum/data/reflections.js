@@ -5,6 +5,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "074",
+    date: "MONDAY, OCTOBER 12, 2026",
+    heading: "KNOWLEDGE BELONGS IN MOTION",
+    quote: "Knowledge stays alive when it is shared, questioned, practiced and passed on.",
+    note: "Knowledge is not a museum object that must remain untouched. It becomes stronger when people teach it, test it, adapt it and pass it forward responsibly. Every generation has a role in keeping valuable knowledge alive while helping it meet new challenges.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "073",
     date: "SUNDAY, OCTOBER 11, 2026",
     heading: "SMALL ACTS, LASTING EFFECTS",
@@ -13,7 +23,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "072",
     date: "SATURDAY, OCTOBER 10, 2026",
