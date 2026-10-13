@@ -34,8 +34,10 @@
                 </div>
 
                 <div class="lm247-news-reader-visual" aria-hidden="true">
+                    <img id="lm247ReaderImage" alt="" hidden>
                     <span id="lm247ReaderVisual">📰</span>
                 </div>
+                <small id="lm247ReaderImageCredit" class="lm247-news-reader-image-credit"></small>
 
                 <div class="lm247-news-reader-meta">
                     <span id="lm247ReaderCategory">NEWS</span>
@@ -65,6 +67,8 @@
         const card = reader.querySelector(".lm247-news-reader-card");
         const closeButton = reader.querySelector(".lm247-news-reader-close");
         const visual = reader.querySelector("#lm247ReaderVisual");
+        const visualImage = reader.querySelector("#lm247ReaderImage");
+        const imageCredit = reader.querySelector("#lm247ReaderImageCredit");
         const category = reader.querySelector("#lm247ReaderCategory");
         const location = reader.querySelector("#lm247ReaderLocation");
         const title = reader.querySelector("#lm247ReaderTitle");
@@ -77,12 +81,63 @@
 
         let currentIndex = 0;
         let lastFocused = null;
+        let wallIndex = 0;
+
+        const wallDate = wall.querySelector(".lm247-news-date");
+        const wallVisual = wall.querySelector(".lm247-news-visual");
+        const wallFallback = wallVisual ? wallVisual.querySelector("span") : null;
+        const wallCategory = wall.querySelector(".lm247-news-category");
+        const wallHeadline = wall.querySelector(".lm247-news-headline");
+        const wallSource = wall.querySelector(".lm247-news-source");
+        let wallImage = wallVisual ? wallVisual.querySelector("img") : null;
+        if(wallVisual && !wallImage){
+            wallImage = document.createElement("img");
+            wallImage.alt = "";
+            wallImage.hidden = true;
+            wallImage.setAttribute("aria-hidden","true");
+            wallVisual.insertBefore(wallImage, wallFallback || null);
+        }
+
+        function renderWall(index){
+            wallIndex = (index + data.stories.length) % data.stories.length;
+            const story = data.stories[wallIndex];
+            if(wallDate) wallDate.textContent = "TUE 13 OCT 2026";
+            if(wallCategory) wallCategory.textContent = story.category || "NEWS";
+            if(wallHeadline) wallHeadline.textContent = story.headline || "LocalMedia247 News";
+            if(wallSource) wallSource.textContent = story.source ? "SOURCE · " + story.source.toUpperCase() : "LOCALMEDIA247";
+            if(wallImage && story.imageUrl){
+                wallImage.src = story.imageUrl;
+                wallImage.alt = story.imageAlt || "";
+                wallImage.hidden = false;
+                wallImage.style.display = "block";
+                if(wallFallback) wallFallback.style.display = "none";
+            }else{
+                if(wallImage){ wallImage.removeAttribute("src"); wallImage.hidden = true; wallImage.style.display = "none"; }
+                if(wallFallback){ wallFallback.style.display = ""; wallFallback.textContent = story.visual || "📰"; }
+            }
+        }
 
         function render(index){
             currentIndex = (index + data.stories.length) % data.stories.length;
             const story = data.stories[currentIndex];
 
             visual.textContent = story.visual || "📰";
+            if(story.imageUrl){
+                visualImage.src = story.imageUrl;
+                visualImage.alt = story.imageAlt || "";
+                visualImage.hidden = false;
+                visualImage.style.display = "block";
+                visual.style.display = "none";
+                imageCredit.textContent = story.imageCredit ? "IMAGE · " + story.imageCredit : "";
+                imageCredit.style.display = story.imageCredit ? "block" : "none";
+            }else{
+                visualImage.removeAttribute("src");
+                visualImage.hidden = true;
+                visualImage.style.display = "none";
+                visual.style.display = "";
+                imageCredit.textContent = "";
+                imageCredit.style.display = "none";
+            }
             category.textContent = story.category || "NEWS";
             location.textContent = story.location || "";
             title.textContent = story.headline || "";
@@ -140,13 +195,17 @@
         }
 
         function activate(){
-            /* The architectural wall may be cycling independently; choose
-               the story that is visually represented by reading its current
-               headline and matching it to the shared dataset. */
             const visibleHeadline = (wall.querySelector(".lm247-news-headline")?.textContent || "").trim();
             const match = data.stories.findIndex(story => story.headline === visibleHeadline);
-            open(match >= 0 ? match : currentIndex);
+            open(match >= 0 ? match : wallIndex);
         }
+
+        renderWall(0);
+        window.setInterval(function(){
+            if(!document.hidden && !reader.classList.contains("open")){
+                renderWall(wallIndex + 1);
+            }
+        }, 9000);
 
         wall.addEventListener("click", function(event){
             if(event.target.closest("a,button")) return;
