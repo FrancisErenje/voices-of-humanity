@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - main
-  # Run at 06:17 Nigeria time, away from the top-of-hour queue.
+  # Daily reset: publish at 06:07 Nigeria time (05:07 UTC).
   schedule:
-    - cron: "17 5 * * *"
+    - cron: "7 5 * * *"
   workflow_dispatch:
 
 permissions:
