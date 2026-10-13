@@ -442,7 +442,9 @@
             }
             function excluded(event){
                 var target = event && event.target;
-                if(target && target.closest && target.closest("#museumChat,#museumChatLauncher,.african-languages-experience-overlay.open,.voh-continental-direct.open,.reflection-garden-overlay.open,.lm247-experience-overlay.open,.lm247-news-reader.open")) return true;
+                if(target && target.closest && target.closest("#museumChat,#museumChatLauncher,.voh-continental-direct.open,.reflection-garden-overlay.open,.lm247-experience-overlay.open,.lm247-news-reader.open")) return true;
+                var africanPanel = target && target.closest ? target.closest(".african-languages-experience-overlay") : null;
+                if(africanPanel && isAfricanOverlayActuallyVisible(africanPanel)) return true;
                 return !!(window.__vohIsTawkInteraction && window.__vohIsTawkInteraction(event));
             }
             window.addEventListener("pointerdown", function(event){
