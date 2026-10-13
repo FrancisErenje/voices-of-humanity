@@ -87,6 +87,14 @@
             return true;
         }
 
+        function isAfricanOverlayActuallyVisible(overlay){
+            if(!overlay || overlay.hidden || !overlay.classList.contains("open")) return false;
+            var style = window.getComputedStyle ? window.getComputedStyle(overlay) : null;
+            if(overlay.getAttribute("aria-hidden") === "true") return false;
+            if(style && (style.display === "none" || style.visibility === "hidden" || Number(style.opacity) === 0)) return false;
+            return true;
+        }
+
         function ensureAfricanOverlay(){
             var overlay = document.querySelector(".african-languages-experience-overlay");
             if(!overlay){
@@ -174,7 +182,7 @@
                event.clientY < rect.top || event.clientY > rect.bottom) return false;
 
             var overlay = document.querySelector(".african-languages-experience-overlay");
-            if(!overlay || overlay.classList.contains("open")) return false;
+            if(!overlay || isAfricanOverlayActuallyVisible(overlay)) return false;
             return africanOpen(building);
         }
 
@@ -210,7 +218,7 @@
                as a fallback hit area when a scene layer receives the pointer. */
             if(containsPoint(africa) || containsPoint(africaComplex)){
                 var africaOverlay = document.querySelector(".african-languages-experience-overlay");
-                if(africaOverlay && africaOverlay.classList.contains("open")) return false;
+                if(isAfricanOverlayActuallyVisible(africaOverlay)) return false;
 
                 /* Recover even if the main exhibit script failed to create its
                    panel: africanOpen() creates the fallback panel when needed. */
@@ -449,7 +457,7 @@
                    museum.js has not initialized it yet. Do not dereference a
                    missing overlay here: pointerdown is default-prevented below,
                    so a thrown error would also suppress the follow-up click. */
-                if(overlay && overlay.classList.contains("open")) return;
+                if(isAfricanOverlayActuallyVisible(overlay)) return;
 
                 event.preventDefault();
                 event.stopPropagation();
