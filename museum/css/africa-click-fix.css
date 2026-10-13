@@ -17,10 +17,7 @@
   pointer-events:auto !important;
   z-index:2147483642 !important;
 }
-body:has(.african-languages-experience-overlay.open) #africaComplex #africaMuseum > .full-building-hit-surface{
-  pointer-events:none !important;
-  z-index:1 !important;
-}
-body:has(.african-languages-experience-overlay.open) #africaComplex #africaMuseum{
-  pointer-events:none !important;
-}
+
+/* Do not disable the building based only on a stale "open" class.
+   The exhibit overlay has its own higher z-index and naturally covers the
+   building while visible; stale state must never make the building inert. */
