@@ -552,6 +552,22 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
             const article = document.createElement("article");
             article.className = "lm247-desk-story";
 
+            if(story.imageUrl){
+                const image = document.createElement("img");
+                image.className = "lm247-desk-story-image";
+                image.src = story.imageUrl;
+                image.alt = story.imageAlt || story.headline || "LocalMedia247 news image";
+                image.loading = "lazy";
+                image.decoding = "async";
+                article.appendChild(image);
+                if(story.imageCredit){
+                    const credit = document.createElement("small");
+                    credit.className = "lm247-desk-story-image-credit";
+                    credit.textContent = "IMAGE · " + story.imageCredit;
+                    article.appendChild(credit);
+                }
+            }
+
             const kicker = document.createElement("span");
             kicker.className = "lm247-desk-kicker";
             kicker.textContent = [story.category, story.location].filter(Boolean).join(" · ").toUpperCase();
