@@ -5,6 +5,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "075",
+    date: "TUESDAY, OCTOBER 13, 2026",
+    heading: "THE PLACES THAT SHAPE US",
+    quote: "Where we come from often becomes part of how we understand who we are.",
+    note: "A hometown, village, river, street, school or landscape can carry memories that are difficult to capture in words. Places hold stories about movement, belonging, struggle and celebration. Preserving those stories helps future generations understand not only where people lived, but what those places meant to them.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "074",
     date: "MONDAY, OCTOBER 12, 2026",
     heading: "KNOWLEDGE BELONGS IN MOTION",
@@ -13,7 +23,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "073",
     date: "SUNDAY, OCTOBER 11, 2026",
