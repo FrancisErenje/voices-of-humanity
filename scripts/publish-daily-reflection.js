@@ -80,19 +80,24 @@ const selected = bank.find(entry => {
   const parsed = new Date(entry.date);
   if (Number.isNaN(parsed.getTime())) return false;
 
-  const iso = new Intl.DateTimeFormat("en-CA", {
+  const parts = new Intl.DateTimeFormat("en-GB", {
     timeZone: "Africa/Lagos",
     year: "numeric",
     month: "2-digit",
     day: "2-digit"
-  }).format(parsed);
+  }).formatToParts(parsed);
+
+  const dateParts = {};
+  for (const part of parts) {
+    if (part.type !== "literal") dateParts[part.type] = part.value;
+  }
+  const iso = `${dateParts.year}-${dateParts.month}-${dateParts.day}`;
 
   return iso === today.iso;
 });
 
 if (!selected) {
-  console.log(`No Reflection Bank entry is scheduled for ${today.iso}. Nothing to publish.`);
-  process.exit(0);
+  throw new Error(`No Reflection Bank entry is scheduled for ${today.iso}; refusing to report a successful publish.`);
 }
 
 const current = reflections.current;
