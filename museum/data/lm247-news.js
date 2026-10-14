@@ -1,75 +1,63 @@
 /*
   LocalMedia247 — Living News Wall
-  Live News · Tuesday, October 13, 2026
+  Live News · Wednesday, October 14, 2026
   Editorial standard: verify dates and attribution, distinguish official claims
   from independently confirmed facts, and avoid repeating older stories
-  without a meaningful development. Image links remain attributed to the
-  publishers hosting the relevant story or illustrative file image.
-
+  without a meaningful development. Story images are included only when a
+  verified direct image URL is available.
+  
   LocalMedia247 is a living newsroom. Updates may be published in the morning,
   afternoon, evening, or whenever a verified development warrants attention.
 */
 window.LocalMedia247News = {
-  "date": "TUESDAY, OCTOBER 13, 2026",
-  "updatedLabel": "LIVE NEWS · TUESDAY UPDATE · 13 OCTOBER 2026",
+  "date": "WEDNESDAY, OCTOBER 14, 2026",
+  "updatedLabel": "LIVE NEWS · WEDNESDAY UPDATE · 14 OCTOBER 2026",
   "updateMode": "ANYTIME",
   "cadenceLabel": "MORNING · AFTERNOON · EVENING · ANYTIME",
   "stories": [
     {
-      "id": "ng-imf-growth-1013",
-      "category": "BUSINESS & ECONOMY",
-      "location": "Nigeria",
-      "headline": "IMF raises Nigeria’s 2026 growth forecast to 4.2%",
-      "summary": "The International Monetary Fund has raised its 2026 growth forecast for Nigeria to 4.2 per cent and projects 4.3 per cent growth in 2027. It also warns that higher prices for essential goods could worsen poverty and food insecurity. The forecast is an economic projection, not a guarantee that households will feel immediate relief.",
-      "source": "Premium Times",
-      "url": "https://www.premiumtimesng.com/business/business-news/916597-imf-increases-nigerias-growth-forecasts-to-4-2-warns-higher-prices-will-aggravate-poverty-food-insecurity.html",
-      "imageUrl": "https://i0.wp.com/media.premiumtimesng.com/wp-content/files/2025/05/WhatsApp-Image-2025-05-07-at-23.41.07_54d2190f.jpg?fit=1020%2C765&ssl=1",
-      "imageAlt": "File photograph of the World Bank and IMF Spring Meetings venue",
-      "imageCredit": "Premium Times / file photo",
-      "visual": "📈",
-      "featured": true
-    },
-    {
-      "id": "world-ai-jobs-1013",
-      "category": "TECHNOLOGY & EMPLOYMENT",
-      "location": "Nigeria / Global",
-      "headline": "IMF and World Bank urge AI adoption that creates jobs",
-      "summary": "At the IMF–World Bank Annual Meetings, leaders warned that developing economies must prepare workers for AI-driven changes and use the technology to improve productivity rather than deepen inequality. The World Bank highlighted practical applications in areas including agriculture, healthcare, tourism, infrastructure and manufacturing.",
-      "source": "The Guardian Nigeria",
-      "url": "https://guardian.ng/business-services/world-bank-imf-seek-efficient-ai-adoption-as-nigeria-pitches-to-investors/",
-      "imageUrl": "https://cdn.guardian.ng/wp-content/uploads/2026/10/fast5773.webp",
-      "imageAlt": "Nigeria’s finance minister with World Bank and Central Bank leaders at the 2026 annual meetings",
-      "imageCredit": "The Guardian Nigeria",
-      "visual": "🤖",
-      "featured": true
-    },
-    {
-      "id": "ng-lassa-1013",
+      "id": "ng-nafdac-counterfeit-1014",
       "category": "HEALTH & PUBLIC SAFETY",
-      "location": "Nigeria",
-      "headline": "NCDC reports 268 Lassa fever deaths in 2026",
-      "summary": "The Nigeria Centre for Disease Control and Prevention reported 268 deaths among 1,138 confirmed Lassa fever cases recorded through epidemiological week 40. The latest report showed fewer new cases in that week, but the cumulative fatality rate remains concerning. Health authorities advise safe food storage, good sanitation and prompt medical attention for suspected symptoms.",
-      "source": "Premium Times / NCDC",
-      "url": "https://www.premiumtimesng.com/news/916572-nigeria-records-268-lassa-fever-deaths-as-fatality-rate-rises-to-23-6-ncdc.html",
-      "imageUrl": "https://i0.wp.com/media.premiumtimesng.com/wp-content/files/2020/02/Rats-e1597925767939.jpg?fit=800%2C450&ssl=1",
-      "imageAlt": "Rats in a cage, illustrating the Lassa fever prevention report",
-      "imageCredit": "Premium Times / illustrative file image",
+      "location": "Lagos, Nigeria",
+      "headline": "NAFDAC seizes counterfeit beverages worth over ₦2 billion in Lagos",
+      "summary": "The National Agency for Food and Drug Administration and Control says it uncovered more than 20 illegal stores at the International Trade Fair Complex in Lagos. The agency reported that two suspects were arrested and products valued at over ₦2 billion were seized. The allegations concern suspected counterfeiting and the revalidation of expired or unsafe drinks; the case remains subject to due process.",
+      "source": "The Guardian Nigeria",
+      "url": "https://guardian.ng/news/nafdac-uncovers-20-illegal-stores-seizes-products-worth-n2b-in-lagos/",
       "visual": "🏥",
       "featured": true
     },
     {
-      "id": "ng-cultural-heritage-festival-1013",
-      "category": "ARTS, CULTURE & HERITAGE",
-      "location": "Abuja, Nigeria",
-      "headline": "Nollywood Cultural Heritage Festival set for 22–24 October",
-      "summary": "The News Agency of Nigeria reports that the festival will celebrate cultural ambassadors and showcase Nigerian attire, film, food, dance and creative enterprise at the FCT Exhibition Pavilion in Abuja. Organisers say the event is intended to promote Nigerian heritage and encourage partnerships that can sustain cultural work.",
-      "source": "News Agency of Nigeria",
-      "url": "https://nannews.ng/nollywood-festival-to-celebrate-cultural-ambassadors-showcase-nigerian-attire/",
-      "imageUrl": "https://nannews.ng/wp-content/uploads/2026/10/AGILITY-3.webp",
-      "imageAlt": "Nollywood Cultural Heritage Festival promotional image",
-      "imageCredit": "News Agency of Nigeria",
-      "visual": "🎭",
+      "id": "ng-single-window-1014",
+      "category": "BUSINESS & ECONOMY",
+      "location": "Nigeria",
+      "headline": "National Single Window processes 156,026 trade permits in six months",
+      "summary": "The Guardian Nigeria reports that the Federal Government’s National Single Window platform has processed 156,026 licences, permits and certificates since launching on March 27, 2026. More than 12,000 importers and other trade users have registered, according to the project director. The platform is part of efforts to digitise and streamline import and export procedures.",
+      "source": "The Guardian Nigeria",
+      "url": "https://guardian.ng/news/fg-processes-156026-import-licences-permits-in-six-months/",
+      "visual": "📊",
       "featured": true
+    },
+    {
+      "id": "world-imf-vulnerable-countries-1014",
+      "category": "WORLD & DEVELOPMENT",
+      "location": "Bangkok, Thailand / Global",
+      "headline": "IMF urges members to honour funding pledges for vulnerable countries",
+      "summary": "At the IMF and World Bank annual meetings in Bangkok, IMF Managing Director Kristalina Georgieva urged member countries to fulfil commitments to funds that provide low-cost financing and debt relief to poorer, vulnerable nations. Reuters reports that rising debt-service costs, reduced development assistance and economic uncertainty are adding pressure to developing economies. The IMF forecasts global growth of 3.1 per cent in 2026.",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/world/asia-pacific/imf-urges-members-stock-up-funds-low-income-vulnerable-states-2026-10-14/",
+      "visual": "🌍",
+      "featured": true
+    },
+    {
+      "id": "ng-culture-heritage-1014",
+      "category": "ARTS, CULTURE & HERITAGE",
+      "location": "Nigeria",
+      "headline": "Nigerian and Chinese authors explore collaboration to deepen cultural ties",
+      "summary": "The News Agency of Nigeria has reported on Nigerian and Chinese writers’ interest in literary collaboration, translation and cultural exchange. Such partnerships can help preserve stories, connect communities and make literary heritage accessible across language boundaries. This report is background context rather than a new announcement from today.",
+      "source": "News Agency of Nigeria",
+      "url": "https://nannews.ng/nigerian-chinese-authors-collaborate-to-deepen-cultural-ties/",
+      "visual": "📚",
+      "featured": false
     }
   ]
 };
