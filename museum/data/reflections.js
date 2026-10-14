@@ -5,6 +5,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "076",
+    date: "WEDNESDAY, OCTOBER 14, 2026",
+    heading: "THE COURAGE TO BEGIN",
+    quote: "Every meaningful journey begins before we know exactly where it will lead.",
+    note: "Beginning something important can feel uncertain. We may not have every resource, every answer or every guarantee of success. Yet progress often starts with a first careful step. What matters is the willingness to begin, learn and keep improving.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "075",
     date: "TUESDAY, OCTOBER 13, 2026",
     heading: "THE PLACES THAT SHAPE US",
@@ -13,7 +23,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "074",
     date: "MONDAY, OCTOBER 12, 2026",
