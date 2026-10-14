@@ -101,7 +101,14 @@
         function renderWall(index){
             wallIndex = (index + data.stories.length) % data.stories.length;
             const story = data.stories[wallIndex];
-            if(wallDate) wallDate.textContent = "TUE 13 OCT 2026";
+            if(wallDate){
+                const dateMatch = (data.date || "").match(/^([A-Z]+), ([A-Z]+) (\\d{1,2}), (\\d{4})$/);
+                const days = {MONDAY:"MON", TUESDAY:"TUE", WEDNESDAY:"WED", THURSDAY:"THU", FRIDAY:"FRI", SATURDAY:"SAT", SUNDAY:"SUN"};
+                const months = {JANUARY:"JAN", FEBRUARY:"FEB", MARCH:"MAR", APRIL:"APR", MAY:"MAY", JUNE:"JUN", JULY:"JUL", AUGUST:"AUG", SEPTEMBER:"SEP", OCTOBER:"OCT", NOVEMBER:"NOV", DECEMBER:"DEC"};
+                wallDate.textContent = dateMatch
+                    ? (days[dateMatch[1]] || dateMatch[1]) + " " + dateMatch[3] + " " + (months[dateMatch[2]] || dateMatch[2]) + " " + dateMatch[4]
+                    : (data.date || "TODAY");
+            }
             if(wallCategory) wallCategory.textContent = story.category || "NEWS";
             if(wallHeadline) wallHeadline.textContent = story.headline || "LocalMedia247 News";
             if(wallSource) wallSource.textContent = story.source ? "SOURCE · " + story.source.toUpperCase() : "LOCALMEDIA247";
