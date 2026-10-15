@@ -5,15 +5,24 @@
 
 window.ReflectionGardenCollection = {
   current: {
-    number: "076",
-    date: "WEDNESDAY, OCTOBER 14, 2026",
-    heading: "THE COURAGE TO BEGIN",
-    quote: "Every meaningful journey begins before we know exactly where it will lead.",
-    note: "Beginning something important can feel uncertain. We may not have every resource, every answer or every guarantee of success. Yet progress often starts with a first careful step. What matters is the willingness to begin, learn and keep improving.",
+    number: "077",
+    date: "THURSDAY, OCTOBER 15, 2026",
+    heading: "A WORLD OF MANY VOICES",
+    quote: "Humanity becomes richer when difference is understood rather than feared.",
+    note: "Languages, cultures, histories and traditions may differ greatly, but difference does not have to create distance. Curiosity can turn unfamiliarity into understanding. When we learn about one another with respect, the world's diversity becomes a source of knowledge rather than division.",
     image: "",
     format: "text"
   },
   archive: [
+  {
+    number: undefined,
+    date: undefined,
+    heading: undefined,
+    quote: undefined,
+    note: undefined,
+    image: "",
+    format: "text"
+  },
   {
     number: "075",
     date: "TUESDAY, OCTOBER 13, 2026",
