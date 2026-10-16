@@ -1,28 +1,56 @@
 /*
   LocalMedia247 — Living News Wall
-  Live News · Thursday, October 15, 2026
+  Live News · Friday, October 16, 2026
   Editorial standard: verify dates and attribution, distinguish official claims
   from independently confirmed facts, and avoid repeating older stories
   without a meaningful development. Story images are included only when a
-  verified direct image URL is available.
+  direct image URL and its relevance have been checked.
 
   LocalMedia247 is a living newsroom. Updates may be published in the morning,
   afternoon, evening, or whenever a verified development warrants attention.
 */
 window.LocalMedia247News = {
-  "date": "THURSDAY, OCTOBER 15, 2026",
-  "updatedLabel": "LIVE NEWS · THURSDAY UPDATE · 15 OCTOBER 2026",
+  "date": "FRIDAY, OCTOBER 16, 2026",
+  "updatedLabel": "LIVE NEWS · FRIDAY UPDATE · 16 OCTOBER 2026",
   "updateMode": "ANYTIME",
   "cadenceLabel": "MORNING · AFTERNOON · EVENING · ANYTIME",
   "stories": [
     {
-      "id": "ng-power-grid-plan-1015",
+      "id": "ng-rivers-aleto-pipeline-1016",
+      "category": "BREAKING · PUBLIC SAFETY",
+      "location": "Aleto, Eleme LGA, Rivers State",
+      "headline": "Rivers gas pipeline explosion injures at least 20; about 50 houses reported damaged",
+      "summary": "Reports say a gas pipeline exploded in Aleto, Eleme Local Government Area, on Thursday evening, injuring at least 20 people and damaging homes, shops, vehicles and a mechanic workshop. Residents alleged that the pipeline had been leaking for weeks. The cause and responsibility require official investigation; reports cited here had not independently confirmed any fatalities.",
+      "source": "Punch Newspapers",
+      "url": "https://punchng.com/photos-20-injured-50-houses-razed-as-explosion-rocks-rivers-community/",
+      "imageUrl": "https://cdn.punchng.com/wp-content/uploads/2026/10/15195219/IMG-20261015-WA0156_1792090339-1024x1024.webp",
+      "imageAlt": "Area affected by the gas explosion in Aleto, Eleme LGA, Rivers State",
+      "imageCredit": "Punch Newspapers · Dennis Naku",
+      "visual": "⚠️",
+      "featured": true
+    },
+    {
+      "id": "ng-september-inflation-1016",
+      "category": "ECONOMY & COST OF LIVING",
+      "location": "Nigeria",
+      "headline": "Headline inflation slows to 14.63%, but household pressure remains",
+      "summary": "The Guardian reports that Nigeria's headline inflation eased to 14.63% in September from 15.39% in August. Annual food inflation remained high at 19.59%, and Lagos recorded 34.40% food inflation, showing that the national slowdown has not meant uniform relief for households. The figures are attributed to the National Bureau of Statistics' Consumer Price Index report.",
+      "source": "The Guardian Nigeria",
+      "url": "https://guardian.ng/business-services/nigerians-hopeful-lower-inflation-reflects-in-household-spending-relief/",
+      "imageUrl": "https://cdn.guardian.ng/wp-content/uploads/2026/09/Olayemi-Cardoso.jpg",
+      "imageAlt": "Central Bank of Nigeria Governor Olayemi Cardoso",
+      "imageCredit": "The Guardian Nigeria",
+      "visual": "📊",
+      "featured": true
+    },
+    {
+      "id": "ng-power-tariff-assurance-1016",
       "category": "ENERGY & INFRASTRUCTURE",
       "location": "Nigeria",
-      "headline": "Federal Government plans three new power grids to curb repeated collapses",
-      "summary": "The Minister of Power says the government has approved plans to develop new eastern and western electricity grids and begin procurement. A nationwide technical audit is also planned to identify faults and prioritise repairs. The minister says benefits could take two to three years; delivery will depend on procurement, funding and implementation.",
+      "headline": "Power minister says there is no plan to raise electricity tariffs in 2027",
+      "summary": "Minister of Power Joseph Tegbe says the Federal Government has no plan to increase electricity tariffs, and says its focus is improving supply. Nigeria Info FM reports that a 17.7-megawatt hybrid solar mini-grid project is planned to serve communities across five local government areas in Oyo State. These are government assurances; delivery will depend on implementation.",
       "source": "Nigeria Info FM",
-      "url": "https://www.nigeriainfo.fm/news/national/federal-government-to-build-three-new-power-grids-to-curb-collapses/",
+      "url": "https://www.nigeriainfo.fm/lagos/news/national/no-tariff-increase-planned-for-2027-power-minister/",
       "imageUrl": "https://mmo.aiircdn.com/370/62fd0dc8596ad.jpg",
       "imageAlt": "Electrical substation equipment",
       "imageCredit": "Nigeria Info FM",
@@ -30,54 +58,18 @@ window.LocalMedia247News = {
       "featured": true
     },
     {
-      "id": "ng-lekki-epe-repairs-1015",
-      "category": "TRANSPORT & INFRASTRUCTURE",
-      "location": "Lagos, Nigeria",
-      "headline": "Lagos begins 35-day repairs on Lekki–Epe Expressway",
-      "summary": "The Lagos State Government has begun rehabilitation of damaged sections of the Eti-Osa–Lekki–Epe Expressway, including the Bonny Camp–Admiralty Way Junction stretch and sections around Victoria Garden City. Motorists should expect traffic diversions and delays while the work continues.",
-      "source": "Nigeria Info FM",
-      "url": "https://www.nigeriainfo.fm/news/national/lagos-begins-35-day-lekki-epe-road-repairs/",
-      "visual": "🚧",
-      "featured": true
-    },
-    {
-      "id": "ng-nafdac-tradefair-1015",
-      "category": "HEALTH & PUBLIC SAFETY",
-      "location": "Ojo, Lagos, Nigeria",
-      "headline": "Trade Fair Complex vows crackdown after NAFDAC raid on suspected fake-drink operations",
-      "summary": "The Lagos International Trade Fair Complex management says it will work with regulators and law-enforcement agencies after a NAFDAC raid uncovered more than 20 illegal stores allegedly involved in counterfeiting drinks and repackaging expired beverages. Two suspects were arrested and products valued at more than ₦2 billion were seized, according to the report. Allegations remain subject to due process.",
-      "source": "Nigeria Info FM",
-      "url": "https://www.nigeriainfo.fm/news/national/trade-fair-complex-vows-crackdown-on-fake-drinks-after-nafdac-raid/",
+      "id": "ng-nafdac-aba-counterfeit-1015",
+      "category": "HEALTH & CONSUMER PROTECTION",
+      "location": "Aba, Abia State",
+      "headline": "NAFDAC seizes counterfeit alcohol packaging materials valued at over ₦200 million in Aba",
+      "summary": "The Guardian reports that NAFDAC raided five shops at Old Court Road market in Aba and seized counterfeit labels, corks, packs and outer packaging materials estimated to be worth more than ₦200 million. The agency said the materials carried names of several brands. The report says the shop owners were absent during the operation; allegations and any further enforcement action remain subject to due process.",
+      "source": "The Guardian Nigeria",
+      "url": "https://guardian.ng/news/nigeria/metro/nafdac-raids-aba-market-seizes-counterfeit-alcohol-packaging-materials-worth-over-n200m/",
+      "imageUrl": "https://cdn.guardian.ng/wp-content/uploads/2026/09/NAFDAC-Logo.webp",
+      "imageAlt": "National Agency for Food and Drug Administration and Control (NAFDAC) logo",
+      "imageCredit": "The Guardian Nigeria",
       "visual": "🛡️",
       "featured": true
-    },
-    {
-      "id": "ng-cbn-rate-cut-1015",
-      "category": "BUSINESS & ECONOMY",
-      "location": "Bangkok, Thailand / Nigeria",
-      "headline": "CBN governor explains September interest-rate cut to 23%",
-      "summary": "Central Bank of Nigeria Governor Olayemi Cardoso has explained the Monetary Policy Committee’s decision to cut the benchmark rate to 23% in September, after two meetings at which it was held at 26.5%. He cited improved coordination between fiscal and monetary authorities and macroeconomic conditions including external reserves and easing inflation. These are the governor’s explanations; the effects on borrowing costs and prices will depend on how policy reaches the wider economy.",
-      "source": "Premium Times",
-      "url": "https://www.premiumtimesng.com/news/headlines/917232-just-in-cardoso-explains-reasons-behind-mpc-interest-rate-cut-hails-synergy-with-fiscal-authorities.html",
-      "imageUrl": "https://i0.wp.com/media.premiumtimesng.com/wp-content/files/2026/10/Screenshot-2026-10-15-074746.png?fit=843%2C549&ssl=1",
-      "imageAlt": "Nigerian officials at the 2026 IMF and World Bank annual meetings in Thailand",
-      "imageCredit": "Premium Times",
-      "visual": "📊",
-      "featured": true
-    },
-    {
-      "id": "ng-ray-ekpu-prize-1015",
-      "category": "MEDIA & PUBLIC ACCOUNTABILITY",
-      "location": "Akwa Ibom State, Nigeria",
-      "headline": "Ray Ekpu investigative journalism prize opens 2026 entries, with ₦1.75 million in awards",
-      "summary": "The 2026 Ray Ekpu Prize for Investigative Journalism has opened entries, with a total prize pool of ₦1.75 million. The competition is open to eligible Nigeria Union of Journalists members of Akwa Ibom origin who practise in Nigeria. The reported closing date is October 23, 2026. Applicants should confirm the rules and submission details with the organisers.",
-      "source": "Premium Times",
-      "url": "https://www.premiumtimesng.com/news/top-news/917288-ray-ekpu-investigative-journalism-prize-opens-2026-entries-increases-prize-money-to-n1-75m.html",
-      "imageUrl": "https://i0.wp.com/media.premiumtimesng.com/wp-content/files/2021/07/Mr-Ray-Ekpu-veteran-Nigerian-journalist.jpg?fit=1140%2C570&ssl=1",
-      "imageAlt": "Veteran Nigerian journalist Ray Ekpu",
-      "imageCredit": "Premium Times",
-      "visual": "📰",
-      "featured": false
     }
   ]
 };
