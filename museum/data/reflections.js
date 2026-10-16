@@ -5,6 +5,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "079",
+    date: "SATURDAY, OCTOBER 17, 2026",
+    heading: "MEMORY NEEDS CARE",
+    quote: "A memory preserved with care can become a bridge between generations.",
+    note: "Memories can fade, change or disappear when they are not shared. Recording a story, preserving a photograph, teaching a song or writing down a family history can help one generation speak to another. Preservation gives memory a chance to travel farther than a single lifetime.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "078",
     date: "FRIDAY, OCTOBER 16, 2026",
     heading: "THE WORK NO ONE SEES",
@@ -13,7 +23,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "077",
     date: "THURSDAY, OCTOBER 15, 2026",
