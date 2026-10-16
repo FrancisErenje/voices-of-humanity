@@ -5,6 +5,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "078",
+    date: "FRIDAY, OCTOBER 16, 2026",
+    heading: "THE WORK NO ONE SEES",
+    quote: "Much of what keeps a community strong is built quietly by people whose names may never be recorded.",
+    note: "Behind every functioning community are people doing work that may receive little attention: teaching, caring, cleaning, organizing, repairing, documenting and supporting others. Their contributions remind us that meaningful work does not always arrive with applause. Some of the most important work happens quietly.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "077",
     date: "THURSDAY, OCTOBER 15, 2026",
     heading: "A WORLD OF MANY VOICES",
@@ -13,7 +23,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "076",
     date: "WEDNESDAY, OCTOBER 14, 2026",
