@@ -21,3 +21,16 @@
 /* Do not disable the building based only on a stale "open" class.
    The exhibit overlay has its own higher z-index and naturally covers the
    building while visible; stale state must never make the building inert. */
+
+/* Reliable, building-sized click surface. The pseudo-element belongs to the
+   building itself, so it moves with the building and cannot shift the scene. */
+#africaComplex #africaMuseum::before{
+  content:"";
+  position:absolute !important;
+  inset:0 !important;
+  display:block !important;
+  z-index:2147483642 !important;
+  pointer-events:auto !important;
+  cursor:pointer !important;
+  background:transparent !important;
+}
