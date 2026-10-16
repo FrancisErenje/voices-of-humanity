@@ -399,6 +399,39 @@
                 return;
             }
 
+            /* FINAL AFRICA CLICK RECOVERY:
+               Use the live screen rectangle on pointerdown as well as click.
+               This works even when a canvas/world layer becomes the event
+               target instead of the visible building. Keep chat and open
+               exhibit surfaces independent. */
+            if(event.type === "pointerdown" || event.type === "click"){
+                var hitTarget = event.target;
+                var blocked = hitTarget && hitTarget.closest && hitTarget.closest(
+                    "#museumChat,#museumChatLauncher,.african-languages-experience-overlay.open,.reflection-garden-overlay.open,.lm247-experience-overlay.open,.lm247-news-reader.open"
+                );
+                if(!blocked && !(window.__vohIsTawkInteraction && window.__vohIsTawkInteraction(event))){
+                    var africaBuilding = document.getElementById("africaMuseum");
+                    var africaFootprint = document.getElementById("africaComplex");
+                    var px = event.clientX, py = event.clientY;
+                    function vohInsideRect(el){
+                        if(!el || typeof px !== "number" || typeof py !== "number") return false;
+                        var b = el.getBoundingClientRect();
+                        return b.width > 0 && b.height > 0 &&
+                            px >= b.left && px <= b.right &&
+                            py >= b.top && py <= b.bottom;
+                    }
+                    var africanOverlay = document.querySelector(".african-languages-experience-overlay");
+                    if((vohInsideRect(africaBuilding) || vohInsideRect(africaFootprint)) &&
+                       !isAfricanOverlayActuallyVisible(africanOverlay)){
+                        if(event.cancelable) event.preventDefault();
+                        if(typeof event.stopImmediatePropagation === "function") event.stopImmediatePropagation();
+                        else event.stopPropagation();
+                        africanOpen(africaBuilding);
+                        return;
+                    }
+                }
+            }
+
             if(recoverBuildingClick(event)) return;
 
             if(event.type === "click" && africanOpenFromEvent(event)){
