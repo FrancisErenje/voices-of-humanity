@@ -1,20 +1,62 @@
 /*
   LocalMedia247 — Living News Wall
-  Live News · Friday, October 16, 2026
+  Live News · Saturday, October 17, 2026
   Editorial standard: verify dates and attribution, distinguish official claims
   from independently confirmed facts, and avoid repeating older stories
-  without a meaningful development. Story images are included only when a
-  direct image URL and its relevance have been checked.
+  without a meaningful development. Story images are labelled where they
+  are illustrative or depict a separate incident.
 
   LocalMedia247 is a living newsroom. Updates may be published in the morning,
   afternoon, evening, or whenever a verified development warrants attention.
 */
 window.LocalMedia247News = {
-  "date": "FRIDAY, OCTOBER 16, 2026",
-  "updatedLabel": "LIVE NEWS · FRIDAY UPDATE · 16 OCTOBER 2026",
+  "date": "SATURDAY, OCTOBER 17, 2026",
+  "updatedLabel": "LIVE NEWS · SATURDAY UPDATE · 17 OCTOBER 2026",
   "updateMode": "ANYTIME",
   "cadenceLabel": "MORNING · AFTERNOON · EVENING · ANYTIME",
   "stories": [
+    {
+      "id": "ng-cross-river-yala-oil-palm-1017",
+      "category": "SOUTH-SOUTH · BUSINESS & AGRICULTURE",
+      "location": "Ijiegu-Yache and adjoining clans, Yala LGA, Cross River State",
+      "headline": "Cross River signs oil-palm concession; company plans investment above US$20 million",
+      "summary": "The Cross River State Government has signed a concession agreement with ValueFronteira Limited for a proposed 4,000-hectare oil-palm plantation in Ijiegu-Yache and adjoining clans. Managing Director Maurice Ekpong said the company plans to invest more than US$20 million over five years. Jobs and community benefits are expected outcomes, not guarantees; implementation, community agreements and environmental safeguards will matter.",
+      "source": "The Guardian Nigeria",
+      "url": "https://guardian.ng/news/cross-river-govt-signs-4000-hectare-oil-palm-concession-with-firm/",
+      "imageUrl": "https://www.tropenbos.org/app/data/uploads/sites/2/PHOTO-1-087.jpg",
+      "imageAlt": "Illustrative oil-palm plantation image; not confirmed as the Yala project site",
+      "imageCredit": "Tropenbos International · illustrative image, not the project site",
+      "visual": "🌴",
+      "featured": true
+    },
+    {
+      "id": "ng-edo-benin-tanker-explosion-1017",
+      "category": "SOUTH-SOUTH · PUBLIC SAFETY",
+      "location": "Benin City, Edo State",
+      "headline": "Petrol tanker explosion in Benin prompts reports of multiple casualties",
+      "summary": "Reports published on 16 October said a petrol tanker exploded in Benin City, with many feared dead and at least ten injured people reportedly taken to the University of Benin Teaching Hospital. Casualty totals and the circumstances should be treated as provisional pending authoritative confirmation.",
+      "source": "Premium Times Nigeria",
+      "url": "https://www.premiumtimesng.com/category/regional/south-south-regional",
+      "imageUrl": "https://cdn.punchng.com/wp-content/uploads/2026/10/15195219/IMG-20261015-WA0156_1792090339-1024x1024.webp",
+      "imageAlt": "File image of an affected area after a separate gas pipeline explosion in Rivers State; not the Benin tanker incident",
+      "imageCredit": "Punch Newspapers · file/illustrative image, different incident",
+      "visual": "⚠️",
+      "featured": true
+    },
+    {
+      "id": "ng-dss-arrests-nysc-abduction-suspects-1017",
+      "category": "SECURITY & JUSTICE",
+      "location": "Port Harcourt, Rivers State, and Aba South, Abia State",
+      "headline": "Five suspects arrested over abduction of 20 prospective corps members",
+      "summary": "Reports say DSS, military and police operatives arrested five suspected members of a gang linked to the abduction of 20 prospective NYSC members travelling along the Owerri–Onitsha Expressway on 1 October. The victims were rescued on 7 October. The suspects are accused, not convicted, and the report says a manhunt for other suspects continued.",
+      "source": "Naija News",
+      "url": "https://www.naijanews.com/2026/10/17/top-nigerian-newspaper-headlines-for-today-17th-october-2026/",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Nigeria_Police_Force_logo.svg/512px-Nigeria_Police_Force_logo.svg.png",
+      "imageAlt": "Nigeria Police Force emblem; illustrative security-related image",
+      "imageCredit": "Nigeria Police Force emblem · Wikimedia Commons",
+      "visual": "🛡️",
+      "featured": true
+    },
     {
       "id": "ng-rivers-aleto-pipeline-1016",
       "category": "BREAKING · PUBLIC SAFETY",
