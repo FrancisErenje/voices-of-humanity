@@ -2,9 +2,7 @@
   LocalMedia247 — Living News Wall
   Live News · Saturday, October 17, 2026
   Editorial standard: verify dates and attribution, distinguish official claims
-  from independently confirmed facts, and avoid repeating older stories
-  without a meaningful development. Story images are labelled where they
-  are illustrative or depict a separate incident.
+  from independently confirmed facts, and label illustrative or file images.
 
   LocalMedia247 is a living newsroom. Updates may be published in the morning,
   afternoon, evening, or whenever a verified development warrants attention.
@@ -36,10 +34,10 @@ window.LocalMedia247News = {
       "headline": "Petrol tanker explosion in Benin prompts reports of multiple casualties",
       "summary": "Reports published on 16 October said a petrol tanker exploded in Benin City, with many feared dead and at least ten injured people reportedly taken to the University of Benin Teaching Hospital. Casualty totals and the circumstances should be treated as provisional pending authoritative confirmation.",
       "source": "Premium Times Nigeria",
-      "url": "https://www.premiumtimesng.com/category/regional/south-south-regional",
-      "imageUrl": "https://cdn.punchng.com/wp-content/uploads/2026/10/15195219/IMG-20261015-WA0156_1792090339-1024x1024.webp",
-      "imageAlt": "File image of an affected area after a separate gas pipeline explosion in Rivers State; not the Benin tanker incident",
-      "imageCredit": "Punch Newspapers · file/illustrative image, different incident",
+      "url": "https://www.premiumtimesng.com/regional/south-south-regional/917486-many-feared-dead-as-petrol-tanker-explodes-in-benin.html",
+      "imageUrl": "https://i0.wp.com/media.premiumtimesng.com/wp-content/files/2022/09/Petrol-tanker-on-fire-used-to-tell-the-story.jpeg?fit=680%2C383&ssl=1",
+      "imageAlt": "Illustrative file photograph of a petrol tanker on fire; not a photograph of the Benin incident",
+      "imageCredit": "Premium Times Nigeria · illustrative file image",
       "visual": "⚠️",
       "featured": true
     },
