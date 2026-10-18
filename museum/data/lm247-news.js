@@ -1,6 +1,6 @@
 /*
   LocalMedia247 — Living News Wall
-  Live News · Saturday, October 17, 2026
+  Live News · Sunday, October 18, 2026
   Editorial standard: verify dates and attribution, distinguish official claims
   from independently confirmed facts, and label illustrative or file images.
 
@@ -8,11 +8,39 @@
   afternoon, evening, or whenever a verified development warrants attention.
 */
 window.LocalMedia247News = {
-  "date": "SATURDAY, OCTOBER 17, 2026",
-  "updatedLabel": "LIVE NEWS · SATURDAY UPDATE · 17 OCTOBER 2026",
+  "date": "SUNDAY, OCTOBER 18, 2026",
+  "updatedLabel": "LIVE NEWS · SUNDAY UPDATE · 18 OCTOBER 2026",
   "updateMode": "ANYTIME",
   "cadenceLabel": "MORNING · AFTERNOON · EVENING · ANYTIME",
   "stories": [
+    {
+      "id": "ng-bayelsa-local-rice-1018",
+      "category": "SOUTH-SOUTH · AGRICULTURE",
+      "location": "Bayelsa State",
+      "headline": "Bayelsa targets 300 tonnes of locally produced rice by year-end",
+      "summary": "Premium Times reported on 17 October that Bayelsa is targeting 300 tonnes of local rice production by the end of 2026. The target signals a push for local food production, but actual output, farmer support and market availability will determine the impact on food supply and prices.",
+      "source": "Premium Times Nigeria",
+      "url": "https://www.premiumtimesng.com/category/regional/south-south-regional",
+      "imageUrl": "https://www.tropenbos.org/app/data/uploads/sites/2/PHOTO-1-087.jpg",
+      "imageAlt": "Illustrative agricultural plantation image; not a photograph of Bayelsa rice farms",
+      "imageCredit": "Tropenbos International · illustrative agriculture image",
+      "visual": "🌾",
+      "featured": true
+    },
+    {
+      "id": "ng-akwa-ibom-child-stunting-1018",
+      "category": "SOUTH-SOUTH · HEALTH & NUTRITION",
+      "location": "Akwa Ibom State",
+      "headline": "Survey finds one in four children under five in Akwa Ibom is stunted",
+      "summary": "A report published by Premium Times on 15 October cited a survey finding that 24.1% of children under five in Akwa Ibom are stunted. The finding highlights the importance of nutrition, maternal and child healthcare, safe water and household food security. The figure is attributed to the survey reported by the publication.",
+      "source": "Premium Times Nigeria",
+      "url": "https://www.premiumtimesng.com/category/regional/south-south-regional",
+      "imageUrl": "https://cdn.guardian.ng/wp-content/uploads/2026/09/Olayemi-Cardoso.jpg",
+      "imageAlt": "Illustrative image used for a public-interest story; not a photograph of children in the survey",
+      "imageCredit": "The Guardian Nigeria · illustrative image",
+      "visual": "🧒",
+      "featured": true
+    },
     {
       "id": "ng-cross-river-yala-oil-palm-1017",
       "category": "SOUTH-SOUTH · BUSINESS & AGRICULTURE",
