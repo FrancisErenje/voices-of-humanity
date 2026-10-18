@@ -5,6 +5,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "080",
+    date: "SUNDAY, OCTOBER 18, 2026",
+    heading: "WHEN WE MAKE ROOM",
+    quote: "Making room for another person's voice does not make our own voice smaller.",
+    note: "Listening to another perspective does not require abandoning our own. We can disagree and still listen. We can learn without losing our identity. A society becomes stronger when people have enough confidence to make room for voices beyond their own experience.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "079",
     date: "SATURDAY, OCTOBER 17, 2026",
     heading: "MEMORY NEEDS CARE",
@@ -13,7 +23,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "078",
     date: "FRIDAY, OCTOBER 16, 2026",
