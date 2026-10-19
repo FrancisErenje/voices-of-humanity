@@ -5,6 +5,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "081",
+    date: "MONDAY, OCTOBER 19, 2026",
+    heading: "THE POWER OF DOCUMENTATION",
+    quote: "What is documented today can become evidence, memory and knowledge tomorrow.",
+    note: "Documentation gives fragile moments a longer life. A recorded interview, photograph, field note, archive or carefully verified account can help future generations understand what happened and how people experienced it. To document responsibly is to leave a clearer trail for those who come after us.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "080",
     date: "SUNDAY, OCTOBER 18, 2026",
     heading: "WHEN WE MAKE ROOM",
@@ -13,7 +23,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "079",
     date: "SATURDAY, OCTOBER 17, 2026",
