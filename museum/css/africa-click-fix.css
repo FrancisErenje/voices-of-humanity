@@ -34,3 +34,48 @@
   cursor:pointer !important;
   background:transparent !important;
 }
+
+/* Shared final hit-surface geometry for both continental museums.
+   This stylesheet loads after museum.css, so these declarations settle
+   the final position and stacking of the transparent button surfaces. */
+#africaComplex #africaMuseum > .full-building-hit-surface,
+#americasComplex #americasMuseum > .full-building-hit-surface{
+  position:absolute !important;
+  display:block !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  opacity:0 !important;
+  pointer-events:auto !important;
+  cursor:pointer !important;
+  touch-action:manipulation !important;
+  z-index:2147483647 !important;
+}
+#africaComplex #africaMuseum > .full-building-hit-surface{
+  left:-6px !important;
+  top:-68px !important;
+  width:332px !important;
+  height:304px !important;
+}
+#americasComplex #americasMuseum > .full-building-hit-surface{
+  left:-10px !important;
+  top:-70px !important;
+  width:350px !important;
+  height:310px !important;
+}
+#americasComplex #americasMuseum{
+  position:absolute !important;
+  width:330px !important;
+  height:230px !important;
+  pointer-events:auto !important;
+  cursor:pointer !important;
+}
+#americasComplex #americasMuseum > *{
+  pointer-events:none !important;
+}
+#americasComplex #americasMuseum > .full-building-hit-surface{
+  pointer-events:auto !important;
+}
+
