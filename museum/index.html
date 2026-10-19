@@ -525,6 +525,48 @@
                 }
             }
 
+            /* EARLY AMERICAS CLICK RECOVERY
+               Open the existing Americas visitor panel from the building's
+               live screen rectangle before camera/world handlers can consume
+               the gesture. Keep open panels and chat controls independent. */
+            if(event.type === "pointerdown" || event.type === "click"){
+                var americasTarget = event.target;
+                var americasBlocked = americasTarget && americasTarget.closest && americasTarget.closest(
+                    "#museumChat,#museumChatLauncher,.voh-continental-direct.open,.continental-language-experience-overlay.open,.reflection-garden-overlay.open,.lm247-experience-overlay.open,.lm247-news-reader.open"
+                );
+                if(!americasBlocked && !(window.__vohIsTawkInteraction && window.__vohIsTawkInteraction(event))){
+                    var americasBuilding = document.getElementById("americasMuseum");
+                    if(americasBuilding){
+                        var ar = americasBuilding.getBoundingClientRect();
+                        var ax = event.clientX, ay = event.clientY;
+                        if(ar.width > 0 && ar.height > 0 && ax >= ar.left && ax <= ar.right && ay >= ar.top && ay <= ar.bottom){
+                            var americasOverlay = document.querySelector('.voh-continental-direct[data-building="americasMuseum"]') ||
+                                document.querySelector('.continental-language-experience-overlay[data-building="americasMuseum"]');
+                            var americasAlreadyOpen = !!(americasOverlay && americasOverlay.classList.contains("open") &&
+                                !americasOverlay.hidden && americasOverlay.getAttribute("aria-hidden") !== "true");
+                            if(!americasAlreadyOpen && americasOverlay){
+                                if(event.cancelable) event.preventDefault();
+                                if(typeof event.stopImmediatePropagation === "function") event.stopImmediatePropagation();
+                                else event.stopPropagation();
+                                if(typeof americasOverlay._open === "function"){
+                                    americasOverlay._open();
+                                }else{
+                                    americasOverlay.hidden = false;
+                                    americasOverlay.setAttribute("aria-hidden","false");
+                                    americasOverlay.style.display = "flex";
+                                    americasOverlay.style.visibility = "visible";
+                                    americasOverlay.style.opacity = "1";
+                                    americasOverlay.style.pointerEvents = "auto";
+                                    americasOverlay.style.zIndex = "2147483647";
+                                    americasOverlay.classList.add("open");
+                                }
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+
             if(recoverBuildingClick(event)) return;
 
             if(event.type === "click" && africanOpenFromEvent(event)){
