@@ -5,6 +5,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "082",
+    date: "TUESDAY, OCTOBER 20, 2026",
+    heading: "LEARNING FROM DIFFERENCE",
+    quote: "The unfamiliar can become a teacher when we approach it with curiosity.",
+    note: "We do not have to understand everything immediately. Sometimes the most valuable learning begins when we encounter something different from what we know. Instead of dismissing what is unfamiliar, we can ask questions, listen carefully and allow new knowledge to broaden our understanding.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "081",
     date: "MONDAY, OCTOBER 19, 2026",
     heading: "THE POWER OF DOCUMENTATION",
@@ -13,7 +23,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "080",
     date: "SUNDAY, OCTOBER 18, 2026",
