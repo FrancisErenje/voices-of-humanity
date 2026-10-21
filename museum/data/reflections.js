@@ -5,6 +5,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "083",
+    date: "WEDNESDAY, OCTOBER 21, 2026",
+    heading: "THE HANDS THAT BUILD",
+    quote: "Every lasting community carries the fingerprints of people who chose to build rather than simply watch.",
+    note: "Communities grow through participation. Someone starts a school, records a language, plants a tree, teaches a child, preserves an archive or creates a place where people can meet. Building does not always require great resources. It often begins with responsibility and the decision to contribute.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "082",
     date: "TUESDAY, OCTOBER 20, 2026",
     heading: "LEARNING FROM DIFFERENCE",
@@ -13,7 +23,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "081",
     date: "MONDAY, OCTOBER 19, 2026",
