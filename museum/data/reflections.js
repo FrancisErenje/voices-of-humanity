@@ -1,3 +1,4 @@
+// Publication refresh requested: 2026-10-21
 /*==================================================
   VOICES OF HUMANITY — REFLECTION GARDEN
   Living archive data
