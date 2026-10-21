@@ -107,7 +107,8 @@
           }
           return;
         }
-        if(event.type!=="pointerdown" && event.type!=="click") return;
+        /* Open only on the completed click. Opening on pointerdown can expose the overlay before the browser dispatches click, causing the click to land on the overlay and close it immediately. */
+        if(event.type!=="click") return;
         if(target && target.closest && target.closest("#museumChat,#museumChatLauncher,.lm247-experience-overlay,.lm247-news-reader,.reflection-garden-overlay")) return;
         if(window.__vohIsTawkInteraction && window.__vohIsTawkInteraction(event)) return;
         var current=document.querySelector(".african-languages-experience-overlay");
