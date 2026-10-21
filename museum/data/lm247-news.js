@@ -1,67 +1,75 @@
 /*
   LocalMedia247 — Living News Wall
-  Live News · Monday, October 19, 2026
+  Live News · Wednesday, October 21, 2026
   Editorial standard: verify dates and attribution, distinguish official claims
   from independently confirmed facts, and label illustrative or file images.
-  This edition replaces the previous display list with newly verified stories;
+  This edition replaces the previous display list with newly checked stories;
   older headlines are not carried forward into today's wall.
 */
 window.LocalMedia247News = {
-  "date": "MONDAY, OCTOBER 19, 2026",
-  "updatedLabel": "LIVE NEWS · MONDAY UPDATE · 19 OCTOBER 2026",
+  "date": "WEDNESDAY, OCTOBER 21, 2026",
+  "updatedLabel": "LIVE NEWS · WEDNESDAY UPDATE · 21 OCTOBER 2026",
   "updateMode": "ANYTIME",
   "cadenceLabel": "MORNING · AFTERNOON · EVENING · ANYTIME",
   "stories": [
     {
-      "id": "ng-cross-river-flood-biase-1019",
-      "category": "SOUTH-SOUTH · FLOODING & EMERGENCY RESPONSE",
-      "location": "Biase LGA, Cross River State",
-      "headline": "Emergency agencies assess flood-hit communities in Biase",
-      "summary": "A report published by the Cross River State Government on 18 October says the National Emergency Management Agency, the state emergency agency and local officials assessed communities affected by flooding in Biase. Floodwater reportedly submerged homes, market areas and farmland, disrupted livelihoods and left some places inaccessible by road. Residents are seeking relief support; the assessment does not itself confirm when assistance will arrive.",
-      "source": "Cross River State Government",
-      "url": "https://news2.crossriverstate.gov.ng/nema-cr-sema-assess-flood-ravaged-communities-in-biase-residents-seek-relief-support/",
-      "imageAlt": "Flooding in Biase, Cross River State; use the source report for its original photographs",
-      "visual": "🌧️",
+      "id": "ng-ebola-case-contact-tracing-1021",
+      "category": "NIGERIA · HEALTH & PUBLIC SAFETY",
+      "location": "Abuja, Federal Capital Territory",
+      "headline": "Nigeria confirms Ebola case; health authorities trace 44 contacts",
+      "summary": "Reuters reported on 21 October that Nigeria had confirmed an Ebola case involving a woman who arrived in Abuja after international travel. Authorities say the patient is isolated and receiving care, while 44 contacts have been identified for follow-up. This is a serious public-health alert, but one confirmed case does not by itself establish community transmission. Follow updates from the Nigeria Centre for Disease Control and the Federal Ministry of Health, and avoid sharing unverified claims.",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/business/healthcare-pharmaceuticals/nigeria-reports-ebola-case-fourth-african-country-affected-by-outbreak-2026-10-21/",
+      "imageAlt": "Ebola public-health update; consult the source report for verified imagery",
+      "visual": "🩺",
       "featured": true
     },
     {
-      "id": "ng-cross-river-carnival-19bn-1019",
-      "category": "SOUTH-SOUTH · CULTURE & TOURISM",
-      "location": "Calabar, Cross River State",
-      "headline": "Carnival Calabar targets more than ₦19 billion in economic value",
-      "summary": "Daily Lamp reported on 18 October that Cross River is aiming to exceed the estimated ₦19 billion economic impact attributed to the 2025 Carnival Calabar. The 2026 preparations have begun with a first dry run, and organisers say they plan to expand digital participation and tourism. The ₦19 billion figure is a target benchmark from the previous edition, not a confirmed 2026 result.",
-      "source": "Daily Lamp",
-      "url": "https://dailylamp.ng/carnival-calabar-targets-more-than-%E2%82%A619bn-economic-value-in-2026/",
-      "imageUrl": "https://dailylamp.ng/wp-content/uploads/2026/10/bassey-otu-2025-carnival-calabar-dry-run-1-930x597.jpg",
-      "imageAlt": "Officials at the first dry run for Carnival Calabar 2026",
-      "imageCredit": "Daily Lamp",
-      "visual": "🎭",
-      "featured": true
-    },
-    {
-      "id": "ng-cross-river-schools-closed-1019",
-      "category": "SOUTH-SOUTH · EDUCATION",
-      "location": "Calabar Municipality, Obubra, Etung, Yakurr, Ikom and Boki, Cross River State",
-      "headline": "Cross River seals 36 more schools in education-sector inspection",
-      "summary": "Daily Lamp reported on 17 October that state education officials sealed 36 additional schools across six local government areas as part of a compliance exercise. The state says affected institutions must obtain an Authority to Operate before reopening. Parents should confirm a school's current status directly with the Ministry of Education or the school before making decisions based on the report.",
-      "source": "Daily Lamp",
-      "url": "https://dailylamp.ng/names-of-36-schools-closed-down-in-cross-river-state/",
-      "imageUrl": "https://dailylamp.ng/wp-content/uploads/2026/10/WA_1792267919701-930x620.jpeg",
-      "imageAlt": "Photographs published with Daily Lamp's report on school closures",
-      "imageCredit": "Daily Lamp",
-      "visual": "🏫",
-      "featured": true
-    },
-    {
-      "id": "ng-fg-rail-security-coaches-1019",
-      "category": "NIGERIA · TRANSPORT & PUBLIC SAFETY",
-      "location": "Nigeria",
-      "headline": "Federal Government approves rail security equipment and additional train coaches",
-      "summary": "Nigeria Info FM reported on 18 October that President Bola Tinubu approved the purchase of railway surveillance and security equipment and additional coaches. Transport officials say the measures are intended to address banditry, kidnapping and vandalism while expanding passenger and freight capacity. The government has not announced deployment dates or which routes will be prioritised, so the approval should not be mistaken for completed installation.",
+      "id": "ng-state-police-bill-assemblies-1021",
+      "category": "NIGERIA · GOVERNANCE & SECURITY",
+      "location": "National; state assemblies",
+      "headline": "Five more state assemblies back proposed state-police reform",
+      "summary": "Nigeria Info FM reported on 21 October that assemblies in Ogun, Delta, Plateau, Kwara and Adamawa had joined five previously reported states in supporting constitutional amendments for state police. A presidential working group has submitted a draft National Policing Bill and related amendment bills for legal review. The proposal is not yet an implemented state-police system: further review and constitutional approval steps remain.",
       "source": "Nigeria Info FM",
-      "url": "https://www.nigeriainfo.fm/news/homepagelagos/tinubu-approves-security-equipment-to-protect-trains-from-bandits/",
-      "imageAlt": "Railway security and passenger-service improvement story; see source report for details",
-      "visual": "🚆",
+      "url": "https://www.nigeriainfo.fm/abuja/news/national/five-more-states-back-state-police-as-panel-submits-draft-bill/",
+      "imageAlt": "Nigeria's proposed state-police reform; see the source report for details",
+      "visual": "🏛️",
+      "featured": true
+    },
+    {
+      "id": "ng-private-capital-growth-policy-1021",
+      "category": "NIGERIA · ECONOMY & PUBLIC FINANCE",
+      "location": "Nigeria; remarks delivered in London",
+      "headline": "Finance minister says Nigeria will rely more on private investment for growth",
+      "summary": "Reuters reported on 21 October that Finance Minister Taiwo Oyedele said Nigeria intends to rely more on domestic and foreign private capital rather than increasing state borrowing to fund its next phase of growth. He defended the government's fiscal and foreign-exchange reforms and said targeted support, including cash transfers, remains part of the response to living-cost pressures. These are policy intentions and official assessments, not a guarantee that household costs will fall.",
+      "source": "Reuters",
+      "url": "https://www.reuters.com/world/africa/nigeria-says-private-capital-drive-next-growth-phase-petrol-subsidy-gone-2026-10-21/",
+      "imageAlt": "Nigeria's economic policy and investment outlook",
+      "visual": "📊",
+      "featured": true
+    },
+    {
+      "id": "ng-zainab-uicc-president-1021",
+      "category": "NIGERIA · HEALTH & INTERNATIONAL LEADERSHIP",
+      "location": "Nigeria; international health sector",
+      "headline": "Nigerian cancer advocate Zainab Shinkafi-Bagudu takes global leadership role",
+      "summary": "Vanguard reported on 21 October that paediatrician and cancer-control advocate Dr Zainab Shinkafi-Bagudu has assumed the 2026–2028 presidency of the Union for International Cancer Control, becoming the first African to lead the organisation. The appointment offers a platform to raise international attention to cancer prevention, early diagnosis and equitable access to treatment; its practical impact will depend on the partnerships and work that follow.",
+      "source": "Vanguard",
+      "url": "https://www.vanguardngr.com/2026/10/nigerian-breaks-global-barrier-takes-over-world-cancer-control-body/",
+      "imageAlt": "Dr Zainab Shinkafi-Bagudu, Nigerian cancer-control advocate",
+      "visual": "🌍",
+      "featured": true
+    },
+    {
+      "id": "ng-mma2-settlement-1020",
+      "category": "NIGERIA · AVIATION & INFRASTRUCTURE",
+      "location": "Lagos, Murtala Muhammed Airport",
+      "headline": "Federal Government and Bi-Courtney reach settlement over MMA2 dispute",
+      "summary": "Vanguard reported on 20 October that the Federal Government and Bi-Courtney Aviation Services signed a settlement intended to resolve their long-running dispute over the Murtala Muhammed Airport Terminal Two concession. The government says the agreement creates a path for concession-fee revenue and for stalled hotel and conference-centre projects to move forward. The expected benefits depend on both parties carrying out the agreed obligations.",
+      "source": "Vanguard",
+      "url": "https://www.vanguardngr.com/2026/10/fg-bi-courtney-end-20-year-mma2-dispute/amp/",
+      "imageAlt": "Murtala Muhammed Airport Terminal Two (MMA2), Lagos",
+      "visual": "✈️",
       "featured": true
     }
   ]
