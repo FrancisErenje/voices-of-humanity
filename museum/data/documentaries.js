@@ -23,6 +23,38 @@
 window.DocumentaryCollection = [
 
     /*==================================================
+        EPISODE 30
+        ANNANG
+    ==================================================*/
+
+    {
+        id: "ep-annang",
+        episode: 30,
+
+        language: "Annang (Anaang)",
+
+        title: "Voices of Humanity: 30 (Annang)",
+
+        region: "Akwa Ibom State",
+
+        country: "Nigeria",
+
+        languageFamily: "Cross River (Lower Cross; Niger-Congo)",
+
+        category: "Nigerian Languages",
+
+        description:
+            "A Voices of Humanity documentary exploring Annang language and cultural heritage as part of the collection documenting Nigeria’s linguistic diversity.",
+
+        videoUrl:
+            "https://www.youtube.com/watch?v=juxXsUZ1XM8",
+
+        status:
+            "published"
+    },
+
+
+    /*==================================================
         EPISODE 01
         PROJECT FOUNDATION DOCUMENTARY
     ==================================================*/
