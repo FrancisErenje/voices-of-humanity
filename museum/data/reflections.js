@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "084",
+    date: "THURSDAY, OCTOBER 22, 2026",
+    heading: "THE BEAUTY OF CONTINUITY",
+    quote: "Tradition survives when each generation receives it and chooses what must be carried forward.",
+    note: "Culture is not simply something inherited unchanged. Each generation receives language, stories, practices and values, then decides how to care for them in a changing world. Continuity requires memory, teaching and thoughtful adaptation.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "083",
     date: "WEDNESDAY, OCTOBER 21, 2026",
     heading: "THE HANDS THAT BUILD",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "082",
     date: "TUESDAY, OCTOBER 20, 2026",
