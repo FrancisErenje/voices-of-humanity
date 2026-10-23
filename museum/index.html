@@ -494,11 +494,11 @@
             }
 
             /* FINAL AFRICA CLICK RECOVERY:
-               Use the live screen rectangle on pointerdown as well as click.
-               This works even when a canvas/world layer becomes the event
-               target instead of the visible building. Keep chat and open
-               exhibit surfaces independent. */
-            if(event.type === "pointerdown" || event.type === "click"){
+               Use the completed click gesture only. Opening on pointerdown can
+               create the overlay before the browser dispatches click, causing
+               the same gesture to land on the new overlay and feel unreliable.
+               Keep chat and open exhibit surfaces independent. */
+            if(event.type === "click"){
                 var hitTarget = event.target;
                 var blocked = hitTarget && hitTarget.closest && hitTarget.closest(
                     "#museumChat,#museumChatLauncher,.african-languages-experience-overlay.open,.reflection-garden-overlay.open,.lm247-experience-overlay.open,.lm247-news-reader.open"
