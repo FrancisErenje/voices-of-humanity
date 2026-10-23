@@ -525,20 +525,36 @@
 
 .hall-exhibition-overlay{
   position:fixed !important;
-  left:50% !important;
-  top:50% !important;
-  width:min(1080px,94vw) !important;
-  max-height:90vh;
-  min-height:0 !important;
-  transform:translate(-50%,-50%) !important;
-  z-index:20000 !important;
+  inset:0 !important;
+  left:0 !important;
+  top:0 !important;
+  right:0 !important;
+  bottom:0 !important;
+  width:100vw !important;
+  height:100vh !important;
+  height:100dvh !important;
+  max-width:none !important;
+  max-height:none !important;
+  min-height:100vh !important;
+  min-height:100dvh !important;
+  margin:0 !important;
+  border-radius:0 !important;
+  transform:none !important;
+  z-index:2147483000 !important;
   display:none;
-  overflow:auto !important;
+  overflow-y:scroll !important;
+  overflow-x:hidden !important;
+  overscroll-behavior:contain !important;
+  -webkit-overflow-scrolling:touch !important;
   pointer-events:auto !important;
+  box-sizing:border-box !important;
 }
 
 .hall-exhibition-overlay.open{
-  display:block;
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  pointer-events:auto !important;
 }
 
 .hall-exhibition-overlay .hall-exhibition-close{
