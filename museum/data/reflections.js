@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "085",
+    date: "FRIDAY, OCTOBER 23, 2026",
+    heading: "THE VALUE OF LISTENING",
+    quote: "A better world begins when we listen not only to respond, but to understand.",
+    note: "Every person carries a story shaped by experience, language, family and place. Listening with respect helps us learn what we might otherwise overlook. We do not have to agree with every view to give someone our attention. Today, pause before judging, ask a thoughtful question and listen to the answer. Understanding often begins when we make room for another person's voice.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "084",
     date: "THURSDAY, OCTOBER 22, 2026",
     heading: "THE BEAUTY OF CONTINUITY",
@@ -14,7 +24,7 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
+
   {
     number: "083",
     date: "WEDNESDAY, OCTOBER 21, 2026",
