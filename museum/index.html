@@ -616,7 +616,10 @@
                 if(africanPanel && isAfricanOverlayActuallyVisible(africanPanel)) return true;
                 return !!(window.__vohIsTawkInteraction && window.__vohIsTawkInteraction(event));
             }
-            window.addEventListener("pointerdown", function(event){
+            /* Use the completed click, not pointerdown. Opening an overlay on
+               pointerdown can interrupt the browser's click sequence and cause
+               competing African Museum handlers to cancel or reopen it. */
+            window.addEventListener("click", function(event){
                 if(excluded(event) || (event.button !== undefined && event.button !== 0)) return;
                 var found = buildingAt(event.clientX,event.clientY);
                 if(!found) return;
