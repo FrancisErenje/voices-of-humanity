@@ -1,320 +1,42 @@
-/*==================================================
-  VOICES OF HUMANITY — HALL OF HUMANITY ENGINE
-  Stable exhibition interaction
-==================================================*/
+/* VOICES OF HUMANITY — HALL OF HUMANITY VIDEO GALLERY */
 (function(){
-  "use strict";
-
-  function build(){
-    if(window.__hallHumanityBuilt) return;
-    const hall=document.getElementById("hall-humanity");
-    const collection=window.HallOfHumanityCollection;
-    if(!hall || !collection || !Array.isArray(collection.exhibits)) return;
-
-    let overlay=document.querySelector(".hall-exhibition-overlay");
-    if(overlay) overlay.remove();
-
-    overlay=document.createElement("div");
-    overlay.className="hall-exhibition hall-exhibition-overlay";
-    overlay.setAttribute("role","dialog");
-    overlay.setAttribute("aria-modal","true");
-    overlay.setAttribute("aria-label","Hall of Humanity exhibition");
-
-    const header=document.createElement("div");
-    header.className="hall-exhibition-header";
-    header.innerHTML=
-      '<div class="hall-exhibition-kicker">VOICES OF HUMANITY · GLOBAL ORIENTATION CENTRE</div>'+
-      '<div class="hall-exhibition-title">'+collection.headline+'</div>'+
-      '<p class="hall-exhibition-intro">'+collection.intro+'</p>'+
-      '<div class="hall-exhibition-stats">'+
-        '<div class="hall-stat"><strong>'+collection.exhibits.length+'</strong><span>Curated exhibits</span></div>'+
-        '<div class="hall-stat"><strong>5</strong><span>World regions</span></div>'+
-        '<div class="hall-stat"><strong>1</strong><span>Shared humanity</span></div>'+
-        '<div class="hall-stat"><strong>∞</strong><span>Voices to discover</span></div>'+
-      '</div>';
-    overlay.appendChild(header);
-
-    const close=document.createElement("button");
-    close.className="hall-exhibition-close";
-    close.type="button";
-    close.setAttribute("aria-label","Close Hall of Humanity exhibition");
-    close.textContent="×";
-    overlay.appendChild(close);
-
-    const grid=document.createElement("div");
-    grid.className="hall-exhibition-grid";
-
-    collection.exhibits.forEach(ex=>{
-      const card=document.createElement("article");
-      card.className="hall-exhibit-card";
-      card.innerHTML=
-        '<div class="hall-exhibit-number">'+ex.number+'</div>'+
-        '<div class="hall-exhibit-kicker">'+ex.kicker+'</div>'+
-        '<div class="hall-exhibit-title">'+ex.title+'</div>'+
-        '<div class="hall-exhibit-text">'+ex.text+'</div>';
-
-      if(ex.url){
-        const a=document.createElement("a");
-        a.className="hall-exhibit-action";
-        a.href=ex.url;
-        a.target="_blank";
-        a.rel="noopener noreferrer";
-        a.textContent=ex.action;
-        card.appendChild(a);
-      }else{
-        const b=document.createElement("button");
-        b.type="button";
-        b.className="hall-exhibit-action";
-        b.textContent=ex.action;
-        b.addEventListener("click",()=>promise.classList.add("open"));
-        card.appendChild(b);
-      }
-      grid.appendChild(card);
-    });
-    overlay.appendChild(grid);
-
-    const documentaries=Array.isArray(window.DocumentaryCollection)
-      ? window.DocumentaryCollection.filter(x=>x.status==="published" && x.episode!==null)
-      : [];
-
-    const living=document.createElement("section");
-    living.className="hall-living-collection";
-    living.innerHTML=
-      '<div class="hall-living-heading"><div>'+
-      '<div class="hall-living-kicker">VOICES OF OUR MUSEUM · LIVING COLLECTION</div>'+
-      '<div class="hall-living-title">Our Field Archive</div></div>'+
-      '<div class="hall-living-count">'+documentaries.length+' PUBLISHED EPISODES</div></div>'+
-      '<p class="hall-living-copy">The museum’s growing record of language documentaries researched, produced and published through Voices of Humanity.</p>';
-
-    const row=document.createElement("div");
-    row.className="hall-doc-row";
-    documentaries.slice(0,6).forEach(doc=>{
-      const card=document.createElement("article");
-      card.className="hall-doc-card";
-      card.innerHTML='<div class="hall-doc-episode">EPISODE '+doc.episode+'</div>'+
-        '<div class="hall-doc-title">'+doc.title+'</div>'+
-        '<div class="hall-doc-meta">'+(doc.region||"Nigeria")+' · '+(doc.languageFamily||"Language documentation")+'</div>';
-      if(doc.videoUrl){
-        const a=document.createElement("a");
-        a.className="hall-doc-watch";
-        a.href=doc.videoUrl;
-        a.target="_blank";
-        a.rel="noopener noreferrer";
-        a.textContent="WATCH DOCUMENTARY ↗";
-        card.appendChild(a);
-      }
-      row.appendChild(card);
-    });
-    living.appendChild(row);
-
-    const actions=document.createElement("div");
-    actions.className="hall-archive-actions";
-    const archiveButton=document.createElement("button");
-    archiveButton.type="button";
-    archiveButton.className="hall-archive-button";
-    archiveButton.textContent="OPEN FULL DOCUMENTARY ARCHIVE";
-    actions.appendChild(archiveButton);
-    living.appendChild(actions);
-    overlay.appendChild(living);
-
-    const promiseSection=document.createElement("div");
-    promiseSection.className="hall-promise";
-    promiseSection.innerHTML='<div class="hall-promise-quote">“A language is more than words.<br>It is memory. It is identity. It is knowledge. It is home.”</div>'+
-      '<div class="hall-promise-sub">The museum’s living promise</div>';
-    overlay.appendChild(promiseSection);
-
-    const source=document.createElement("div");
-    source.className="hall-source-strip";
-    source.innerHTML='<span>Curated from UNESCO, ELP, ELDP & DOBES · External material remains with its respective owners.</span>';
-    overlay.appendChild(source);
-
-    document.body.appendChild(overlay);
-
-    const archive=document.createElement("div");
-    archive.className="hall-living-modal";
-    archive.innerHTML='<div class="hall-living-dialog"><div class="hall-living-dialog-head"><div>'+
-      '<div class="hall-living-kicker">VOICES OF HUMANITY · DOCUMENTARY ARCHIVE</div>'+
-      '<h3>Our Published Language Documentaries</h3></div>'+
-      '<button class="hall-living-close" type="button" aria-label="Close archive">×</button></div>'+
-      '<div class="hall-full-archive"></div></div>';
-    document.body.appendChild(archive);
-
-    const archiveGrid=archive.querySelector(".hall-full-archive");
-    documentaries.forEach(doc=>{
-      const item=document.createElement("article");
-      item.innerHTML='<strong>EPISODE '+doc.episode+'</strong><b>'+doc.title+'</b><span>'+(doc.region||"Nigeria")+'</span>';
-      if(doc.videoUrl){
-        const a=document.createElement("a");
-        a.className="hall-doc-watch";
-        a.href=doc.videoUrl;
-        a.target="_blank";
-        a.rel="noopener noreferrer";
-        a.textContent="WATCH ↗";
-        item.appendChild(a);
-      }
-      archiveGrid.appendChild(item);
-    });
-
-    const open=()=>{
-      overlay.classList.add("open");
-      document.body.classList.add("hall-overlay-open");
-      const panel=document.getElementById("museumPanel");
-      if(panel) panel.style.display="none";
-      setTimeout(()=>close.focus(),50);
-    };
-    const shut=(event)=>{
-      if(event){
-        event.preventDefault();
-        event.stopPropagation();
-        if(typeof event.stopImmediatePropagation==="function") event.stopImmediatePropagation();
-      }
-      overlay.classList.remove("open");
-      overlay.setAttribute("aria-hidden","true");
-      overlay.style.display="none";
-      overlay.style.visibility="hidden";
-      overlay.style.opacity="0";
-      overlay.style.pointerEvents="none";
-      overlay.style.zIndex="-1";
-      document.body.classList.remove("hall-overlay-open");
-      if(typeof returnToMuseumHomepage === "function") returnToMuseumHomepage();
-    };
-
-    window.openHallHumanityExperience=open;
-    window.closeHallHumanityExperience=shut;
-    window.__hallHumanityBuilt=true;
-
-    /* The close control has one clear owner: the Hall overlay itself.
-       Give it a deliberately large hit area and handle pointer, touch,
-       click and keyboard activation without involving the building gesture. */
-    const closeHallFromControl=(e)=>{
-      if(e){
-        e.preventDefault();
-        e.stopPropagation();
-        if(typeof e.stopImmediatePropagation==="function") e.stopImmediatePropagation();
-      }
-      shut();
-      return false;
-    };
-    close.style.zIndex="2147483647";
-    close.style.pointerEvents="auto";
-    close.style.touchAction="manipulation";
-    close.setAttribute("data-hall-close-owner","true");
-    close.addEventListener("pointerdown",closeHallFromControl,true);
-    close.addEventListener("pointerup",closeHallFromControl,true);
-    close.addEventListener("touchend",closeHallFromControl,true);
-    close.addEventListener("click",closeHallFromControl,true);
-    close.addEventListener("keydown",e=>{
-      if(e.key==="Enter" || e.key===" " || e.key==="Escape") closeHallFromControl(e);
-    },true);
-
-    /* Safety net: if a browser/device reports the tap on a child pixel rather
-       than the button itself, the overlay checks the enlarged close zone. */
-    overlay.addEventListener("pointerup",e=>{
-      if(!overlay.classList.contains("open")) return;
-      const r=close.getBoundingClientRect();
-      const pad=14;
-      if(e.clientX>=r.left-pad && e.clientX<=r.right+pad &&
-         e.clientY>=r.top-pad && e.clientY<=r.bottom+pad){
-        closeHallFromControl(e);
-      }
-    },true);
-    overlay.addEventListener("click",e=>{
-      if(e.target===overlay) shut(e);
-    },true);
-    archiveButton.addEventListener("click",()=>archive.classList.add("open"));
-    archive.querySelector(".hall-living-close").addEventListener("click",()=>archive.classList.remove("open"));
-    archive.addEventListener("click",e=>{if(e.target===archive) archive.classList.remove("open");});
-
-    let promise=document.querySelector(".hall-promise-modal");
-    if(!promise){
-      promise=document.createElement("div");
-      promise.className="hall-promise-modal";
-      promise.innerHTML='<div class="hall-promise-dialog"><button class="hall-promise-close" type="button">×</button><h3>Make a Promise</h3><p>What voice will you help preserve? Start with one language, one story, one recording, one lesson, or one person whose voice deserves to be heard.</p></div>';
-      document.body.appendChild(promise);
-    }
-    promise.querySelector(".hall-promise-close")?.addEventListener("click",()=>promise.classList.remove("open"));
-
-    let surface=hall.querySelector(".hall-click-surface");
-    if(!surface){
-      surface=document.createElement("button");
-      surface.type="button";
-      surface.className="hall-click-surface";
-      surface.setAttribute("aria-label","Open Hall of Humanity exhibition");
-      surface.title="Open Hall of Humanity";
-      hall.appendChild(surface);
-    }
-    surface.onclick=e=>{e.preventDefault();e.stopPropagation();open();};
-
-    /* Use pointerup as the primary activation event. The museum viewport
-       owns drag/touch gestures, so pointerup is more reliable than click
-       when a visitor simply taps/clicks the Hall without moving the camera. */
-    if(!document.documentElement.dataset.hallPointerActivation){
-      document.documentElement.dataset.hallPointerActivation="true";
-      let hallPointerStartX=null;
-      let hallPointerStartY=null;
-
-      document.addEventListener("pointerdown",e=>{
-        /* Never start the Hall-building gesture while its exhibition is open.
-           This also prevents a press on the close control from being recorded
-           as a building activation and reopening the exhibition on pointerup. */
-        if(overlay.classList.contains("open")){
-          hallPointerStartX=null;
-          hallPointerStartY=null;
-          return;
-        }
-        const r=hall.getBoundingClientRect();
-        const inside=e.clientX>=r.left && e.clientX<=r.right &&
-                     e.clientY>=r.top && e.clientY<=r.bottom;
-        if(inside){
-          hallPointerStartX=e.clientX;
-          hallPointerStartY=e.clientY;
-        }else{
-          hallPointerStartX=null;
-          hallPointerStartY=null;
-        }
-      },true);
-
-      document.addEventListener("pointerup",e=>{
-        if(overlay.classList.contains("open")){
-          hallPointerStartX=null;
-          hallPointerStartY=null;
-          return;
-        }
-        if(hallPointerStartX===null || hallPointerStartY===null) return;
-        const moved=Math.hypot(
-          e.clientX-hallPointerStartX,
-          e.clientY-hallPointerStartY
-        );
-        hallPointerStartX=null;
-        hallPointerStartY=null;
-        if(moved>12) return;
-
-        const r=hall.getBoundingClientRect();
-        const inside=e.clientX>=r.left && e.clientX<=r.right &&
-                     e.clientY>=r.top && e.clientY<=r.bottom;
-        if(inside){
-          e.preventDefault();
-          e.stopImmediatePropagation();
-          open();
-        }
-      },true);
-
-      document.addEventListener("click",e=>{
-        if(overlay.classList.contains("open")) return;
-        if(e.target.closest?.("#hall-humanity")){
-          e.preventDefault();
-          e.stopImmediatePropagation();
-          open();
-        }
-      },true);
-    }
-  }
-
-  function start(){
-    try{ build(); }catch(error){ console.error("Hall of Humanity failed to initialise:",error); }
-  }
-
-  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",start);
-  else start();
-  window.addEventListener("load",start,{once:true});
+"use strict";
+function esc(s){return String(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function idOf(url){const m=String(url||"").match(/[?&]v=([^&]+)/)||String(url||"").match(/youtu\.be\/([^?&]+)/);return m?m[1]:"";}
+function build(){
+ if(window.__hallHumanityBuilt)return;
+ const hall=document.getElementById("hall-humanity"),data=window.HallOfHumanityCollection;
+ if(!hall||!data||!Array.isArray(data.documentaries)||!Array.isArray(data.lessons))return;
+ document.querySelectorAll(".hall-exhibition-overlay,.hall-video-player-modal").forEach(n=>n.remove());
+ const style=document.createElement("style");style.textContent=`
+ .hall-exhibition-overlay{position:fixed!important;inset:0!important;z-index:2147483000!important;display:none;overflow:auto;background:radial-gradient(ellipse at top,#20291f,#0b0e0b 68%);color:#f8f4e9;padding:28px clamp(14px,3vw,44px) 50px;box-sizing:border-box}
+ .hall-exhibition-overlay.open{display:block!important}.hall-video-head{max-width:1450px;margin:0 auto 26px;padding:18px 8px 24px;border-bottom:1px solid #76623a}.hall-video-kicker{color:#d8b56a;font-size:11px;font-weight:800;letter-spacing:2.2px}.hall-video-head h2{font-size:clamp(28px,4vw,48px);margin:9px 55px 10px 0;line-height:1.1}.hall-video-head p{max-width:800px;color:#d2d0c6;line-height:1.6}
+ .hall-video-close{position:fixed;top:18px;right:20px;z-index:2147483647;width:48px;height:48px;border-radius:50%;border:1px solid #c9a75f;background:#171a15;color:#fff;font-size:30px;cursor:pointer}
+ .hall-video-section{max-width:1450px;margin:28px auto}.hall-video-section h3{font-size:clamp(20px,2.6vw,30px);margin:0 0 6px}.hall-section-note{color:#c9c6bb;margin:0 0 18px;line-height:1.5}
+ .hall-video-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,235px),1fr));gap:18px}.hall-video-card{min-width:0;border:1px solid #d9b76a3b;border-radius:13px;overflow:hidden;background:linear-gradient(145deg,#1a2019,#10130f);box-shadow:0 8px 22px #0004;cursor:pointer;color:#f8f4e9;text-align:left;padding:0;display:flex;flex-direction:column;transition:transform .16s,border-color .16s}.hall-video-card:hover,.hall-video-card:focus-visible{transform:translateY(-3px);border-color:#d8b56a;outline:2px solid #d8b56a;outline-offset:2px}
+ .hall-video-thumb{position:relative;aspect-ratio:16/9;background:#050605;overflow:hidden}.hall-video-thumb img{width:100%;height:100%;object-fit:cover;display:block}.hall-video-play{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(transparent,#0004)}.hall-video-play span{width:48px;height:34px;border-radius:10px;background:#b91c1c;color:white;display:grid;place-items:center;font-size:18px;padding-left:3px;box-shadow:0 3px 12px #0008}.hall-video-card-title{padding:13px 14px 5px;font-size:15px;line-height:1.35;font-weight:750}.hall-video-card-meta{padding:0 14px 14px;font-size:11px;color:#d5b96f;letter-spacing:.5px}
+ .hall-video-player-modal{position:fixed;inset:0;z-index:2147483647;background:#050605ed;display:none;align-items:center;justify-content:center;padding:18px;box-sizing:border-box}.hall-video-player-modal.open{display:flex}.hall-video-player-box{width:min(100%,1040px);background:#111610;border:1px solid #8f743f;border-radius:16px;overflow:hidden;box-shadow:0 25px 90px #000a}.hall-video-player-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 16px;color:#fff}.hall-video-player-title{font-size:clamp(15px,2vw,21px);font-weight:750;line-height:1.35}.hall-video-player-close{flex:0 0 auto;border:1px solid #80683d;border-radius:50%;width:40px;height:40px;background:#20251e;color:#fff;font-size:25px;cursor:pointer}.hall-video-frame{aspect-ratio:16/9;background:#000}.hall-video-frame iframe{width:100%;height:100%;border:0;display:block}
+ @media(max-width:600px){.hall-exhibition-overlay{padding-top:75px}.hall-video-close{top:12px;right:12px}.hall-video-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.hall-video-card-title{font-size:13px;padding:10px 10px 4px}.hall-video-card-meta{padding:0 10px 10px;font-size:9px}.hall-video-play span{width:40px;height:29px}}
+ `;document.head.appendChild(style);
+ const overlay=document.createElement("div");overlay.className="hall-exhibition hall-exhibition-overlay";overlay.setAttribute("role","dialog");overlay.setAttribute("aria-modal","true");overlay.setAttribute("aria-label","Hall of Humanity video gallery");
+ const close=document.createElement("button");close.type="button";close.className="hall-video-close";close.textContent="×";close.setAttribute("aria-label","Close Hall of Humanity");overlay.appendChild(close);
+ const head=document.createElement("header");head.className="hall-video-head";head.innerHTML='<div class="hall-video-kicker">VOICES OF HUMANITY · EVERY VOICE MATTERS</div><h2>'+esc(data.headline)+'</h2><p>'+esc(data.intro)+'</p>';overlay.appendChild(head);
+ const player=document.createElement("div");player.className="hall-video-player-modal";player.innerHTML='<div class="hall-video-player-box" role="dialog" aria-modal="true" aria-label="Video player"><div class="hall-video-player-bar"><div class="hall-video-player-title"></div><button type="button" class="hall-video-player-close" aria-label="Close video">×</button></div><div class="hall-video-frame"></div></div>';document.body.appendChild(player);
+ const playerTitle=player.querySelector(".hall-video-player-title"),frame=player.querySelector(".hall-video-frame");
+ function stopVideo(){player.classList.remove("open");frame.replaceChildren();}
+ function play(item){const id=idOf(item.url);if(!id)return;playerTitle.textContent=item.title;const iframe=document.createElement("iframe");iframe.src="https://www.youtube-nocookie.com/embed/"+encodeURIComponent(id)+"?autoplay=1&rel=0";iframe.title=item.title;iframe.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";iframe.allowFullscreen=true;frame.replaceChildren(iframe);player.classList.add("open");}
+ player.querySelector(".hall-video-player-close").addEventListener("click",stopVideo);player.addEventListener("click",e=>{if(e.target===player)stopVideo();});
+ function section(title,note,items,kind){const sec=document.createElement("section");sec.className="hall-video-section";const h=document.createElement("h3");h.textContent=title;sec.appendChild(h);const p=document.createElement("p");p.className="hall-section-note";p.textContent=note;sec.appendChild(p);const grid=document.createElement("div");grid.className="hall-video-grid";items.forEach(item=>{const card=document.createElement("button");card.type="button";card.className="hall-video-card";const vid=idOf(item.url);const meta=kind==="lesson"?(item.number===1?"INTRODUCTION":"IGEDE · LESSON "+(item.number-1)):item.kind==="special"?"SPECIAL DOCUMENTARY":item.kind==="introduction"?"PROJECT INTRODUCTION":"LANGUAGE DOCUMENTARY"+(item.episode?" · EPISODE "+item.episode:"");card.innerHTML='<div class="hall-video-thumb">'+(vid?'<img loading="lazy" src="https://i.ytimg.com/vi/'+encodeURIComponent(vid)+'/hqdefault.jpg" alt="">':'')+'<div class="hall-video-play"><span>▶</span></div></div><div class="hall-video-card-title">'+esc(item.title)+'</div><div class="hall-video-card-meta">'+esc(meta)+'</div>';card.addEventListener("click",()=>play(item));grid.appendChild(card);});sec.appendChild(grid);overlay.appendChild(sec);}
+ const docs=data.documentaries;section("Project Introduction","Begin with the documentary that introduces Voices of Humanity.",docs.filter(x=>x.kind==="introduction"),"doc");section("Language Documentaries","Our published language documentaries, displayed as clickable video thumbnails.",docs.filter(x=>x.kind==="language"),"doc");section("Special Documentary","A special film from the Voices of Humanity collection.",docs.filter(x=>x.kind==="special"),"doc");section("Igede Language Lessons","The Igede introduction and all available lessons. Choose any thumbnail to watch it here in the Hall.",data.lessons,"lesson");
+ document.body.appendChild(overlay);
+ function open(){overlay.classList.add("open");overlay.setAttribute("aria-hidden","false");document.body.classList.add("hall-overlay-open");const panel=document.getElementById("museumPanel");if(panel)panel.style.display="none";}
+ function shut(e){if(e){e.preventDefault();e.stopPropagation();if(e.stopImmediatePropagation)e.stopImmediatePropagation();}stopVideo();overlay.classList.remove("open");overlay.setAttribute("aria-hidden","true");document.body.classList.remove("hall-overlay-open");if(typeof window.returnToMuseumHomepage==="function")window.returnToMuseumHomepage();}
+ close.addEventListener("click",shut,true);overlay.addEventListener("click",e=>{if(e.target===overlay)shut(e);},true);
+ window.openHallHumanityExperience=open;window.closeHallHumanityExperience=shut;window.__hallHumanityBuilt=true;
+ let surface=hall.querySelector(".hall-click-surface");if(!surface){surface=document.createElement("button");surface.type="button";surface.className="hall-click-surface";surface.setAttribute("aria-label","Open Hall of Humanity video gallery");surface.title="Open Hall of Humanity";hall.appendChild(surface);}surface.onclick=e=>{e.preventDefault();e.stopPropagation();open();};
+ if(!document.documentElement.dataset.hallPointerActivation){document.documentElement.dataset.hallPointerActivation="true";let sx=null,sy=null;document.addEventListener("pointerdown",e=>{if(overlay.classList.contains("open")){sx=sy=null;return;}const r=hall.getBoundingClientRect();if(e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom){sx=e.clientX;sy=e.clientY;}else sx=sy=null;},true);document.addEventListener("pointerup",e=>{if(overlay.classList.contains("open")){sx=sy=null;return;}if(sx===null||sy===null)return;const moved=Math.hypot(e.clientX-sx,e.clientY-sy);sx=sy=null;if(moved>12)return;const r=hall.getBoundingClientRect();if(e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom){e.preventDefault();e.stopImmediatePropagation();open();}},true);document.addEventListener("click",e=>{if(!overlay.classList.contains("open")&&e.target.closest?.("#hall-humanity")){e.preventDefault();e.stopImmediatePropagation();open();}},true);}
+ document.addEventListener("keydown",e=>{if(e.key==="Escape"){if(player.classList.contains("open"))stopVideo();else if(overlay.classList.contains("open"))shut();}},true);
+}
+function start(){try{build();}catch(e){console.error("Hall of Humanity failed to initialise:",e);}}
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",start);else start();window.addEventListener("load",start,{once:true});
 })();
