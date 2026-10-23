@@ -100,7 +100,7 @@
         var target=event.target;
         var panel=target && target.closest ? target.closest(".african-languages-experience-overlay") : null;
         if(panel){
-          if(event.type==="click" && (target.closest(".african-languages-close-hit-zone") || target===panel)){
+          if(event.type==="click" && target.closest(".african-languages-close-hit-zone")){
             event.preventDefault();
             event.stopImmediatePropagation();
             closePanel(panel);
