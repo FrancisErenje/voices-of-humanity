@@ -338,3 +338,18 @@
     bottom:68px !important;
   }
 }
+
+
+/* TEMPORARILY HIDE TAWK.TO
+   The embedded live-chat bubble currently competes with Ask the Museum.
+   Keep the integration code intact so it can be restored after testing.
+   The museum's own Ask the Museum launcher remains available. */
+#tawkchat-container,
+#tawkchat-minified-box,
+iframe[src*="tawk.to"],
+iframe[title*="tawk"]{
+  display:none !important;
+  visibility:hidden !important;
+  opacity:0 !important;
+  pointer-events:none !important;
+}
