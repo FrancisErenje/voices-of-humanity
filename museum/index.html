@@ -585,6 +585,53 @@
            two museum footprints. Stop that one gesture before campus camera
            handlers can interpret the museum click as a pan/drag. */
         (function(){
+            function ensureAmericasPanel(){
+                var panel=document.querySelector('.voh-continental-direct[data-building="americasMuseum"]');
+                if(panel) return panel;
+                panel=document.createElement("div");
+                panel.className="voh-continental-direct";
+                panel.dataset.building="americasMuseum";
+                panel.hidden=true;
+                panel.setAttribute("aria-hidden","true");
+                panel.innerHTML=
+                  '<div class="voh-continental-direct-card" role="dialog" aria-modal="true" aria-labelledby="americasMuseumFallbackTitle">'+
+                    '<button type="button" class="voh-continental-direct-close" aria-label="Close Americas Languages Museum">×</button>'+
+                    '<div class="voh-continental-direct-kicker">VOICES OF HUMANITY · LIVING LANGUAGE ARCHIVE</div>'+
+                    '<h2 id="americasMuseumFallbackTitle">Americas Languages Museum</h2>'+
+                    '<p>Explore the languages, living histories, cultural knowledge and Indigenous communities of North, Central and South America.</p>'+
+                    '<div class="voh-continental-direct-grid">'+
+                      '<article><span>LANGUAGES</span><strong>Living Voices</strong><p>Discover languages and the communities that keep them alive.</p></article>'+
+                      '<article><span>CULTURE</span><strong>Language &amp; Identity</strong><p>Explore language as a carrier of memory and knowledge.</p></article>'+
+                      '<article><span>HERITAGE</span><strong>Stories That Endure</strong><p>Encounter linguistic histories preserved through living voices.</p></article>'+
+                    '</div></div>';
+                document.body.appendChild(panel);
+                var close=panel.querySelector(".voh-continental-direct-close");
+                function closePanel(event){
+                  if(event){event.preventDefault();event.stopImmediatePropagation();}
+                  panel.classList.remove("open");
+                  panel.hidden=true;
+                  panel.setAttribute("aria-hidden","true");
+                  panel.style.setProperty("display","none","important");
+                  panel.style.setProperty("pointer-events","none","important");
+                }
+                close.addEventListener("click",closePanel,true);
+                panel.addEventListener("click",function(event){if(event.target===panel) closePanel(event);},true);
+                document.addEventListener("keydown",function(event){if(event.key==="Escape" && panel.classList.contains("open")) closePanel();});
+                panel._open=function(){
+                  panel.hidden=false;
+                  panel.setAttribute("aria-hidden","false");
+                  panel.style.setProperty("display","flex","important");
+                  panel.style.setProperty("position","fixed","important");
+                  panel.style.setProperty("inset","0","important");
+                  panel.style.setProperty("visibility","visible","important");
+                  panel.style.setProperty("opacity","1","important");
+                  panel.style.setProperty("pointer-events","auto","important");
+                  panel.style.setProperty("z-index","2147483647","important");
+                  panel.classList.add("open");
+                };
+                return panel;
+            }
+
             function buildingAt(x,y){
                 var africa = document.getElementById("africaMuseum");
                 var africaComplex = document.getElementById("africaComplex");
@@ -604,8 +651,16 @@
                 if(inside(africa) || inside(africaComplex)){
                     return {id:"africaMuseum", el:africa};
                 }
-                if(inside(americas)){
-                    return {id:"americasMuseum", el:americas};
+
+                /* Match the Americas' transparent hit-surface geometry. Its
+                   roof/title extends above the building element's own rectangle. */
+                if(americas){
+                    var r=americas.getBoundingClientRect();
+                    if(r.width>0 && r.height>0 &&
+                       x>=r.left-12 && x<=r.right+12 &&
+                       y>=r.top-74 && y<=r.bottom+12){
+                        return {id:"americasMuseum",el:americas};
+                    }
                 }
                 return null;
             }
@@ -626,7 +681,7 @@
 
                 var overlay = found.id === "africaMuseum"
                     ? document.querySelector(".african-languages-experience-overlay")
-                    : document.querySelector('.voh-continental-direct[data-building="americasMuseum"]');
+                    : ensureAmericasPanel();
                 /* Africa uses the shared opener so the panel is created if
                    museum.js has not initialized it yet. Do not dereference a
                    missing overlay here: pointerdown is default-prevented below,
@@ -642,17 +697,16 @@
                     return;
                 }
 
-                if(!overlay) return;
                 if(typeof overlay._open === "function"){
                     overlay._open();
                 }else{
                     overlay.hidden = false;
                     overlay.setAttribute("aria-hidden","false");
-                    overlay.style.display = "flex";
-                    overlay.style.visibility = "visible";
-                    overlay.style.opacity = "1";
-                    overlay.style.pointerEvents = "auto";
-                    overlay.style.zIndex = "2147483647";
+                    overlay.style.setProperty("display","flex","important");
+                    overlay.style.setProperty("visibility","visible","important");
+                    overlay.style.setProperty("opacity","1","important");
+                    overlay.style.setProperty("pointer-events","auto","important");
+                    overlay.style.setProperty("z-index","2147483647","important");
                     overlay.classList.add("open");
                 }
             }, true);
