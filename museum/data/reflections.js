@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "086",
+    date: "SATURDAY, OCTOBER 24, 2026",
+    heading: "THE RESPONSIBILITY OF REMEMBERING",
+    quote: "Remembering well is not only about the past; it is also about the future we choose to build.",
+    note: "Memory can teach us what worked, what failed and what people endured. When we remember responsibly, we do not simply celebrate the past. We learn from it. The way we preserve history influences the lessons available to those who come after us.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "085",
     date: "FRIDAY, OCTOBER 23, 2026",
     heading: "THE VALUE OF LISTENING",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "084",
     date: "THURSDAY, OCTOBER 22, 2026",
