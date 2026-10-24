@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "087",
+    date: "SUNDAY, OCTOBER 25, 2026",
+    heading: "ONE PERSON CAN START SOMETHING",
+    quote: "A single person with a clear purpose can begin a work that outlives them.",
+    note: "Many institutions, archives, movements and community projects began with one person's decision to act. The first step may look small, but it can create a path for others to follow. Purpose becomes powerful when it is turned into consistent action.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "086",
     date: "SATURDAY, OCTOBER 24, 2026",
     heading: "THE RESPONSIBILITY OF REMEMBERING",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "085",
     date: "FRIDAY, OCTOBER 23, 2026",
