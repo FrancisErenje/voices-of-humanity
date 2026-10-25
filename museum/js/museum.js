@@ -417,21 +417,6 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
             if(typeof overlay._open === "function") overlay._open();
         });
 
-        /* Final direct owner for the Americas Museum itself.
-           This deliberately avoids relying on the transparent child hit
-           surface, which can be covered by other campus layers. */
-        if(building.dataset.americasDirectBound !== "true"){
-            building.dataset.americasDirectBound = "true";
-            const openAmericas = function(event){
-                if(event){
-                    event.preventDefault();
-                    event.stopPropagation();
-                    if(event.stopImmediatePropagation) event.stopImmediatePropagation();
-                }
-                if(typeof overlay._open === "function") overlay._open();
-            };
-            building.addEventListener("click", openAmericas, true);
-        }
     }
 
     function setupAfrica(){
@@ -465,39 +450,6 @@ if (window.VoicesVisitorEngine && typeof window.VoicesVisitorEngine.startVisitor
             }
         });
 
-        /* Direct capture owner for Africa, matching the proven fallback
-           used by the Americas building. If a campus layer covers the
-           transparent child button, clicking the building itself still
-           opens the existing African exhibit overlay. */
-        if(building.dataset.africaDirectBound !== "true"){
-            building.dataset.africaDirectBound = "true";
-            building.addEventListener("click", function(event){
-                if(event){
-                    event.preventDefault();
-                    event.stopPropagation();
-                    if(event.stopImmediatePropagation) event.stopImmediatePropagation();
-                }
-                const overlay = document.querySelector(
-                    ".african-languages-experience-overlay"
-                );
-                if(!overlay) return;
-                if(typeof overlay._open === "function"){
-                    overlay._open();
-                }else{
-                    /* Keep the direct building click functional even if
-                       the early recovery layer created the fallback panel. */
-                    overlay.hidden = false;
-                    overlay.removeAttribute("aria-hidden");
-                    overlay.style.display = "flex";
-                    overlay.style.visibility = "visible";
-                    overlay.style.opacity = "1";
-                    overlay.style.pointerEvents = "auto";
-                    overlay.style.zIndex = "2147483647";
-                    overlay.classList.add("open");
-                    document.body.classList.add("african-languages-overlay-open");
-                }
-            }, true);
-        }
     }
 
     function init(){
