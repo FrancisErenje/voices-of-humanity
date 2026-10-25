@@ -161,31 +161,6 @@
             return true;
         }
 
-        function africanOpenFromEvent(event){
-            if(!event || event.type !== "click") return false;
-
-            var target = event.target;
-            if(target && target.closest){
-                if(target.closest("#museumChat,#museumChatLauncher,.african-languages-experience-overlay,.reflection-garden-overlay")) return false;
-                if(window.__vohIsTawkInteraction && window.__vohIsTawkInteraction(event)) return false;
-                if(target.closest("#africaMuseum")) return africanOpen(target);
-            }
-
-            /* Some scene layers can become the event target over the visible
-               African museum. Use its actual screen rectangle as a fallback,
-               without changing any building position or z-index. */
-            var building = document.getElementById("africaMuseum");
-            if(!building) return false;
-            var rect = building.getBoundingClientRect();
-            if(rect.width <= 0 || rect.height <= 0) return false;
-            if(event.clientX < rect.left || event.clientX > rect.right ||
-               event.clientY < rect.top || event.clientY > rect.bottom) return false;
-
-            var overlay = document.querySelector(".african-languages-experience-overlay");
-            if(!overlay || isAfricanOverlayActuallyVisible(overlay)) return false;
-            return africanOpen(building);
-        }
-
         /* SHARED BUILDING CLICK RECOVERY
            One screen-space fallback for the three affected buildings.
            It calls each building's existing opener and deliberately excludes
@@ -399,46 +374,8 @@
                 return;
             }
 
-            /* FINAL AFRICA CLICK RECOVERY:
-               Use the completed click gesture only. Opening on pointerdown can
-               create the overlay before the browser dispatches click, causing
-               the same gesture to land on the new overlay and feel unreliable.
-               Keep chat and open exhibit surfaces independent. */
-            if(event.type === "click"){
-                var hitTarget = event.target;
-                var blocked = hitTarget && hitTarget.closest && hitTarget.closest(
-                    "#museumChat,#museumChatLauncher,.african-languages-experience-overlay.open,.reflection-garden-overlay.open,.lm247-experience-overlay.open,.lm247-news-reader.open"
-                );
-                if(!blocked && !(window.__vohIsTawkInteraction && window.__vohIsTawkInteraction(event))){
-                    var africaBuilding = document.getElementById("africaMuseum");
-                    var africaFootprint = document.getElementById("africaComplex");
-                    var px = event.clientX, py = event.clientY;
-                    function vohInsideRect(el){
-                        if(!el || typeof px !== "number" || typeof py !== "number") return false;
-                        var b = el.getBoundingClientRect();
-                        return b.width > 0 && b.height > 0 &&
-                            px >= b.left && px <= b.right &&
-                            py >= b.top && py <= b.bottom;
-                    }
-                    var africanOverlay = document.querySelector(".african-languages-experience-overlay");
-                    if((vohInsideRect(africaBuilding) || vohInsideRect(africaFootprint)) &&
-                       !isAfricanOverlayActuallyVisible(africanOverlay)){
-                        if(event.cancelable) event.preventDefault();
-                        if(typeof event.stopImmediatePropagation === "function") event.stopImmediatePropagation();
-                        else event.stopPropagation();
-                        africanOpen(africaBuilding);
-                        return;
-                    }
-                }
-            }
-
             if(recoverBuildingClick(event)) return;
 
-            if(event.type === "click" && africanOpenFromEvent(event)){
-                event.preventDefault();
-                event.stopImmediatePropagation();
-                return;
-            }
         }
         window.addEventListener("pointerdown", capture, true);
         window.addEventListener("click", capture, true);
