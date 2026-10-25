@@ -8546,3 +8546,71 @@ body:has(.african-languages-experience-overlay.open) .african-languages-experien
     .lm247-desk-story-image{max-height:170px;}
     .lm247-news-reader-visual{height:150px;}
 }
+
+
+/* =========================================================
+   ATTACHED FORECOURTS — LOCALMEDIA247 + AFRICAN LANGUAGES MUSEUM
+   Keep each forecourt in its own building complex, centred on
+   the entrance, visually joined to the steps, and non-interactive.
+   This is a CSS-only layout refinement; click handlers are untouched.
+========================================================= */
+
+/* LocalMedia247 forecourt: centred on the headquarters entrance.
+   The top edge tucks just under the building base to avoid a visual gap. */
+#lm247Complex > .plaza{
+    position:absolute !important;
+    left:40px !important;
+    top:218px !important;
+    width:440px !important;
+    height:190px !important;
+    box-sizing:border-box !important;
+    z-index:1 !important;
+    pointer-events:none !important;
+    border:8px solid #b9aa91 !important;
+    border-radius:22px !important;
+    background:
+        radial-gradient(ellipse at 50% 22%, #f1eadc 0%, #ddd2bf 65%, #c8baa4 100%) !important;
+    box-shadow:
+        inset 0 5px 0 rgba(255,255,255,.35),
+        inset 0 -10px 16px rgba(0,0,0,.10),
+        0 12px 22px rgba(0,0,0,.15) !important;
+}
+#lm247Complex #lm247Building{
+    z-index:2147483645 !important;
+}
+
+/* African Languages Museum forecourt: same centreline as the building,
+   with the walkway running directly into the museum entrance. */
+#africaComplex > .museum-plaza{
+    left:40px !important;
+    top:205px !important;
+    width:440px !important;
+    height:220px !important;
+    box-sizing:border-box !important;
+    z-index:1 !important;
+    pointer-events:none !important;
+    border:8px solid #b9aa91 !important;
+    border-radius:24px !important;
+    background:
+        radial-gradient(ellipse at 50% 24%, #f1eadc 0%, #ddd2bf 64%, #c8baa4 100%) !important;
+    box-shadow:
+        inset 0 5px 0 rgba(255,255,255,.35),
+        inset 0 -10px 16px rgba(0,0,0,.10),
+        0 12px 22px rgba(0,0,0,.15) !important;
+}
+#africaComplex > .museum-path{
+    left:180px !important;
+    top:285px !important;
+    width:160px !important;
+    height:145px !important;
+    z-index:2 !important;
+    pointer-events:none !important;
+    border-radius:0 0 24px 24px !important;
+    background:linear-gradient(to right,#d4cbbb,#eee7da 48%,#c6bba8) !important;
+    border-left:2px solid rgba(130,115,92,.25) !important;
+    border-right:2px solid rgba(130,115,92,.25) !important;
+    box-shadow:inset 0 3px 0 rgba(255,255,255,.35) !important;
+}
+#africaComplex #africaMuseum{
+    z-index:80 !important;
+}
