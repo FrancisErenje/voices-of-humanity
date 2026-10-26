@@ -63,3 +63,48 @@
   .voh-donate-dialog{padding:26px 18px 20px}
   .voh-donate-dialog h2{font-size:23px}
 }
+
+
+/* Donation bank details */
+.voh-donate-account {
+  margin: 18px 0;
+  padding: 16px;
+  border: 1px solid rgba(212, 175, 55, .65);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, .24);
+  text-align: left;
+}
+.voh-donate-account h3 {
+  margin: 0 0 12px;
+  color: #d8b64c;
+  font-size: 1.05rem;
+}
+.voh-donate-account dl { margin: 0; }
+.voh-donate-account dl > div {
+  display: grid;
+  grid-template-columns: minmax(100px, 0.8fr) minmax(0, 1.4fr);
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+.voh-donate-account dl > div:last-child { border-bottom: 0; }
+.voh-donate-account dt { color: rgba(255,255,255,.72); }
+.voh-donate-account dd { margin: 0; overflow-wrap: anywhere; font-weight: 600; }
+.voh-copy-account {
+  display: inline-block;
+  margin: 8px 0 0;
+  padding: 8px 12px;
+  border: 1px solid #d8b64c;
+  border-radius: 7px;
+  background: #d8b64c;
+  color: #17130a;
+  font: inherit;
+  font-size: .9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.voh-copy-account:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.voh-donate-copy-status { min-height: 1.2em; margin: 8px 0 0; font-size: .9rem; color: #d8b64c; }
+@media (max-width: 520px) {
+  .voh-donate-account dl > div { grid-template-columns: 1fr; gap: 4px; }
+}
