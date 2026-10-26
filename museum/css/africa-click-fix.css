@@ -79,3 +79,28 @@
   pointer-events:auto !important;
 }
 
+
+
+/* VOH continental museum click repair — 26 October 2026.
+   Keep each transparent hit surface above campus scenery, but let the
+   actual button surface (not the decorative pseudo-element) receive clicks. */
+#africaComplex #africaMuseum::before{
+  pointer-events:none !important;
+}
+#americasComplex{
+  position:absolute !important;
+  z-index:2147483640 !important;
+  pointer-events:none !important;
+}
+#americasComplex #americasMuseum{
+  position:absolute !important;
+  z-index:2147483641 !important;
+  pointer-events:auto !important;
+}
+#americasComplex #americasMuseum > *{
+  pointer-events:none !important;
+}
+#americasComplex #americasMuseum > .full-building-hit-surface{
+  pointer-events:auto !important;
+  z-index:2147483647 !important;
+}
