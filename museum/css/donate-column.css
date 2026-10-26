@@ -1,0 +1,161 @@
+/* VOH DONATE COLUMN — placed just beyond the Hall of Humanity */
+#vohDonateColumn{
+  position:absolute;
+  left:1900px;
+  top:900px;
+  width:156px;
+  height:300px;
+  z-index:130;
+  cursor:pointer;
+  pointer-events:auto;
+  color:#f8e7aa;
+  font-family:Arial,Helvetica,sans-serif;
+  text-align:center;
+  filter:drop-shadow(0 12px 10px rgba(0,0,0,.28));
+}
+#vohDonateColumn .voh-donate-cap{
+  position:absolute;
+  left:8px; right:8px; top:0;
+  height:24px;
+  border:2px solid #8b6418;
+  border-radius:7px 7px 3px 3px;
+  background:linear-gradient(180deg,#ffe9a0 0%,#d6ad43 42%,#8f671b 100%);
+  box-shadow:inset 0 3px rgba(255,255,255,.55),0 4px 0 rgba(71,48,10,.3);
+}
+#vohDonateColumn .voh-donate-shaft{
+  position:absolute;
+  left:20px; right:20px; top:19px;
+  height:214px;
+  border:2px solid #9b782c;
+  border-radius:5px;
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.3),transparent 18%,rgba(0,0,0,.12) 83%,rgba(255,255,255,.14)),
+    linear-gradient(180deg,#26333a 0%,#101820 50%,#202b32 100%);
+  box-shadow:inset 0 0 0 3px rgba(238,203,105,.13),inset 0 8px 16px rgba(0,0,0,.24);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+}
+#vohDonateColumn .voh-donate-globe{
+  font-size:31px;
+  line-height:1;
+  filter:drop-shadow(0 0 8px rgba(238,203,105,.35));
+}
+#vohDonateColumn .voh-donate-word{
+  color:#f4d477;
+  font:800 17px Georgia,serif;
+  letter-spacing:1.6px;
+  text-shadow:0 2px 3px #000;
+}
+#vohDonateColumn .voh-donate-sub{
+  max-width:102px;
+  color:#f8f1dc;
+  font-size:8px;
+  line-height:1.4;
+  letter-spacing:.5px;
+}
+#vohDonateColumn .voh-donate-base{
+  position:absolute;
+  left:0; right:0; bottom:12px;
+  height:39px;
+  border:2px solid #9b782c;
+  border-radius:5px;
+  background:linear-gradient(180deg,#e7c45f,#9e741d 58%,#634613);
+  box-shadow:inset 0 3px rgba(255,255,255,.48),0 5px 0 rgba(0,0,0,.18);
+}
+#vohDonateColumn .voh-donate-plinth{
+  position:absolute;
+  left:10px; right:10px; bottom:0;
+  height:14px;
+  border-radius:3px;
+  background:linear-gradient(180deg,#d8d1c2,#91897c);
+  box-shadow:0 5px 8px rgba(0,0,0,.2);
+}
+#vohDonateColumn:hover,
+#vohDonateColumn:focus-visible{
+  filter:drop-shadow(0 0 13px rgba(255,220,119,.7));
+  outline:none;
+}
+#vohDonateColumn:focus-visible .voh-donate-shaft{
+  border-color:#ffe6a0;
+}
+.voh-donate-overlay{
+  position:fixed;
+  inset:0;
+  z-index:2147483600;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:rgba(3,7,12,.78);
+  backdrop-filter:blur(7px);
+}
+.voh-donate-overlay.open{display:flex}
+.voh-donate-dialog{
+  position:relative;
+  width:min(520px,94vw);
+  max-height:88vh;
+  overflow:auto;
+  padding:30px 26px 26px;
+  border:1px solid rgba(230,196,104,.55);
+  border-radius:20px;
+  color:#f7f1df;
+  text-align:center;
+  background:radial-gradient(circle at 50% 0%,rgba(230,196,104,.16),transparent 40%),linear-gradient(145deg,#182633,#09131c);
+  box-shadow:0 30px 80px rgba(0,0,0,.62);
+}
+.voh-donate-dialog .voh-donate-kicker{
+  color:#e3bd55;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:2px;
+}
+.voh-donate-dialog h2{
+  margin:9px 0 12px;
+  color:#f4d477;
+  font:700 27px Georgia,serif;
+}
+.voh-donate-dialog p{
+  margin:10px auto;
+  max-width:420px;
+  color:#c5ced4;
+  font-size:13px;
+  line-height:1.65;
+}
+.voh-donate-dialog .voh-donate-motto{
+  margin:18px auto;
+  color:#fff1c4;
+  font:italic 17px Georgia,serif;
+  line-height:1.55;
+}
+.voh-donate-actions{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  margin-top:20px;
+}
+.voh-donate-actions button{
+  min-height:42px;
+  padding:11px 16px;
+  border:1px solid rgba(230,196,104,.48);
+  border-radius:10px;
+  background:rgba(230,196,104,.12);
+  color:#f4d477;
+  font-size:11px;
+  font-weight:800;
+  cursor:pointer;
+}
+.voh-donate-actions button:hover{background:rgba(230,196,104,.22)}
+.voh-donate-actions .voh-donate-close{
+  border-color:rgba(255,255,255,.18);
+  color:#d4dde2;
+  background:rgba(255,255,255,.04);
+}
+@media(max-width:700px){
+  #vohDonateColumn{transform:scale(.88);transform-origin:top left}
+  .voh-donate-dialog{padding:26px 18px 20px}
+  .voh-donate-dialog h2{font-size:23px}
+}
