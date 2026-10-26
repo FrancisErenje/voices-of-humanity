@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "088",
+    date: "MONDAY, OCTOBER 26, 2026",
+    heading: "THE STORIES WE SHARE",
+    quote: "A story shared with care can travel farther than the person who first told it.",
+    note: "Stories connect generations and places. When we share them responsibly, they can carry memory, warning, humour, identity and wisdom far beyond their original setting. Every story deserves context, respect and care, especially when it belongs to a community.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "087",
     date: "SUNDAY, OCTOBER 25, 2026",
     heading: "ONE PERSON CAN START SOMETHING",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "086",
     date: "SATURDAY, OCTOBER 24, 2026",
