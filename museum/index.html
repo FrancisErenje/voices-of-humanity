@@ -64,6 +64,83 @@
     })();
     </script>
 
+    <!-- VOH DONATION BUTTON INTERACTION PRIORITY
+         Handle Donate panel controls before legacy museum capture handlers. -->
+    <script>
+    (function(){
+      "use strict";
+      function stop(event){
+        event.preventDefault();
+        event.stopPropagation();
+        if(event.stopImmediatePropagation) event.stopImmediatePropagation();
+      }
+      function announce(message){
+        var status=document.getElementById("vohDonateCopyStatus");
+        if(status) status.textContent=message;
+      }
+      function copyAccount(button){
+        var number=document.getElementById("vohDonateAccountNumber");
+        var value=number ? number.textContent.trim() : "";
+        if(!value) return;
+        function success(){
+          announce("Account number copied.");
+          button.textContent="Copied!";
+        }
+        function failure(){
+          announce("Copy was not available. Please select and copy the account number above.");
+          button.textContent="Copy account number";
+        }
+        if(navigator.clipboard && window.isSecureContext && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(value).then(success).catch(failure);
+          return;
+        }
+        var field=document.createElement("textarea");
+        field.value=value;
+        field.setAttribute("readonly","");
+        field.style.position="fixed";
+        field.style.left="-9999px";
+        document.body.appendChild(field);
+        field.select();
+        var ok=false;
+        try{ok=document.execCommand("copy");}catch(error){ok=false;}
+        document.body.removeChild(field);
+        if(ok) success(); else failure();
+      }
+      function handle(event){
+        var target=event.target;
+        if(!target || !target.closest) return;
+        var copy=target.closest("#vohCopyAccountNumber");
+        var close=target.closest("#vohDonateClose");
+        var contact=target.closest("#vohDonateContact");
+        if(!copy && !close && !contact) return;
+        stop(event);
+        var overlay=document.getElementById("vohDonateOverlay");
+        if(copy){copyAccount(copy);return;}
+        if(overlay){
+          overlay.classList.remove("open");
+          overlay.setAttribute("aria-hidden","true");
+        }
+        if(close){
+          var donate=document.getElementById("vohDonateColumn");
+          if(donate && donate.focus) donate.focus({preventScroll:true});
+          return;
+        }
+        if(contact){
+          if(typeof window.__vohOpenMuseumChat==="function") window.__vohOpenMuseumChat(event);
+          else {
+            var launcher=document.getElementById("museumChatLauncher");
+            if(launcher) launcher.click();
+          }
+        }
+      }
+      window.addEventListener("click",handle,true);
+      window.addEventListener("pointerup",function(event){
+        if(event.pointerType!=="mouse") handle(event);
+      },true);
+      window.addEventListener("touchend",function(event){handle(event);},true);
+    })();
+    </script>
+
     <!-- ==========================================
          VOH INTERACTION PRIORITY LAYER
          Registered before the museum engines so
