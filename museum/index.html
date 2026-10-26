@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="css/life/gardens.css?v=20261005-weight560">
     <link rel="stylesheet" href="css/museum-videos.css">
     <link rel="stylesheet" href="css/hall-humanity.css">
+    <link rel="stylesheet" href="css/donate-column.css?v=20261026-hall-donate">
     <link rel="stylesheet" href="css/museum-chat.css?v=20261009-chat-separation">
 
     <!-- TAWK INPUT FOCUS PROTECTION
@@ -703,6 +704,21 @@
     </div>
 
     </section>
+
+
+<!-- ======================================
+     VOH DONATE COLUMN — after the Hall experience
+====================================== -->
+<div id="vohDonateColumn" role="button" tabindex="0" aria-label="Support Voices of Humanity">
+  <div class="voh-donate-cap" aria-hidden="true"></div>
+  <div class="voh-donate-shaft">
+    <div class="voh-donate-globe" aria-hidden="true">🌍</div>
+    <div class="voh-donate-word">DONATE</div>
+    <div class="voh-donate-sub">SUPPORT HUMANITY'S VOICES</div>
+  </div>
+  <div class="voh-donate-base" aria-hidden="true"></div>
+  <div class="voh-donate-plinth" aria-hidden="true"></div>
+</div>
 
 <!-- ======================================
          GRAND PLAZA
@@ -2375,6 +2391,79 @@ window.Tawk_API.onChatMaximized = function(){
 })();
 </script>
 <!-- END VOICES OF HUMANITY LIVE HELPDESK -->
+
+
+<!-- VOH DONATION INFORMATION PANEL -->
+<div class="voh-donate-overlay" id="vohDonateOverlay" aria-hidden="true">
+  <section class="voh-donate-dialog" role="dialog" aria-modal="true" aria-labelledby="vohDonateTitle">
+    <div class="voh-donate-kicker">VOICES OF HUMANITY · EVERY VOICE MATTERS</div>
+    <h2 id="vohDonateTitle">Support Humanity's Voices</h2>
+    <p>Thank you for exploring the Hall of Humanity and the languages, cultures and stories it celebrates.</p>
+    <div class="voh-donate-motto">Every language carries a history.<br>Every culture carries wisdom.<br>Every voice matters.</div>
+    <p>Your contribution can help preserve endangered languages, oral histories and cultural knowledge for future generations.</p>
+    <p><strong>We are preparing the secure donation arrangements.</strong> For now, please speak with the Voices of Humanity team before sending money. We will not ask you to pay through an unverified link.</p>
+    <div class="voh-donate-actions">
+      <button type="button" id="vohDonateContact">Speak to our team</button>
+      <button type="button" class="voh-donate-close" id="vohDonateClose">Close</button>
+    </div>
+  </section>
+</div>
+<script>
+(function(){
+  "use strict";
+  var column = document.getElementById("vohDonateColumn");
+  var overlay = document.getElementById("vohDonateOverlay");
+  var closeButton = document.getElementById("vohDonateClose");
+  var contactButton = document.getElementById("vohDonateContact");
+  if(!column || !overlay) return;
+
+  function openDonate(event){
+    if(event){
+      event.preventDefault();
+      event.stopPropagation();
+      if(typeof event.stopImmediatePropagation === "function") event.stopImmediatePropagation();
+    }
+    overlay.classList.add("open");
+    overlay.setAttribute("aria-hidden","false");
+    if(closeButton) closeButton.focus();
+  }
+  function closeDonate(event){
+    if(event){
+      event.preventDefault();
+      event.stopPropagation();
+      if(typeof event.stopImmediatePropagation === "function") event.stopImmediatePropagation();
+    }
+    overlay.classList.remove("open");
+    overlay.setAttribute("aria-hidden","true");
+    if(column) column.focus({preventScroll:true});
+  }
+  column.addEventListener("click", openDonate);
+  column.addEventListener("keydown", function(event){
+    if(event.key === "Enter" || event.key === " "){
+      openDonate(event);
+    }
+  });
+  if(closeButton) closeButton.addEventListener("click", closeDonate);
+  overlay.addEventListener("click", function(event){
+    if(event.target === overlay) closeDonate(event);
+  });
+  document.addEventListener("keydown", function(event){
+    if(event.key === "Escape" && overlay.classList.contains("open")) closeDonate(event);
+  });
+  if(contactButton) contactButton.addEventListener("click", function(event){
+    event.preventDefault();
+    event.stopPropagation();
+    overlay.classList.remove("open");
+    overlay.setAttribute("aria-hidden","true");
+    if(typeof window.__vohOpenMuseumChat === "function"){
+      window.__vohOpenMuseumChat(event);
+    }else{
+      var launcher = document.getElementById("museumChatLauncher");
+      if(launcher) launcher.click();
+    }
+  });
+})();
+</script>
 
 </body>
 
