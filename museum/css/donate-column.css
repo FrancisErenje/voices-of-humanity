@@ -1,10 +1,12 @@
-/* VOH DONATE COLUMN — placed just beyond the Hall of Humanity */
+/* VOH DONATE COLUMN — top-right corner of the Hall of Humanity */
 #vohDonateColumn{
   position:absolute;
-  left:1900px;
-  top:900px;
+  left:calc(50% + 275px);
+  top:735px;
   width:156px;
   height:300px;
+  transform:scale(.62);
+  transform-origin:top left;
   z-index:130;
   cursor:pointer;
   pointer-events:auto;
@@ -77,6 +79,13 @@
 #vohDonateColumn:focus-visible{
   filter:drop-shadow(0 0 13px rgba(255,220,119,.7));
   outline:none;
+}
+@media(max-width:700px){
+  #vohDonateColumn{
+    left:calc(50% + 220px);
+    top:735px;
+    transform:scale(.48);
+  }
 }
 #vohDonateColumn:focus-visible .voh-donate-shaft{
   border-color:#ffe6a0;
