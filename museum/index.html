@@ -2389,7 +2389,16 @@ window.Tawk_API.onChatMaximized = function(){
     <p>Thank you for exploring the Hall of Humanity and the languages, cultures and stories it celebrates.</p>
     <div class="voh-donate-motto">Every language carries a history.<br>Every culture carries wisdom.<br>Every voice matters.</div>
     <p>Your contribution can help preserve endangered languages, oral histories and cultural knowledge for future generations.</p>
-    <p><strong>We are preparing the secure donation arrangements.</strong> For now, please speak with the Voices of Humanity team before sending money. We will not ask you to pay through an unverified link.</p>
+    <div class="voh-donate-account" aria-label="Donation bank details">
+      <h3>Bank Transfer Details</h3>
+      <dl>
+        <div><dt>Bank</dt><dd>Zenith Bank</dd></div>
+        <div><dt>Account name</dt><dd>Francis O Erenje</dd></div>
+        <div><dt>Account number</dt><dd><span id="vohDonateAccountNumber">2120464801</span> <button type="button" id="vohCopyAccountNumber" class="voh-copy-account">Copy account number</button></dd></div>
+        <div><dt>Currency</dt><dd>NGN — Nigerian naira</dd></div>
+      </dl>
+      <p class="voh-donate-copy-status" id="vohDonateCopyStatus" role="status" aria-live="polite"></p>
+    </div>
     <div class="voh-donate-actions">
       <button type="button" id="vohDonateContact">Speak to our team</button>
       <button type="button" class="voh-donate-close" id="vohDonateClose">Close</button>
@@ -2402,6 +2411,8 @@ window.Tawk_API.onChatMaximized = function(){
   var overlay=document.getElementById("vohDonateOverlay");
   var closeButton=document.getElementById("vohDonateClose");
   var contactButton=document.getElementById("vohDonateContact");
+  var copyButton=document.getElementById("vohCopyAccountNumber");
+  var copyStatus=document.getElementById("vohDonateCopyStatus");
   if(!overlay) return;
 
   function openDonate(event){
@@ -2427,6 +2438,36 @@ window.Tawk_API.onChatMaximized = function(){
     if(donate && (event.key==="Enter" || event.key===" ")){openDonate(event);return;}
     if(event.key==="Escape" && overlay.classList.contains("open")) closeDonate(event);
   },true);
+  if(copyButton) copyButton.addEventListener("click",function(event){
+    event.preventDefault();
+    event.stopPropagation();
+    var accountNumber=document.getElementById("vohDonateAccountNumber");
+    var value=accountNumber ? accountNumber.textContent.trim() : "";
+    if(!value) return;
+    function copied(){
+      if(copyStatus) copyStatus.textContent="Account number copied.";
+      copyButton.textContent="Copied!";
+    }
+    function failed(){
+      if(copyStatus) copyStatus.textContent="Copy was not available. Please select and copy the account number above.";
+      copyButton.textContent="Copy account number";
+    }
+    if(navigator.clipboard && window.isSecureContext && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(value).then(copied).catch(failed);
+    }else{
+      var temp=document.createElement("textarea");
+      temp.value=value;
+      temp.setAttribute("readonly","");
+      temp.style.position="fixed";
+      temp.style.opacity="0";
+      document.body.appendChild(temp);
+      temp.select();
+      var success=false;
+      try{success=document.execCommand("copy");}catch(err){success=false;}
+      document.body.removeChild(temp);
+      if(success) copied(); else failed();
+    }
+  });
   if(closeButton) closeButton.addEventListener("click",closeDonate);
   if(contactButton) contactButton.addEventListener("click",function(event){
     event.preventDefault();event.stopPropagation();
