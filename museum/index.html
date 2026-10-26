@@ -26,7 +26,7 @@
     <meta name="twitter:image" content="https://franciserenje.github.io/voices-of-humanity/images/logo/voices-of-humanity-logo-new.png">
 
     <link rel="stylesheet" href="css/museum.css?v=20261013-lm247-editorial-images">
-    <link rel="stylesheet" href="css/africa-click-fix.css?v=20261016-africa-hit-surface">
+    <link rel="stylesheet" href="css/africa-click-fix.css?v=20261026-continental-hit-repair">
     <link rel="stylesheet" href="css/cinema.css">
     <link rel="stylesheet" href="css/life/trees.css">
     <link rel="stylesheet" href="css/life/flags.css">
@@ -265,11 +265,18 @@
             }
 
             var africa = document.getElementById("africaMuseum");
-            var africaComplex = document.getElementById("africaComplex");
-            /* The African building has decorative roof/title elements that can
-               extend beyond its own box. Use the full African complex footprint
-               as a fallback hit area when a scene layer receives the pointer. */
-            if(containsPoint(africa) || containsPoint(africaComplex)){
+            var africaHit = africa && africa.querySelector(":scope > .full-building-hit-surface");
+            /* Use the actual building and its transparent hit surface. The
+               whole Africa complex is much larger than the building and must
+               not turn nearby paths or exhibits into accidental Africa clicks. */
+            var africaBoundsHit = containsPoint(africaHit) || containsPoint(africa);
+            if(!africaBoundsHit && africa){
+                var africaRect = africa.getBoundingClientRect();
+                africaBoundsHit = africaRect.width > 0 && africaRect.height > 0 &&
+                    x >= africaRect.left - 12 && x <= africaRect.right + 12 &&
+                    y >= africaRect.top - 74 && y <= africaRect.bottom + 12;
+            }
+            if(africaBoundsHit){
                 var africaOverlay = document.querySelector(".african-languages-experience-overlay");
                 if(isAfricanOverlayActuallyVisible(africaOverlay)) return false;
 
@@ -285,7 +292,15 @@
             }
 
             var americas = document.getElementById("americasMuseum");
-            if(containsPoint(americas)){
+            var americasHit = americas && americas.querySelector(":scope > .full-building-hit-surface");
+            var americasBoundsHit = containsPoint(americasHit) || containsPoint(americas);
+            if(!americasBoundsHit && americas){
+                var americasRect = americas.getBoundingClientRect();
+                americasBoundsHit = americasRect.width > 0 && americasRect.height > 0 &&
+                    x >= americasRect.left - 12 && x <= americasRect.right + 12 &&
+                    y >= americasRect.top - 74 && y <= americasRect.bottom + 12;
+            }
+            if(americasBoundsHit){
                 var americaOverlay = document.querySelector('.voh-continental-direct[data-building="americasMuseum"]') ||
                                      document.querySelector('.continental-language-experience-overlay[data-building="americasMuseum"]');
                 if(americaOverlay && !americaOverlay.classList.contains("open")){
