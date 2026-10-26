@@ -3,7 +3,7 @@
   position:fixed;
   top:22px;
   right:86px;
-  z-index:2147483646;
+  z-index:2147483000;
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -28,7 +28,8 @@
 .voh-donate-overlay{
   position:fixed;
   inset:0;
-  z-index:2147483600;
+  z-index:2147483647;
+  pointer-events:auto;
   display:none;
   align-items:center;
   justify-content:center;
@@ -36,9 +37,11 @@
   background:rgba(3,7,12,.78);
   backdrop-filter:blur(7px);
 }
-.voh-donate-overlay.open{display:flex}
+.voh-donate-overlay.open{display:flex;pointer-events:auto}
 .voh-donate-dialog{
   position:relative;
+  z-index:1;
+  pointer-events:auto;
   width:min(520px,94vw);
   max-height:88vh;
   overflow:auto;
