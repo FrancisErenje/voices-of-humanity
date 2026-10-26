@@ -255,6 +255,43 @@
                 if(window.__vohIsTawkInteraction && window.__vohIsTawkInteraction(event)) return false;
             }
 
+            /* DIRECT TARGET PRIORITY — if the browser reports either museum
+               building as the click target, open it immediately. Do not depend
+               on transformed screen-space bounds or later camera handlers. */
+            var directAfrica = target && target.closest ? target.closest("#africaMuseum") : null;
+            var directAmericas = target && target.closest ? target.closest("#americasMuseum") : null;
+            if(directAfrica){
+                var directAfricaOverlay = document.querySelector(".african-languages-experience-overlay");
+                if(!isAfricanOverlayActuallyVisible(directAfricaOverlay)){
+                    africanOpen(directAfrica);
+                    event.preventDefault();
+                    if(event.stopImmediatePropagation) event.stopImmediatePropagation();
+                    else event.stopPropagation();
+                    return true;
+                }
+            }
+            if(directAmericas){
+                var directAmericasOverlay = document.querySelector('.voh-continental-direct[data-building="americasMuseum"]') ||
+                                            document.querySelector('.continental-language-experience-overlay[data-building="americasMuseum"]');
+                if(directAmericasOverlay && !directAmericasOverlay.classList.contains("open")){
+                    if(typeof directAmericasOverlay._open === "function") directAmericasOverlay._open();
+                    else {
+                        directAmericasOverlay.hidden = false;
+                        directAmericasOverlay.removeAttribute("aria-hidden");
+                        directAmericasOverlay.style.display = "flex";
+                        directAmericasOverlay.style.visibility = "visible";
+                        directAmericasOverlay.style.opacity = "1";
+                        directAmericasOverlay.style.pointerEvents = "auto";
+                        directAmericasOverlay.style.zIndex = "2147483647";
+                        directAmericasOverlay.classList.add("open");
+                    }
+                    event.preventDefault();
+                    if(event.stopImmediatePropagation) event.stopImmediatePropagation();
+                    else event.stopPropagation();
+                    return true;
+                }
+            }
+
             var x = event.clientX, y = event.clientY;
             if(typeof x !== "number" || typeof y !== "number") return false;
 
