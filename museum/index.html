@@ -37,7 +37,7 @@
     <link rel="stylesheet" href="css/life/gardens.css?v=20261005-weight560">
     <link rel="stylesheet" href="css/museum-videos.css">
     <link rel="stylesheet" href="css/hall-humanity.css">
-    <link rel="stylesheet" href="css/donate-column.css?v=20261026-hall-donate">
+    <link rel="stylesheet" href="css/donate-column.css?v=20261026-hall-overlay-button">
     <link rel="stylesheet" href="css/museum-chat.css?v=20261009-chat-separation">
 
     <!-- TAWK INPUT FOCUS PROTECTION
@@ -706,19 +706,7 @@
     </section>
 
 
-<!-- ======================================
-     VOH DONATE COLUMN — after the Hall experience
-====================================== -->
-<div id="vohDonateColumn" role="button" tabindex="0" aria-label="Support Voices of Humanity">
-  <div class="voh-donate-cap" aria-hidden="true"></div>
-  <div class="voh-donate-shaft">
-    <div class="voh-donate-globe" aria-hidden="true">🌍</div>
-    <div class="voh-donate-word">DONATE</div>
-    <div class="voh-donate-sub">SUPPORT HUMANITY'S VOICES</div>
-  </div>
-  <div class="voh-donate-base" aria-hidden="true"></div>
-  <div class="voh-donate-plinth" aria-hidden="true"></div>
-</div>
+<!-- Donate now appears inside the opened Hall of Humanity gallery. -->
 
 <!-- ======================================
          GRAND PLAZA
@@ -1289,7 +1277,7 @@
 
 <script src="engine/documentaryEngine.js"></script>
 <script src="engine/museumVideoEngine.js"></script>
-<script src="engine/hallHumanityEngine.js?v=20261023-thumbnail-gallery1"></script>
+<script src="engine/hallHumanityEngine.js?v=20261026-hall-donate-in-gallery"></script>
 
 <script src="engine/cinemaEngine.js"></script>
 
@@ -2411,60 +2399,44 @@ window.Tawk_API.onChatMaximized = function(){
 <script>
 (function(){
   "use strict";
-  var column = document.getElementById("vohDonateColumn");
-  var overlay = document.getElementById("vohDonateOverlay");
-  var closeButton = document.getElementById("vohDonateClose");
-  var contactButton = document.getElementById("vohDonateContact");
-  if(!column || !overlay) return;
+  var overlay=document.getElementById("vohDonateOverlay");
+  var closeButton=document.getElementById("vohDonateClose");
+  var contactButton=document.getElementById("vohDonateContact");
+  if(!overlay) return;
 
   function openDonate(event){
-    if(event){
-      event.preventDefault();
-      event.stopPropagation();
-      if(typeof event.stopImmediatePropagation === "function") event.stopImmediatePropagation();
-    }
+    if(event){event.preventDefault();event.stopPropagation();if(event.stopImmediatePropagation)event.stopImmediatePropagation();}
     overlay.classList.add("open");
     overlay.setAttribute("aria-hidden","false");
     if(closeButton) closeButton.focus();
   }
   function closeDonate(event){
-    if(event){
-      event.preventDefault();
-      event.stopPropagation();
-      if(typeof event.stopImmediatePropagation === "function") event.stopImmediatePropagation();
-    }
+    if(event){event.preventDefault();event.stopPropagation();if(event.stopImmediatePropagation)event.stopImmediatePropagation();}
     overlay.classList.remove("open");
     overlay.setAttribute("aria-hidden","true");
-    if(column) column.focus({preventScroll:true});
+    var donate=document.getElementById("vohDonateColumn");
+    if(donate) donate.focus({preventScroll:true});
   }
-  column.addEventListener("click", openDonate);
-  column.addEventListener("keydown", function(event){
-    if(event.key === "Enter" || event.key === " "){
-      openDonate(event);
-    }
-  });
-  if(closeButton) closeButton.addEventListener("click", closeDonate);
-  overlay.addEventListener("click", function(event){
-    if(event.target === overlay) closeDonate(event);
-  });
-  document.addEventListener("keydown", function(event){
-    if(event.key === "Escape" && overlay.classList.contains("open")) closeDonate(event);
-  });
-  if(contactButton) contactButton.addEventListener("click", function(event){
-    event.preventDefault();
-    event.stopPropagation();
+  document.addEventListener("click",function(event){
+    var donate=event.target && event.target.closest ? event.target.closest("#vohDonateColumn") : null;
+    if(donate){openDonate(event);return;}
+    if(event.target===overlay) closeDonate(event);
+  },true);
+  document.addEventListener("keydown",function(event){
+    var donate=event.target && event.target.closest ? event.target.closest("#vohDonateColumn") : null;
+    if(donate && (event.key==="Enter" || event.key===" ")){openDonate(event);return;}
+    if(event.key==="Escape" && overlay.classList.contains("open")) closeDonate(event);
+  },true);
+  if(closeButton) closeButton.addEventListener("click",closeDonate);
+  if(contactButton) contactButton.addEventListener("click",function(event){
+    event.preventDefault();event.stopPropagation();
     overlay.classList.remove("open");
     overlay.setAttribute("aria-hidden","true");
-    if(typeof window.__vohOpenMuseumChat === "function"){
-      window.__vohOpenMuseumChat(event);
-    }else{
-      var launcher = document.getElementById("museumChatLauncher");
-      if(launcher) launcher.click();
-    }
+    if(typeof window.__vohOpenMuseumChat==="function") window.__vohOpenMuseumChat(event);
+    else {var launcher=document.getElementById("museumChatLauncher");if(launcher) launcher.click();}
   });
 })();
 </script>
-
 </body>
 
 </html>
