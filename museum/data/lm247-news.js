@@ -1,75 +1,74 @@
 /*
   LocalMedia247 — Living News Wall
-  Live News · Monday, October 26, 2026
+  Live News · Tuesday, October 27, 2026
   Editorial standard: verify dates and attribution, distinguish official claims
   from independently confirmed facts, and label illustrative or file images.
-  This edition refreshes the wall with new developments; previous headlines
-  are not carried forward as if they were today's news.
+  This edition refreshes the wall with current national and South-South developments.
 */
 window.LocalMedia247News = {
-  "date": "MONDAY, OCTOBER 26, 2026",
-  "updatedLabel": "LIVE NEWS · MONDAY UPDATE · 26 OCTOBER 2026",
+  "date": "TUESDAY, OCTOBER 27, 2026",
+  "updatedLabel": "LIVE NEWS · TUESDAY UPDATE · 27 OCTOBER 2026",
   "updateMode": "ANYTIME",
   "cadenceLabel": "MORNING · AFTERNOON · EVENING · ANYTIME",
   "stories": [
     {
-      "id": "ss-rivers-boat-recovery-1026",
-      "category": "SOUTH-SOUTH · RIVERS · PUBLIC SAFETY",
-      "location": "Kula, Akuku-Toru LGA, Rivers State",
-      "headline": "Rivers boat tragedy death toll reaches seven as final bodies are recovered",
-      "summary": "A report carried in Monday's Nigerian news round-up says the last two missing bodies have been recovered, bringing the reported death toll from the Kula waterways boat tragedy to seven. The incident followed a confrontation connected to an oil vessel and community concerns. The circumstances and responsibility remain matters for investigation; casualty information should be attributed to reporting and official updates as they become available.",
-      "source": "Naija News Feed, listing a Punch Newspapers report",
-      "url": "https://www.naijanewsfeed.com/",
-      "imageAlt": "Rivers State waterways and community safety; illustrative visual",
-      "visual": "🛟",
+      "id": "ng-taraba-binnari-attack-1027",
+      "category": "NIGERIA · SECURITY · DEVELOPING",
+      "location": "Binnari community, Taraba State",
+      "headline": "Death toll rises after deadly attack on Taraba community",
+      "summary": "The Associated Press reports that at least 62 people were killed and 52 wounded in an attack on Binnari community. Recovery efforts were continuing and the final toll had not been confirmed at the time of reporting. The figures remain developing; LocalMedia247 will distinguish confirmed official information from estimates as updates emerge.",
+      "source": "Associated Press",
+      "url": "https://apnews.com/article/ecc5e9432b73275371b8490c775320dc",
+      "imageAlt": "Emergency response and community safety in Taraba State; illustrative visual",
+      "visual": "🚨",
       "featured": true
     },
     {
-      "id": "ng-ebola-contact-tracing-1026",
+      "id": "ng-ebola-evacuation-1027",
       "category": "NIGERIA · HEALTH · PUBLIC INFORMATION",
-      "location": "Abuja and affected contact-tracing networks",
-      "headline": "Health authorities continue contact tracing after Nigeria's confirmed Ebola case",
-      "summary": "Nigeria's confirmed Bundibugyo Ebola case remains a public-health priority, with authorities tracing contacts and investigating the source of infection. Genetic similarity between the virus in Nigeria and the strain identified in Kenya does not, by itself, prove direct contact or establish where transmission occurred. Follow official NCDC and health-ministry guidance, and avoid sharing unverified claims about suspected cases.",
-      "source": "Reuters",
-      "url": "https://www.reuters.com/business/healthcare-pharmaceuticals/nigeria-ebola-case-linked-virus-found-kenya-index-case-health-minister-says-2026-10-23/",
+      "location": "Abuja and national contact-tracing network",
+      "headline": "Ebola patient evacuated for treatment as Nigeria continues monitoring contacts",
+      "summary": "Nigeria's confirmed Ebola patient was evacuated to Switzerland for treatment, according to health authorities and reporting published on October 26. Nigerian authorities continue monitoring contacts; reports say there are no confirmed Ebola patients currently remaining in Nigeria. The evacuation does not end contact tracing. Follow official NCDC and health-ministry advice and avoid sharing unverified claims.",
+      "source": "Channels Television",
+      "url": "https://www.channelstv.com/2026/10/26/five-things-to-know-today-13/",
       "imageAlt": "Public-health surveillance and infection prevention; illustrative visual",
       "visual": "🩺",
       "featured": true
     },
     {
-      "id": "africa-congo-ebola-responders-1026",
-      "category": "AFRICA · HEALTH WORKERS · SECURITY",
-      "location": "Bafwasende, Tshopo Province, eastern Democratic Republic of the Congo",
-      "headline": "Nurse killed in attack on Ebola response team in eastern Congo",
-      "summary": "The World Health Organization reported that a nurse was killed and another health worker seriously injured in an attack while responding to an Ebola alert in eastern Congo. The incident underscores the risks faced by health teams and the damage that fear and misinformation can cause during an outbreak. Local authorities had not publicly identified suspects in the initial report.",
-      "source": "Associated Press, reporting WHO's statement",
-      "url": "https://apnews.com/article/b739277681b530aef772cf66be7e41f0",
-      "imageAlt": "Healthcare workers supporting an Ebola response; illustrative visual",
-      "visual": "🏥",
+      "id": "ss-akwa-ibom-state-police-1027",
+      "category": "SOUTH-SOUTH · AKWA IBOM · SECURITY POLICY",
+      "location": "Uyo, Akwa Ibom State",
+      "headline": "Akwa Ibom Assembly backs proposed state police framework",
+      "summary": "Premium Times reported that the Akwa Ibom House of Assembly approved its committee's recommendations supporting the proposed establishment of state police. The report says the committee recommended approval of the National Policing Bill without amendment. This is a state-level legislative position, not confirmation that state police services are already operational.",
+      "source": "Premium Times",
+      "url": "https://www.premiumtimesng.com/regional/south-south-regional/919203-akwa-ibom-assembly-adopts-recommendations-to-establish-state-police.html",
+      "imageAlt": "Akwa Ibom State House of Assembly; illustrative visual",
+      "visual": "🏛️",
       "featured": true
     },
     {
-      "id": "world-brazil-election-1026",
-      "category": "WORLD · ELECTIONS · LATIN AMERICA",
-      "location": "Brazil",
-      "headline": "Lula wins Brazil's presidential runoff in a major political comeback",
-      "summary": "Early reporting on Monday said Luiz Inácio Lula da Silva won Brazil's presidential runoff against Flávio Bolsonaro, with nearly all ballots counted. The reported result marks a major comeback after Lula finished behind his rival in the first round. Election authorities' final certification remains the formal step in confirming the result.",
-      "source": "The Guardian",
-      "url": "https://www.theguardian.com/world/2026/oct/26/lula-wins-brazil-election",
-      "imageAlt": "Brazilian election campaign and voting; illustrative visual",
-      "visual": "🗳️",
+      "id": "ss-delta-crossriver-universities-1027",
+      "category": "SOUTH-SOUTH · EDUCATION · LEGISLATION",
+      "location": "Orogun, Delta State, and Cross River State",
+      "headline": "Senate passes bills for proposed federal universities in Delta and Cross River",
+      "summary": "Premium Times reported on October 22 that the Senate passed bills to establish a Federal University of Agriculture in Orogun, Delta State, and a Federal University of Education in Cross River State. Passage of the bills is a legislative step; establishment and commencement depend on the remaining legal and implementation processes.",
+      "source": "Premium Times",
+      "url": "https://www.premiumtimesng.com/regional/south-south-regional/919349-senate-passes-bills-to-establish-new-universities-in-delta-cross-river.html",
+      "imageAlt": "Higher education and university development in the South-South; illustrative visual",
+      "visual": "🎓",
       "featured": true
     },
     {
-      "id": "ng-digital-payments-phone-tap-1026",
-      "category": "NIGERIA · BUSINESS · DIGITAL PAYMENTS",
-      "location": "Nigeria",
-      "headline": "Banks and Interswitch promote phone-tap payments to reduce checkout friction",
-      "summary": "A report published on Monday says banks and payments company Interswitch are pushing tokenised card payments that allow supported phones to be tapped at compatible payment terminals. The approach could make some transactions more convenient, but availability depends on participating banks, devices and merchants. Customers should confirm support with their bank and protect their payment credentials.",
-      "source": "Punch Newspapers",
-      "url": "https://punchng.com/banks-interswitch-push-phone-taps-to-cut-payment-friction/",
-      "imageAlt": "Contactless mobile payment at a point-of-sale terminal; illustrative visual",
-      "visual": "📱",
+      "id": "ss-rivers-boat-probe-1027",
+      "category": "SOUTH-SOUTH · RIVERS · PUBLIC SAFETY",
+      "location": "Rivers State waterways",
+      "headline": "Rivers governor promises probe into deadly boat tragedy",
+      "summary": "Premium Times reported that Governor Siminalayi Fubara promised an investigation after a boat tragedy in Rivers State in which deaths were reported. Early reports differed on the casualty count, so this item does not present an unverified final toll. The investigation should clarify the circumstances and accountability.",
+      "source": "Premium Times",
+      "url": "https://www.premiumtimesng.com/regional/south-south-regional/919586-rivers-boat-tragedy-fubara-vows-probe-as-10-reportedly-die.html",
+      "imageAlt": "Rivers State waterways and boat safety; illustrative visual",
+      "visual": "🛟",
       "featured": false
     }
   ]
