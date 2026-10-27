@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "089",
+    date: "TUESDAY, OCTOBER 27, 2026",
+    heading: "PROGRESS WITH MEMORY",
+    quote: "Moving forward does not require forgetting where we came from.",
+    note: "Progress and preservation do not have to be opposites. Communities can welcome new ideas while protecting languages, histories, skills and traditions that give people a sense of continuity. The challenge is not choosing between the past and the future, but carrying the best of both responsibly.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "088",
     date: "MONDAY, OCTOBER 26, 2026",
     heading: "THE STORIES WE SHARE",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "087",
     date: "SUNDAY, OCTOBER 25, 2026",
