@@ -1,74 +1,86 @@
 /*
   LocalMedia247 — Living News Wall
-  Live News · Tuesday, October 27, 2026
+  Live News · Wednesday, October 28, 2026
   Editorial standard: verify dates and attribution, distinguish official claims
   from independently confirmed facts, and label illustrative or file images.
   This edition refreshes the wall with current national and South-South developments.
 */
 window.LocalMedia247News = {
-  "date": "TUESDAY, OCTOBER 27, 2026",
-  "updatedLabel": "LIVE NEWS · TUESDAY UPDATE · 27 OCTOBER 2026",
+  "date": "WEDNESDAY, OCTOBER 28, 2026",
+  "updatedLabel": "LIVE NEWS · WEDNESDAY UPDATE · 28 OCTOBER 2026",
   "updateMode": "ANYTIME",
   "cadenceLabel": "MORNING · AFTERNOON · EVENING · ANYTIME",
   "stories": [
     {
-      "id": "ng-taraba-binnari-attack-1027",
-      "category": "NIGERIA · SECURITY · DEVELOPING",
-      "location": "Binnari community, Taraba State",
-      "headline": "Death toll rises after deadly attack on Taraba community",
-      "summary": "The Associated Press reports that at least 62 people were killed and 52 wounded in an attack on Binnari community. Recovery efforts were continuing and the final toll had not been confirmed at the time of reporting. The figures remain developing; LocalMedia247 will distinguish confirmed official information from estimates as updates emerge.",
-      "source": "Associated Press",
-      "url": "https://apnews.com/article/ecc5e9432b73275371b8490c775320dc",
-      "imageAlt": "Emergency response and community safety in Taraba State; illustrative visual",
-      "visual": "🚨",
+      "id": "ss-bayelsa-brass-land-dispute-1028",
+      "category": "SOUTH-SOUTH · BAYELSA · COMMUNITY SAFETY",
+      "location": "Brass LGA, Bayelsa State",
+      "headline": "Bayelsa orders oil firm to suspend land acquisition after fatal dispute",
+      "summary": "Premium Times reported on October 27 that the Bayelsa State Government directed Nembe Exploration and Production Company, operator of OML 29, to suspend land-acquisition activities in Brass until further notice. The directive followed a violent dispute involving Dieama and Okpoama communities that reportedly left one person dead and others injured. The government said police had restored peace and urged residents to avoid escalation.",
+      "source": "Premium Times / NAN",
+      "url": "https://www.premiumtimesng.com/regional/south-south-regional/920702-bayelsa-suspends-oil-firms-land-acquisition-over-fatal-community-dispute.html",
+      "imageAlt": "Bayelsa coastal communities and land-use concerns; illustrative visual",
+      "visual": "⚠️",
       "featured": true
     },
     {
-      "id": "ng-ebola-evacuation-1027",
-      "category": "NIGERIA · HEALTH · PUBLIC INFORMATION",
-      "location": "Abuja and national contact-tracing network",
-      "headline": "Ebola patient evacuated for treatment as Nigeria continues monitoring contacts",
-      "summary": "Nigeria's confirmed Ebola patient was evacuated to Switzerland for treatment, according to health authorities and reporting published on October 26. Nigerian authorities continue monitoring contacts; reports say there are no confirmed Ebola patients currently remaining in Nigeria. The evacuation does not end contact tracing. Follow official NCDC and health-ministry advice and avoid sharing unverified claims.",
-      "source": "Channels Television",
-      "url": "https://www.channelstv.com/2026/10/26/five-things-to-know-today-13/",
-      "imageAlt": "Public-health surveillance and infection prevention; illustrative visual",
-      "visual": "🩺",
+      "id": "ss-bayelsa-air-pollution-1028",
+      "category": "SOUTH-SOUTH · BAYELSA · ENVIRONMENT",
+      "location": "Yenagoa and oil-producing communities, Bayelsa State",
+      "headline": "Bayelsa government and civil groups seek stronger air-pollution monitoring",
+      "summary": "At a stakeholder meeting in Yenagoa on October 27, the Bayelsa Ministry of Environment and civil society organisations called for closer cooperation to monitor and tackle air pollution. Participants highlighted the need for local monitoring capacity, particularly in oil-producing communities. The report records a call for collaboration; it does not establish that a new monitoring programme is already operating statewide.",
+      "source": "Premium Times / NAN",
+      "url": "https://www.premiumtimesng.com/news/more-news/920689-bayelsa-govt-csos-unite-against-air-pollution.html",
+      "imageAlt": "Environmental protection and air-quality monitoring in the Niger Delta; illustrative visual",
+      "visual": "🌿",
       "featured": true
     },
     {
-      "id": "ss-akwa-ibom-state-police-1027",
-      "category": "SOUTH-SOUTH · AKWA IBOM · SECURITY POLICY",
-      "location": "Uyo, Akwa Ibom State",
-      "headline": "Akwa Ibom Assembly backs proposed state police framework",
-      "summary": "Premium Times reported that the Akwa Ibom House of Assembly approved its committee's recommendations supporting the proposed establishment of state police. The report says the committee recommended approval of the National Policing Bill without amendment. This is a state-level legislative position, not confirmation that state police services are already operational.",
+      "id": "ss-delta-clinical-retirement-1028",
+      "category": "SOUTH-SOUTH · DELTA · HEALTH",
+      "location": "Asaba, Delta State",
+      "headline": "Delta extends retirement age for eligible clinical health professionals to 65",
+      "summary": "Premium Times reported on October 27 that Governor Sheriff Oborevwori approved raising the retirement age for skilled clinical professionals working in government hospitals from 60 to 65, and the maximum service period from 35 to 40 years, whichever comes first. The policy covers specified clinical cadres and is subject to application, medical fitness screening and approval; it does not cover every health-sector employee.",
+      "source": "Premium Times / NAN",
+      "url": "https://www.premiumtimesng.com/regional/south-south-regional/920566-delta-extends-retirement-age-for-clinical-health-workers.html",
+      "imageAlt": "Clinical health workers serving in Delta State; source article includes a governor photograph",
+      "visual": "🏥",
+      "featured": true
+    },
+    {
+      "id": "ng-workers-transport-support-1028",
+      "category": "NIGERIA · LABOUR · PUBLIC POLICY",
+      "location": "Nationwide",
+      "headline": "Federal Government and labour agree on six months of transport support",
+      "summary": "Reports published on October 28 say the Federal Government and Nigeria Labour Congress agreed on a transport-support intervention of ₦70,000 for public-service workers for six months beginning in November. The agreement also covers staged payment of certain allowance arrears. The minimum-wage implementation date remains unresolved, so the transport intervention should not be described as a new minimum wage.",
+      "source": "Okay News / Federal Ministry of Labour statements as reported",
+      "url": "https://www.okaynews.com/okay-news-daily-briefing-october-28-2026/",
+      "imageAlt": "Nigerian workers and public transport; illustrative visual",
+      "visual": "🚌",
+      "featured": true
+    },
+    {
+      "id": "ss-rivers-rainbow-coalition-1028",
+      "category": "SOUTH-SOUTH · RIVERS · POLITICS",
+      "location": "Port Harcourt, Rivers State",
+      "headline": "Rainbow Coalition unveils preferred Rivers candidates ahead of 2027 elections",
+      "summary": "Premium Times reported on October 27 that the coalition associated with Nyesom Wike unveiled adopted candidates for Rivers State at a gathering in Port Harcourt and expressed support for President Bola Tinubu's second-term bid. These are reported political endorsements ahead of the 2027 elections, not election results or confirmation of who will ultimately win any contest.",
       "source": "Premium Times",
-      "url": "https://www.premiumtimesng.com/regional/south-south-regional/919203-akwa-ibom-assembly-adopts-recommendations-to-establish-state-police.html",
-      "imageAlt": "Akwa Ibom State House of Assembly; illustrative visual",
-      "visual": "🏛️",
-      "featured": true
+      "url": "https://www.premiumtimesng.com/home-4",
+      "imageAlt": "Political gathering in Port Harcourt; illustrative visual",
+      "visual": "🗳️",
+      "featured": false
     },
     {
-      "id": "ss-delta-crossriver-universities-1027",
-      "category": "SOUTH-SOUTH · EDUCATION · LEGISLATION",
-      "location": "Orogun, Delta State, and Cross River State",
-      "headline": "Senate passes bills for proposed federal universities in Delta and Cross River",
-      "summary": "Premium Times reported on October 22 that the Senate passed bills to establish a Federal University of Agriculture in Orogun, Delta State, and a Federal University of Education in Cross River State. Passage of the bills is a legislative step; establishment and commencement depend on the remaining legal and implementation processes.",
-      "source": "Premium Times",
-      "url": "https://www.premiumtimesng.com/regional/south-south-regional/919349-senate-passes-bills-to-establish-new-universities-in-delta-cross-river.html",
-      "imageAlt": "Higher education and university development in the South-South; illustrative visual",
-      "visual": "🎓",
-      "featured": true
-    },
-    {
-      "id": "ss-rivers-boat-probe-1027",
-      "category": "SOUTH-SOUTH · RIVERS · PUBLIC SAFETY",
-      "location": "Rivers State waterways",
-      "headline": "Rivers governor promises probe into deadly boat tragedy",
-      "summary": "Premium Times reported that Governor Siminalayi Fubara promised an investigation after a boat tragedy in Rivers State in which deaths were reported. Early reports differed on the casualty count, so this item does not present an unverified final toll. The investigation should clarify the circumstances and accountability.",
-      "source": "Premium Times",
-      "url": "https://www.premiumtimesng.com/regional/south-south-regional/919586-rivers-boat-tragedy-fubara-vows-probe-as-10-reportedly-die.html",
-      "imageAlt": "Rivers State waterways and boat safety; illustrative visual",
-      "visual": "🛟",
+      "id": "ng-inec-voter-register-review-1028",
+      "category": "NIGERIA · ELECTIONS · INEC",
+      "location": "Nationwide",
+      "headline": "INEC says questionable entries in preliminary voter register are under review",
+      "summary": "Reports on October 28 say the Independent National Electoral Commission identified questionable records during the display of the preliminary voters register and said they would be examined during a clean-up exercise. INEC described the register on display as preliminary, not the final register for the 2027 elections. Claims about individual entries should be checked against official INEC updates rather than circulated as confirmed findings.",
+      "source": "New Telegraph",
+      "url": "https://newtelegraphng.com/top-15-news-roundup-for-latest-nigeria-news-october-28-4/",
+      "imageAlt": "Voter registration and election administration in Nigeria; illustrative visual",
+      "visual": "🗳️",
       "featured": false
     }
   ]
