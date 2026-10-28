@@ -19,7 +19,8 @@ window.LocalMedia247News = {
       "summary": "Premium Times reported on October 27 that the Bayelsa State Government directed Nembe Exploration and Production Company, operator of OML 29, to suspend land-acquisition activities in Brass until further notice. The directive followed a violent dispute involving Dieama and Okpoama communities that reportedly left one person dead and others injured. The government said police had restored peace and urged residents to avoid escalation.",
       "source": "Premium Times / NAN",
       "url": "https://www.premiumtimesng.com/regional/south-south-regional/920702-bayelsa-suspends-oil-firms-land-acquisition-over-fatal-community-dispute.html",
-      "imageAlt": "Bayelsa coastal communities and land-use concerns; illustrative visual",
+      "imageUrl": "https://i0.wp.com/media.premiumtimesng.com/wp-content/files/2026/10/Logo-of-Nembe-Exploration-and-Production-Company-Ltd.jpg?fit=500%2C270&ssl=1",
+      "imageAlt": "Nembe Exploration and Production Company logo, as shown in Premium Times report",
       "visual": "⚠️",
       "featured": true
     },
@@ -31,7 +32,8 @@ window.LocalMedia247News = {
       "summary": "At a stakeholder meeting in Yenagoa on October 27, the Bayelsa Ministry of Environment and civil society organisations called for closer cooperation to monitor and tackle air pollution. Participants highlighted the need for local monitoring capacity, particularly in oil-producing communities. The report records a call for collaboration; it does not establish that a new monitoring programme is already operating statewide.",
       "source": "Premium Times / NAN",
       "url": "https://www.premiumtimesng.com/news/more-news/920689-bayelsa-govt-csos-unite-against-air-pollution.html",
-      "imageAlt": "Environmental protection and air-quality monitoring in the Niger Delta; illustrative visual",
+      "imageUrl": "https://i0.wp.com/media.premiumtimesng.com/wp-content/files/2026/10/Official-of-Bayelsa-Ministry-of-Environment-with-representatives-of-CSOs.jpg?fit=1040%2C780&ssl=1",
+      "imageAlt": "Bayelsa Ministry of Environment official and civil society representatives, photo via Premium Times",
       "visual": "🌿",
       "featured": true
     },
@@ -43,7 +45,8 @@ window.LocalMedia247News = {
       "summary": "Premium Times reported on October 27 that Governor Sheriff Oborevwori approved raising the retirement age for skilled clinical professionals working in government hospitals from 60 to 65, and the maximum service period from 35 to 40 years, whichever comes first. The policy covers specified clinical cadres and is subject to application, medical fitness screening and approval; it does not cover every health-sector employee.",
       "source": "Premium Times / NAN",
       "url": "https://www.premiumtimesng.com/regional/south-south-regional/920566-delta-extends-retirement-age-for-clinical-health-workers.html",
-      "imageAlt": "Clinical health workers serving in Delta State; source article includes a governor photograph",
+      "imageUrl": "https://i0.wp.com/media.premiumtimesng.com/wp-content/files/2023/08/Oborevwori.jpeg?fit=2000%2C1377&ssl=1",
+      "imageAlt": "Delta State Governor Sheriff Oborevwori, photo credited to his Twitter handle via Premium Times",
       "visual": "🏥",
       "featured": true
     },
