@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "090",
+    date: "WEDNESDAY, OCTOBER 28, 2026",
+    heading: "THE QUIET POWER OF CONSISTENCY",
+    quote: "What we do consistently can matter more than what we do occasionally with great intensity.",
+    note: "Important work is often built through repetition: one interview, one lesson, one record, one conversation and one careful improvement at a time. Consistency turns intention into something that can endure. The work may feel small today, but time gives it weight.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "089",
     date: "TUESDAY, OCTOBER 27, 2026",
     heading: "PROGRESS WITH MEMORY",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "088",
     date: "MONDAY, OCTOBER 26, 2026",
