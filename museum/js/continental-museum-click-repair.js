@@ -150,7 +150,7 @@
   }
 
   function handleClick(event) {
-    if (event.type !== "click" || ignored(event)) return;
+    if ((event.type !== "click" && event.type !== "pointerup") || ignored(event)) return;
 
     var target = event.target;
     var id = null;
@@ -179,7 +179,10 @@
     openMuseum(id);
   }
 
-  /* This file is included in the document head, ahead of legacy world handlers. */
+  /* This file is included in the document head, ahead of legacy world handlers.
+     Recover on pointer release as well as click: transformed campus/camera layers
+     can intercept the browser click even when the user releases on a building. */
+  window.addEventListener("pointerup", handleClick, true);
   window.addEventListener("click", handleClick, true);
   document.addEventListener("keydown", function (event) {
     if (event.key !== "Enter" && event.key !== " ") return;
