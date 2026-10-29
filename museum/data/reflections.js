@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "091",
+    date: "THURSDAY, OCTOBER 29, 2026",
+    heading: "EVERY GENERATION ADDS A CHAPTER",
+    quote: "We inherit a story, but we also become responsible for the chapter we add to it.",
+    note: "No generation begins from nothing. We inherit discoveries, languages, institutions, memories and unfinished work. Our responsibility is to learn from what came before and contribute something useful for those who will come after us.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "090",
     date: "WEDNESDAY, OCTOBER 28, 2026",
     heading: "THE QUIET POWER OF CONSISTENCY",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "089",
     date: "TUESDAY, OCTOBER 27, 2026",
