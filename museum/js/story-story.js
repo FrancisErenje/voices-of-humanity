@@ -121,6 +121,7 @@
     pavilion.addEventListener("click",open);close.addEventListener("click",shut);
     overlay.addEventListener("click",e=>{if(e.target===overlay)shut();});
     document.addEventListener("keydown",e=>{if(e.key==="Escape"&&overlay.classList.contains("open"))shut();});
+    if(window.location.hash==="#story=last-plate")open();
   }
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init,{once:true});else init();
   window.addEventListener("load",init,{once:true});
