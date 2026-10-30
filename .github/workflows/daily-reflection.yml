@@ -7,6 +7,8 @@ on:
   # Daily reset: publish at 06:07 Nigeria time (05:07 UTC).
   schedule:
     - cron: "7 5 * * *"
+    # Safety retry: 07:17 Nigeria time if the first scheduled run is delayed or fails.
+    - cron: "17 6 * * *"
   workflow_dispatch:
 
 permissions:
