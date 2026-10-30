@@ -181,8 +181,8 @@
     const close=el("button","story-story-close","×");close.type="button";close.setAttribute("aria-label","Close Story Story");head.appendChild(close);
     const body=el("div","story-story-body"),list=el("div","story-story-list"),reading=el("article","story-story-reading"),footer=el("div","story-story-footer","New original stories will be added here regularly. Stories and images are presented within the Voices of Humanity Museum.");
     body.append(list,reading,footer);card.append(head,body);overlay.appendChild(card);document.body.appendChild(overlay);
-    let selected=stories.findIndex(story=>story.id==="the-second-pair-of-shoes");
-    if(selected<0)selected=0;
+    stories.sort((a,b)=>(a.id==="the-second-pair-of-shoes"?-1:b.id==="the-second-pair-of-shoes"?1:0));
+    let selected=0;
     function renderStory(index){
       selected=index;list.replaceChildren();stories.forEach((story,i)=>{const b=el("button","story-story-item");b.type="button";b.setAttribute("aria-pressed",String(i===index));b.append(el("span","",story.category),el("strong","",story.title),el("p","",story.summary));b.addEventListener("click",()=>renderStory(i));list.appendChild(b);});
       const story=stories[index];reading.replaceChildren();reading.append(el("h3","",story.title),el("p","story-story-tagline",story.tagline));
