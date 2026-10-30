@@ -51,3 +51,33 @@
  .story-story-body{padding:16px}
  .story-story-reading{font-size:16px;line-height:1.75}
 }
+
+
+/* 2026-10-30: warm golden-yellow exterior for the STORY STORY!! pavilion.
+   The reading-room overlay intentionally keeps its existing cream/green palette. */
+#story-story-pavilion .story-story-roof{
+  border-color:#fff0a6;
+  background:linear-gradient(180deg,#ffe879,#d99a16);
+}
+#story-story-pavilion .story-story-sign{
+  border-color:#fff0a6;
+  background:linear-gradient(135deg,#f7d84b,#f2b923 55%,#c9870b);
+  text-shadow:0 1px 2px #fff8;
+}
+#story-story-pavilion .story-story-sign strong{color:#49300a;text-shadow:none}
+#story-story-pavilion .story-story-sign span{color:#50380e}
+#story-story-pavilion .story-story-columns{
+  background:linear-gradient(90deg,#d99a16,#ffe36a 50%,#d99a16);
+  border-color:#fff0a6;
+}
+#story-story-pavilion .story-story-columns i{
+  background:linear-gradient(90deg,#9b650d,#fff0a6 45%,#b8790b);
+}
+#story-story-pavilion .story-story-door{
+  border-color:#fff0a6;
+  background:linear-gradient(90deg,#9d690d,#e8b72e,#9d690d);
+}
+#story-story-pavilion .story-story-steps{
+  background:linear-gradient(#fff0a6,#c18a1c);
+  border-color:#fff0a6;
+}
