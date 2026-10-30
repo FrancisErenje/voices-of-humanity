@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "092",
+    date: "FRIDAY, OCTOBER 30, 2026",
+    heading: "WHEN KNOWLEDGE IS AT RISK",
+    quote: "Anything that can disappear deserves attention before it is too late.",
+    note: "A language, craft, oral tradition, local history or community memory may seem secure until the people who carry it become fewer. Preservation works best before loss becomes irreversible. Paying attention early gives knowledge a better chance to survive.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "091",
     date: "THURSDAY, OCTOBER 29, 2026",
     heading: "EVERY GENERATION ADDS A CHAPTER",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "090",
     date: "WEDNESDAY, OCTOBER 28, 2026",
