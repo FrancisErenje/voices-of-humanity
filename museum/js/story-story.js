@@ -93,6 +93,77 @@
         "Because one day, the chair opposite you may be empty. And the meal you kept promising to share may become the meal you can never share again."
       ]
     }
+    ,
+    {
+      id:"the-second-pair-of-shoes",
+      title:"The Second Pair of Shoes",
+      category:"Family, Dignity & Sacrifice",
+      tagline:"She wanted the world to see her new shoes. She never noticed the hands that made them.",
+      summary:"A schoolgirl becomes embarrassed by her father's humble work as a roadside cobbler. On the day she is honoured, she discovers the quiet sacrifice behind every step she has taken.",
+      dateLabel:"30 October 2026",
+      paragraphs:[
+        "The first time Ada noticed the smell of leather on her father's hands, she was eight years old. She had run home from school, thrown her arms around him and asked why his fingers always smelled like old shoes.",
+        "Her father, Mr. Okoro, laughed. “Because these hands are trying to take you somewhere better.”",
+        "He repaired shoes beneath a faded blue umbrella beside the busy road in Enugu. His wooden stool was uneven, his toolbox was older than Ada, and the sign above his little space simply read: OKORO — SHOE REPAIRS.",
+        "Every morning, he left home before Ada woke up. Every evening, he returned with dust on his trousers and tiny cuts on his fingers. But he never came home without asking the same question: “What did you learn today?”",
+        "Ada was a bright student. Her teachers praised her essays, her mathematics and the way she spoke during debates. Her father kept every report card in a biscuit tin beneath his bed.",
+        "As Ada grew older, however, she began to notice the difference between her father's life and the lives of other parents. Some arrived at school in cars. Some wore suits and polished watches. Her father arrived in a shirt that had been washed so many times its colour had almost disappeared.",
+        "One visiting day, he came to school carrying her lunch in a small plastic bowl. Ada saw two classmates looking at his dusty sandals and laughing.",
+        "“Is that your father?” one whispered.",
+        "Ada nodded, but she did not run to him as she usually did. She collected the bowl quickly and asked him to leave before the bell rang.",
+        "Her father noticed the change. He said nothing. He only asked, “Did you eat?”",
+        "“Yes, Daddy,” she replied, although shame had taken away her appetite.",
+        "A few weeks later, Ada was selected to represent her school at a regional academic competition. The winner would receive a scholarship that could support her university education.",
+        "She was excited. For the first time, she imagined a future in which her father would no longer have to sit by the roadside repairing other people's shoes.",
+        "“Daddy, I want to win,” she told him.",
+        "He placed both hands on her shoulders. “Then prepare well. Let your work speak for you.”",
+        "The competition was scheduled for a Saturday. Ada needed a pair of black shoes for the ceremony. Her old pair had split near the sole, and the school had made it clear that contestants must dress formally.",
+        "Her father examined the shoes under the light of a small bulb.",
+        "“I can repair these,” he said.",
+        "“Daddy, I don't want repaired shoes. I want new ones. Everybody will be looking at us.”",
+        "He looked at her for a moment, then nodded. “All right. Let me see what I can do.”",
+        "That night, Ada woke to the sound of a needle passing through leather. Her father was sitting near the doorway, working beneath a weak rechargeable lamp. On the floor beside him lay a pair of black shoes he had been making from leftover leather.",
+        "She watched for a moment, then returned to bed.",
+        "The next morning, he placed the shoes beside her school bag. They were simple, carefully stitched and polished until they shone.",
+        "“I made them for you,” he said.",
+        "Ada tried them on. They fitted perfectly. But she frowned. “Daddy, they still look handmade.”",
+        "Her father's smile became smaller. “Yes. They are.”",
+        "She carried them to school without saying thank you.",
+        "On the morning of the competition, Ada stood before the mirror in her uniform and black shoes. Her father adjusted her collar, brushed a little dust from her shoulder and reached for his old jacket.",
+        "“Are you coming?” she asked.",
+        "“I will come,” he promised. “I have one delivery to make first.”",
+        "At the venue, Ada searched the audience before the competition began. Parents sat together, taking photographs. She saw polished shoes, bright clothes and expensive phones. She did not see her father.",
+        "The questions were difficult. Ada's hands trembled at first, but she remembered his words: Let your work speak for you. She breathed deeply and answered one question after another.",
+        "When the results were announced, her name came first.",
+        "The hall erupted in applause. Ada walked to the stage and received her certificate. A photographer asked her to stand with her parents, but the chair beside her was empty.",
+        "She smiled for the camera anyway.",
+        "After the ceremony, her teacher approached her. “Ada, your father came earlier. He was standing outside the hall.”",
+        "“Where is he now?”",
+        "“He said he had to return to work. He asked me to tell you he was proud.”",
+        "Ada felt a sudden sting in her chest. She walked outside and found no sign of him.",
+        "When she reached home, she found her father asleep in his chair. His right hand was wrapped in a piece of cloth. Beside him lay a small brown envelope.",
+        "Inside the envelope was a receipt for the scholarship registration and examination expenses. There was also a note in his handwriting: “For Ada. One step at a time.”",
+        "Under the note was a folded photograph. It showed her father at the roadside, holding the finished shoes in one hand. His other hand was bleeding where the needle had pierced his finger.",
+        "Ada looked at the shoes she was wearing. For the first time, she did not see a rough pair of handmade shoes. She saw the hours he had spent working after dark. She saw the money he had saved. She saw the hands that had carried her books, washed her uniform when she was ill and held her bicycle when she was learning to ride.",
+        "She knelt beside his chair.",
+        "“Daddy,” she whispered.",
+        "He woke slowly. “How did it go?”",
+        "“I won.”",
+        "His face brightened. “I knew you could do it.”",
+        "Ada held his injured hand carefully. “I'm sorry I was ashamed of you.”",
+        "He looked confused for a moment. Then he gently touched her cheek.",
+        "“My daughter, there is nothing shameful about honest work. These hands may not wear expensive rings, but they have never stolen your future from anybody.”",
+        "Ada began to cry. “I wanted you to be like the other fathers.”",
+        "He smiled tiredly. “And I only wanted you to have choices I never had.”",
+        "Years later, Ada would remember that day more clearly than the applause, the certificate or the scholarship. She would remember the small brown envelope, the injured hand and the man who had made her shoes while the rest of the world slept.",
+        "When she graduated from university, she did not ask her father to sit at the back of the hall. She reserved the front seat for him. She polished his old shoes herself and placed them beside the chair.",
+        "Before the ceremony began, she bent down and whispered, “Today, Daddy, everybody will see the man who brought me here.”",
+        "He held her hand. The same hands that had once repaired broken shoes trembled as he wiped his eyes.",
+        "Some people build our future in places nobody applauds. They work beneath umbrellas, behind counters, beside roads and in rooms lit by weak bulbs. Their clothes may be simple, but their sacrifices are not.",
+        "Never measure a person's worth by the shine of their shoes. Sometimes, the hands that make the smallest living are the hands carrying the biggest dreams.",
+        "And if someone has been working quietly to help you take the next step, do not wait until you reach the top before you turn around and say thank you."
+      ]
+    }
   ];
   function el(tag,cls,text){const node=document.createElement(tag);if(cls)node.className=cls;if(text!==undefined)node.textContent=text;return node;}
   function init(){
@@ -102,7 +173,7 @@
     const pavilion=el("button","");
     pavilion.id="story-story-pavilion";pavilion.type="button";
     pavilion.setAttribute("aria-label","Open STORY STORY daily stories");
-    pavilion.innerHTML='<span class="story-story-count">1 STORY</span><div class="story-story-roof"></div><div class="story-story-sign"><strong>STORY STORY!!</strong><span>Stories that touch the heart</span></div><div class="story-story-columns"><i></i><i></i><i></i><i></i></div><div class="story-story-door"></div><div class="story-story-steps"></div>';
+    pavilion.innerHTML='<span class="story-story-count">${stories.length} STORIES</span><div class="story-story-roof"></div><div class="story-story-sign"><strong>STORY STORY!!</strong><span>Stories that touch the heart</span></div><div class="story-story-columns"><i></i><i></i><i></i><i></i></div><div class="story-story-door"></div><div class="story-story-steps"></div>';
     campus.appendChild(pavilion);
     const overlay=el("div","story-story-overlay");overlay.id="storyStoryOverlay";overlay.setAttribute("aria-hidden","true");
     const card=el("section","story-story-card");card.setAttribute("role","dialog");card.setAttribute("aria-modal","true");card.setAttribute("aria-labelledby","storyStoryTitle");
