@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "093",
+    date: "SATURDAY, OCTOBER 31, 2026",
+    heading: "THE STORIES BEHIND THE NAMES",
+    quote: "Every name can carry a history that deserves to be understood.",
+    note: "Names of people, places, communities and languages often contain memories of movement, identity, relationships and history. Learning the story behind a name can reveal connections that are invisible on a map or in a simple list.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "092",
     date: "FRIDAY, OCTOBER 30, 2026",
     heading: "WHEN KNOWLEDGE IS AT RISK",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "091",
     date: "THURSDAY, OCTOBER 29, 2026",
