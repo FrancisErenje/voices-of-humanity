@@ -174,7 +174,7 @@
     const pavilion=el("button","");
     pavilion.id="story-story-pavilion";pavilion.type="button";
     pavilion.setAttribute("aria-label","Open STORY STORY daily stories");
-    pavilion.innerHTML='<span class="story-story-count">${stories.length} STORIES</span><div class="story-story-roof"></div><div class="story-story-sign"><strong>STORY STORY!!</strong><span>Stories that touch the heart</span></div><div class="story-story-columns"><i></i><i></i><i></i><i></i></div><div class="story-story-door"></div><div class="story-story-steps"></div>';
+    pavilion.innerHTML='<span class="story-story-pulse" aria-hidden="true"></span><span class="story-story-button-label">STORY STORY!!</span><span class="story-story-button-caption">A new story is waiting</span>';
     campus.appendChild(pavilion);
     const overlay=el("div","story-story-overlay");overlay.id="storyStoryOverlay";overlay.setAttribute("aria-hidden","true");
     const card=el("section","story-story-card");card.setAttribute("role","dialog");card.setAttribute("aria-modal","true");card.setAttribute("aria-labelledby","storyStoryTitle");
@@ -182,6 +182,7 @@
     const close=el("button","story-story-close","×");close.type="button";close.setAttribute("aria-label","Close Story Story");head.appendChild(close);
     const body=el("div","story-story-body"),list=el("div","story-story-list"),reading=el("article","story-story-reading"),footer=el("div","story-story-footer","New original stories will be added here regularly. Stories and images are presented within the Voices of Humanity Museum.");
     body.append(list,reading,footer);card.append(head,body);overlay.appendChild(card);document.body.appendChild(overlay);
+    stories.sort((a,b)=>a.id==='the-second-pair-of-shoes'?-1:b.id==='the-second-pair-of-shoes'?1:0);
     let selected=0;
     function renderStory(index){
       selected=index;list.replaceChildren();stories.forEach((story,i)=>{const b=el("button","story-story-item");b.type="button";b.setAttribute("aria-pressed",String(i===index));b.append(el("span","",story.category),el("strong","",story.title),el("p","",story.summary));b.addEventListener("click",()=>renderStory(i));list.appendChild(b);});
