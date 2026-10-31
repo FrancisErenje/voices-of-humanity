@@ -168,9 +168,13 @@
   ];
   function el(tag,cls,text){const node=document.createElement(tag);if(cls)node.className=cls;if(text!==undefined)node.textContent=text;return node;}
   function init(){
-    if(document.getElementById("story-story-pavilion"))return;
     const campus=document.getElementById("campus");
     if(!campus)return;
+    // Replace any pavilion left behind by an older museum script or cached markup.
+    const previousPavilion=document.getElementById("story-story-pavilion");
+    if(previousPavilion)previousPavilion.remove();
+    const previousOverlay=document.getElementById("storyStoryOverlay");
+    if(previousOverlay)previousOverlay.remove();
     const pavilion=el("button","");
     pavilion.id="story-story-pavilion";pavilion.type="button";
     pavilion.setAttribute("aria-label","Open STORY STORY daily stories");
