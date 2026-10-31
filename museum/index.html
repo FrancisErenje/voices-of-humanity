@@ -2614,6 +2614,27 @@ window.Tawk_API.onChatMaximized = function(){
   });
 })();
 </script>
+
+<script>
+/* Open the Hall exhibition when visitors arrive from the About-page archive link. */
+(function(){
+  var params=new URLSearchParams(window.location.search);
+  if(!params.has("openHall")) return;
+  function openHallFromArchive(){
+    if(typeof window.openHallHumanityExperience==="function"){
+      window.openHallHumanityExperience();
+      return true;
+    }
+    var overlay=document.querySelector(".hall-exhibition-overlay");
+    if(overlay){overlay.classList.add("open");overlay.style.display="block";document.body.classList.add("hall-overlay-open");return true;}
+    return false;
+  }
+  var attempts=0;
+  function retry(){if(openHallFromArchive() || ++attempts>=30) return;setTimeout(retry,250);}
+  if(document.readyState==="complete") setTimeout(retry,400);
+  else window.addEventListener("load",function(){setTimeout(retry,400);},{once:true});
+})();
+</script>
 </body>
 
 </html>
