@@ -1,15 +1,18 @@
-/* About Voices of Humanity access points.
-   These links sit above the museum scene and do not alter campus geometry. */
+/* About Voices of Humanity access point.
+   Keep one compact link in the upper-right, below the browser-safe header,
+   and prevent the duplicate legacy link from covering museum controls. */
 .museum-about-shortcut{
-  position:fixed;top:18px;right:22px;z-index:10050;
+  position:fixed;top:72px;right:22px;z-index:10050;
   display:inline-flex;align-items:center;gap:9px;
-  padding:11px 17px;border:1px solid rgba(215,180,91,.82);
+  padding:10px 15px;border:1px solid rgba(215,180,91,.82);
   border-radius:3px;background:rgba(10,10,9,.92);
   color:#f1d58c;font:700 11px/1.2 Arial,sans-serif;
   letter-spacing:1.1px;text-decoration:none;text-transform:uppercase;
   box-shadow:0 8px 26px rgba(0,0,0,.3);backdrop-filter:blur(10px);
   transition:background .2s ease,transform .2s ease,box-shadow .2s ease;
 }
+/* The page contains the same About link twice; show only the first one. */
+body > a.museum-about-shortcut:nth-of-type(2){display:none!important}
 .museum-about-shortcut:hover{background:#d7b45b;color:#17130a;transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.38)}
 .visitor-centre .visitor-about-link{
   position:absolute;left:50%;bottom:12px;transform:translateX(-50%);
@@ -22,6 +25,6 @@
 .visitor-centre .visitor-about-link:hover{background:#d7b45b;color:#17130a}
 .visitor-centre{position:absolute}
 @media(max-width:600px){
- .museum-about-shortcut{top:10px;right:10px;padding:9px 12px;font-size:10px}
+ .museum-about-shortcut{top:64px;right:10px;padding:8px 10px;font-size:9px;max-width:calc(100vw - 24px)}
  .visitor-centre .visitor-about-link{font-size:9px;padding:6px 8px;bottom:8px}
 }
