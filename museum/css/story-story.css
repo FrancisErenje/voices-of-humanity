@@ -1,28 +1,22 @@
-/* STORY STORY!! — the daily storytelling pavilion beside the Hall of Humanity */
+/* STORY STORY!! — animated visitor button; replaces the former pavilion building */
 #story-story-pavilion{
-  position:absolute; left:calc(50% + 390px); top:770px; width:300px; min-height:250px;
-  z-index:105; cursor:pointer; color:#fff; text-align:center; font-family:Georgia,serif;
-  filter:drop-shadow(0 12px 14px rgba(0,0,0,.28)); transform:translateZ(0);
+ position:absolute;left:calc(50% + 390px);top:770px;z-index:106;
+ display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+ min-width:220px;padding:15px 24px 13px;border:2px solid #fff0a6;border-radius:999px;
+ background:linear-gradient(135deg,#ffe879 0%,#f4bf2f 52%,#d99512 100%);
+ color:#49300a;text-align:center;cursor:pointer;
+ box-shadow:0 8px 22px #0006,inset 0 2px 5px #fff9;
+ transform:translateZ(0);transition:transform .2s ease,box-shadow .2s ease;
+ animation:storyStoryFloat 2.8s ease-in-out infinite;
 }
-#story-story-pavilion .story-story-roof{
-  height:42px; margin:0 12px; border:2px solid #f5d98a; border-bottom:0;
-  border-radius:80% 80% 0 0; background:linear-gradient(180deg,#2c7653,#17452f);
-  box-shadow:inset 0 5px 10px #ffffff20;
-}
-#story-story-pavilion .story-story-sign{
-  padding:12px 10px 10px; border:3px solid #e8c66c; border-radius:8px 8px 3px 3px;
-  background:linear-gradient(135deg,#17452f,#246747 55%,#103724);
-  text-shadow:0 2px 3px #0008; letter-spacing:1.5px;
-}
-#story-story-pavilion .story-story-sign strong{display:block;font-size:25px;line-height:1.1;color:#ffe6a0}
-#story-story-pavilion .story-story-sign span{display:block;margin-top:7px;font:italic 12px Arial,sans-serif;letter-spacing:.4px;color:#fff5d8}
-#story-story-pavilion .story-story-columns{display:flex;justify-content:space-around;height:94px;padding:0 22px;background:linear-gradient(90deg,#17452f,#2a7651,#17452f);border:2px solid #e8c66c;border-top:0}
-#story-story-pavilion .story-story-columns i{display:block;width:16px;height:100%;background:linear-gradient(90deg,#b58a36,#f8dfa0 45%,#946b23);border-radius:2px;box-shadow:0 0 5px #0005}
-#story-story-pavilion .story-story-door{position:absolute;bottom:0;left:calc(50% - 28px);width:56px;height:65px;border:3px solid #e8c66c;border-bottom:0;border-radius:30px 30px 0 0;background:linear-gradient(90deg,#102d21,#2b6448,#102d21);box-shadow:inset 0 0 0 3px #ffffff12}
-#story-story-pavilion .story-story-steps{height:14px;margin:0 8px;background:linear-gradient(#e6d5a5,#9c8045);border:1px solid #f4df9d;box-shadow:0 5px 0 #5e4c2b}
-#story-story-pavilion:hover{filter:drop-shadow(0 0 15px #f6d778aa);transform:translateY(-3px)}
-#story-story-pavilion:focus-visible{outline:3px solid #ffe7a0;outline-offset:7px}
-#story-story-pavilion .story-story-count{position:absolute;top:-10px;right:8px;background:#b52d26;border:2px solid #ffe4a0;border-radius:20px;padding:4px 8px;font:700 11px Arial,sans-serif;letter-spacing:0}
+#story-story-pavilion:hover{transform:translateY(-4px) scale(1.035);box-shadow:0 0 24px #ffe36aaa,0 12px 25px #0007}
+#story-story-pavilion:focus-visible{outline:3px solid #fff;outline-offset:5px}
+#story-story-pavilion .story-story-button-label{font:900 23px/1.1 Arial,sans-serif;letter-spacing:1.6px;color:#49300a;text-shadow:0 1px 0 #fff7}
+#story-story-pavilion .story-story-button-caption{font:italic 12px/1.2 Georgia,serif;color:#5b4214}
+#story-story-pavilion .story-story-pulse{position:absolute;top:7px;right:19px;width:9px;height:9px;border-radius:50%;background:#2f8c48;box-shadow:0 0 0 0 #2f8c4880;animation:storyStoryPulse 1.7s infinite}
+@keyframes storyStoryFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes storyStoryPulse{0%{box-shadow:0 0 0 0 #2f8c4880}70%{box-shadow:0 0 0 9px #2f8c4800}100%{box-shadow:0 0 0 0 #2f8c4800}}
+@media(prefers-reduced-motion:reduce){#story-story-pavilion,.story-story-pulse{animation:none!important}}
 .story-story-overlay{position:fixed!important;inset:0!important;z-index:2147483646!important;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(5,17,12,.82);backdrop-filter:blur(7px);font-family:Arial,sans-serif;box-sizing:border-box}
 .story-story-overlay.open{display:flex!important}
 .story-story-card{position:relative;width:min(900px,96vw);max-height:90vh;overflow:auto;background:#fbf5e8;color:#20251f;border:2px solid #d5b45d;border-radius:16px;box-shadow:0 25px 80px #0008}
@@ -44,7 +38,7 @@
 .story-story-reading p{margin:0 0 1em}
 .story-story-footer{margin-top:22px;padding-top:15px;border-top:1px solid #d9cda9;font:italic 13px/1.6 Georgia,serif;color:#66705e;text-align:center}
 @media(max-width:700px){
- #story-story-pavilion{left:calc(50% + 365px);top:780px;transform:scale(.84);transform-origin:top left}
+ #story-story-pavilion{left:calc(50% + 365px);top:780px;min-width:190px;padding:13px 18px}
  .story-story-overlay{padding:8px}
  .story-story-card{width:100%;max-height:94vh}
  .story-story-head{padding:22px 18px 17px}
