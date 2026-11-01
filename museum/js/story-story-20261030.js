@@ -165,6 +165,39 @@
     }
     ,
 
+    },
+    {
+      id:"the-light-at-the-classroom-window",
+      title:"The Light at the Classroom Window",
+      category:"Education, Hope & Community",
+      tagline:"When the school ran out of light, one small lantern kept a girl's dream alive.",
+      summary:"A determined student studies after dark with a borrowed lantern, unaware that her quiet struggle will bring a whole community together.",
+      dateLabel:"1 November 2026",
+      paragraphs:[
+        "Every evening, after the last bell had rung, Amara stayed behind in her classroom. She sat near the window with her exercise books open, listening to the sounds of the village settling into night.",
+        "The school had no electricity. When the sun went down, the blackboard disappeared into darkness, and the teachers had to leave.",
+        "But Amara had an examination approaching, and she was determined to become a nurse.",
+        "At home, her family shared one small room. Her younger brothers needed sleep, and the kerosene lamp was often empty. So she borrowed a rechargeable lantern from the school watchman, Baba Musa, and studied beneath the classroom window.",
+        "“Why do you keep coming back here?” he asked one evening.",
+        "“Because the light reaches my book,” Amara replied. “And I want to reach somewhere my mother has never been able to go.”",
+        "Baba Musa looked at the little lantern. Its battery was weak, and its light flickered whenever the wind moved through the broken window.",
+        "The next morning, Amara found a note beside her desk: “Keep studying. I will find you a stronger light.”",
+        "She thought it was a joke. But that evening, Baba Musa arrived carrying a larger lantern he had repaired from discarded parts. He placed it on her desk and showed her how to charge it with a small solar panel.",
+        "“It is not new,” he said, “but it will serve you.”",
+        "Amara thanked him and studied until the pages blurred. She did not know that Baba Musa had spent his own savings on the battery and had asked a local electrician to help him repair the panel.",
+        "Weeks passed. Other pupils began noticing the light in the classroom window. One brought a stool. Another brought a ruler. A teacher who lived nearby began staying for an extra hour to answer questions.",
+        "Soon, the classroom became a small evening study room. Parents took turns bringing water. The market women contributed a little money for charging the lantern. Nobody had much, but everyone gave something.",
+        "On the day the examination results were released, Amara ran to the school with a folded paper in her hand. She had passed with one of the highest scores in the district.",
+        "She searched for Baba Musa. He was standing by the gate, sweeping dust into a small pile.",
+        "“I passed!” she cried.",
+        "He leaned on his broom and smiled. “I knew that light was not wasted.”",
+        "Years later, Amara returned to the village as a qualified nurse. The school now had solar panels on its roof and a proper evening reading room. Above the doorway, someone had painted a simple sentence: “A little light shared can brighten many lives.”",
+        "At the opening ceremony, Amara placed the old repaired lantern in a glass cabinet. Its paint was chipped, and its handle was bent, but she insisted it belonged there.",
+        "“This lantern did not teach me,” she told the children. “It reminded me that I was not studying alone.”",
+        "Some people change a life with a grand speech or a large donation. Others do it with a repaired lantern, an extra hour, or a quiet promise kept.",
+        "Never underestimate the small kindness that helps someone continue. You may not see how far its light will travel."
+      ]
+    }
   ];
   function el(tag,cls,text){const node=document.createElement(tag);if(cls)node.className=cls;if(text!==undefined)node.textContent=text;return node;}
   function init(){
