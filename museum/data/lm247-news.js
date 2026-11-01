@@ -46,7 +46,7 @@ window.LocalMedia247News = {
       "summary": "Radio Nigeria South South reported on October 30 that a 22-room Corps Members' lodge was inaugurated in Nkoro Town, Opobo/Nkoro LGA. The local government council built the facility to address accommodation challenges for National Youth Service Corps members posted to the area. The report says the project is intended to support corps members' welfare and encourage more postings to the community.",
       "source": "Radio Nigeria South South",
       "url": "https://radionigeriasouthsouth.gov.ng/fubara-inaugurates-as-opobo-lg-boss-gifts-corps-members-22room-lodge/",
-      "imageUrl": "https://images.unsplash.com/photo-156 пребы?auto=format&fit=crop&w=1200&q=80",
+      "imageUrl": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=80",
       "imageAlt": "Illustrative community infrastructure image; not a photograph of the Nkoro lodge",
       "imageCredit": "Unsplash · illustrative image",
       "visual": "🏘️",
