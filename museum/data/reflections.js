@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "094",
+    date: "SUNDAY, NOVEMBER 1, 2026",
+    heading: "A NEW MONTH, ANOTHER CHANCE",
+    quote: "A new beginning does not erase the past; it gives us another opportunity to build from what we have learned.",
+    note: "The beginning of a new month is a quiet reminder that time keeps moving. We can carry forward lessons from yesterday without being trapped by yesterday. Every new beginning offers space to correct, improve, continue and start again.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "093",
     date: "SATURDAY, OCTOBER 31, 2026",
     heading: "THE STORIES BEHIND THE NAMES",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "092",
     date: "FRIDAY, OCTOBER 30, 2026",
