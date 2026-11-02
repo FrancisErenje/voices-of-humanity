@@ -38,7 +38,7 @@
 .story-story-reading p{margin:0 0 1em}
 .story-story-footer{margin-top:22px;padding-top:15px;border-top:1px solid #d9cda9;font:italic 13px/1.6 Georgia,serif;color:#66705e;text-align:center}
 @media(max-width:700px){
- #story-story-pavilion{left:calc(50% + 365px);top:780px;min-width:190px;padding:13px 18px}
+ #story-story-pavilion{position:fixed;right:10px;bottom:10px;left:auto;top:auto;min-width:190px;padding:13px 18px}
  .story-story-overlay{padding:8px}
  .story-story-card{width:100%;max-height:94vh}
  .story-story-head{padding:22px 18px 17px}
