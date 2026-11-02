@@ -174,7 +174,7 @@
     pavilion.id="story-story-pavilion";pavilion.type="button";
     pavilion.setAttribute("aria-label","Open STORY STORY daily stories");
     pavilion.innerHTML='<span class="story-story-pulse" aria-hidden="true"></span><span class="story-story-button-label">STORY STORY!!</span><span class="story-story-button-caption">Stories that touch the heart</span>';
-    document.body.appendChild(pavilion);
+    campus.appendChild(pavilion);
     const overlay=el("div","story-story-overlay");overlay.id="storyStoryOverlay";overlay.setAttribute("aria-hidden","true");
     const card=el("section","story-story-card");card.setAttribute("role","dialog");card.setAttribute("aria-modal","true");card.setAttribute("aria-labelledby","storyStoryTitle");
     const head=el("header","story-story-head");head.innerHTML='<div class="story-story-kicker">VOICES OF HUMANITY · DAILY STORY GALLERY</div><h2 id="storyStoryTitle">STORY STORY!!</h2><p>Every story carries a feeling. Every life holds a story. Come in, take a moment, and read.</p>';
