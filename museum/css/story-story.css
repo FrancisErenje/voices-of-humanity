@@ -1,6 +1,6 @@
 /* STORY STORY!! — animated visitor button; replaces the former pavilion building */
 #story-story-pavilion{
- position:absolute;left:1910px;top:870px;right:auto;bottom:auto;z-index:2147483000;
+ position:absolute;left:1910px;top:850px;right:auto;bottom:auto;z-index:2147483000;
  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
  min-width:220px;padding:15px 24px 13px;border:2px solid #fff0a6;border-radius:999px;
  background:linear-gradient(135deg,#ffe879 0%,#f4bf2f 52%,#d99512 100%);
@@ -38,7 +38,7 @@
 .story-story-reading p{margin:0 0 1em}
 .story-story-footer{margin-top:22px;padding-top:15px;border-top:1px solid #d9cda9;font:italic 13px/1.6 Georgia,serif;color:#66705e;text-align:center}
 @media(max-width:700px){
- #story-story-pavilion{position:absolute;left:1910px;top:870px;right:auto;bottom:auto;min-width:190px;padding:13px 18px}
+ #story-story-pavilion{position:absolute;left:1910px;top:850px;right:auto;bottom:auto;min-width:190px;padding:13px 18px}
  .story-story-overlay{padding:8px}
  .story-story-card{width:100%;max-height:94vh}
  .story-story-head{padding:22px 18px 17px}
