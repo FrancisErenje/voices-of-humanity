@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "095",
+    date: "MONDAY, NOVEMBER 2, 2026",
+    heading: "THE GIFT OF TEACHING",
+    quote: "What we teach another person can continue working in the world long after the lesson ends.",
+    note: "Teaching is one of the most enduring forms of contribution. A skill, idea, language, story or principle passed from one person to another can reach people the original teacher may never meet. Knowledge becomes a legacy when it is shared responsibly.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "094",
     date: "SUNDAY, NOVEMBER 1, 2026",
     heading: "A NEW MONTH, ANOTHER CHANCE",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "093",
     date: "SATURDAY, OCTOBER 31, 2026",
