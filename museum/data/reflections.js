@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "096",
+    date: "TUESDAY, NOVEMBER 3, 2026",
+    heading: "TRUTH NEEDS PATIENCE",
+    quote: "A carefully verified truth is worth more than a quickly repeated claim.",
+    note: "In a world where information moves quickly, patience remains valuable. Checking a name, date, source or quotation may take more time, but accuracy protects the people and histories represented by our work. Careful verification is a form of respect.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "095",
     date: "MONDAY, NOVEMBER 2, 2026",
     heading: "THE GIFT OF TEACHING",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "094",
     date: "SUNDAY, NOVEMBER 1, 2026",
