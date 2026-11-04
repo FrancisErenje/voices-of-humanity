@@ -1,1 +1,67 @@
-.museum-garden[data-garden-id="reflection-garden"] .fam-sponsorship-garden-link{position:absolute;left:50%;top:-88px;transform:translateX(-50%);z-index:10020;display:flex;flex-direction:column;align-items:center;gap:4px;width:max-content;max-width:min(340px,82vw);padding:10px 17px 11px;border:2px solid rgba(237,199,103,.98);border-radius:7px;background:linear-gradient(145deg,rgba(28,21,8,.98),rgba(5,5,5,.98));color:#ffe3a0;text-decoration:none;text-align:center;box-shadow:0 5px 18px rgba(0,0,0,.48),0 0 18px rgba(232,194,91,.3);font-family:Arial,Helvetica,sans-serif;white-space:normal;line-height:1.15;pointer-events:auto}.fam-sponsorship-garden-link .fam-sponsor-kicker{color:#d9b75d;font-size:8px;font-weight:700;letter-spacing:2px}.fam-sponsorship-garden-link strong{color:#fff0c4;font-size:12px;font-weight:900;letter-spacing:.8px}.fam-sponsorship-garden-link .fam-sponsor-detail{color:#d8c18b;font-size:10px;letter-spacing:.4px}.fam-sponsorship-garden-link:hover,.fam-sponsorship-garden-link:focus-visible{background:linear-gradient(145deg,#f0d27e,#b88b2e);color:#171108;outline:2px solid #fff0c4;outline-offset:3px}.fam-sponsorship-garden-link:hover strong,.fam-sponsorship-garden-link:hover .fam-sponsor-kicker,.fam-sponsorship-garden-link:hover .fam-sponsor-detail{color:#171108}@media(max-width:700px){.museum-garden[data-garden-id="reflection-garden"] .fam-sponsorship-garden-link{top:-69px;padding:7px 10px 8px;max-width:230px}.fam-sponsorship-garden-link strong{font-size:9px;letter-spacing:.35px}.fam-sponsorship-garden-link .fam-sponsor-kicker{font-size:7px}.fam-sponsorship-garden-link .fam-sponsor-detail{font-size:8px}}
+/* Prominent sponsorship entrance directly below the About shortcut. */
+.fam-sponsorship-garden-link{
+  position:fixed;
+  top:124px;
+  right:22px;
+  z-index:10051;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  width:300px;
+  max-width:calc(100vw - 32px);
+  padding:15px 18px 16px;
+  border:2px solid #e5bd58;
+  border-radius:5px;
+  background:linear-gradient(135deg,#241b08 0%,#080807 100%);
+  color:#ffe5a3;
+  text-decoration:none;
+  text-align:center;
+  font-family:Arial,Helvetica,sans-serif;
+  box-shadow:0 7px 24px rgba(0,0,0,.48),0 0 17px rgba(232,194,91,.24);
+  transition:transform .18s ease,background .18s ease,box-shadow .18s ease;
+}
+.fam-sponsorship-garden-link .fam-sponsor-kicker{
+  color:#d9b75d;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:2.2px;
+}
+.fam-sponsorship-garden-link strong{
+  color:#fff0c4;
+  font-size:16px;
+  font-weight:900;
+  letter-spacing:.7px;
+  line-height:1.25;
+}
+.fam-sponsorship-garden-link .fam-sponsor-detail{
+  color:#e0c98f;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.5px;
+}
+.fam-sponsorship-garden-link:hover,
+.fam-sponsorship-garden-link:focus-visible{
+  transform:translateY(-2px);
+  background:linear-gradient(135deg,#f0d27e,#b88b2e);
+  outline:2px solid #fff0c4;
+  outline-offset:3px;
+  box-shadow:0 10px 28px rgba(0,0,0,.5),0 0 22px rgba(232,194,91,.42);
+}
+.fam-sponsorship-garden-link:hover strong,
+.fam-sponsorship-garden-link:hover .fam-sponsor-kicker,
+.fam-sponsorship-garden-link:hover .fam-sponsor-detail{color:#171108}
+@media(max-width:700px){
+  .fam-sponsorship-garden-link{
+    top:111px;
+    right:10px;
+    width:250px;
+    max-width:calc(100vw - 20px);
+    padding:11px 12px 12px;
+    gap:4px;
+  }
+  .fam-sponsorship-garden-link strong{font-size:13px}
+  .fam-sponsorship-garden-link .fam-sponsor-kicker{font-size:8px}
+  .fam-sponsorship-garden-link .fam-sponsor-detail{font-size:10px}
+}
