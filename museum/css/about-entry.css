@@ -38,3 +38,18 @@ body > a.museum-about-shortcut:nth-of-type(2){display:none!important}
  .visitor-centre .visitor-about-link{font-size:9px;padding:6px 8px;bottom:34px}
  .visitor-centre .visitor-portfolio-link{font-size:9px;padding:6px 8px;bottom:7px}
 }
+
+
+/* Fam documentary sponsorship entrance in the Visitor Centre. */
+.visitor-centre .visitor-sponsor-link{
+  position:absolute;left:50%;bottom:-62px;transform:translateX(-50%);
+  display:inline-flex;align-items:center;gap:7px;white-space:nowrap;
+  padding:7px 12px;border:1px solid #8d6b2d;border-radius:2px;
+  background:#17130a;color:#f2d991;text-decoration:none;
+  font:700 10px/1.2 Arial,sans-serif;letter-spacing:.4px;
+  box-shadow:0 3px 10px rgba(0,0,0,.28);z-index:5;
+}
+.visitor-centre .visitor-sponsor-link:hover{background:#f2d991;color:#17130a}
+@media(max-width:600px){
+ .visitor-centre .visitor-sponsor-link{font-size:9px;padding:6px 8px;bottom:-27px}
+}
