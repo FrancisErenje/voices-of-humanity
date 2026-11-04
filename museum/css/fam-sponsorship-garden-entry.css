@@ -1,7 +1,7 @@
 /* Prominent sponsorship entrance directly below the About shortcut. */
 .fam-sponsorship-garden-link{
   position:fixed;
-  top:124px;
+  top:165px;
   right:22px;
   z-index:10051;
   display:flex;
@@ -54,7 +54,7 @@
 .fam-sponsorship-garden-link:hover .fam-sponsor-detail{color:#171108}
 @media(max-width:700px){
   .fam-sponsorship-garden-link{
-    top:111px;
+    top:150px;
     right:10px;
     width:250px;
     max-width:calc(100vw - 20px);
