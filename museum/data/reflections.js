@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "097",
+    date: "WEDNESDAY, NOVEMBER 4, 2026",
+    heading: "THE COURAGE TO PRESERVE",
+    quote: "Preservation sometimes begins with the courage to say: this matters.",
+    note: "Many things are lost because their value is recognized too late. Preserving a language, story, photograph, tradition or memory begins when someone decides that it is worth protecting. That decision can inspire others to care as well.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "096",
     date: "TUESDAY, NOVEMBER 3, 2026",
     heading: "TRUTH NEEDS PATIENCE",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "095",
     date: "MONDAY, NOVEMBER 2, 2026",
