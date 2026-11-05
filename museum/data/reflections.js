@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+      number: "098",
+      date: "THURSDAY, NOVEMBER 5, 2026",
+      heading: "A FUTURE WORTH LEAVING",
+      quote: "The future is shaped by what we choose to leave stronger than we found it.",
+      note: "Every generation receives a world with strengths and weaknesses. We may not be able to solve everything, but we can strengthen something: a relationship, a community, a record, a skill, a place or a body of knowledge. Progress often begins with leaving one thing better than we found it.",
+      image: "",
+      format: "text"
+  },
+  archive: [
+  {
     number: "097",
     date: "WEDNESDAY, NOVEMBER 4, 2026",
     heading: "THE COURAGE TO PRESERVE",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "096",
     date: "TUESDAY, NOVEMBER 3, 2026",
