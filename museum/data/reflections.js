@@ -6,15 +6,24 @@
 
 window.ReflectionGardenCollection = {
   current: {
-      number: "098",
-      date: "THURSDAY, NOVEMBER 5, 2026",
-      heading: "A FUTURE WORTH LEAVING",
-      quote: "The future is shaped by what we choose to leave stronger than we found it.",
-      note: "Every generation receives a world with strengths and weaknesses. We may not be able to solve everything, but we can strengthen something: a relationship, a community, a record, a skill, a place or a body of knowledge. Progress often begins with leaving one thing better than we found it.",
-      image: "",
-      format: "text"
+    number: "099",
+    date: "FRIDAY, NOVEMBER 6, 2026",
+    heading: "EVERY VOICE ADDS SOMETHING",
+    quote: "Humanity's story becomes fuller when every voice has room to contribute.",
+    note: "No single person, language or community can tell the whole story of humanity. Our understanding becomes richer when different experiences are heard and treated with dignity. Every voice adds another piece to the picture, and every piece matters.",
+    image: "",
+    format: "text"
   },
   archive: [
+  {
+    number: "098",
+    date: "THURSDAY, NOVEMBER 5, 2026",
+    heading: "A FUTURE WORTH LEAVING",
+    quote: "The future is shaped by what we choose to leave stronger than we found it.",
+    note: "Every generation receives a world with strengths and weaknesses. We may not be able to solve everything, but we can strengthen something: a relationship, a community, a record, a skill, a place or a body of knowledge. Progress often begins with leaving one thing better than we found it.",
+    image: "",
+    format: "text"
+  },
   {
     number: "097",
     date: "WEDNESDAY, NOVEMBER 4, 2026",
