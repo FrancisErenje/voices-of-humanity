@@ -2638,6 +2638,24 @@ window.Tawk_API.onChatMaximized = function(){
   else window.addEventListener("load",function(){setTimeout(retry,400);},{once:true});
 })();
 </script>
+
+<script>
+/* Keep the sponsorship link outside transformed museum sections so
+   fixed positioning is relative to the browser viewport. */
+(function(){
+  function pinSponsorshipLink(){
+    var link=document.querySelector(".visitor-sponsor-link");
+    if(!link || link.parentNode===document.body) return;
+    document.body.appendChild(link);
+  }
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded",pinSponsorshipLink,{once:true});
+  }else{
+    pinSponsorshipLink();
+  }
+})();
+</script>
+
 </body>
 
 </html>
