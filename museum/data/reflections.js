@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "101",
+    date: "SUNDAY, NOVEMBER 8, 2026",
+    heading: "THE COURAGE TO CHANGE OUR MINDS",
+    quote: "Wisdom includes the willingness to revise a belief when better evidence appears.",
+    note: "Changing our minds is not always a sign of weakness. It can show that we have listened, examined the facts and learned something new. Holding a view simply because we once believed it can keep understanding from growing. Intellectual humility allows truth to matter more than pride.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "100",
     date: "SATURDAY, NOVEMBER 7, 2026",
     heading: "THE DIGNITY OF WORK",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "099",
     date: "FRIDAY, NOVEMBER 6, 2026",
