@@ -1,15 +1,29 @@
 /*
   LocalMedia247 — Living News Wall
-  Saturday, November 7, 2026
+  Sunday, November 8, 2026
   Editorial standard: verify dates and attribution, distinguish reported claims
   from confirmed facts, and label illustrative visuals clearly.
 */
 window.LocalMedia247News = {
-  "date": "SATURDAY, NOVEMBER 7, 2026",
-  "updatedLabel": "LIVE NEWS · SATURDAY UPDATE · 7 NOVEMBER 2026",
+  "date": "SUNDAY, NOVEMBER 8, 2026",
+  "updatedLabel": "LIVE NEWS · SUNDAY UPDATE · 8 NOVEMBER 2026",
   "updateMode": "ANYTIME",
   "cadenceLabel": "MORNING · AFTERNOON · EVENING · ANYTIME",
   "stories": [
+    {
+      "id": "ng-flamingos-win-u17-womens-world-cup-1108",
+      "category": "NIGERIA · SPORTS · WOMEN'S FOOTBALL",
+      "location": "Rabat / Salé, Morocco",
+      "headline": "Nigeria's Flamingos make history, beat Japan 2–1 to win first U-17 Women's World Cup",
+      "summary": "Nigeria's Flamingos have won the FIFA U-17 Women's World Cup Morocco 2026, defeating Japan 2–1 in the final on November 7. Awawu Bashiru opened the scoring in the 39th minute before Oluebube Umejiaku doubled Nigeria's lead in the 47th minute. Japan pulled one back through Fuki Ito in the 80th minute, but Nigeria held on to secure the country's first title in the competition and make history as the first African nation to win the tournament. Umejiaku was named Player of the Match. In the third-place match, DPR Korea defeated Brazil 6–0 to finish third, with Japan as runners-up and Nigeria crowned champions.",
+      "source": "FIFA · Official final report and tournament coverage",
+      "url": "https://www.fifa.com/en/tournaments/womens/u17womensworldcup/morocco-2026/articles/rabat-japan-nigeria-report",
+      "imageUrl": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1600&q=85",
+      "imageAlt": "Illustrative photograph of a football pitch; not a photograph of the Nigeria–Japan final",
+      "imageCredit": "Unsplash · illustrative image",
+      "visual": "🏆",
+      "featured": true
+    },
     {
       "id": "ng-atiku-adc-candidacy-court-1107",
       "category": "NIGERIA · POLITICS · COURTS",
