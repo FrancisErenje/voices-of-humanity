@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "100",
+    date: "SATURDAY, NOVEMBER 7, 2026",
+    heading: "THE DIGNITY OF WORK",
+    quote: "Every honest contribution deserves to be seen, even when the task appears ordinary.",
+    note: "Work gives shape to daily life in countless ways. Some people build, some grow food, some care for others, some teach and some keep essential services running. The value of a contribution is not measured only by its visibility or title. Communities become stronger when they recognize the dignity in honest work.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "099",
     date: "FRIDAY, NOVEMBER 6, 2026",
     heading: "EVERY VOICE ADDS SOMETHING",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "098",
     date: "THURSDAY, NOVEMBER 5, 2026",
