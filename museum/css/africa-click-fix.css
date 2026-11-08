@@ -106,38 +106,40 @@
 }
 
 
-/* FINAL AFRICAN MUSEUM HIT-AREA REPAIR — 8 November 2026.
-   Keep the continental complex in the hit-test tree, but allow only the
-   museum building itself to receive pointer events. The building's own
-   transparent button spans the roof, walls and entrance. */
+/* AFRICAN MUSEUM HIT-AREA REPAIR — 8 November 2026.
+   Preserve the building's existing visual geometry. The transparent button
+   is the only enlarged hit target; nearby campus scenery remains inert. */
 #africaComplex{
-  pointer-events:auto !important;
+  pointer-events:none !important;
   z-index:2147483640 !important;
 }
-#africaComplex > :not(#africaMuseum){
-  pointer-events:none !important;
-}
 #africaComplex #africaMuseum{
-  position:absolute !important;
-  left:100px !important;
-  top:0 !important;
-  width:320px !important;
-  height:230px !important;
-  display:block !important;
-  overflow:visible !important;
   pointer-events:auto !important;
   cursor:pointer !important;
   z-index:2147483641 !important;
 }
+#africaComplex #africaMuseum > *{
+  pointer-events:none !important;
+}
 #africaComplex #africaMuseum > .full-building-hit-surface{
   position:absolute !important;
-  display:block !important;
-  inset:-68px -6px auto auto !important;
+  left:-6px !important;
+  top:-68px !important;
   width:332px !important;
   height:304px !important;
-  opacity:0 !important;
+  display:block !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  border-radius:14px !important;
+  background:rgba(0,0,0,.001) !important;
+  box-shadow:none !important;
+  opacity:1 !important;
   visibility:visible !important;
+  appearance:none !important;
+  -webkit-appearance:none !important;
   pointer-events:auto !important;
   cursor:pointer !important;
+  touch-action:manipulation !important;
   z-index:2147483647 !important;
 }
