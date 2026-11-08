@@ -29,27 +29,13 @@ window.LocalMedia247News = {
       "category": "WORLD · MIDDLE EAST · SECURITY",
       "location": "Riyadh, Saudi Arabia",
       "headline": "Saudi-led coalition says it intercepted missiles fired towards Riyadh",
-      "summary": "The Saudi-led coalition fighting Yemen's Houthis said it intercepted and destroyed two ballistic missiles fired towards Riyadh on Sunday, November 8. Saudi Civil Defense had issued an alert shortly before residents heard loud booms, and authorities later said the immediate danger had passed. The coalition subsequently reported intercepting two cruise missiles in Riyadh and southern Saudi Arabia. The claims were attributed to the coalition; Reuters reported no independent confirmation of the missiles' launch or interception.",
+      "summary": "The Saudi-led coalition fighting Yemen's Houthis said it intercepted and destroyed two ballistic missiles fired towards Riyadh on Sunday, November 8. Saudi Civil Defense had issued an alert shortly before residents heard loud booms, and authorities later said the immediate danger had passed. The coalition subsequently reported intercepting two cruise missiles in Riyadh and southern Saudi Arabia. Reuters attributed the interception reports to the coalition and separately reported the Civil Defense alert and witness accounts of the booms.",
       "source": "Reuters · Saudi-led coalition and Saudi Civil Defense statements",
       "url": "https://www.reuters.com/world/middle-east/loud-booms-heard-saudi-capital-riyadh-after-early-warning-alert-issued-2026-11-08/",
       "imageUrl": "https://images.unsplash.com/photo-1674822858255-fcc093a1ef43?auto=format&fit=crop&fm=jpg&ixid=NHwxMjA3fDA%3D&ixlib=rb-4.1.0&q=60&w=3000",
       "imageAlt": "Illustrative photograph of Riyadh's skyline; it does not depict the reported missile interceptions",
       "imageCredit": "Mohammed Alqarni / Unsplash · illustrative image",
       "visual": "🚨",
-      "featured": true
-    },
-    {
-      "id": "ng-atiku-adc-candidacy-court-1107",
-      "category": "NIGERIA · POLITICS · COURTS",
-      "location": "Abuja, Nigeria",
-      "headline": "Court voids Atiku Abubakar's ADC presidential nomination; party says it will appeal",
-      "summary": "A Federal High Court in Abuja has set aside the processes that produced the African Democratic Congress leadership and voided Atiku Abubakar's nomination as the party's presidential candidate for the January 2027 election. The case was brought by former ADC deputy national chairman Nafiu Bala Gombe, who challenged how the party leadership was constituted. The ADC rejected the ruling as politically motivated and said it would appeal. The judgment is therefore subject to further legal proceedings; it should not be treated as the final outcome of the nomination dispute.",
-      "source": "Reuters · Federal High Court ruling",
-      "url": "https://www.reuters.com/world/africa/nigerian-court-voids-candidacy-opposition-adcs-atiku-2027-election-2026-11-05/",
-      "imageUrl": "https://images.unsplash.com/photo-1555374018-13a8994ab246?auto=format&fit=crop&fm=jpg&ixid=NHwxMjA3fDA%3D&ixlib=rb-4.1.0&q=60&w=3000",
-      "imageAlt": "Illustrative photograph of a judge's gavel on a desk; not the Nigerian court or parties in the case",
-      "imageCredit": "Wesley Tingey / Unsplash",
-      "visual": "⚖️",
       "featured": true
     },
     {
@@ -78,6 +64,20 @@ window.LocalMedia247News = {
       "imageAlt": "Illustrative photograph of a bridge over the Dnipro River in Kyiv; not the Northern Bridge or damage from the reported strike",
       "imageCredit": "Viktor Talashuk / Unsplash · illustrative image",
       "visual": "⚡",
+      "featured": true
+    },
+    {
+      "id": "ng-atiku-adc-candidacy-court-1107",
+      "category": "NIGERIA · POLITICS · COURTS",
+      "location": "Abuja, Nigeria",
+      "headline": "Court voids Atiku Abubakar's ADC presidential nomination; party says it will appeal",
+      "summary": "A Federal High Court in Abuja has set aside the processes that produced the African Democratic Congress leadership and voided Atiku Abubakar's nomination as the party's presidential candidate for the January 2027 election. The case was brought by former ADC deputy national chairman Nafiu Bala Gombe, who challenged how the party leadership was constituted. The ADC rejected the ruling as politically motivated and said it would appeal. The judgment is therefore subject to further legal proceedings; it should not be treated as the final outcome of the nomination dispute.",
+      "source": "Reuters · Federal High Court ruling",
+      "url": "https://www.reuters.com/world/africa/nigerian-court-voids-candidacy-opposition-adcs-atiku-2027-election-2026-11-05/",
+      "imageUrl": "https://images.unsplash.com/photo-1555374018-13a8994ab246?auto=format&fit=crop&fm=jpg&ixid=NHwxMjA3fDA%3D&ixlib=rb-4.1.0&q=60&w=3000",
+      "imageAlt": "Illustrative photograph of a judge's gavel on a desk; not the Nigerian court or parties in the case",
+      "imageCredit": "Wesley Tingey / Unsplash",
+      "visual": "⚖️",
       "featured": true
     },
     {
