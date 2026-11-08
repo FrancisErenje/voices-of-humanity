@@ -25,6 +25,20 @@ window.LocalMedia247News = {
       "featured": true
     },
     {
+      "id": "world-saudi-houthi-missile-interceptions-riyadh-1108",
+      "category": "WORLD · MIDDLE EAST · SECURITY",
+      "location": "Riyadh, Saudi Arabia",
+      "headline": "Saudi-led coalition says it intercepted missiles fired towards Riyadh",
+      "summary": "The Saudi-led coalition fighting Yemen's Houthis said it intercepted and destroyed two ballistic missiles fired towards Riyadh on Sunday, November 8. Saudi Civil Defense had issued an alert shortly before residents heard loud booms, and authorities later said the immediate danger had passed. The coalition subsequently reported intercepting two cruise missiles in Riyadh and southern Saudi Arabia. The claims were attributed to the coalition; Reuters reported no independent confirmation of the missiles' launch or interception.",
+      "source": "Reuters · Saudi-led coalition and Saudi Civil Defense statements",
+      "url": "https://www.reuters.com/world/middle-east/loud-booms-heard-saudi-capital-riyadh-after-early-warning-alert-issued-2026-11-08/",
+      "imageUrl": "https://images.unsplash.com/photo-1674822858255-fcc093a1ef43?auto=format&fit=crop&fm=jpg&ixid=NHwxMjA3fDA%3D&ixlib=rb-4.1.0&q=60&w=3000",
+      "imageAlt": "Illustrative photograph of Riyadh's skyline; it does not depict the reported missile interceptions",
+      "imageCredit": "Mohammed Alqarni / Unsplash · illustrative image",
+      "visual": "🚨",
+      "featured": true
+    },
+    {
       "id": "ng-atiku-adc-candidacy-court-1107",
       "category": "NIGERIA · POLITICS · COURTS",
       "location": "Abuja, Nigeria",
@@ -36,6 +50,34 @@ window.LocalMedia247News = {
       "imageAlt": "Illustrative photograph of a judge's gavel on a desk; not the Nigerian court or parties in the case",
       "imageCredit": "Wesley Tingey / Unsplash",
       "visual": "⚖️",
+      "featured": true
+    },
+    {
+      "id": "world-poland-krakow-shooting-1108",
+      "category": "WORLD · POLAND · PUBLIC SAFETY",
+      "location": "Kraków, Poland",
+      "headline": "Six killed and 15 injured in shooting at Kraków's Main Square",
+      "summary": "A gunman opened fire at several locations in Kraków's Main Square on Saturday, November 7, killing six people and injuring 15, according to Polish authorities. Police shot and wounded the suspect, who was detained; officials said he appeared to have acted alone. Poland's interior minister described the suspect's views as radical and ultranationalistic. Prime Minister Donald Tusk later said three close relatives of the suspect were found dead at his home in another city. Authorities had not publicly explained those deaths, and the investigation remained ongoing.",
+      "source": "Associated Press (AP) · Polish police and government officials",
+      "url": "https://apnews.com/article/poland-shooting-krakow-market-dead-076b972f107df14a1f71e12a74d4d8e5",
+      "imageUrl": "https://images.unsplash.com/photo-1757954699070-465653b34697?auto=format&fit=crop&fm=jpg&ixid=NHwxMjA3fDA%3D&ixlib=rb-4.1.0&q=60&w=3000",
+      "imageAlt": "Illustrative photograph of St Mary's Basilica in Kraków's Main Market Square; not a photograph of the shooting or its victims",
+      "imageCredit": "Thiago Zanutigh / Unsplash · illustrative image",
+      "visual": "🚔",
+      "featured": true
+    },
+    {
+      "id": "world-ukraine-kyiv-energy-strikes-1108",
+      "category": "WORLD · UKRAINE · WAR · ENERGY INFRASTRUCTURE",
+      "location": "Kyiv and surrounding regions, Ukraine",
+      "headline": "Russian strikes damage Kyiv-area power facilities and Northern Bridge",
+      "summary": "Russian missiles and drones struck Kyiv and surrounding areas overnight into Saturday, November 7, damaging energy infrastructure and the Northern Bridge over the Dnipro River, Ukrainian officials said. President Volodymyr Zelenskiy said the attacks disrupted electricity, water and heating supplies and that only four of 36 ballistic missiles were intercepted. Authorities reported at least two people killed and about a dozen wounded across Ukraine. Russia's Defence Ministry said it had targeted military-industrial, energy and transport infrastructure; that account is attributed to Moscow.",
+      "source": "Reuters · Ukrainian officials and Russian Defence Ministry",
+      "url": "https://www.reuters.com/world/russian-forces-launch-missile-attack-ukrainian-capital-kyiv-mayor-says-2026-11-07/",
+      "imageUrl": "https://images.unsplash.com/photo-1600160189693-19ceef492080?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000",
+      "imageAlt": "Illustrative photograph of a bridge over the Dnipro River in Kyiv; not the Northern Bridge or damage from the reported strike",
+      "imageCredit": "Viktor Talashuk / Unsplash · illustrative image",
+      "visual": "⚡",
       "featured": true
     },
     {
