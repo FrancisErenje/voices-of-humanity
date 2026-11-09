@@ -27,7 +27,7 @@
 
     <link rel="stylesheet" href="css/museum.css?v=20261013-lm247-editorial-images">
     <link rel="stylesheet" href="css/africa-click-fix.css?v=20261108-africa-hit-area-v2">
-    <script src="js/continental-museum-click-repair.js?v=20261029-pointerup-recovery"></script>
+    <script src="js/continental-museum-click-repair.js?v=20261109-africa-reopen-fix"></script>
     <link rel="stylesheet" href="css/cinema.css">
     <link rel="stylesheet" href="css/life/trees.css">
     <link rel="stylesheet" href="css/life/flags.css">
@@ -378,7 +378,7 @@
         }
 
         function africanClose(target){
-            var button = target && target.closest ? target.closest(".african-languages-experience-close") : null;
+            var button = target && target.closest ? target.closest(".african-languages-experience-close,.african-languages-close-hit-zone") : null;
             if(!button) return false;
 
             var overlay = button.closest(".african-languages-experience-overlay");
