@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "102",
+    date: "MONDAY, NOVEMBER 9, 2026",
+    heading: "THE STORIES IN OBJECTS",
+    quote: "An ordinary object can hold extraordinary memories when we know the hands and history behind it.",
+    note: "A cooking pot, woven basket, tool, photograph or piece of clothing may carry more than practical use. It can reveal how people worked, celebrated, travelled, created and cared for one another. Asking about the history of everyday objects helps recover details that written records may overlook.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "101",
     date: "SUNDAY, NOVEMBER 8, 2026",
     heading: "THE COURAGE TO CHANGE OUR MINDS",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "100",
     date: "SATURDAY, NOVEMBER 7, 2026",
