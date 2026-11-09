@@ -150,7 +150,7 @@
   }
 
   function handleClick(event) {
-    if ((event.type !== "click" && event.type !== "pointerup") || ignored(event)) return;
+    if ((event.type !== "click" && event.type !== "pointerup" && event.type !== "pointerdown") || ignored(event)) return;
 
     var target = event.target;
     var id = null;
@@ -172,6 +172,8 @@
       }
     }
     if (!id) return;
+    /* This targeted repair activates on press for Africa only; Americas keeps its existing click timing. */
+    if (event.type === "pointerdown" && id !== "africaMuseum") return;
 
     event.preventDefault();
     event.stopPropagation();
@@ -182,6 +184,7 @@
   /* This file is included in the document head, ahead of legacy world handlers.
      Recover on pointer release as well as click: transformed campus/camera layers
      can intercept the browser click even when the user releases on a building. */
+  window.addEventListener("pointerdown", handleClick, true);
   window.addEventListener("pointerup", handleClick, true);
   window.addEventListener("click", handleClick, true);
   document.addEventListener("keydown", function (event) {
