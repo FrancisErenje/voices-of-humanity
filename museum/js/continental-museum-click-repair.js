@@ -172,6 +172,8 @@
       }
     }
     if (!id) return;
+    /* This targeted repair activates on press for Africa only; Americas keeps its existing click timing. */
+    if (event.type === "pointerdown" && id !== "africaMuseum") return;
 
     event.preventDefault();
     event.stopPropagation();
