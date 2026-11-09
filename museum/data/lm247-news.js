@@ -29,7 +29,7 @@ window.LocalMedia247News = {
       "category": "NIGERIA · ENERGY · SECURITY · ENVIRONMENT",
       "location": "Rivers State, Nigeria",
       "headline": "Navy reports discovery of 185,175 litres of suspected stolen crude in Rivers operations",
-      "summary": "The Nigerian Navy said units operating in Rivers State found a combined 185,175 litres of suspected stolen crude oil and deactivated illegal storage and refining sites in three communities during operations from October 24 to November 7. The Navy reported about 59,500 litres at Ogbogolo on November 7 and approximately 117,000 litres at Awokiri on November 5, alongside an earlier 8,675-litre discovery. These are figures from the Navy's operational statement; the crude is described as suspected stolen, not a court-established finding.",
+      "summary": "The Nigerian Navy said units operating in Rivers State found a combined 185,175 litres of suspected stolen crude oil during three separate operations in Ogbogolo and Awokiri communities between October 24 and November 7. The Navy reported about 59,500 litres at Ogbogolo on November 7, approximately 8,675 litres in an earlier Ogbogolo operation on October 24, and about 117,000 litres at Awokiri on November 5. The figures come from the Navy's operational statement; the crude is described as suspected stolen, not a court-established finding.",
       "source": "The Guardian Nigeria · statement by the Director of Naval Information",
       "url": "https://guardian.ng/news/nigeria/metro/navy-uncovers-185175-litres-of-suspected-stolen-crude-oil-dismantles-illegal-refineries-in-rivers/",
       "imageUrl": "https://cdn.guardian.ng/wp-content/uploads/2026/11/fast5289-2.webp",
