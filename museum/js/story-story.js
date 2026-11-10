@@ -164,6 +164,47 @@
         "And if someone has been working quietly to help you take the next step, do not wait until you reach the top before you turn around and say thank you."
       ]
     }
+    ,
+    {
+      id:"the-man-who-planted-trees",
+      title:"The Man Who Planted Trees He Would Never Sit Under",
+      category:"Resilience, Hope & Legacy",
+      tagline:"He planted for a future he might never see.",
+      summary:"An imagined village story about an old man who keeps planting trees through drought, ridicule and loss—and inspires a whole community to build a greener future together.",
+      dateLabel:"10 November 2026",
+      paragraphs:[
+        "There was once a man who lived in a small village where the earth had become tired.",
+        "For years, the rains had been unpredictable. Streams were drying up, farms were producing less, and many young people had left in search of better opportunities.",
+        "Among those who remained was an old man named Daniel. He had little: a small house, worn clothes and savings that had disappeared after years of struggle.",
+        "One morning, he walked to an empty piece of land carrying a small hoe and a bag of seeds.",
+        "His neighbour saw him and laughed. “Daniel, what are you doing? At your age, you should be resting. You want to start farming now?”",
+        "Daniel smiled. “I am planting trees.”",
+        "The neighbour laughed even louder. “Trees? Do you know how long they take to grow? You may never enjoy their shade!”",
+        "Daniel looked at him and replied, “That is precisely why I am planting them. Someone once planted trees whose shade I enjoy today. Why should I refuse to do the same for the next generation?”",
+        "And he continued digging.",
+        "Days became weeks. Weeks became months. The sun was merciless. Some seeds did not germinate. Goats destroyed several young plants. A terrible storm uprooted others.",
+        "But Daniel kept returning. Every morning, he watered the surviving seedlings. When one died, he planted another.",
+        "People called him foolish. Some said he was wasting his remaining strength. Others advised him to abandon the land and concentrate on surviving.",
+        "But Daniel had made a decision: he would not allow the difficulties of his present circumstances to destroy the possibilities of the future.",
+        "One year passed. Then two. Then three.",
+        "Some of the trees began to grow taller. Children started playing around them. Birds returned. The land slowly became greener.",
+        "And something remarkable happened. Young people who had once laughed at Daniel began joining him.",
+        "One brought seedlings. Another brought water. Someone else offered to help clear the land. Before long, what had started as one old man's lonely effort had become a village project.",
+        "Years later, Daniel died. He never saw the forest at its fullest. But the trees remained.",
+        "They provided shade for travellers, fruits for children, shelter for birds and protection for the soil.",
+        "One afternoon, a little boy sat beneath one of the largest trees and asked his grandfather, “Who planted this tree?”",
+        "The grandfather smiled. “An old man who understood something many people never learn.”",
+        "“What did he understand?” the boy asked.",
+        "“He understood that you do not have to live long enough to enjoy the results of everything you do. Sometimes, the greatest thing you can do with your life is to make tomorrow better for people you may never meet.”",
+        "There are five lessons in Daniel's story. Never allow your present circumstances to define your future. Progress does not always announce itself. Do not measure your success only by what you receive. Resilience is not the absence of disappointment; it is the decision to rise again. And never underestimate the power of one determined person.",
+        "Perhaps life has not given you the harvest you expected. Perhaps you have worked hard without recognition. Perhaps opportunities have taken longer to arrive than you imagined. Perhaps some people have misunderstood your vision.",
+        "But do not stop planting.",
+        "Keep learning. Keep building. Keep improving. Keep believing in the value of what you are doing.",
+        "The fact that you cannot yet see the forest does not mean your seeds are not growing.",
+        "Some people build monuments to celebrate what they have achieved. Others plant trees to give the next generation somewhere to stand.",
+        "Be the person who plants trees. Your greatest contribution to the world may be something that continues growing long after you are gone."
+      ]
+    }
   ];
   function el(tag,cls,text){const node=document.createElement(tag);if(cls)node.className=cls;if(text!==undefined)node.textContent=text;return node;}
   function init(){
