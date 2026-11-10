@@ -7,3 +7,12 @@
 @media(max-width:800px){.topbar{align-items:flex-start;flex-direction:column;padding:13px 20px}.topbar nav{width:100%;overflow-x:auto;padding:5px 0 8px;gap:20px;white-space:nowrap}.nav-cta{display:none}.hero{min-height:620px}.section{padding:78px 24px}.intro-grid,.record-grid,.founder-grid{grid-template-columns:1fr;gap:35px}.purpose-grid{grid-template-columns:1fr}.work-grid{grid-template-columns:1fr 1fr}.founder-portrait{max-width:390px}.principles{grid-template-columns:1fr}.section-label{margin-bottom:35px}}
 @media(max-width:480px){.brand{font-size:11px}.hero-inner{padding:80px 20px}.hero h1{font-size:55px}.hero-lead{font-size:14px}.hero-motto{letter-spacing:4px}.work-grid{grid-template-columns:1fr}.work-grid article{min-height:0}.purpose-card{padding:28px}.record-copy{padding:28px}.contact-line{line-height:2}.footer-links{gap:15px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+/* Next documentary feature */
+.next-project{background:linear-gradient(115deg,#17130d,#090908 68%)}
+.next-project-grid{display:grid;grid-template-columns:1fr 1fr;gap:9vw;align-items:center}
+.next-project h2{font-size:clamp(48px,6vw,76px);line-height:1.02;margin:15px 0}
+.next-project-copy{padding:34px;border:1px solid var(--line);background:linear-gradient(145deg,#1a1710,#0d0d0b)}
+.next-project-copy p{font-size:13px;color:#c9c4b7;line-height:2;margin:0 0 18px}
+.next-project-copy .button{margin-top:8px}
+@media(max-width:800px){.next-project-grid{grid-template-columns:1fr;gap:30px}}
