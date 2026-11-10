@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "103",
+    date: "TUESDAY, NOVEMBER 10, 2026",
+    heading: "WATER CONNECTS US",
+    quote: "The care of water is a shared responsibility that reaches beyond every household and border.",
+    note: "Water supports health, food, livelihoods and ecosystems. The river upstream and the tap at home belong to one connected story. Protecting water sources, using them responsibly and ensuring fair access require attention from individuals, communities and institutions alike.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "102",
     date: "MONDAY, NOVEMBER 9, 2026",
     heading: "THE STORIES IN OBJECTS",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "101",
     date: "SUNDAY, NOVEMBER 8, 2026",
