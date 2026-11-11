@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "104",
+    date: "WEDNESDAY, NOVEMBER 11, 2026",
+    heading: "THE VALUE OF A PROMISE",
+    quote: "Trust grows when our promises are matched by our actions.",
+    note: "A promise can give another person hope, confidence or a reason to rely on us. But words alone cannot sustain trust. Keeping commitments, communicating honestly when circumstances change and taking responsibility when we fall short are ways of making our words meaningful.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "103",
     date: "TUESDAY, NOVEMBER 10, 2026",
     heading: "WATER CONNECTS US",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "102",
     date: "MONDAY, NOVEMBER 9, 2026",
