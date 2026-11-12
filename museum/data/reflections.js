@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "105",
+    date: "THURSDAY, NOVEMBER 12, 2026",
+    heading: "A PLACE FOR THE NEXT GENERATION",
+    quote: "The world we leave to children is shaped by the choices we make today.",
+    note: "Children inherit more than buildings and possessions. They inherit the quality of the environment, the strength of institutions, the stories a society preserves and the opportunities it makes possible. Thinking about the next generation can help us judge today's decisions with greater care.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "104",
     date: "WEDNESDAY, NOVEMBER 11, 2026",
     heading: "THE VALUE OF A PROMISE",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "103",
     date: "TUESDAY, NOVEMBER 10, 2026",
