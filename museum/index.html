@@ -2443,6 +2443,8 @@ window.__vohOpenMuseumChat = function(event){
 })();
 </script>
 
+<script>window.VOH_TAWK_TEMPORARILY_DISABLED = true;</script>
+
 <!-- VOICES OF HUMANITY LIVE HELPDESK — TAWK.TO -->
 <script type="text/javascript">
 (function(){
@@ -2487,6 +2489,7 @@ window.Tawk_API.onChatMaximized = function(){
     window.__vohOpenLiveHelpdesk = function(){
         var attempts = 0;
         function openHelpdesk(){
+            if(window.VOH_TAWK_TEMPORARILY_DISABLED) return;
             attempts++;
             if(window.Tawk_API &&
                typeof window.Tawk_API.showWidget === "function" &&
@@ -2505,6 +2508,7 @@ window.Tawk_API.onChatMaximized = function(){
     };
 
     (function(){
+        if(window.VOH_TAWK_TEMPORARILY_DISABLED) return;
         var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
         s1.async=true;
         s1.src="https://embed.tawk.to/6ac6ff9c8dca8234c9fe2af8/1k4clcv81";
