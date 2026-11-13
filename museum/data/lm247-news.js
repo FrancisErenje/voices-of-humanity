@@ -1,15 +1,183 @@
 /*
   LocalMedia247 — Living News Wall
-  Thursday, November 12, 2026
+  Friday, November 13, 2026
   Editorial standard: verify dates and attribution, distinguish reported claims
   from confirmed facts, and label illustrative visuals clearly.
 */
 window.LocalMedia247News = {
-  "date": "THURSDAY, NOVEMBER 12, 2026",
-  "updatedLabel": "THURSDAY, NOVEMBER 12, 2026 · VERIFIED DAILY EDITION",
+  "date": "FRIDAY, NOVEMBER 13, 2026",
+  "updatedLabel": "FRIDAY, NOVEMBER 13, 2026 · VERIFIED DAILY EDITION",
   "updateMode": "ANYTIME",
   "cadenceLabel": "MORNING · AFTERNOON · EVENING · ANYTIME",
   "stories": [
+    {
+      "id": "ng-inec-mock-voting-nov28-1113",
+      "category": "NIGERIA · POLITICS · ELECTIONS · TECHNOLOGY",
+      "location": "Nationwide, Nigeria; announcement made in London",
+      "headline": "INEC schedules nationwide mock voting for November 28 to test BVAS and electronic results transmission",
+      "summary": "INEC has scheduled a nationwide mock accreditation and voting exercise for 28 November 2026 to test upgrades to its Bimodal Voter Accreditation System and electronic results transmission ahead of the 2027 general elections. Chairman Joash Amupitan said the commission had introduced technical safeguards intended to stop inaccurate polling-unit results and over-voting figures from being uploaded to its Result Viewing Portal. The exercise is a test of the systems and procedures; it does not guarantee that the 2027 elections will be free of technical or administrative problems.",
+      "source": "PUNCH Newspapers · INEC Chairman's Chatham House remarks and press statement, 12 November 2026",
+      "url": "https://punchng.com/2027-inec-fixes-november-28-for-mock-accreditation-voting/",
+      "imageUrl": "https://cdn.punchng.com/wp-content/uploads/2026/09/23223247/INEC_1790199167.webp",
+      "imageAlt": "File photograph of INEC Chairman Prof. Joash Amupitan; it does not depict the planned 28 November mock exercise",
+      "imageCredit": "Independent National Electoral Commission (INEC) via PUNCH Newspapers · file photograph, 2026",
+      "visual": "🗳️",
+      "featured": true
+    },
+    {
+      "id": "ng-ndc-lagos-townhall-attack-1113",
+      "category": "NIGERIA · POLITICS · SECURITY · DEMOCRACY",
+      "location": "Oregun, Ikeja, Lagos State, Nigeria",
+      "headline": "Attack disrupts NDC town hall in Lagos as police arrest one suspect",
+      "summary": "Suspected attackers armed with cutlasses, cudgels and stones disrupted a Nigeria Democratic Congress town hall gathering at Classic Event Place in Oregun, Ikeja, on 12 November. The Lagos State Police Command arrested one suspect identified as Ibrahim. He denied being recruited to attack the meeting and said he had gone there to beg for money. The Lagos APC denied sponsoring the incident, and reporting by The Guardian said there was no independently established evidence linking the attackers to any political party. Some participants were reported injured, but the number and severity had not been established.",
+      "source": "The Guardian Nigeria · reporting on the 12 November incident, police arrest and party responses, 13 November 2026; Channels Television · APC statement, 12 November 2026",
+      "url": "https://guardian.ng/news/violence-threatens-credible-polls-as-apc-ndc-trade-blame-over-lagos-attack/",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Occupy_Nigeria_rally_in_Ojota_Temi.jpg",
+      "imageAlt": "Illustrative file photograph of an Occupy Nigeria rally in Ojota, Lagos, on 2 September 2012; it does not depict the NDC town hall or the November 2026 attack",
+      "imageCredit": "Temi KOGBE / Wikimedia Commons · CC BY-SA 2.0 · 2 September 2012",
+      "visual": "⚠️",
+      "featured": true
+    },
+    {
+      "id": "ng-port-harcourt-airport-concession-1113",
+      "category": "NIGERIA · INFRASTRUCTURE · AVIATION · INVESTMENT",
+      "location": "Port Harcourt, Rivers State; agreement signed in Abuja, Nigeria",
+      "headline": "Federal Government signs 30-year concession for Port Harcourt International Airport",
+      "summary": "The Federal Government signed a 30-year concession agreement with Port Harcourt Airport Company Limited on 12 November for the management and development of the Port Harcourt International Airport, also known as Jeremiah Obafemi Awolowo International Airport. Aviation Minister Festus Keyamo said the arrangement is intended to attract private investment, improve operations and develop the airport's commercial facilities. The government and concessionaire gave assurances that existing workers would not lose their jobs; these are commitments to be monitored, not evidence of future employment outcomes.",
+      "source": "News Agency of Nigeria (NAN) · Ministry of Aviation signing and ministerial statements, 12 November 2026; The Guardian Nigeria · concession details, 12 November 2026",
+      "url": "https://nannews.ng/fg-concessions-port-harcourt-airport-for-30-years/",
+      "imageUrl": "https://nannews.ng/wp-content/uploads/2026/11/IMG-20261112-WA0018-1600x900.webp",
+      "imageAlt": "NAN photograph of officials at the signing of the Port Harcourt International Airport concession agreement in Abuja on 12 November 2026",
+      "imageCredit": "News Agency of Nigeria (NAN) · 12 November 2026",
+      "visual": "✈️",
+      "featured": true
+    },
+    {
+      "id": "ng-nnpc-plan-pipeline-partnership-1113",
+      "category": "NIGERIA · ECONOMY · OIL AND GAS · INFRASTRUCTURE",
+      "location": "Abuja, Nigeria; Ajaokuta–Kaduna–Kano Gas Pipeline",
+      "headline": "NNPC and pipeline professionals agree to work on local skills and infrastructure financing",
+      "summary": "NNPC Ltd. says it will collaborate with the Pipeline Professionals Association of Nigeria on training, cost reduction, pipeline financing and stronger community engagement. Group Chief Executive Bashir Ojulari said NNPC had raised $1.5 billion for the Ajaokuta–Kaduna–Kano Gas Pipeline based solely on projected pipeline throughput. That financing figure and the reported improvement in pipeline availability are statements attributed to NNPC's leadership; the NAN report did not provide independent project-finance documentation. The proposed association partnership is focused on technical capacity and future project development.",
+      "source": "News Agency of Nigeria (NAN) · statements by NNPC Group Chief Executive Bashir Ojulari and Pipeline Professionals Association representatives, 12 November 2026",
+      "url": "https://nannews.ng/nnpc-ltd-pipeline-professionals-partner-to-boost-infrastructure-indigenous-capacity/",
+      "imageUrl": "https://nannews.ng/wp-content/uploads/2026/11/706eeac2-9b77-42e1-99f0-1f5edff65e65.webp",
+      "imageAlt": "NAN photograph accompanying the report of an NNPC Ltd. meeting with Pipeline Professionals Association representatives in Abuja; not a photograph of the AKK pipeline",
+      "imageCredit": "News Agency of Nigeria (NAN) · 12 November 2026",
+      "visual": "🛢️",
+      "featured": true
+    },
+    {
+      "id": "ng-health-sector-jar-12-priority-actions-1113",
+      "category": "NIGERIA · HEALTH · PUBLIC POLICY · HEALTH FINANCING",
+      "location": "Abuja, Nigeria; national health sector",
+      "headline": "Health stakeholders agree 12 priority actions to strengthen Nigeria's health system",
+      "summary": "Federal and state governments and other health-sector stakeholders adopted 12 priority actions at the 2026 Joint Annual Review in Abuja. The agreed areas include stronger Basic Health Care Provision Fund accountability, better distribution and retention of health workers, certification of primary healthcare facilities, local production of health commodities, improved national health-data systems, medicine regulation and expanded emergency medical services. The communiqué sets priorities for implementation; the resolutions are not evidence that the actions have already been completed.",
+      "source": "Federal Ministry of Health and Social Welfare · 2026 Joint Annual Review communiqué, published 13 November 2026; News Agency of Nigeria (NAN) · communiqué report, 12 November 2026",
+      "url": "https://health.gov.ng/nigerias-health-reforms-deliver-results-next-phase-to-accelerate-impact-pate/",
+      "imageUrl": "https://nannews.ng/wp-content/uploads/2026/11/WhatsApp-Image-2026-11-12-at-8.57.23-PM-1024x683.webp",
+      "imageAlt": "NAN photograph of officials at the 2026 Nigeria Health Sector Joint Annual Review communiqué ceremony in Abuja on 12 November 2026",
+      "imageCredit": "News Agency of Nigeria (NAN) · 12 November 2026",
+      "visual": "🏥",
+      "featured": true
+    },
+    {
+      "id": "ng-tetfund-400-innovations-research-fair-1113",
+      "category": "NIGERIA · EDUCATION · SCIENCE · INNOVATION",
+      "location": "Abuja, Nigeria; national tertiary education and research institutions",
+      "headline": "TETFund selects up to 500 innovations for November research and commercialisation fair",
+      "summary": "TETFund's organising committee says between 400 and 500 research-driven innovations have been selected for the 2026 National Research Fair and Exhibition, scheduled for 24–27 November in Abuja. The committee said it received 4,000–5,000 applications from universities, polytechnics, colleges of education, research institutions and private innovators. Selected areas include agriculture, healthcare, sanitation, housing and clothing. Organisers said 30–40 innovations from earlier editions had reached advanced commercialisation stages; these are committee-reported figures, not an independent evaluation of commercial success.",
+      "source": "News Agency of Nigeria (NAN) · organising committee chairman Umar Bindir's briefing, 12 November 2026",
+      "url": "https://nannews.ng/tetfund-to-showcase-400-innovations-at-research-fair/",
+      "imageUrl": "https://nannews.ng/wp-content/uploads/2026/11/IMG-20261112-WA0052-1280x900.webp",
+      "imageAlt": "NAN photograph of participants at a TETFund National Research Fair organising committee meeting in Abuja on 12 November 2026; not a photograph of the selected innovations",
+      "imageCredit": "News Agency of Nigeria (NAN) · 12 November 2026",
+      "visual": "🔬",
+      "featured": true
+    },
+    {
+      "id": "world-us-ai-task-force-cyberattacks-1113",
+      "category": "WORLD · UNITED STATES · TECHNOLOGY · CYBERSECURITY",
+      "location": "Washington, D.C., United States",
+      "headline": "US AI task force discusses reporting rules for AI-powered cyberattacks on critical infrastructure",
+      "summary": "Members of the US President's AI task force met on 12 November to discuss ways to encourage critical infrastructure providers to report AI-powered cyberattacks and vulnerabilities. A Trump administration spokesperson said the group also discussed national standards for AI developers to report safety incidents and share cybersecurity information. The proposals remain under discussion; no new reporting rule or legal protection was announced as having taken effect. The debate reflects growing concern about AI agents carrying out cyberattacks without human authorisation.",
+      "source": "Reuters · statements from a Trump administration spokesperson and task-force officials, 13 November 2026",
+      "url": "https://www.reuters.com/world/us/trumps-ai-task-force-met-thursday-discussed-ai-powered-cyberattacks-2026-11-13/",
+      "imageUrl": "https://www.reuters.com/resizer/v2/BN2DRVDJDRKHRCBM6BBND5PWH4.jpg?auth=fc82a1448a0defb3bace7410d48027d90ed6d4bd3b8001c942efba0e7e17db1b&quality=80&width=1920",
+      "imageAlt": "Reuters illustration of the words AI and a keyboard, created on 19 October 2026; illustrative, not a photograph of the task-force meeting or a cyberattack",
+      "imageCredit": "Reuters/Dado Ruvic · illustration, 19 October 2026",
+      "visual": "🤖",
+      "featured": true
+    },
+    {
+      "id": "world-kenya-el-nino-flood-risk-1113",
+      "category": "AFRICA · KENYA · CLIMATE · DISASTER PREPAREDNESS",
+      "location": "Nairobi and flood-prone areas of Kenya",
+      "headline": "Kenya prepares for unusually heavy El Niño rains as authorities warn 1.5m people may be affected",
+      "summary": "Kenya's Meteorological Service has warned that an unusually strong El Niño is expected to bring heavier-than-usual rainfall from October to December, with November forecast to be the peak. The National Disaster Operations Centre says 1.5 million people could be affected and has urged residents in flood-prone areas to move to higher ground. Nairobi County says it is clearing drainage systems, preparing 172 shelters and planning mobile-phone alerts. The 1.5 million figure is a risk estimate, not a count of people already displaced or affected.",
+      "source": "Associated Press · Kenya Meteorological Service, National Disaster Operations Centre and Nairobi County officials, 13 November 2026",
+      "url": "https://apnews.com/article/ca89cbcfc9d9e88f59cbefe076559195",
+      "imageUrl": "https://dims.apnews.com/dims4/default/d72dc5f/2147483647/strip/true/crop/5554x3619%2B0%2B0/resize/599x390%21/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2Fc7%2F4a%2F2751015f3a8bd45488d658ff1eb4%2Fcc98edcda6db4778be428fee32698f11",
+      "imageAlt": "AP file photograph of Mathare informal settlement in Nairobi, taken on 26 September 2026; it shows a flood-prone area, not current rainfall or flooding",
+      "imageCredit": "AP Photo/Andrew Kasuku · file photograph, 26 September 2026",
+      "visual": "🌧️",
+      "featured": true
+    },
+    {
+      "id": "africa-south-africa-10th-suspect-recruitment-1113",
+      "category": "AFRICA · SOUTH AFRICA · SECURITY · INTERNATIONAL LAW",
+      "location": "Johannesburg, South Africa",
+      "headline": "South Africa arrests 10th suspect over alleged recruitment to fight in Russia's war in Ukraine",
+      "summary": "South African authorities arrested a 10th person on suspicion of trying to travel from South Africa to Russia to fight in the war in Ukraine, according to police. The arrest forms part of a joint investigation with Interpol into alleged recruitment. The first nine suspects were identified as Zimbabwean nationals and face charges under South Africa's Regulation of Foreign Military Assistance Act. The arrests and recruitment allegations are under investigation; they are not convictions. Prosecutors said they would oppose bail for five of the earlier suspects who appeared in court.",
+      "source": "Associated Press · South African police and prosecutors, 13 November 2026",
+      "url": "https://apnews.com/article/997e065eeeff10b062500ed7db89ee0c",
+      "imageUrl": "https://dims.apnews.com/dims4/default/b068739/2147483647/strip/true/crop/8640x5760%2B0%2B0/resize/320x213%21/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F6e%2F63%2F230809534765199a897907bd1a93%2Fb276b7aead8146c08ea9f04a75c43fbf",
+      "imageAlt": "Illustrative AP file photograph of a mural depicting Ukrainian soldiers on a shelter in Oleshky, Kherson region, on 29 October 2026; it does not depict the South African suspects or arrests",
+      "imageCredit": "AP Photo/Evgeniy Maloletka · file photograph, 29 October 2026",
+      "visual": "⚖️",
+      "featured": true
+    },
+    {
+      "id": "ng-nerc-meter-acquisition-fund-tranche-c-1111",
+      "category": "NIGERIA · INFRASTRUCTURE · ELECTRICITY · CONSUMER PROTECTION",
+      "location": "Nationwide, Nigeria",
+      "headline": "NERC's ₦30bn meter fund targets unmetered customers as minister cites 2.8m meter deliveries",
+      "summary": "The Nigerian Electricity Regulatory Commission's Order No. NERC/2026/121 approves ₦30 billion for Tranche C of the Meter Acquisition Fund to meter remaining unmetered Band A customers and accelerate coverage among Band B consumers. NERC says meters supplied through the programme must be free to customers and installations must be completed by 31 May 2027. Separately, Power Minister Joseph Tegbe said on 12 November that the Presidential Metering Initiative had provided more than 2.8 million meters. That delivery figure is the minister's reported claim; the NAN report did not provide an independent audit or a distribution-company breakdown. The order and ministerial statement describe related but distinct parts of the metering programme.",
+      "source": "Nigerian Electricity Regulatory Commission (NERC) · Order No. NERC/2026/121, effective 2 November 2026; News Agency of Nigeria (NAN) · Power Minister Joseph Tegbe's statement at the PCAN conference, 12 November 2026, reported 13 November",
+      "url": "https://nannews.ng/presidential-metering-initiative-delivers-meters-to-2-8m-electricity-customers-tegbe/",
+      "imageUrl": "https://punchng.com/wp-content/uploads/2026/08/NERC_1786364244.webp",
+      "imageAlt": "Illustrative file photograph of a Nigerian Electricity Regulatory Commission sign at an electricity substation; not a photograph of the meter deliveries or the Meter Acquisition Fund",
+      "imageCredit": "PUNCH Newspapers · file photograph, August 2026",
+      "visual": "⚡",
+      "featured": true
+    },
+    {
+      "id": "world-g7-china-taiwan-east-coast-warning-1112",
+      "category": "WORLD · ASIA-PACIFIC · DIPLOMACY · SECURITY",
+      "location": "Western Pacific; waters around Taiwan",
+      "headline": "Taiwan says China staged large unannounced Pacific drills involving more than 100 vessels",
+      "summary": "Reuters reported on 13 November that Taiwanese security officials say China held a large, unannounced naval and coast guard exercise across the western Pacific and around Taiwan in early November. A senior Taiwan security official said more than 100 Chinese vessels were involved at the peak, with around 70 still operating within the first island chain on Friday. Taiwan described the activity as 'silent intimidation' and said formations from several Chinese theatre commands operated together. China's defence ministry did not respond to Reuters; Beijing described the carrier's activity as routine and not directed at any country. The G7's 9–10 November statement separately warned against actions that could destabilise the region. The vessel figures and exercise assessment are attributed to Taiwanese officials and have not been independently confirmed by Reuters.",
+      "source": "Reuters · reporting based on Taiwanese security officials, China's public statements and the G7 declaration, 13 November 2026",
+      "url": "https://www.reuters.com/world/china/china-stages-unannounced-pacific-drills-silent-intimidation-taiwan-officials-say-2026-11-13/",
+      "imageUrl": "https://www.reuters.com/resizer/v2/Q7OETS3LNJIYXK5LD546A6LAYQ.jpg?auth=ecbf77b9411b4b04636d624a36b14ebc3ebfe468ae327a34dbdac41075b7d7c0&quality=80&width=1920",
+      "imageAlt": "Reuters illustration of Chinese and Taiwanese flags with a navy miniature, created on 11 April 2023; not a photograph of the reported drills",
+      "imageCredit": "Reuters/Dado Ruvic · illustration, 11 April 2023",
+      "visual": "🚢",
+      "featured": true
+    },
+    {
+      "id": "world-ukraine-abu-dhabi-talks-1111",
+      "category": "WORLD · EUROPE · DIPLOMACY · SECURITY",
+      "location": "Abu Dhabi, United Arab Emirates; Ukraine and Russia",
+      "headline": "US says next Ukraine–Russia talks will include Europeans as it pursues major prisoner exchange",
+      "summary": "US envoy Jared Kushner said on 12 November that Russia and Ukraine had agreed to include European countries in the next round of US-brokered talks. He also said Washington was working toward what he called the war's largest prisoner exchange, potentially involving thousands of people, but gave no confirmed numbers or date. Kyiv and Moscow remain far apart over territory and post-war security guarantees. The announcement is not confirmation that an exchange has been agreed in final detail, and no ceasefire or peace agreement has been announced.",
+      "source": "Reuters · statements by US envoy Jared Kushner and Ukrainian President Volodymyr Zelenskiy, 13 November 2026",
+      "url": "https://www.reuters.com/world/europe/kushner-says-us-working-toward-largest-prisoner-exchange-russias-war-ukraine-2026-11-13/",
+      "imageUrl": "https://dims.apnews.com/dims4/default/2de4f1a/2147483647/strip/true/crop/5546x3698%2B0%2B0/resize/599x399%21/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F46%2Ffa%2Faf8956216907cf997d20ea4093cd%2Fcf152650ea214a029483329af844111c",
+      "imageAlt": "AP photograph of Ukrainian President Volodymyr Zelenskyy speaking at a press conference after a bilateral meeting with Ireland’s prime minister in Dublin on 11 November 2026; not a photograph of the Abu Dhabi talks",
+      "imageCredit": "AP Photo/Virginia Mayo · 11 November 2026",
+      "visual": "🕊️",
+      "featured": true
+    },
     {
       "id": "ng-journalist-daniel-ojukwu-custody-1112",
       "category": "NIGERIA · MEDIA · JUSTICE · PRESS FREEDOM",
@@ -109,20 +277,6 @@ window.LocalMedia247News = {
       "featured": true
     },
     {
-      "id": "world-g7-china-taiwan-east-coast-warning-1112",
-      "category": "WORLD · ASIA-PACIFIC · DIPLOMACY · SECURITY",
-      "location": "Paris, France; waters east of Taiwan",
-      "headline": "G7 foreign ministers warn China’s activity east of Taiwan threatens regional stability and shipping",
-      "summary": "After meeting in Paris on 9–10 November, G7 foreign ministers said China’s increasingly assertive activities in waters east of Taiwan threaten regional stability, freedom of navigation and the safety of international shipping. Their joint declaration opposed unilateral attempts to change the status quo by force or coercion. Taiwan welcomed the statement; China had not immediately responded to Reuters’ request for comment. The report distinguishes the G7’s position from Taiwan’s assessment that the patrols may be rehearsing a maritime blockade.",
-      "source": "Reuters · G7 joint declaration and responses from Taiwan, 12 November 2026",
-      "url": "https://www.reuters.com/world/china/g7-foreign-ministers-say-chinas-actions-east-taiwan-threaten-stability-2026-11-12/",
-      "imageUrl": "https://image.taiwannews.com.tw/2026%2F11%2F12%2F0233ad4984914c0e8609a35106075921.jpg",
-      "imageAlt": "File photograph of a Taiwan Coast Guard vessel at sea on 16 June 2026; it is a Taiwanese vessel, not a Chinese patrol ship or a photograph of the G7 meeting",
-      "imageCredit": "Taiwan Coast Guard · file photograph, 16 June 2026, published by Taiwan News",
-      "visual": "🚢",
-      "featured": true
-    },
-    {
       "id": "world-oil-prices-fall-geopolitical-risk-oversupply-1112",
       "category": "WORLD · BUSINESS · ENERGY · COMMODITIES",
       "location": "Global oil markets",
@@ -151,20 +305,6 @@ window.LocalMedia247News = {
       "featured": true
     },
     {
-      "id": "world-ukraine-abu-dhabi-talks-1111",
-      "category": "WORLD · EUROPE · DIPLOMACY · SECURITY",
-      "location": "Abu Dhabi, United Arab Emirates; Ukraine and Russia",
-      "headline": "Russia and Ukraine agree in principle to major prisoner exchange after Abu Dhabi talks",
-      "summary": "Russia and Ukraine agreed in principle to a major prisoner-of-war exchange after two days of US-mediated talks in Abu Dhabi that ended on 11 November. Both sides confirmed the plan, but final numbers were still to be worked out; US envoy Jared Kushner said the exchange could take place in two or three weeks. The Associated Press reports that the talks produced no major breakthrough on ending the war, with occupied territory and post-war security guarantees still unresolved. Kyiv rejects ceding occupied territory. No ceasefire or peace agreement was announced.",
-      "source": "Associated Press · statements from US, Russian and Ukrainian delegations after Abu Dhabi talks, 11 November 2026",
-      "url": "https://apnews.com/article/7c8d1024302e0c6ad8be064eec852a64",
-      "imageUrl": "https://dims.apnews.com/dims4/default/2de4f1a/2147483647/strip/true/crop/5546x3698%2B0%2B0/resize/599x399%21/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F46%2Ffa%2Faf8956216907cf997d20ea4093cd%2Fcf152650ea214a029483329af844111c",
-      "imageAlt": "AP photograph of Ukrainian President Volodymyr Zelenskyy speaking at a press conference after a bilateral meeting with Ireland’s prime minister in Dublin on 11 November 2026; not a photograph of the Abu Dhabi talks",
-      "imageCredit": "AP Photo/Virginia Mayo · 11 November 2026",
-      "visual": "🕊️",
-      "featured": true
-    },
-    {
       "id": "ng-maternal-newborn-health-65m-pledges-1111",
       "category": "NIGERIA · HEALTH · MATERNAL AND NEWBORN CARE · DEVELOPMENT FINANCE",
       "location": "Abuja, Nigeria; 172 priority local government areas",
@@ -179,20 +319,6 @@ window.LocalMedia247News = {
       "featured": true
     },
     {
-      "id": "ng-cng-bus-fire-berger-lagos-1111",
-      "category": "NIGERIA · TRANSPORT · PUBLIC SAFETY · INFRASTRUCTURE",
-      "location": "Berger Bus Stop, Lagos-Ibadan Expressway, Lagos State, Nigeria",
-      "headline": "Lagos CNG-powered bus catches fire at Berger; 17 rescued and one passenger severely burned",
-      "summary": "A compressed-natural-gas-powered commercial bus carrying 18 people, including the driver, caught fire at Berger Bus Stop on the Lagos-bound Lagos-Ibadan Expressway on 11 November. LASTMA said its personnel rescued 17 occupants without injury; one passenger sustained severe burns and was taken to the Lagos State Trauma and Emergency Centre. The Lagos State Fire and Rescue Service extinguished the fire. Authorities have not established the cause, so the incident does not by itself establish a defect in CNG technology or equipment. LASTMA urged commercial operators to inspect and maintain gas-storage and delivery systems.",
-      "source": "Premium Times · LASTMA statement and emergency-response details, 11 November 2026",
-      "url": "https://www.premiumtimesng.com/news/top-news/924524-17-rescued-one-injured-as-cng-bus-catches-fire-in-lagos.html",
-      "imageUrl": "https://i0.wp.com/media.premiumtimesng.com/wp-content/files/2026/11/1001569206.jpg?fit=1024%2C393&ssl=1",
-      "imageAlt": "Commercial bus burning at Berger Bus Stop on the Lagos-Ibadan Expressway; photograph accompanying Premium Times’ report of the 11 November 2026 incident",
-      "imageCredit": "Premium Times · photograph published with its report, 11 November 2026; individual photographer not credited",
-      "visual": "🚌",
-      "featured": true
-    },
-    {
       "id": "ng-senate-senior-secondary-education-bill-1111",
       "category": "NIGERIA · EDUCATION · LEGISLATION · PUBLIC POLICY",
       "location": "Abuja, Nigeria",
@@ -204,20 +330,6 @@ window.LocalMedia247News = {
       "imageAlt": "File photograph of a Nigerian Senate plenary session; not a photograph of the 11 November 2026 vote",
       "imageCredit": "PUNCH Newspapers · file photograph, June 2026",
       "visual": "🎓",
-      "featured": true
-    },
-    {
-      "id": "ng-senate-ncc-airtime-deductions-probe-1111",
-      "category": "NIGERIA · TELECOMMUNICATIONS · CONSUMER RIGHTS · REGULATION",
-      "location": "Abuja, Nigeria",
-      "headline": "Senate urges NCC to investigate airtime deductions and require refunds for failed calls",
-      "summary": "The Senate on 11 November urged the Nigerian Communications Commission to investigate MTN Nigeria, Globacom, Airtel Nigeria and 9mobile over reported airtime deductions on failed, dropped and interrupted calls. It called for a time-bound complaints process and automatic refunds for verifiably failed calls, and directed its Communications Committee to invite the regulator and operators and report within four weeks. These are Senate resolutions and recommendations; automatic refunds are not yet a new binding NCC rule, and the regulator’s investigation and any sanctions remain pending.",
-      "source": "THISDAYLIVE · Senate resolutions and committee mandate, 11 November 2026",
-      "url": "https://www.thisdaylive.com/2026/11/11/senate-moves-to-end-airtime-rip-off-orders-ncc-probe-of-telecom-operators/",
-      "imageUrl": "https://global.ariseplay.com/amg/www.thisdaylive.com/uploads/NCC-3.jpg",
-      "imageAlt": "Official Nigerian Communications Commission logo; institutional image accompanying a report on the Senate’s requested investigation",
-      "imageCredit": "Nigerian Communications Commission logo via THISDAYLIVE",
-      "visual": "📱",
       "featured": true
     },
     {
@@ -277,20 +389,6 @@ window.LocalMedia247News = {
       "featured": true
     },
     {
-      "id": "ng-nerc-meter-acquisition-fund-tranche-c-1111",
-      "category": "NIGERIA · INFRASTRUCTURE · ELECTRICITY · CONSUMER PROTECTION",
-      "location": "Nationwide, Nigeria",
-      "headline": "NERC approves ₦30bn tranche for free meters for unmetered Band A and Band B customers",
-      "summary": "The Nigerian Electricity Regulatory Commission's Order No. NERC/2026/121 approves ₦30 billion for Tranche C of the Meter Acquisition Fund, to be shared among the 11 electricity distribution companies. The funding is intended to meter all remaining unmetered Band A customers and accelerate installations for Band B consumers. NERC says meters supplied under the programme must be free to customers and all Tranche C installations must be completed by May 31, 2027. The approval establishes funding and obligations; it does not mean all eligible customers have already received meters.",
-      "source": "Nigerian Electricity Regulatory Commission (NERC) · Order No. NERC/2026/121, 10 November 2026",
-      "url": "https://nerc.gov.ng/media/nerc-issues-order-on-the-operationalisation-of-meter-acquisition-fund-maf-tranche-c/",
-      "imageUrl": "https://punchng.com/wp-content/uploads/2026/08/NERC_1786364244.webp",
-      "imageAlt": "File photograph of a Nigerian Electricity Regulatory Commission sign at an electricity substation; not a photograph of the new meter installations",
-      "imageCredit": "PUNCH Newspapers · file photograph, August 2026",
-      "visual": "⚡",
-      "featured": true
-    },
-    {
       "id": "ng-minimum-pension-guarantee-pencare-1111",
       "category": "NIGERIA · ECONOMY · SOCIAL PROTECTION · PENSIONS",
       "location": "Abuja, Nigeria",
@@ -319,20 +417,6 @@ window.LocalMedia247News = {
       "featured": true
     },
     {
-      "id": "ng-oyo-2027-budget-proposal-1111",
-      "category": "NIGERIA · GOVERNANCE · PUBLIC FINANCE · INFRASTRUCTURE",
-      "location": "Ibadan, Oyo State, Nigeria",
-      "headline": "Makinde presents ₦1.12trn 2027 Oyo budget proposal with ₦236.15bn for infrastructure",
-      "summary": "Oyo State Governor Seyi Makinde presented a proposed ₦1.12 trillion appropriation bill for 2027 to the State House of Assembly on November 10. The proposal allocates ₦236.15 billion to infrastructure, ₦190.6 billion to education and ₦93.01 billion to health. The governor said about ₦670 billion was planned for capital expenditure and ₦444 billion for recurrent spending. The figures remain a budget proposal subject to legislative scrutiny and approval; they are not yet enacted spending authority.",
-      "source": "PUNCH Newspapers · 2027 appropriation bill presented to the Oyo State House of Assembly, 11 November 2026",
-      "url": "https://punchng.com/makinde-presents-n1-12tn-2027-budget/",
-      "imageUrl": "https://cdn.punchng.com/wp-content/uploads/2026/10/29082948/Makinde_1793258988.webp",
-      "imageAlt": "File photograph of Oyo State Governor Seyi Makinde; not a photograph of the 2027 budget presentation",
-      "imageCredit": "PUNCH Newspapers · file photograph, October 2026",
-      "visual": "🏗️",
-      "featured": true
-    },
-    {
       "id": "world-china-nvidia-h200-blacklist-procurement-1111",
       "category": "WORLD · CHINA · TECHNOLOGY · EXPORT CONTROLS",
       "location": "Xi'an, China; Washington, DC, United States",
@@ -347,34 +431,6 @@ window.LocalMedia247News = {
       "featured": true
     },
     {
-      "id": "world-south-korea-seongnam-bus-crash-1111",
-      "category": "WORLD · SOUTH KOREA · TRANSPORT · PUBLIC SAFETY",
-      "location": "Seongnam, Gyeonggi Province, South Korea",
-      "headline": "Bus crash involving 32 vehicles in South Korea leaves nine seriously injured",
-      "summary": "A public bus struck multiple vehicles in the Bundang district of Seongnam during the morning rush hour on November 11, South Korea's National Fire Agency said. The 32-vehicle collision involved four buses, a truck and 27 passenger cars; nine people were seriously injured and 48 sustained minor injuries. The bus driver was also injured and hospitalised. Police plan to investigate using vehicle black-box recordings and CCTV; the cause has not yet been established.",
-      "source": "Reuters · National Fire Agency figures and police investigation, 11 November 2026",
-      "url": "https://www.reuters.com/world/asia-pacific/nine-people-seriously-hurt-south-korea-bus-crash-involving-multiple-vehicles-2026-11-11/",
-      "imageUrl": "https://www.reuters.com/resizer/v2/DHJKM7VYJBMVLKRH72BRQ7AJPU.jpg?auth=3f2fbe64d55f992fe6c9d45225cb994c06bdbbd68b6c7a1baa0f5185dc0ad3f2&quality=80&width=1080",
-      "imageAlt": "Wreckage of a damaged bus after it crashed into multiple vehicles in Seongnam, South Korea, November 11, 2026",
-      "imageCredit": "Yonhap via Reuters · November 11, 2026",
-      "visual": "🚌",
-      "featured": true
-    },
-    {
-      "id": "ng-inec-voter-register-cleanup-1110",
-      "category": "NIGERIA · POLITICS · ELECTIONS",
-      "location": "Abuja, Nigeria",
-      "headline": "INEC removes more than 1.6 million invalid voter records and identifies 54 officials",
-      "summary": "INEC Chairman Joash Amupitan said the commission removed 1,608,660 confirmed invalid registrations from records generated during the 2025/2026 Continuous Voter Registration exercise, as well as 873 records belonging to verified deceased voters. The biometric system initially flagged 1,545,052 records for examination, but INEC stressed that being flagged did not by itself mean a registration was invalid. The commission also identified 54 personnel across 10 states for further administrative investigation and possible disciplinary action, including prosecution. The officials have not been convicted; the allegations remain subject to investigation.",
-      "source": "The Guardian Nigeria · INEC Chairman Joash Amupitan's November 9 briefing",
-      "url": "https://guardian.ng/news/inec-expunges-1-6m-records-flags-54-officials-as-375-judges-brace-for-disputes/",
-      "imageUrl": "https://cdn.guardian.ng/wp-content/uploads/2026/11/INNO-Page.jpg",
-      "imageAlt": "INEC Chairman Joash Amupitan and commissioners at a press briefing in Abuja about the preliminary voter register; photograph taken for The Guardian's November 10 report",
-      "imageCredit": "Lucy Ladidi Ateko / The Guardian Nigeria · November 2026",
-      "visual": "🗳️",
-      "featured": true
-    },
-    {
       "id": "world-cop31-rooftop-solar-declaration-1111",
       "category": "NIGERIA · CLIMATE · ENERGY · INTERNATIONAL COOPERATION",
       "location": "Antalya, Türkiye; Nigeria",
@@ -386,62 +442,6 @@ window.LocalMedia247News = {
       "imageAlt": "Workers install rooftop solar panels on a house in Lagos, Nigeria, March 22, 2026; Associated Press file photograph illustrating the declaration, not the COP31 signing",
       "imageCredit": "Sunday Alamba / Associated Press · file photograph, March 22, 2026",
       "visual": "☀️",
-      "featured": true
-    },
-    {
-      "id": "africa-south-africa-anc-municipal-elections-1109",
-      "category": "AFRICA · SOUTH AFRICA · POLITICS · ELECTIONS",
-      "location": "South Africa",
-      "headline": "South Africa's ANC suffers its worst local election result as coalition talks loom",
-      "summary": "Reuters reported on November 9 that the African National Congress won less than one-third of the vote in South Africa's November 4 municipal elections, its worst result in the party's history. The ANC won no major city outright, finishing second in Johannesburg and Tshwane and third in eThekwini. Coalition negotiations are expected over the following two weeks in municipalities without a majority; the Democratic Alliance came first in five of eight metro areas. The result could affect the ANC's 2027 leadership contest and national political positioning ahead of 2029.",
-      "source": "Reuters · South African local election results, party statements and political analysts",
-      "url": "https://www.reuters.com/world/africa/south-african-voters-rebuff-anc-accelerating-shift-coalition-politics-2026-11-09/",
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/04/Voting_Station_Signage_in_Cape_Town%2C_for_the_2026_Local_Government_Elections.jpg",
-      "imageAlt": "Voting-station signage photographed in Cape Town on November 3, 2026, for the municipal elections; not a photograph of the vote count",
-      "imageCredit": "Husskeyy / Wikimedia Commons · CC BY-SA 4.0 · https://creativecommons.org/licenses/by-sa/4.0/",
-      "visual": "🗳️",
-      "featured": true
-    },
-    {
-      "id": "ng-cbn-stablecoin-capital-rules-1109",
-      "category": "NIGERIA · FINANCE · DIGITAL ASSETS",
-      "location": "Nigeria",
-      "headline": "CBN sets ₦15bn minimum capital for foreign-currency-backed stablecoin issuers",
-      "summary": "Central Bank of Nigeria regulations issued on November 5 set minimum paid-up capital at ₦15 billion for Class 2 foreign-currency-referenced stablecoin issuers, ₦10 billion for naira-referenced issuers and ₦1 billion for other non-security virtual-asset service providers. The rules also require full reserve backing plus a 2% buffer, local incorporation and CBN licensing for foreign-currency stablecoin issuers, and prohibit algorithmic stablecoins. These are regulatory requirements; they do not mean any issuer has been licensed.",
-      "source": "Central Bank of Nigeria · Non-Security Virtual Assets Regulations; The Guardian Nigeria · explanatory report",
-      "url": "https://www.cbn.gov.ng/Out/2026/CCD/REGULATIONS%20FOR%20THE%20OPERATIONS%20OF%20NON-SECURITY%20VIRTUAL%20ASSETS%20IN%20NIGERIA.pdf",
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/37/CBN_Building_Abuja.jpg",
-      "imageAlt": "File photograph of the Central Bank of Nigeria building in Abuja; not an image of the new regulations",
-      "imageCredit": "Umabruka / Wikimedia Commons · CC BY-SA 4.0 · https://creativecommons.org/licenses/by-sa/4.0/",
-      "visual": "🏦",
-      "featured": true
-    },
-    {
-      "id": "ng-bodo-bonny-road-commissioned-1109",
-      "category": "NIGERIA · INFRASTRUCTURE · TRANSPORT",
-      "location": "Bonny Island and Bodo, Rivers State, Nigeria",
-      "headline": "Tinubu commissions Bodo–Bonny Road, creating first permanent road link to Bonny Island",
-      "summary": "President Bola Tinubu commissioned the 39-kilometre Bodo–Bonny Road on Saturday, November 7, establishing the first permanent road connection between Bonny Island and mainland Rivers State. Julius Berger's project page gives the route length as 37.9 kilometres; The Guardian reports 39 kilometres. The road was temporarily opened in December 2025 and completed between May and June 2026. Works Minister David Umahi said an additional 8.9-kilometre dual-carriageway extension to the East–West Road had been approved; that extension is separate from the commissioned route.",
-      "source": "The Guardian Nigeria · commissioning report; Julius Berger Nigeria Plc · project specifications",
-      "url": "https://guardian.ng/news/nigeria/metro/bonny-residents-get-long-awaited-road-link-to-mainland-as-tinubu-commissions-39km-project/",
-      "imageUrl": "https://www.julius-berger.com/fileadmin/_processed_/b/b/csm_julius_berger_reference_bbr_7__large__e3aae2299e.jpg",
-      "imageAlt": "Julius Berger project photograph of bridge works during construction; not the November 7 commissioning ceremony",
-      "imageCredit": "Julius Berger Nigeria Plc · project photograph",
-      "visual": "🛣️",
-      "featured": true
-    },
-    {
-      "id": "ng-nti-admissions-cancelled-1109",
-      "category": "NIGERIA · EDUCATION · REGULATION",
-      "location": "Kaduna, Nigeria",
-      "headline": "Education Ministry cancels 2026 NTI NCE and degree admissions over regulatory breaches",
-      "summary": "The Federal Ministry of Education said on November 6 that all 2026 admissions into the National Teachers' Institute's NCE and degree programmes have been cancelled and directed the institute to stop university affiliations and degree-awarding arrangements. The ministry said the National Commission for Colleges of Education would accredit existing NCE II–IV distance-learning programmes and study centres; eligible enrolled students may complete their programmes subject to accreditation outcomes and regulatory requirements. Prospective students were warned not to apply or pay for the affected programmes.",
-      "source": "Federal Ministry of Education · statement published by the Federal Ministry of Information and National Orientation",
-      "url": "https://fmino.gov.ng/fme-warns-public-against-unauthorised-nti-admissions-cancels-2026-nce-and-degree-intake/",
-      "imageUrl": "https://images.pexels.com/photos/18286979/pexels-photo-18286979.jpeg?cs=srgb&dl=pexels-oluseyi-18286979.jpg&fm=jpg",
-      "imageAlt": "Illustrative photograph of a teacher in a Lagos classroom; not an NTI campus or NTI programme",
-      "imageCredit": "The Oluseyi / Pexels · illustrative image",
-      "visual": "🎓",
       "featured": true
     },
     {
