@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "106",
+    date: "FRIDAY, NOVEMBER 13, 2026",
+    heading: "WHEN SILENCE SPEAKS",
+    quote: "Not every important message arrives in words; attention helps us notice what remains unspoken.",
+    note: "A pause, a gesture, a changed expression or an empty space can communicate something that speech does not. Silence may hold reflection, grief, uncertainty or peaceful understanding. Respectful attention helps us avoid assuming we know what another person means and invites us to ask with care.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "105",
     date: "THURSDAY, NOVEMBER 12, 2026",
     heading: "A PLACE FOR THE NEXT GENERATION",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "104",
     date: "WEDNESDAY, NOVEMBER 11, 2026",
