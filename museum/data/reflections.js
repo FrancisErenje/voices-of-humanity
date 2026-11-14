@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "107",
+    date: "SATURDAY, NOVEMBER 14, 2026",
+    heading: "THE IMPORTANCE OF PUBLIC SPACES",
+    quote: "A shared public space can become a meeting place where community life takes root.",
+    note: "Markets, libraries, parks, squares, paths and community halls bring people into contact beyond their private routines. When these places are safe, accessible and cared for, they support exchange, recreation, learning and belonging. Their condition reflects how a community values shared life.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "106",
     date: "FRIDAY, NOVEMBER 13, 2026",
     heading: "WHEN SILENCE SPEAKS",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "105",
     date: "THURSDAY, NOVEMBER 12, 2026",
