@@ -1,15 +1,155 @@
 /*
   LocalMedia247 — Living News Wall
-  Friday, November 13, 2026
+  Sunday, November 15, 2026
   Editorial standard: verify dates and attribution, distinguish reported claims
   from confirmed facts, and label illustrative visuals clearly.
 */
 window.LocalMedia247News = {
-  "date": "2026-11-14",
-  "updatedLabel": "SATURDAY, NOVEMBER 14, 2026 · 32 STORIES",
+  "date": "2026-11-15",
+  "updatedLabel": "SUNDAY, NOVEMBER 15, 2026 · 32 STORIES",
   "updateMode": "ANYTIME",
   "cadenceLabel": "MORNING · AFTERNOON · EVENING · ANYTIME",
   "stories": [
+    {
+      "id": "ng-tinubu-plateau-rebuild-idp-1115",
+      "category": "NIGERIA · SECURITY · DISPLACEMENT · GOVERNANCE",
+      "location": "Jos and violence-affected communities, Plateau State, Nigeria",
+      "headline": "Tinubu pledges to rebuild violence-hit Plateau communities and support displaced residents’ return",
+      "summary": "President Bola Tinubu said at an APC North-Central campaign rally in Jos on 14 November that the Federal Government would rebuild communities affected by violence and facilitate the return of displaced residents. He said surveillance cameras promised to the state in April had arrived in Nigeria and would soon be installed, while 1,000 federal forest guards were undergoing training for deployment to vulnerable areas. These are government commitments and preparations, not evidence that communities have already been rebuilt or that displaced residents have returned.",
+      "source": "PUNCH · report, 15 November 2026; photograph credited to the State House",
+      "url": "https://punchng.com/tinubu-pledges-to-rebuild-violence-ravaged-plateau-communities/",
+      "imageUrl": "https://cdn.punchng.com/wp-content/uploads/2026/10/16183656/Bola-Tinubu-on-blue-blue-alone_1792172216.webp",
+      "imageAlt": "File photograph of President Bola Tinubu; it does not show the 14 November Jos rally or the affected Plateau communities.",
+      "imageCredit": "State House · file photograph published by PUNCH, 15 November 2026",
+      "visual": "🏘️",
+      "featured": true
+    },
+    {
+      "id": "ng-jonathan-democracy-reform-2060-1115",
+      "category": "NIGERIA · POLITICS · GOVERNANCE · EDUCATION",
+      "location": "Lagos, Nigeria",
+      "headline": "Jonathan calls for democratic, political recruitment and education reforms ahead of 2060",
+      "summary": "Former President Goodluck Jonathan called for comprehensive democratic reforms, changes to political recruitment and stronger functional education at the Herbert Macaulay Memorial Colloquium in Lagos on 14 November. He argued that competence should take priority over ethnic, religious and language considerations in selecting political leaders, and urged a measurable national development agenda towards Nigeria’s 2060 centenary. These were recommendations in a public address, not adopted government policy.",
+      "source": "The Guardian Nigeria · report, 14 November 2026; file photograph published in May 2026",
+      "url": "https://guardian.ng/politics/nigeria-must-reform-democracy-political-recruitment-before-2060-jonathan/",
+      "imageUrl": "https://cdn.guardian.ng/wp-content/uploads/2026/05/Jonathan-1.jpg",
+      "imageAlt": "File photograph of former President Goodluck Jonathan speaking at an event; it is not a photograph of the Herbert Macaulay Memorial Colloquium.",
+      "imageCredit": "The Guardian Nigeria · file photograph, May 2026; individual photographer not identified in the article",
+      "visual": "🗳️",
+      "featured": true
+    },
+    {
+      "id": "ng-nine-universities-financial-probe-1115",
+      "category": "NIGERIA · EDUCATION · PUBLIC FINANCE · ACCOUNTABILITY",
+      "location": "Federal universities in South-West Nigeria; oversight reported in Abuja",
+      "headline": "House committee asks nine federal universities to explain alleged financial discrepancies",
+      "summary": "The House of Representatives Committee on University Education said an oversight visit to nine federal universities and inter-university centres in the South-West exposed alleged inconsistencies in financial records. It directed institutions to update records for their 2024–2026 budgets. The University of Lagos vice-chancellor was asked to submit budget details and appear before the committee over an alleged ₦7.1 billion excess. These are committee queries and allegations; they do not establish that any university or official has committed an offence.",
+      "source": "PUNCH · report by Dirisu Yakubu, 15 November 2026; file photograph of the House of Representatives chamber",
+      "url": "https://punchng.com/nine-varsities-face-probe-over-financial-irregularities/",
+      "imageUrl": "https://punchng.com/wp-content/uploads/2026/07/House-of-Reps-Green-Chamber_1784558768.webp",
+      "imageAlt": "File photograph of the House of Representatives chamber; it does not depict the committee’s university oversight visit.",
+      "imageCredit": "PUNCH Newspapers · file photograph; individual photographer not identified in the article",
+      "visual": "🎓",
+      "featured": true
+    },
+    {
+      "id": "ng-uk-refined-petroleum-imports-1115",
+      "category": "NIGERIA · ECONOMY · ENERGY · INTERNATIONAL TRADE",
+      "location": "Nigeria and the United Kingdom",
+      "headline": "UK trade data show refined petroleum imports from Nigeria topped £1 billion",
+      "summary": "The UK Department for Business and Trade’s Nigeria factsheet, published on 6 November using ONS data, records £1.017 billion in UK imports of refined petroleum from Nigeria in the 12 months to the end of June 2026, up by more than 100% year on year. Crude-oil imports from Nigeria fell 56.2% to £550.3 million. Refined oil represented 53.5% of UK goods imports from Nigeria over the period. The figures show a shift in the export mix but do not identify the refinery of origin for each shipment.",
+      "source": "UK Department for Business and Trade · Nigeria Trade and Investment Factsheet, 6 November 2026, using ONS data; analysis reported by PUNCH, 15 November 2026",
+      "url": "https://assets.publishing.service.gov.uk/media/6ae9e916a45504d226c49a86/nigeria-trade-and-investment-factsheet-2026-11-06.pdf",
+      "imageUrl": "https://punchng.com/wp-content/uploads/2026/06/UK-FLAG-FEH.webp",
+      "imageAlt": "Illustrative photograph of the United Kingdom flag; it does not depict a petroleum shipment, refinery or trade transaction.",
+      "imageCredit": "PUNCH Newspapers · illustrative UK flag image; photographer not identified in the article",
+      "visual": "🛢️",
+      "featured": true
+    },
+    {
+      "id": "world-philippines-australia-defence-arrangement-1115",
+      "category": "WORLD · ASIA-PACIFIC · SECURITY · DIPLOMACY",
+      "location": "Manila, Philippines",
+      "headline": "Philippines and Australia sign defence arrangement to streamline joint military activities",
+      "summary": "The Philippines and Australia signed a Defence Cooperation Arrangement in Manila on 15 November to simplify procedures under their Status of Visiting Forces Agreement and reduce administrative delays for joint activities. Officials said it would support cooperation across maritime, air and land forces, training, humanitarian assistance and disaster response, alongside Australian investment in maritime-domain awareness. The agreement deepens security ties amid South China Sea tensions; it is not a new mutual-defence treaty. China rejects the 2016 international arbitral ruling on maritime claims and says allied military activities raise regional tensions.",
+      "source": "Reuters · report and signing photograph by Hollie Adams, 15 November 2026",
+      "url": "https://www.reuters.com/world/china/philippines-australia-sign-defence-pact-with-eye-china-2026-11-15/",
+      "imageUrl": "https://www.reuters.com/resizer/v2/NS5FX6VKVNJ6TBK5TTWF6TUVTI.jpg?auth=720feab39b2878d022450f800dfd6f14e6c15e78b1a1a96cb91883280bf5f018&quality=80&width=1080",
+      "imageAlt": "Australian Prime Minister Anthony Albanese, Philippine Defence Secretary Gilberto Teodoro Jr. and Australian Ambassador Marc Innes-Brown at the signing ceremony in Manila on 15 November 2026.",
+      "imageCredit": "REUTERS/Hollie Adams · 15 November 2026",
+      "visual": "🤝",
+      "featured": true
+    },
+    {
+      "id": "world-saudi-interceptions-1115",
+      "category": "WORLD · MIDDLE EAST · SECURITY · ENERGY",
+      "location": "Riyadh and Saudi Arabia’s Eastern Province",
+      "headline": "Saudi-led coalition says it intercepted missiles aimed at Riyadh and drones in Eastern Province",
+      "summary": "The Saudi-led coalition fighting Yemen’s Houthis said on 15 November that it intercepted two Houthi ballistic missiles launched towards Riyadh and three drones in the oil-rich Eastern Province. Reuters attributed the account to the coalition; its report did not provide independent confirmation of the interceptions or damage from this specific incident. The Eastern Province holds most of Saudi Arabia’s oil and gas reserves and is home to Saudi Aramco’s headquarters, making the reported attacks significant for regional security and energy infrastructure.",
+      "source": "Reuters · coalition statement and regional security report, 15 November 2026; file photograph by Isabel Infantes",
+      "url": "https://www.reuters.com/world/middle-east/saudi-led-coalition-intercepts-missiles-towards-riyadh-drones-eastern-province-2026-11-15/",
+      "imageUrl": "https://www.reuters.com/resizer/v2/MNAFVRNWZZLWFCDF6MJ5GEC3J4.jpg?auth=994f9dd0a8441d8f377859b5fe11d951cc2ff7b73b058101a5d9b4a3e50122fb&quality=80&width=1920",
+      "imageAlt": "File photograph of traffic and the Riyadh skyline taken on 9 February 2026; it does not depict the reported missile or drone interceptions.",
+      "imageCredit": "REUTERS/Isabel Infantes · file photograph, 9 February 2026",
+      "visual": "🛡️",
+      "featured": true
+    },
+    {
+      "id": "world-spacex-starship-catch-1115",
+      "category": "WORLD · UNITED STATES · SCIENCE · SPACE TECHNOLOGY",
+      "location": "Starbase, Boca Chica, Texas, United States",
+      "headline": "SpaceX Starship upper stage returns from space and is caught by launch-tower arms",
+      "summary": "SpaceX’s Starship upper stage returned to Starbase, Texas, on 14 November after its 15th test flight and was caught by the launch tower’s mechanical arms. The Associated Press and Reuters reported this as the first successful catch of a Starship spacecraft returning from space. SpaceX officials said the manoeuvre demonstrated a step towards full reusability. It remains a test milestone, not evidence that the system is ready for routine commercial operations or has received operational certification.",
+      "source": "Al Jazeera · report by AP and Reuters, 15 November 2026; photograph credited to AFP, 14 November 2026",
+      "url": "https://www.aljazeera.com/news/2026/11/15/spacexs-starship-captured-by-launchpad-arms-in-dramatic-first",
+      "imageUrl": "https://www.aljazeera.com/wp-content/uploads/2026/11/afp_6af8f2594aa1-1794699865.jpg?quality=80&resize=770%2C513",
+      "imageAlt": "SpaceX Starship upper-stage vehicle descends towards the mechanical tower catch at Starbase, Texas, on 14 November 2026.",
+      "imageCredit": "AFP · 14 November 2026, as published by Al Jazeera",
+      "visual": "🚀",
+      "featured": true
+    },
+    {
+      "id": "world-us-faa-flight-disruption-1115",
+      "category": "WORLD · UNITED STATES · AVIATION · INFRASTRUCTURE",
+      "location": "United States; nationwide air traffic network",
+      "headline": "US air travel disruption expected to continue into Sunday after nationwide ground stop",
+      "summary": "After the FAA’s nationwide ground stop on 13 November, airlines cancelled more than 6,400 US flights and delayed over 8,000 on Saturday, 14 November, Reuters reported using FlightAware data. Another 875 Sunday flights had already been cancelled as of 9:35 p.m. Eastern Time on Saturday. The FAA chief expected operations to largely return to normal by late Sunday. Officials traced the communications disruption to a router installation by contractor L3Harris, but said the exact fault and responsibility remained under investigation. Flight figures are time-specific and may change.",
+      "source": "Reuters · FAA and airline disruption update, 14 November 2026; airport photograph by Eric Lee",
+      "url": "https://www.reuters.com/business/aerospace-defense/thousands-us-flights-canceled-delayed-air-travel-system-recovers-shutdown-2026-11-14/",
+      "imageUrl": "https://ajo.prod.reuters.tv/api/v2/img/6af87846e4b0aefebccf1406-1794668626590?quality=80&width=1080",
+      "imageAlt": "Passenger looks at a flight board at Ronald Reagan Washington National Airport after the FAA lifted the nationwide ground stop on 14 November 2026.",
+      "imageCredit": "REUTERS/Eric Lee · 14 November 2026",
+      "visual": "✈️",
+      "featured": true
+    },
+    {
+      "id": "world-ukraine-abu-dhabi-talks-1111",
+      "category": "WORLD · EUROPE · DIPLOMACY · SECURITY",
+      "location": "Abu Dhabi, United Arab Emirates; Ukraine and Russia",
+      "headline": "Zelenskyy says US floated Donbas withdrawal in exchange for NATO membership; Kyiv rejects territorial concession",
+      "summary": "Ukrainian President Volodymyr Zelenskyy said on 14 November that US negotiators raised whether Ukraine might withdraw from the part of Donbas it still controls in exchange for NATO membership during recent talks in Abu Dhabi. Zelenskyy said Kyiv would not surrender territory, though he might put a comprehensive package—including security guarantees, a strong Ukrainian military and reconstruction funding—to a national referendum. Reuters reported that the talks ended without a major breakthrough but produced agreement in principle on a prisoner exchange involving more than 1,000 people and on including European representatives in future negotiations. The proposed territorial exchange is attributed to Zelenskyy’s account; Washington had not publicly confirmed it in the reports reviewed.",
+      "source": "Reuters · Zelenskyy’s account of US-brokered talks and proposed Donbas/NATO framework, 14 November 2026",
+      "url": "https://www.reuters.com/world/europe/us-floated-idea-ukraine-ceding-donbas-for-nato-membership-zelenskiy-says-2026-11-14/",
+      "imageUrl": "https://dims.apnews.com/dims4/default/2de4f1a/2147483647/strip/true/crop/5546x3698%2B0%2B0/resize/599x399%21/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F46%2Ffa%2Faf8956216907cf997d20ea4093cd%2Fcf152650ea214a029483329af844111c",
+      "imageAlt": "AP photograph of Ukrainian President Volodymyr Zelenskyy speaking at a press conference after a bilateral meeting with Ireland’s prime minister in Dublin on 11 November 2026; not a photograph of the Abu Dhabi talks",
+      "imageCredit": "AP Photo/Virginia Mayo · 11 November 2026",
+      "visual": "🕊️",
+      "featured": true
+    },
+    {
+      "id": "world-climate-action-tracker-stalled-five-years-1112",
+      "category": "WORLD · CLIMATE · SCIENCE · POLICY",
+      "location": "Antalya, Türkiye; global",
+      "headline": "COP31 fossil-fuel transition coalition presses on after Colombia withdraws",
+      "summary": "A 57-country coalition launched in Colombia’s Santa Marta in April to turn pledges to move away from fossil fuels into national policies is continuing after Colombia’s new government withdrew. Ireland and Tuvalu are preparing to take over leadership from Colombia and the Netherlands, with a progress report and additional national plans expected during COP31 and a second conference planned for 2027. The initiative is voluntary and separate from binding UN climate negotiations. Experts say its impact will depend on concrete plans, financing and timelines.",
+      "source": "Associated Press · coalition’s status, Colombia’s withdrawal and planned handover, 15 November 2026; file photograph by Ivan Valencia",
+      "url": "https://apnews.com/article/cop31-fossil-fuels-colombia-ireland-tuvalu-coal-09c81f8bc4afd44fb97352312f5d8303e",
+      "imageUrl": "https://dims.apnews.com/dims4/default/c3a8e74/2147483647/strip/true/crop/4846x3230%2B0%2B0/resize/599x399%21/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F09%2Ffc%2Fe3db04843069ad084b3146aea788%2F789681badd4f44fb97352312f5d8303e",
+      "imageAlt": "File photograph of representatives at the April 2026 Santa Marta conference that launched the fossil-fuel transition coalition; it is not a photograph of current COP31 negotiations.",
+      "imageCredit": "AP Photo/Ivan Valencia · file photograph, 29 April 2026",
+      "visual": "🌍",
+      "featured": true
+    },
     {
       "id": "ng-bakassi-deep-seaport-groundbreaking-1114",
       "category": "NIGERIA · INFRASTRUCTURE · MARITIME · ECONOMY",
@@ -36,90 +176,6 @@ window.LocalMedia247News = {
       "imageAlt": "File photograph of the University of Nigeria Nsukka entrance; it does not depict the students or the off-campus incident.",
       "imageCredit": "Vanguard News · file photograph of the UNN entrance, December 2024; photographer not identified",
       "visual": "🎓",
-      "featured": true
-    },
-    {
-      "id": "ng-fani-kayode-ramaphosa-credence-1114",
-      "category": "NIGERIA · DIPLOMACY · AFRICA · FOREIGN RELATIONS",
-      "location": "Pretoria, South Africa",
-      "headline": "Nigeria’s High Commissioner presents credentials to Ramaphosa, pledges to rebuild ties",
-      "summary": "Nigeria’s High Commissioner to South Africa, Femi Fani-Kayode, presented his letter of credence to President Cyril Ramaphosa in Pretoria on 13 November. Nigeria’s Ministry of Foreign Affairs said he pledged to rebuild longstanding ties, expand dialogue and strengthen bilateral cooperation. The ceremony formally accredits the High Commissioner; the promised diplomatic reset remains an agenda for his mission, not an accomplished policy outcome.",
-      "source": "Nigeria Ministry of Foreign Affairs · official statement, 13 November 2026; THISDAY Live · ceremony photograph, 13 November 2026",
-      "url": "https://foreignaffairs.gov.ng/news/ambassador-fani-kayode-presents-letter-of-credence-to-president-cyril-ramaphosa-pledges-to-revitalise-nigeria-south-africa-relations/",
-      "imageUrl": "https://global.ariseplay.com/amg/www.thisdaylive.com/uploads/28c24faf-cfb0-47d5-972a-971a378d48a9.jpg",
-      "imageAlt": "Nigeria’s High Commissioner Femi Fani-Kayode presents his letter of credence to South African President Cyril Ramaphosa in Pretoria on 13 November 2026.",
-      "imageCredit": "THISDAY Live · photograph from the 13 November 2026 credentials ceremony; individual photographer not named",
-      "visual": "🤝",
-      "featured": true
-    },
-    {
-      "id": "ng-makinde-tinubu-2023-unity-allegation-1114",
-      "category": "NIGERIA · POLITICS · GOVERNANCE · 2027 ELECTIONS",
-      "location": "Ibadan, Oyo State, Nigeria; interview broadcast nationally",
-      "headline": "Makinde alleges Tinubu broke 2023 unity-government agreement; Presidency had not responded",
-      "summary": "Oyo State Governor Seyi Makinde said in an ARISE News interview aired on 13 November that President Tinubu failed to honour a written agreement he said was made before the 2023 election to form a government of national unity. Makinde also said the President did not contact him during the 56-day captivity of schoolchildren and teachers abducted in Oyo State. He did not disclose the full agreement or present the document in the interview. The Presidency had not publicly responded at the time of THISDAY’s report; these remain Makinde’s allegations and account, not independently established findings.",
-      "source": "THISDAY Live · ARISE News interview report, 13 November 2026",
-      "url": "https://www.thisdaylive.com/2026/11/13/makinde-tinubu-breached-2023-national-unity-agreement-failed-to-call-during-oyo-schoolchildrens-kidnap/",
-      "imageUrl": "https://global.ariseplay.com/amg/www.thisdaylive.com/uploads/Seyi-Makinde.png",
-      "imageAlt": "File photograph of Oyo State Governor Seyi Makinde.",
-      "imageCredit": "THISDAY Live · file photograph accompanying its 13 November 2026 report; individual photographer not named",
-      "visual": "🗳️",
-      "featured": true
-    },
-    {
-      "id": "ng-us-congress-religious-freedom-concern-1114",
-      "category": "NIGERIA · SECURITY · DIPLOMACY · RELIGIOUS FREEDOM",
-      "location": "Washington, D.C., United States; Nigeria",
-      "headline": "US officials tell Congress violence against Christians in Nigeria remains a concern",
-      "summary": "US Assistant Secretary of State Frank Garcia told a congressional panel on 12 November that violence against Christians in Nigeria remains a top concern and that Washington is working with Nigerian authorities on protection and accountability. Reuters reported that Nigeria has rejected the US “country of particular concern” designation as based on misinformation, arguing that the country faces terrorism and wider insecurity rather than religious persecution; the Information Minister did not immediately respond to Reuters’ latest request for comment. The testimony reflects the US government’s assessment and does not establish that all violence in Nigeria is religiously targeted. The country faces multiple forms of insecurity, including insurgency, banditry, farmer-herder clashes and kidnappings.",
-      "source": "Reuters · US congressional testimony and Nigerian government position, 13 November 2026",
-      "url": "https://www.reuters.com/world/africa/us-officials-say-violence-against-christians-nigeria-remains-key-concern-2026-11-13/",
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/41/United_States_Capitol_8.jpg",
-      "imageAlt": "Illustrative file photograph of the United States Capitol in Washington, D.C.; it is not a photograph of the congressional hearing.",
-      "imageCredit": "Kurt Kaiser / Wikimedia Commons · CC0 1.0 · 22 May 2021",
-      "visual": "🏛️",
-      "featured": true
-    },
-    {
-      "id": "africa-guinea-balato-gold-mining-clashes-1114",
-      "category": "AFRICA · GUINEA · SECURITY · MINING · ENVIRONMENT",
-      "location": "Balato, Siguiri region, northeastern Guinea",
-      "headline": "Ten killed in Guinea clashes during crackdown on illegal gold mining, government says",
-      "summary": "Guinea’s government says 10 people, including five unidentified foreign nationals, were killed and 13 injured in clashes on 11 November in Balato, northeastern Guinea, during a security patrol enforcing a ban on artisanal gold mining. Authorities said protesters erected barricades and gunfire followed, but did not say who fired first. The casualty toll is provisional and judicial authorities have been tasked with investigating responsibility. The government says the crackdown is intended to curb environmental damage; artisanal mining also supports hundreds of thousands of livelihoods in Guinea.",
-      "source": "Reuters and Associated Press · government communiqué and provisional casualty figures, 13 November 2026",
-      "url": "https://www.reuters.com/world/africa/10-killed-clashes-guinea-after-artisanal-mining-ban-2026-11-13/",
-      "imageUrl": "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/thumbnails/image/Guinea_2014_mosaic.jpg",
-      "imageAlt": "Illustrative satellite-image mosaic of artisanal mining sites in Guinea’s Forecariah region, circa 2014; it does not show the Balato clashes.",
-      "imageCredit": "Peter George Chirico / U.S. Geological Survey · public domain · 2014; illustrative image from Forecariah, not Balato",
-      "visual": "⛏️",
-      "featured": true
-    },
-    {
-      "id": "africa-south-africa-coalition-talks-1114",
-      "category": "AFRICA · SOUTH AFRICA · POLITICS · LOCAL GOVERNMENT",
-      "location": "Johannesburg, Tshwane, Ekurhuleni and other hung municipalities, South Africa",
-      "headline": "ANC to engage all parties in municipal coalition talks after election setback",
-      "summary": "The ANC’s National Executive Committee said on 13 November it had mandated negotiators to engage all parties—large and small, civic movements and independents—in municipalities where no party won a majority. The decision follows the ANC’s weakest local-election performance, with just over 30% of the national vote; AP reports that no party secured a majority in about 65% of municipal councils. No coalition agreements had been concluded in the reports reviewed. The negotiations will shape control of major cities including Johannesburg, Tshwane and Ekurhuleni and are separate from the ANC-DA national unity government.",
-      "source": "BusinessTech · ANC NEC decision, 13 November 2026; Associated Press · election results and coalition talks, 14 November 2026",
-      "url": "https://businesstech.co.za/news/government/884332/anc-to-engage-all-parties-big-and-small-for-coalitions/",
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/04/Voting_Station_Signage_in_Cape_Town%2C_for_the_2026_Local_Government_Elections.jpg",
-      "imageAlt": "File photograph of voting-station signage in Cape Town during South Africa’s 3 November 2026 municipal elections; it does not depict coalition negotiations.",
-      "imageCredit": "Husskeyy / Wikimedia Commons · CC BY-SA 4.0 · 3 November 2026",
-      "visual": "🗳️",
-      "featured": true
-    },
-    {
-      "id": "world-peru-zana-afroperuvian-heritage-pope-1114",
-      "category": "WORLD · PERU · CULTURE · HISTORY · SOCIETY",
-      "location": "Zaña, Lambayeque region, northern Peru",
-      "headline": "Pope’s planned visit to Zaña highlights Afro-Peruvian history and legacy of slavery",
-      "summary": "Pope Leo XIV is scheduled to visit Zaña on 14 November and lead a prayer gathering at a sanctuary in the town, drawing attention to its Afro-Peruvian history and memory of slavery. The Associated Press reports that Zaña is recognised as a site of memory of slavery and African cultural heritage. The visit is scheduled for later on Saturday; this report describes the planned event and its historical context, not a completed ceremony.",
-      "source": "Associated Press · community history and planned papal visit, 14 November 2026; Vatican schedule and Vatican News · apostolic journey",
-      "url": "https://apnews.com/article/b8ffccb8ddb63afaa45cdd0bfd69cea8",
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Fachada_del_Museo_Afroperuano_de_Za%C3%B1a.jpg",
-      "imageAlt": "Photograph of the Afro-Peruvian Museum in Zaña, Peru, taken in July 2019; it is not a photograph of the Pope’s visit.",
-      "imageCredit": "Nicohol Rodríguez Cossii / Wikimedia Commons · CC BY-SA 4.0 · 24 July 2019",
-      "visual": "🌍",
       "featured": true
     },
     {
@@ -193,20 +249,6 @@ window.LocalMedia247News = {
       "featured": true
     },
     {
-      "id": "world-us-ai-task-force-cyberattacks-1113",
-      "category": "WORLD · UNITED STATES · TECHNOLOGY · CYBERSECURITY",
-      "location": "Washington, D.C., United States",
-      "headline": "US AI task force discusses reporting rules for AI-powered cyberattacks on critical infrastructure",
-      "summary": "Members of the US President's AI task force met on 12 November to discuss ways to encourage critical infrastructure providers to report AI-powered cyberattacks and vulnerabilities. A Trump administration spokesperson said the group also discussed national standards for AI developers to report safety incidents and share cybersecurity information. The proposals remain under discussion; no new reporting rule or legal protection was announced as having taken effect. The debate reflects growing concern about AI agents carrying out cyberattacks without human authorisation.",
-      "source": "Reuters · statements from a Trump administration spokesperson and task-force officials, 13 November 2026",
-      "url": "https://www.reuters.com/world/us/trumps-ai-task-force-met-thursday-discussed-ai-powered-cyberattacks-2026-11-13/",
-      "imageUrl": "https://www.reuters.com/resizer/v2/BN2DRVDJDRKHRCBM6BBND5PWH4.jpg?auth=fc82a1448a0defb3bace7410d48027d90ed6d4bd3b8001c942efba0e7e17db1b&quality=80&width=1920",
-      "imageAlt": "Reuters illustration of the words AI and a keyboard, created on 19 October 2026; illustrative, not a photograph of the task-force meeting or a cyberattack",
-      "imageCredit": "Reuters/Dado Ruvic · illustration, 19 October 2026",
-      "visual": "🤖",
-      "featured": true
-    },
-    {
       "id": "world-kenya-el-nino-flood-risk-1113",
       "category": "AFRICA · KENYA · CLIMATE · DISASTER PREPAREDNESS",
       "location": "Nairobi and flood-prone areas of Kenya",
@@ -218,20 +260,6 @@ window.LocalMedia247News = {
       "imageAlt": "AP file photograph of Mathare informal settlement in Nairobi, taken on 26 September 2026; it shows a flood-prone area, not current rainfall or flooding",
       "imageCredit": "AP Photo/Andrew Kasuku · file photograph, 26 September 2026",
       "visual": "🌧️",
-      "featured": true
-    },
-    {
-      "id": "africa-south-africa-10th-suspect-recruitment-1113",
-      "category": "AFRICA · SOUTH AFRICA · SECURITY · INTERNATIONAL LAW",
-      "location": "Johannesburg, South Africa",
-      "headline": "South Africa arrests 10th suspect over alleged recruitment to fight in Russia's war in Ukraine",
-      "summary": "South African authorities arrested a 10th person on suspicion of trying to travel from South Africa to Russia to fight in the war in Ukraine, according to police. The arrest forms part of a joint investigation with Interpol into alleged recruitment. The first nine suspects were identified as Zimbabwean nationals and face charges under South Africa's Regulation of Foreign Military Assistance Act. The arrests and recruitment allegations are under investigation; they are not convictions. Prosecutors said they would oppose bail for five of the earlier suspects who appeared in court.",
-      "source": "Associated Press · South African police and prosecutors, 13 November 2026",
-      "url": "https://apnews.com/article/997e065eeeff10b062500ed7db89ee0c",
-      "imageUrl": "https://dims.apnews.com/dims4/default/b068739/2147483647/strip/true/crop/8640x5760%2B0%2B0/resize/320x213%21/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F6e%2F63%2F230809534765199a897907bd1a93%2Fb276b7aead8146c08ea9f04a75c43fbf",
-      "imageAlt": "Illustrative AP file photograph of a mural depicting Ukrainian soldiers on a shelter in Oleshky, Kherson region, on 29 October 2026; it does not depict the South African suspects or arrests",
-      "imageCredit": "AP Photo/Evgeniy Maloletka · file photograph, 29 October 2026",
-      "visual": "⚖️",
       "featured": true
     },
     {
@@ -263,20 +291,6 @@ window.LocalMedia247News = {
       "featured": true
     },
     {
-      "id": "world-ukraine-abu-dhabi-talks-1111",
-      "category": "WORLD · EUROPE · DIPLOMACY · SECURITY",
-      "location": "Abu Dhabi, United Arab Emirates; Ukraine and Russia",
-      "headline": "Ukraine launches major drone barrage as peace talks widen to European security",
-      "summary": "Russia’s Defence Ministry said Ukraine launched 1,198 long-range drones overnight on 12–13 November; Russian regional officials reported seven deaths and 17 injuries, while Kyiv said it struck a Volgograd oil refinery. Ukraine said Russia launched 117 drones in response, killing at least two people; officials reported 30 wounded in a strike on Zaporizhzhia and power outages in 12 regions. Separately, US-led talks are expected to include European countries and wider post-war security arrangements. The casualty and strike figures are attributed to the parties and local officials; no ceasefire or peace agreement has been reached.",
-      "source": "Associated Press · attacks and diplomatic developments, 13 November 2026; statements from Russian and Ukrainian officials as reported by AP",
-      "url": "https://apnews.com/article/157d168cb7ff9cae318cbf6cecb3988f",
-      "imageUrl": "https://dims.apnews.com/dims4/default/2de4f1a/2147483647/strip/true/crop/5546x3698%2B0%2B0/resize/599x399%21/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F46%2Ffa%2Faf8956216907cf997d20ea4093cd%2Fcf152650ea214a029483329af844111c",
-      "imageAlt": "AP photograph of Ukrainian President Volodymyr Zelenskyy speaking at a press conference after a bilateral meeting with Ireland’s prime minister in Dublin on 11 November 2026; not a photograph of the Abu Dhabi talks",
-      "imageCredit": "AP Photo/Virginia Mayo · 11 November 2026",
-      "visual": "🕊️",
-      "featured": true
-    },
-    {
       "id": "ng-journalist-daniel-ojukwu-custody-1112",
       "category": "NIGERIA · MEDIA · JUSTICE · PRESS FREEDOM",
       "location": "Abuja, Nigeria",
@@ -302,20 +316,6 @@ window.LocalMedia247News = {
       "imageAlt": "Photograph accompanying NAN’s report at the Digital Nigeria International Conference, where NITDA unveiled the 2026 Tech Outlook Report; not a screenshot of the report",
       "imageCredit": "News Agency of Nigeria (NAN) · 12 November 2026",
       "visual": "💻",
-      "featured": true
-    },
-    {
-      "id": "world-climate-action-tracker-stalled-five-years-1112",
-      "category": "WORLD · CLIMATE · SCIENCE · POLICY",
-      "location": "Antalya, Türkiye; global",
-      "headline": "COP31: Guterres urges drastic emissions cuts as negotiations remain divided",
-      "summary": "UN Secretary-General António Guterres urged immediate and drastic greenhouse-gas cuts at COP31 on 13 November, warning that the Paris Agreement’s 1.5°C goal is slipping out of reach. Reuters reported that negotiators remain divided over whether the summit’s text should set firm targets or explicitly call for a transition away from oil, gas and coal. Climate Action Tracker’s latest analysis says current national pledges still point to about 2.6°C of warming by the end of the century. These are expert projections and ongoing negotiations, not a final COP31 agreement.",
-      "source": "Reuters · COP31 negotiations and Guterres statement, 13 November 2026; Climate Action Tracker · 12 November 2026",
-      "url": "https://www.reuters.com/sustainability/cop/cop31-talks-face-early-friction-over-future-fossil-fuels-2026-11-13/",
-      "imageUrl": "https://dims.apnews.com/dims4/default/9bc9285/2147483647/strip/true/crop/6048x4024%2B0%2B0/resize/599x399%21/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2F8f%2F78%2Fee5e5ae0d433c9e119daa170f9d0%2F51e877d431e74da8a42fa45c3be85ea6",
-      "imageAlt": "Illustrative AP file photograph of young volunteers removing fishing line from coral during an underwater clean-up in the Maldives on 27 June 2026; not a photograph of the Climate Action Tracker report",
-      "imageCredit": "AP Photo/Sophia Nasif · file photograph, 27 June 2026",
-      "visual": "🌍",
       "featured": true
     },
     {
@@ -459,4 +459,4 @@ window.LocalMedia247News = {
       "featured": true
     }
   ]
-}
+};
