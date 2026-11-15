@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "108",
+    date: "SUNDAY, NOVEMBER 15, 2026",
+    heading: "THE LESSONS OF FAILURE",
+    quote: "A setback can become useful when we examine it honestly and learn from it.",
+    note: "Failure is painful, but it does not have to be the final meaning of an effort. Looking carefully at what happened can reveal missing knowledge, weak preparation or assumptions that need changing. Learning from mistakes requires honesty without humiliation and the courage to try again more wisely.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "107",
     date: "SATURDAY, NOVEMBER 14, 2026",
     heading: "THE IMPORTANCE OF PUBLIC SPACES",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "106",
     date: "FRIDAY, NOVEMBER 13, 2026",
