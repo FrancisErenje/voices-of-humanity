@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "109",
+    date: "MONDAY, NOVEMBER 16, 2026",
+    heading: "THE WORK OF RECONCILIATION",
+    quote: "Peace becomes more durable when people are willing to face harm and rebuild trust.",
+    note: "Living together after conflict takes more than declaring that the past is over. It may require listening to those who were hurt, acknowledging wrongdoing, seeking fair remedies and creating safeguards against repetition. Reconciliation is difficult work, but it can open a path toward a more humane future.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "108",
     date: "SUNDAY, NOVEMBER 15, 2026",
     heading: "THE LESSONS OF FAILURE",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "107",
     date: "SATURDAY, NOVEMBER 14, 2026",
