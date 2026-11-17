@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "110",
+    date: "TUESDAY, NOVEMBER 17, 2026",
+    heading: "A LANGUAGE LIVES IN DAILY USE",
+    quote: "A language remains part of community life when people have opportunities to speak it, learn it and create with it.",
+    note: "Language is carried in greetings, jokes, instructions, songs, stories and ordinary conversations. Documentation matters, but living use gives a language room to grow with its speakers. Families, schools, cultural groups and public institutions can all help create spaces where languages are valued and passed on.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "109",
     date: "MONDAY, NOVEMBER 16, 2026",
     heading: "THE WORK OF RECONCILIATION",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "108",
     date: "SUNDAY, NOVEMBER 15, 2026",
