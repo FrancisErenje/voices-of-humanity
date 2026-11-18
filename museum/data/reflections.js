@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "111",
+    date: "WEDNESDAY, NOVEMBER 18, 2026",
+    heading: "THE COURAGE TO ASK FOR HELP",
+    quote: "Asking for help can be an act of responsibility, not a failure of independence.",
+    note: "No one has every skill, answer or resource. Recognizing when we need support can prevent a small difficulty from becoming a larger one. It also gives others the opportunity to contribute their knowledge and care. Mutual support is one of the foundations of resilient communities.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "110",
     date: "TUESDAY, NOVEMBER 17, 2026",
     heading: "A LANGUAGE LIVES IN DAILY USE",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "109",
     date: "MONDAY, NOVEMBER 16, 2026",
