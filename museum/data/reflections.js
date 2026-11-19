@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "112",
+    date: "THURSDAY, NOVEMBER 19, 2026",
+    heading: "THE VALUE OF FAIRNESS",
+    quote: "Fairness asks us to consider not only what is equal, but what people need to participate with dignity.",
+    note: "Treating everyone with respect is essential, yet people may face different barriers and circumstances. Fair decisions pay attention to those differences without abandoning shared standards. In homes, workplaces and public institutions, fairness grows through clear rules, consistent treatment and meaningful opportunities to be heard.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "111",
     date: "WEDNESDAY, NOVEMBER 18, 2026",
     heading: "THE COURAGE TO ASK FOR HELP",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "110",
     date: "TUESDAY, NOVEMBER 17, 2026",
