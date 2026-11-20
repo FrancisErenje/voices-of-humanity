@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "113",
+    date: "FRIDAY, NOVEMBER 20, 2026",
+    heading: "A RECORD CAN CORRECT A RUMOUR",
+    quote: "Reliable records help communities distinguish what is known from what is merely repeated.",
+    note: "Rumours can travel quickly, especially when information is incomplete. Dates, documents, eyewitness accounts and careful cross-checking help establish what can responsibly be said. Keeping records and explaining uncertainty protect people from careless claims and make public understanding stronger.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "112",
     date: "THURSDAY, NOVEMBER 19, 2026",
     heading: "THE VALUE OF FAIRNESS",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "111",
     date: "WEDNESDAY, NOVEMBER 18, 2026",
