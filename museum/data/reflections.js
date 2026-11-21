@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "114",
+    date: "SATURDAY, NOVEMBER 21, 2026",
+    heading: "THE PEOPLE WHO CARE FOR THE EARTH",
+    quote: "The health of the natural world is connected to the choices made in homes, farms, towns and industries.",
+    note: "Soil, forests, wetlands, wildlife and clean air sustain life in ways that are easy to overlook. Caring for the environment is not only a distant policy concern; it is reflected in how land is used, waste is handled and resources are protected. Stewardship begins with understanding that human wellbeing is tied to the living world.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "113",
     date: "FRIDAY, NOVEMBER 20, 2026",
     heading: "A RECORD CAN CORRECT A RUMOUR",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "112",
     date: "THURSDAY, NOVEMBER 19, 2026",
