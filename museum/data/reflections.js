@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "115",
+    date: "SUNDAY, NOVEMBER 22, 2026",
+    heading: "THE VALUE OF CRAFT",
+    quote: "A skilled hand carries knowledge that deserves both respect and opportunity.",
+    note: "A craft may involve years of practice, careful observation and knowledge passed between generations. Whether working with wood, cloth, clay, metal, food or other materials, craftspeople solve problems through skill and creativity. Supporting craft means valuing the people, training and markets that allow their knowledge to flourish.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "114",
     date: "SATURDAY, NOVEMBER 21, 2026",
     heading: "THE PEOPLE WHO CARE FOR THE EARTH",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "113",
     date: "FRIDAY, NOVEMBER 20, 2026",
