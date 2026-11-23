@@ -1,0 +1,42 @@
+name: LocalMedia247 Daily News
+
+on:
+  schedule:
+    # 01:00 West Africa Time (Nigeria) = 00:00 UTC
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: localmedia247-daily-news
+  cancel-in-progress: false
+
+jobs:
+  collect-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out museum
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - name: Collect and validate approved-source RSS items
+        run: node scripts/publish-lm247-news.js
+
+      - name: Commit news edition
+        run: |
+          git config user.name "LocalMedia247 Automation"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add museum/data/lm247-news.js
+          if git diff --cached --quiet; then
+            echo "No new verified-by-feed edition to publish."
+          else
+            git commit -m "Publish LocalMedia247 daily RSS edition"
+            git push
+          fi
