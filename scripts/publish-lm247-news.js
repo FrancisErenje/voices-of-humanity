@@ -95,7 +95,7 @@ async function main() {
     if (item.feed.google) {
       // Google News query is constrained to the publisher's domain.
       if (link.hostname !== "news.google.com") return false;
-    } else if (!link.hostname.endsWith(item.feed.host)) return false;
+    } else if (!(link.hostname === item.feed.host || link.hostname.endsWith("." + item.feed.host) || (item.feed.name === "BBC News" && (link.hostname === "bbc.com" || link.hostname.endsWith(".bbc.com"))))) return false;
     const key = title.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
     if (seen.has(key)) return false;
     seen.add(key);
