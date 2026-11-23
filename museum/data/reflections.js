@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "116",
+    date: "MONDAY, NOVEMBER 23, 2026",
+    heading: "BEYOND FIRST IMPRESSIONS",
+    quote: "Understanding another person takes more than the brief moment in which we first encounter them.",
+    note: "First impressions can be shaped by appearance, accent, circumstance or our own expectations. They rarely tell the whole story. Giving people time to speak and allowing experience to challenge assumptions can make our judgments more accurate and our relationships more respectful.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "115",
     date: "SUNDAY, NOVEMBER 22, 2026",
     heading: "THE VALUE OF CRAFT",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "114",
     date: "SATURDAY, NOVEMBER 21, 2026",
