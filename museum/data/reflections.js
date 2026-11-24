@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "117",
+    date: "TUESDAY, NOVEMBER 24, 2026",
+    heading: "THE POWER OF SHARED LEARNING",
+    quote: "A community learns more when knowledge can move in more than one direction.",
+    note: "Learning is not limited to a classroom or a single expert. Young people may bring new tools, elders may carry deep experience, and neighbours may understand local challenges closely. When people exchange knowledge with respect, they create solutions that are more grounded and useful.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "116",
     date: "MONDAY, NOVEMBER 23, 2026",
     heading: "BEYOND FIRST IMPRESSIONS",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "115",
     date: "SUNDAY, NOVEMBER 22, 2026",
