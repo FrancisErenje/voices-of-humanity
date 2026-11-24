@@ -31,7 +31,9 @@ window.LocalMedia247News = {
       "summary": "Delta State Governor Sheriff Oborevwori has directed security agencies to identify and arrest those responsible for an attack on the campaign entourage of former Deputy Senate President Ovie Omo-Agege in Uduere. The Nigeria Police Force said preliminary reports indicated that six people died and several others were injured. The state government imposed a dusk-to-dawn curfew across Ughelli North Local Government Area. Police investigations are continuing; responsibility for the attack has not yet been established by a court.",
       "source": "PUNCH Newspapers · report by Dele Ogunyemi, 24 November 2026; police figures and governor’s visit as reported",
       "url": "https://punchng.com/delta-campaign-killings-oborevwori-orders-arrest-of-perpetrators/",
+      "imageUrl": "https://cdn.punchng.com/wp-content/uploads/2026/11/24155122/IMG-20261124-WA0056_1795531882.webp",
       "imageAlt": "Governor Sheriff Oborevwori with security officials during a visit to Uduere community, as shown in the PUNCH report.",
+      "imageCredit": "PUNCH Newspapers · photograph accompanying the 24 November 2026 report",
       "visual": "🚨",
       "featured": true
     },
@@ -43,7 +45,9 @@ window.LocalMedia247News = {
       "summary": "Traders in Eleme and Oyigbo have raised concerns about inadequate toilet facilities in markets, describing the shortage as a public-health problem as well as an inconvenience. Some traders told the News Agency of Nigeria that the lack of accessible conveniences was forcing petty traders to resort to open defecation. An environmental health officer with NESREA’s South-South Zone said business areas should have toilet facilities and urged the public to report landlords and operators who fail to provide them. The concerns are accounts from traders and an enforcement official, not a published state-wide facilities survey.",
       "source": "Premium Times · Agency Report based on interviews by the News Agency of Nigeria, 23 November 2026",
       "url": "https://www.premiumtimesng.com/regional/south-south-regional/927396-rivers-traders-decry-shortage-of-toilets-in-markets.html",
-      "imageAlt": "No verified article photograph supplied in this update; the story is presented with a public-health symbol.",
+      "imageUrl": "https://i0.wp.com/media.premiumtimesng.com/wp-content/files/2015/04/Nigeria_Rivers_State_map.png?fit=777%2C599&ssl=1",
+      "imageAlt": "Map of Rivers State used for geographic context; it does not depict the market sanitation conditions described.",
+      "imageCredit": "Premium Times · Rivers State map, file graphic",
       "visual": "🚻",
       "featured": true
     },
@@ -55,7 +59,9 @@ window.LocalMedia247News = {
       "summary": "The National Economic Council has approved an additional ₦130 billion for the rehabilitation of police training institutions, bringing the programme’s total approved funding to ₦230 billion. The council also endorsed two proposed development projects involving $850 million in World Bank financing, focused on disaster preparedness and early-childhood development. The decisions followed the council’s 162nd meeting chaired by Vice-President Kashim Shettima. The World Bank financing is proposed, not money already disbursed.",
       "source": "PUNCH Newspapers · report by Stephen Angbulu, 24 November 2026; Channels Television · council decisions reported 23 November 2026",
       "url": "https://punchng.com/nec-approves-additional-n130bn-for-police-training-institutions/",
-      "imageAlt": "File photograph of Vice-President Kashim Shettima accompanying the PUNCH report; it does not depict the council meeting.",
+      "imageUrl": "https://cdn.punchng.com/wp-content/uploads/2026/10/29213255/Kashim-Shettima_1793305975-1200x800.webp",
+      "imageAlt": "File photograph of Vice-President Kashim Shettima; it does not depict the council meeting.",
+      "imageCredit": "PUNCH Newspapers · file photograph",
       "visual": "🏛️",
       "featured": true
     },
@@ -67,7 +73,9 @@ window.LocalMedia247News = {
       "summary": "President Bola Tinubu has sent the House of Representatives a bill seeking to reduce the 2026 budget from ₦68.32 trillion to about ₦65.18 trillion. The proposal retains a fiscal deficit of approximately ₦31.46 trillion and projects federal revenue of ₦33.72 trillion, including government-owned enterprises, with capital expenditure of about ₦26.23 trillion. The President says the revision is intended to align spending with existing obligations and available resources. The changes remain subject to legislative consideration and are not yet an enacted revised budget.",
       "source": "PUNCH Newspapers · report by Dirisu Yakubu, 24 November 2026",
       "url": "https://punchng.com/tinubu-seeks-n3-15tn-cut-in-2026-budget-retains-n31-46tn-deficit/",
-      "imageAlt": "File photograph of President Bola Tinubu accompanying the PUNCH report; it does not depict the budget bill’s presentation.",
+      "imageUrl": "https://cdn.punchng.com/wp-content/uploads/2026/10/16183656/Bola-Tinubu-on-blue-blue-alone_1792172216.webp",
+      "imageAlt": "File photograph of President Bola Tinubu; it does not depict the budget bill’s presentation.",
+      "imageCredit": "PUNCH Newspapers · file photograph",
       "visual": "📊",
       "featured": true
     },
@@ -91,7 +99,9 @@ window.LocalMedia247News = {
       "summary": "France and Nigeria have signed three agribusiness agreements during French Week 2026 and outlined an energy roadmap. The partnerships involve crop-protection and pest-management cooperation, technical support for Nigeria’s baking industry, and advanced agribusiness training for Nigerian entrepreneurs. Organisers also announced plans for a Nigerian Pavilion at the 2027 Salon International de l’Agriculture in Paris. The agreements establish areas for cooperation; their expected economic benefits will depend on implementation and follow-through investment.",
       "source": "PUNCH Newspapers · report by Damilola Aina, 24 November 2026; statement by the Franco-Nigerian Chamber of Commerce and Industry",
       "url": "https://punchng.com/france-nigeria-deepen-economic-ties-sign-three-agribusiness-agreements/",
-      "imageAlt": "Participants at the signing ceremony, as described in the PUNCH report.",
+      "imageUrl": "https://cdn.punchng.com/wp-content/uploads/2026/11/24133733/WhatsApp-Image-2026-11-24-at-13.32.55_1795523853.webp",
+      "imageAlt": "Participants at the France–Nigeria agribusiness agreement signing ceremony.",
+      "imageCredit": "PUNCH Newspapers · photograph accompanying the 24 November 2026 report",
       "visual": "🌾",
       "featured": true
     },
@@ -103,7 +113,9 @@ window.LocalMedia247News = {
       "summary": "New data from the United Nations Office on Drugs and Crime and UN Women estimate that about 47,000 women and girls were intentionally killed by an intimate partner or family member in 2025. That is an average of five victims every hour, or roughly one every 10 minutes. The UN report says Africa recorded the highest regional rate of intimate-partner and family-member femicide. The figures are estimates compiled from available national data, and the agencies caution that changes in totals can reflect improvements in data collection rather than a clear change in the scale of violence.",
       "source": "Al Jazeera · report by Al Jazeera Staff, 24 November 2026; 2026 Femicide Brief by UNODC and UN Women",
       "url": "https://www.aljazeera.com/amp/news/2026/11/24/five-women-killed-every-hour-globally-by-partner-relative-in-2025-un",
-      "imageAlt": "Photograph of signs at a march in Lima ahead of the International Day for the Elimination of Violence against Women, 21 November 2026; it is illustrative, not a depiction of the victims.",
+      "imageUrl": "https://www.aljazeera.com/wp-content/uploads/2026/11/epa_6b05ab8b6e3b-1795533707.jpg?quality=80&resize=770%2C513",
+      "imageAlt": "Signs displayed at a march in Lima ahead of the International Day for the Elimination of Violence against Women, 21 November 2026; illustrative, not a depiction of victims.",
+      "imageCredit": "EPA/ Sebastian Blanco Salazar · 21 November 2026, via Al Jazeera",
       "visual": "🕊️",
       "featured": true
     },
@@ -115,7 +127,9 @@ window.LocalMedia247News = {
       "summary": "An explosion at a restaurant in Hanoi’s Dong Da district killed at least six people and injured 10, according to local authorities cited by Al Jazeera. The blast occurred at about 8am local time on Tuesday and damaged nearby buildings and homes. Vietnam’s Ministry of Public Security said the incident was believed to be related to cooking gas. Rescue teams continued searching the rubble, and nearby buildings considered unsafe were evacuated. The casualty figures and cause remain subject to official updates and investigation.",
       "source": "Al Jazeera · report by Al Jazeera Staff, 24 November 2026; local authorities and Vietnamese media cited in the report",
       "url": "https://www.aljazeera.com/news/2026/11/24/vietnam-restaurant-blast-kills-at-least-six",
+      "imageUrl": "https://www.aljazeera.com/wp-content/uploads/2026/11/ap_6b055acf65abf-1795513039.jpg?quality=80&resize=770%2C513",
       "imageAlt": "File photograph showing a view of Hanoi, Vietnam; it provides location context and does not depict the explosion.",
+      "imageCredit": "AP Photo/Aniruddha Ghosal · file photograph, via Al Jazeera",
       "visual": "🚒",
       "featured": true
     }
