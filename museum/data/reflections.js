@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "118",
+    date: "WEDNESDAY, NOVEMBER 25, 2026",
+    heading: "REMEMBERING THOSE LEFT OUT",
+    quote: "A fuller history makes room for people whose contributions were overlooked or poorly recorded.",
+    note: "Historical accounts can leave out workers, women, children, minority communities and people whose lives were not preserved in official documents. Revisiting sources, collecting oral histories and asking who is missing can broaden our understanding. Remembering responsibly means being willing to look beyond familiar narratives.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "117",
     date: "TUESDAY, NOVEMBER 24, 2026",
     heading: "THE POWER OF SHARED LEARNING",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "116",
     date: "MONDAY, NOVEMBER 23, 2026",
