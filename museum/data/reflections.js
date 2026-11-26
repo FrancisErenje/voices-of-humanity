@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "119",
+    date: "THURSDAY, NOVEMBER 26, 2026",
+    heading: "THE VALUE OF REST",
+    quote: "Rest helps people recover the attention and strength needed for meaningful work.",
+    note: "Constant activity is not the same as lasting progress. People need time to recover, reflect and reconnect with those around them. A healthy rhythm makes room for effort and rest, recognizing that human energy is valuable and cannot be renewed by pressure alone.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "118",
     date: "WEDNESDAY, NOVEMBER 25, 2026",
     heading: "REMEMBERING THOSE LEFT OUT",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "117",
     date: "TUESDAY, NOVEMBER 24, 2026",
