@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "120",
+    date: "FRIDAY, NOVEMBER 27, 2026",
+    heading: "A GOOD QUESTION CAN TRAVEL",
+    quote: "One thoughtful question can begin a conversation that continues across generations.",
+    note: "Questions invite people to explain what they know and how they came to know it. They can uncover family histories, challenge assumptions and inspire research. Asking with patience and respect helps turn curiosity into a shared journey of discovery.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "119",
     date: "THURSDAY, NOVEMBER 26, 2026",
     heading: "THE VALUE OF REST",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "118",
     date: "WEDNESDAY, NOVEMBER 25, 2026",
