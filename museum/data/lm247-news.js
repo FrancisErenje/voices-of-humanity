@@ -21,6 +21,9 @@ window.LocalMedia247News = {
       "url": "https://radionigeriasouthsouth.gov.ng/inec-ear-marks-658-polling-units-for-mock-bvas-exercise-in-akwa-ibom/",
       "visual": "🗳️",
       "featured": true
+      "imageUrl": "https://radionigeriasouthsouth.gov.ng/wp-content/uploads/2026/11/INEC.jpeg",
+      "imageAlt": "INEC emblem and Nigeria map; illustrative image for the mock BVAS exercise",
+      "imageCredit": "Radio Nigeria South South Zone",
     },
     {
       "id": "ss-noa-delta-voter-awareness-1127",
@@ -32,6 +35,9 @@ window.LocalMedia247News = {
       "url": "https://radionigeriasouthsouth.gov.ng/noa-mobilises-deltans-against-voter-apathy-vote-buying-electoral-violence-ahead-of-2027/",
       "visual": "📢",
       "featured": true
+      "imageUrl": "https://radionigeriasouthsouth.gov.ng/wp-content/uploads/2026/11/NOA-1-1024x449.jpeg",
+      "imageAlt": "Participants at the National Orientation Agency voter education stakeholders’ meeting in Delta State",
+      "imageCredit": "Radio Nigeria South South Zone",
     },
     {
       "id": "ss-omo-agege-police-invitation-1127",
@@ -43,6 +49,9 @@ window.LocalMedia247News = {
       "url": "https://www.premiumtimesng.com/news/more-news/928478-delta-killings-omo-agege-denies-snubbing-police-invitation.html",
       "visual": "🚨",
       "featured": true
+      "imageUrl": "https://i0.wp.com/media.premiumtimesng.com/wp-content/files/2023/03/Senator-Ovie-Omo-Agege-e1776861290515.jpg?fit=1014%2C635&ssl=1",
+      "imageAlt": "Portrait of Ovie Omo-Agege",
+      "imageCredit": "Premium Times (file photograph)",
     },
     {
       "id": "ss-obi-kwankwaso-akwa-ibom-campaign-1128",
@@ -54,6 +63,9 @@ window.LocalMedia247News = {
       "url": "https://punchng.com/2027-obi-kwankwaso-take-campaign-to-akwa-ibom/",
       "visual": "🎤",
       "featured": true
+      "imageUrl": "https://global.ariseplay.com/amg/www.arise.tv/uploads/2026/05/obi-kwakwanso-1-3.jpeg",
+      "imageAlt": "Peter Obi in campaign attire; file image relating to the Obi–Kwankwaso ticket",
+      "imageCredit": "Arise News (file photograph)",
     },
     {
       "id": "ng-inec-mock-result-transmission-1128",
