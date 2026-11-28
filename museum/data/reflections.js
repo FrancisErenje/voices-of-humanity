@@ -6,6 +6,16 @@
 
 window.ReflectionGardenCollection = {
   current: {
+    number: "121",
+    date: "SATURDAY, NOVEMBER 28, 2026",
+    heading: "THE RESPONSIBILITY OF INFLUENCE",
+    quote: "Influence is most valuable when it is used with honesty and care for others.",
+    note: "Every person has some influence, whether in a family, workplace, classroom or public space. Our words and decisions can encourage, mislead, include or exclude. Using influence responsibly means checking information, acknowledging limits and considering the effects our actions may have on others.",
+    image: "",
+    format: "text"
+  },
+  archive: [
+  {
     number: "120",
     date: "FRIDAY, NOVEMBER 27, 2026",
     heading: "A GOOD QUESTION CAN TRAVEL",
@@ -14,7 +24,6 @@ window.ReflectionGardenCollection = {
     image: "",
     format: "text"
   },
-  archive: [
   {
     number: "119",
     date: "THURSDAY, NOVEMBER 26, 2026",
